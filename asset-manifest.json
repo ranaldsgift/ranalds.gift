@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8c2e4f29.chunk.css",
+    "main.js": "/static/js/main.691ab6a2.chunk.js",
+    "main.js.map": "/static/js/main.691ab6a2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e587edc7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e587edc7.js.map",
+    "static/css/2.e742f628.chunk.css": "/static/css/2.e742f628.chunk.css",
+    "static/js/2.c9e20076.chunk.js": "/static/js/2.c9e20076.chunk.js",
+    "static/js/2.c9e20076.chunk.js.map": "/static/js/2.c9e20076.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4237bd3f6b468ccfee44c11d8e2075fe.js": "/precache-manifest.4237bd3f6b468ccfee44c11d8e2075fe.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.e742f628.chunk.css.map": "/static/css/2.e742f628.chunk.css.map",
+    "static/css/main.8c2e4f29.chunk.css.map": "/static/css/main.8c2e4f29.chunk.css.map",
+    "static/js/2.c9e20076.chunk.js.LICENSE.txt": "/static/js/2.c9e20076.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/hex-frame-07.629e0c5d.png",
+    "static/media/Background.css": "/static/media/label-14.dbf7fb5d.png",
+    "static/media/EditBuildPage.css": "/static/media/label-06.1a914cb2.png",
+    "static/media/InventoryItemDisplay.css": "/static/media/background22.ed2290bd.png",
+    "static/media/HeroTalents.css": "/static/media/talent-lock-icon.adcaacad.png",
+    "static/media/Weapons.css": "/static/media/wh_repeating_pistols.dec89f80.png",
+    "static/media/home-frame.png": "/static/media/home-frame.c7ecb2c5.png",
+    "static/media/home.mp4": "/static/media/home.b55f0801.mp4",
+    "static/media/Heroes.css": "/static/media/skill.f787ce7c.png",
+    "static/media/HeroSelect.css": "/static/media/portrait.d0fd4400.png",
+    "static/media/Icons.css": "/static/media/stamina.a2f396ba.png",
+    "static/media/Talents.css": "/static/media/talent-18.fcd113a1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e587edc7.js",
+    "static/css/2.e742f628.chunk.css",
+    "static/js/2.c9e20076.chunk.js",
+    "static/css/main.8c2e4f29.chunk.css",
+    "static/js/main.691ab6a2.chunk.js"
+  ]
+}

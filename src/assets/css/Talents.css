@@ -1,0 +1,431 @@
+.build-list-item .talent-icon {
+    background-size: calc(100% + 2px) !important;
+}
+.talent-icon {
+    background-position: center center !important;
+    position: relative;
+}
+.talent-icon::after {
+    align-content: center;
+    display: grid;
+    height: 100%;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 150%;
+}
+.build-list-item .talent-icon::after {
+    border-image: url('../../assets/images/borders/border-10.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 100px #00000069;
+}
+.talent-1::after {
+    content: '1';
+}
+.talent-2::after {
+    content: '2';
+}
+.talent-3::after {
+    content: '3';
+}
+.talent-icon:hover::before {
+    /*content: 'Hitting more than 3 enemies in one swing generates temporary health.';*/
+    height: 40px;
+    width: 400px;
+    display: grid;
+    position: absolute;
+    background: radial-gradient(#440c0ca8 10%, #0000 60%) #2d1212;
+    top: -55px;
+    right: -190px;
+    border-image: url('../../assets/images/borders/border-10.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    padding: 5px;
+    white-space: unset;
+    text-transform: initial;
+    align-content: center;
+
+}
+
+.talent-left::after {
+    content: '1';
+}
+.talent-middle::after {
+    content: '2';
+}
+.talent-right::after {
+    content: '3';
+}
+
+.talent-0101 { background: url('../../assets/images/heroes/01/talents/talent-01.png'); }
+.talent-0102 { background: url('../../assets/images/heroes/01/talents/talent-02.png'); }
+.talent-0103 { background: url('../../assets/images/heroes/01/talents/talent-03.png'); }
+.talent-0104 { background: url('../../assets/images/heroes/01/talents/talent-04.png'); }
+.talent-0105 { background: url('../../assets/images/heroes/01/talents/talent-05.png'); }
+.talent-0106 { background: url('../../assets/images/heroes/01/talents/talent-06.png'); }
+.talent-0107 { background: url('../../assets/images/heroes/01/talents/talent-07.png'); }
+.talent-0108 { background: url('../../assets/images/heroes/01/talents/talent-08.png'); }
+.talent-0109 { background: url('../../assets/images/heroes/01/talents/talent-09.png'); }
+.talent-0110 { background: url('../../assets/images/heroes/01/talents/talent-10.png'); }
+.talent-0111 { background: url('../../assets/images/heroes/01/talents/talent-11.png'); }
+.talent-0112 { background: url('../../assets/images/heroes/01/talents/talent-12.png'); }
+.talent-0113 { background: url('../../assets/images/heroes/01/talents/talent-13.png'); }
+.talent-0114 { background: url('../../assets/images/heroes/01/talents/talent-14.png'); }
+.talent-0115 { background: url('../../assets/images/heroes/01/talents/talent-15.png'); }
+.talent-0116 { background: url('../../assets/images/heroes/01/talents/talent-16.png'); }
+.talent-0117 { background: url('../../assets/images/heroes/01/talents/talent-17.png'); }
+.talent-0118 { background: url('../../assets/images/heroes/01/talents/talent-18.png'); }
+.talent-0201 { background: url('../../assets/images/heroes/02/talents/talent-01.png'); }
+.talent-0202 { background: url('../../assets/images/heroes/02/talents/talent-02.png'); }
+.talent-0203 { background: url('../../assets/images/heroes/02/talents/talent-03.png'); }
+.talent-0204 { background: url('../../assets/images/heroes/02/talents/talent-04.png'); }
+.talent-0205 { background: url('../../assets/images/heroes/02/talents/talent-05.png'); }
+.talent-0206 { background: url('../../assets/images/heroes/02/talents/talent-06.png'); }
+.talent-0207 { background: url('../../assets/images/heroes/02/talents/talent-07.png'); }
+.talent-0208 { background: url('../../assets/images/heroes/02/talents/talent-08.png'); }
+.talent-0209 { background: url('../../assets/images/heroes/02/talents/talent-09.png'); }
+.talent-0210 { background: url('../../assets/images/heroes/02/talents/talent-10.png'); }
+.talent-0211 { background: url('../../assets/images/heroes/02/talents/talent-11.png'); }
+.talent-0212 { background: url('../../assets/images/heroes/02/talents/talent-12.png'); }
+.talent-0213 { background: url('../../assets/images/heroes/02/talents/talent-13.png'); }
+.talent-0214 { background: url('../../assets/images/heroes/02/talents/talent-14.png'); }
+.talent-0215 { background: url('../../assets/images/heroes/02/talents/talent-15.png'); }
+.talent-0216 { background: url('../../assets/images/heroes/02/talents/talent-16.png'); }
+.talent-0217 { background: url('../../assets/images/heroes/02/talents/talent-17.png'); }
+.talent-0218 { background: url('../../assets/images/heroes/02/talents/talent-18.png'); }
+.talent-0301 { background: url('../../assets/images/heroes/03/talents/talent-01.png'); }
+.talent-0302 { background: url('../../assets/images/heroes/03/talents/talent-02.png'); }
+.talent-0303 { background: url('../../assets/images/heroes/03/talents/talent-03.png'); }
+.talent-0304 { background: url('../../assets/images/heroes/03/talents/talent-04.png'); }
+.talent-0305 { background: url('../../assets/images/heroes/03/talents/talent-05.png'); }
+.talent-0306 { background: url('../../assets/images/heroes/03/talents/talent-06.png'); }
+.talent-0307 { background: url('../../assets/images/heroes/03/talents/talent-07.png'); }
+.talent-0308 { background: url('../../assets/images/heroes/03/talents/talent-08.png'); }
+.talent-0309 { background: url('../../assets/images/heroes/03/talents/talent-09.png'); }
+.talent-0310 { background: url('../../assets/images/heroes/03/talents/talent-10.png'); }
+.talent-0311 { background: url('../../assets/images/heroes/03/talents/talent-11.png'); }
+.talent-0312 { background: url('../../assets/images/heroes/03/talents/talent-12.png'); }
+.talent-0313 { background: url('../../assets/images/heroes/03/talents/talent-13.png'); }
+.talent-0314 { background: url('../../assets/images/heroes/03/talents/talent-14.png'); }
+.talent-0315 { background: url('../../assets/images/heroes/03/talents/talent-15.png'); }
+.talent-0316 { background: url('../../assets/images/heroes/03/talents/talent-16.png'); }
+.talent-0317 { background: url('../../assets/images/heroes/03/talents/talent-17.png'); }
+.talent-0318 { background: url('../../assets/images/heroes/03/talents/talent-18.png'); }
+.talent-0401 { background: url('../../assets/images/heroes/04/talents/talent-01.png'); }
+.talent-0402 { background: url('../../assets/images/heroes/04/talents/talent-02.png'); }
+.talent-0403 { background: url('../../assets/images/heroes/04/talents/talent-03.png'); }
+.talent-0404 { background: url('../../assets/images/heroes/04/talents/talent-04.png'); }
+.talent-0405 { background: url('../../assets/images/heroes/04/talents/talent-05.png'); }
+.talent-0406 { background: url('../../assets/images/heroes/04/talents/talent-06.png'); }
+.talent-0407 { background: url('../../assets/images/heroes/04/talents/talent-07.png'); }
+.talent-0408 { background: url('../../assets/images/heroes/04/talents/talent-08.png'); }
+.talent-0409 { background: url('../../assets/images/heroes/04/talents/talent-09.png'); }
+.talent-0410 { background: url('../../assets/images/heroes/04/talents/talent-10.png'); }
+.talent-0411 { background: url('../../assets/images/heroes/04/talents/talent-11.png'); }
+.talent-0412 { background: url('../../assets/images/heroes/04/talents/talent-12.png'); }
+.talent-0413 { background: url('../../assets/images/heroes/04/talents/talent-13.png'); }
+.talent-0414 { background: url('../../assets/images/heroes/04/talents/talent-14.png'); }
+.talent-0415 { background: url('../../assets/images/heroes/04/talents/talent-15.png'); }
+.talent-0416 { background: url('../../assets/images/heroes/04/talents/talent-16.png'); }
+.talent-0417 { background: url('../../assets/images/heroes/04/talents/talent-17.png'); }
+.talent-0418 { background: url('../../assets/images/heroes/04/talents/talent-18.png'); }
+.talent-0501 { background: url('../../assets/images/heroes/05/talents/talent-01.png'); }
+.talent-0502 { background: url('../../assets/images/heroes/05/talents/talent-02.png'); }
+.talent-0503 { background: url('../../assets/images/heroes/05/talents/talent-03.png'); }
+.talent-0504 { background: url('../../assets/images/heroes/05/talents/talent-04.png'); }
+.talent-0505 { background: url('../../assets/images/heroes/05/talents/talent-05.png'); }
+.talent-0506 { background: url('../../assets/images/heroes/05/talents/talent-06.png'); }
+.talent-0507 { background: url('../../assets/images/heroes/05/talents/talent-07.png'); }
+.talent-0508 { background: url('../../assets/images/heroes/05/talents/talent-08.png'); }
+.talent-0509 { background: url('../../assets/images/heroes/05/talents/talent-09.png'); }
+.talent-0510 { background: url('../../assets/images/heroes/05/talents/talent-10.png'); }
+.talent-0511 { background: url('../../assets/images/heroes/05/talents/talent-11.png'); }
+.talent-0512 { background: url('../../assets/images/heroes/05/talents/talent-12.png'); }
+.talent-0513 { background: url('../../assets/images/heroes/05/talents/talent-13.png'); }
+.talent-0514 { background: url('../../assets/images/heroes/05/talents/talent-14.png'); }
+.talent-0515 { background: url('../../assets/images/heroes/05/talents/talent-15.png'); }
+.talent-0516 { background: url('../../assets/images/heroes/05/talents/talent-16.png'); }
+.talent-0517 { background: url('../../assets/images/heroes/05/talents/talent-17.png'); }
+.talent-0518 { background: url('../../assets/images/heroes/05/talents/talent-18.png'); }
+.talent-0601 { background: url('../../assets/images/heroes/06/talents/talent-01.png'); }
+.talent-0602 { background: url('../../assets/images/heroes/06/talents/talent-02.png'); }
+.talent-0603 { background: url('../../assets/images/heroes/06/talents/talent-03.png'); }
+.talent-0604 { background: url('../../assets/images/heroes/06/talents/talent-04.png'); }
+.talent-0605 { background: url('../../assets/images/heroes/06/talents/talent-05.png'); }
+.talent-0606 { background: url('../../assets/images/heroes/06/talents/talent-06.png'); }
+.talent-0607 { background: url('../../assets/images/heroes/06/talents/talent-07.png'); }
+.talent-0608 { background: url('../../assets/images/heroes/06/talents/talent-08.png'); }
+.talent-0609 { background: url('../../assets/images/heroes/06/talents/talent-09.png'); }
+.talent-0610 { background: url('../../assets/images/heroes/06/talents/talent-10.png'); }
+.talent-0611 { background: url('../../assets/images/heroes/06/talents/talent-11.png'); }
+.talent-0612 { background: url('../../assets/images/heroes/06/talents/talent-12.png'); }
+.talent-0613 { background: url('../../assets/images/heroes/06/talents/talent-13.png'); }
+.talent-0614 { background: url('../../assets/images/heroes/06/talents/talent-14.png'); }
+.talent-0615 { background: url('../../assets/images/heroes/06/talents/talent-15.png'); }
+.talent-0616 { background: url('../../assets/images/heroes/06/talents/talent-16.png'); }
+.talent-0617 { background: url('../../assets/images/heroes/06/talents/talent-17.png'); }
+.talent-0618 { background: url('../../assets/images/heroes/06/talents/talent-18.png'); }
+.talent-0701 { background: url('../../assets/images/heroes/07/talents/talent-01.png'); }
+.talent-0702 { background: url('../../assets/images/heroes/07/talents/talent-02.png'); }
+.talent-0703 { background: url('../../assets/images/heroes/07/talents/talent-03.png'); }
+.talent-0704 { background: url('../../assets/images/heroes/07/talents/talent-04.png'); }
+.talent-0705 { background: url('../../assets/images/heroes/07/talents/talent-05.png'); }
+.talent-0706 { background: url('../../assets/images/heroes/07/talents/talent-06.png'); }
+.talent-0707 { background: url('../../assets/images/heroes/07/talents/talent-07.png'); }
+.talent-0708 { background: url('../../assets/images/heroes/07/talents/talent-08.png'); }
+.talent-0709 { background: url('../../assets/images/heroes/07/talents/talent-09.png'); }
+.talent-0710 { background: url('../../assets/images/heroes/07/talents/talent-10.png'); }
+.talent-0711 { background: url('../../assets/images/heroes/07/talents/talent-11.png'); }
+.talent-0712 { background: url('../../assets/images/heroes/07/talents/talent-12.png'); }
+.talent-0713 { background: url('../../assets/images/heroes/07/talents/talent-13.png'); }
+.talent-0714 { background: url('../../assets/images/heroes/07/talents/talent-14.png'); }
+.talent-0715 { background: url('../../assets/images/heroes/07/talents/talent-15.png'); }
+.talent-0716 { background: url('../../assets/images/heroes/07/talents/talent-16.png'); }
+.talent-0717 { background: url('../../assets/images/heroes/07/talents/talent-17.png'); }
+.talent-0718 { background: url('../../assets/images/heroes/07/talents/talent-18.png'); }
+.talent-0801 { background: url('../../assets/images/heroes/08/talents/talent-01.png'); }
+.talent-0802 { background: url('../../assets/images/heroes/08/talents/talent-02.png'); }
+.talent-0803 { background: url('../../assets/images/heroes/08/talents/talent-03.png'); }
+.talent-0804 { background: url('../../assets/images/heroes/08/talents/talent-04.png'); }
+.talent-0805 { background: url('../../assets/images/heroes/08/talents/talent-05.png'); }
+.talent-0806 { background: url('../../assets/images/heroes/08/talents/talent-06.png'); }
+.talent-0807 { background: url('../../assets/images/heroes/08/talents/talent-07.png'); }
+.talent-0808 { background: url('../../assets/images/heroes/08/talents/talent-08.png'); }
+.talent-0809 { background: url('../../assets/images/heroes/08/talents/talent-09.png'); }
+.talent-0810 { background: url('../../assets/images/heroes/08/talents/talent-10.png'); }
+.talent-0811 { background: url('../../assets/images/heroes/08/talents/talent-11.png'); }
+.talent-0812 { background: url('../../assets/images/heroes/08/talents/talent-12.png'); }
+.talent-0813 { background: url('../../assets/images/heroes/08/talents/talent-13.png'); }
+.talent-0814 { background: url('../../assets/images/heroes/08/talents/talent-14.png'); }
+.talent-0815 { background: url('../../assets/images/heroes/08/talents/talent-15.png'); }
+.talent-0816 { background: url('../../assets/images/heroes/08/talents/talent-16.png'); }
+.talent-0817 { background: url('../../assets/images/heroes/08/talents/talent-17.png'); }
+.talent-0818 { background: url('../../assets/images/heroes/08/talents/talent-18.png'); }
+.talent-0901 { background: url('../../assets/images/heroes/09/talents/talent-01.png'); }
+.talent-0902 { background: url('../../assets/images/heroes/09/talents/talent-02.png'); }
+.talent-0903 { background: url('../../assets/images/heroes/09/talents/talent-03.png'); }
+.talent-0904 { background: url('../../assets/images/heroes/09/talents/talent-04.png'); }
+.talent-0905 { background: url('../../assets/images/heroes/09/talents/talent-05.png'); }
+.talent-0906 { background: url('../../assets/images/heroes/09/talents/talent-06.png'); }
+.talent-0907 { background: url('../../assets/images/heroes/09/talents/talent-07.png'); }
+.talent-0908 { background: url('../../assets/images/heroes/09/talents/talent-08.png'); }
+.talent-0909 { background: url('../../assets/images/heroes/09/talents/talent-09.png'); }
+.talent-0910 { background: url('../../assets/images/heroes/09/talents/talent-10.png'); }
+.talent-0911 { background: url('../../assets/images/heroes/09/talents/talent-11.png'); }
+.talent-0912 { background: url('../../assets/images/heroes/09/talents/talent-12.png'); }
+.talent-0913 { background: url('../../assets/images/heroes/09/talents/talent-13.png'); }
+.talent-0914 { background: url('../../assets/images/heroes/09/talents/talent-14.png'); }
+.talent-0915 { background: url('../../assets/images/heroes/09/talents/talent-15.png'); }
+.talent-0916 { background: url('../../assets/images/heroes/09/talents/talent-16.png'); }
+.talent-0917 { background: url('../../assets/images/heroes/09/talents/talent-17.png'); }
+.talent-0918 { background: url('../../assets/images/heroes/09/talents/talent-18.png'); }
+.talent-1001 { background: url('../../assets/images/heroes/10/talents/talent-01.png'); }
+.talent-1002 { background: url('../../assets/images/heroes/10/talents/talent-02.png'); }
+.talent-1003 { background: url('../../assets/images/heroes/10/talents/talent-03.png'); }
+.talent-1004 { background: url('../../assets/images/heroes/10/talents/talent-04.png'); }
+.talent-1005 { background: url('../../assets/images/heroes/10/talents/talent-05.png'); }
+.talent-1006 { background: url('../../assets/images/heroes/10/talents/talent-06.png'); }
+.talent-1007 { background: url('../../assets/images/heroes/10/talents/talent-07.png'); }
+.talent-1008 { background: url('../../assets/images/heroes/10/talents/talent-08.png'); }
+.talent-1009 { background: url('../../assets/images/heroes/10/talents/talent-09.png'); }
+.talent-1010 { background: url('../../assets/images/heroes/10/talents/talent-10.png'); }
+.talent-1011 { background: url('../../assets/images/heroes/10/talents/talent-11.png'); }
+.talent-1012 { background: url('../../assets/images/heroes/10/talents/talent-12.png'); }
+.talent-1013 { background: url('../../assets/images/heroes/10/talents/talent-13.png'); }
+.talent-1014 { background: url('../../assets/images/heroes/10/talents/talent-14.png'); }
+.talent-1015 { background: url('../../assets/images/heroes/10/talents/talent-15.png'); }
+.talent-1016 { background: url('../../assets/images/heroes/10/talents/talent-16.png'); }
+.talent-1017 { background: url('../../assets/images/heroes/10/talents/talent-17.png'); }
+.talent-1018 { background: url('../../assets/images/heroes/10/talents/talent-18.png'); }
+.talent-1101 { background: url('../../assets/images/heroes/11/talents/talent-01.png'); }
+.talent-1102 { background: url('../../assets/images/heroes/11/talents/talent-02.png'); }
+.talent-1103 { background: url('../../assets/images/heroes/11/talents/talent-03.png'); }
+.talent-1104 { background: url('../../assets/images/heroes/11/talents/talent-04.png'); }
+.talent-1105 { background: url('../../assets/images/heroes/11/talents/talent-05.png'); }
+.talent-1106 { background: url('../../assets/images/heroes/11/talents/talent-06.png'); }
+.talent-1107 { background: url('../../assets/images/heroes/11/talents/talent-07.png'); }
+.talent-1108 { background: url('../../assets/images/heroes/11/talents/talent-08.png'); }
+.talent-1109 { background: url('../../assets/images/heroes/11/talents/talent-09.png'); }
+.talent-1110 { background: url('../../assets/images/heroes/11/talents/talent-10.png'); }
+.talent-1111 { background: url('../../assets/images/heroes/11/talents/talent-11.png'); }
+.talent-1112 { background: url('../../assets/images/heroes/11/talents/talent-12.png'); }
+.talent-1113 { background: url('../../assets/images/heroes/11/talents/talent-13.png'); }
+.talent-1114 { background: url('../../assets/images/heroes/11/talents/talent-14.png'); }
+.talent-1115 { background: url('../../assets/images/heroes/11/talents/talent-15.png'); }
+.talent-1116 { background: url('../../assets/images/heroes/11/talents/talent-16.png'); }
+.talent-1117 { background: url('../../assets/images/heroes/11/talents/talent-17.png'); }
+.talent-1118 { background: url('../../assets/images/heroes/11/talents/talent-18.png'); }
+.talent-1201 { background: url('../../assets/images/heroes/12/talents/talent-01.png'); }
+.talent-1202 { background: url('../../assets/images/heroes/12/talents/talent-02.png'); }
+.talent-1203 { background: url('../../assets/images/heroes/12/talents/talent-03.png'); }
+.talent-1204 { background: url('../../assets/images/heroes/12/talents/talent-04.png'); }
+.talent-1205 { background: url('../../assets/images/heroes/12/talents/talent-05.png'); }
+.talent-1206 { background: url('../../assets/images/heroes/12/talents/talent-06.png'); }
+.talent-1207 { background: url('../../assets/images/heroes/12/talents/talent-07.png'); }
+.talent-1208 { background: url('../../assets/images/heroes/12/talents/talent-08.png'); }
+.talent-1209 { background: url('../../assets/images/heroes/12/talents/talent-09.png'); }
+.talent-1210 { background: url('../../assets/images/heroes/12/talents/talent-10.png'); }
+.talent-1211 { background: url('../../assets/images/heroes/12/talents/talent-11.png'); }
+.talent-1212 { background: url('../../assets/images/heroes/12/talents/talent-12.png'); }
+.talent-1213 { background: url('../../assets/images/heroes/12/talents/talent-13.png'); }
+.talent-1214 { background: url('../../assets/images/heroes/12/talents/talent-14.png'); }
+.talent-1215 { background: url('../../assets/images/heroes/12/talents/talent-15.png'); }
+.talent-1216 { background: url('../../assets/images/heroes/12/talents/talent-16.png'); }
+.talent-1217 { background: url('../../assets/images/heroes/12/talents/talent-17.png'); }
+.talent-1218 { background: url('../../assets/images/heroes/12/talents/talent-18.png'); }
+.talent-1301 { background: url('../../assets/images/heroes/13/talents/talent-01.png'); }
+.talent-1302 { background: url('../../assets/images/heroes/13/talents/talent-02.png'); }
+.talent-1303 { background: url('../../assets/images/heroes/13/talents/talent-03.png'); }
+.talent-1304 { background: url('../../assets/images/heroes/13/talents/talent-04.png'); }
+.talent-1305 { background: url('../../assets/images/heroes/13/talents/talent-05.png'); }
+.talent-1306 { background: url('../../assets/images/heroes/13/talents/talent-06.png'); }
+.talent-1307 { background: url('../../assets/images/heroes/13/talents/talent-07.png'); }
+.talent-1308 { background: url('../../assets/images/heroes/13/talents/talent-08.png'); }
+.talent-1309 { background: url('../../assets/images/heroes/13/talents/talent-09.png'); }
+.talent-1310 { background: url('../../assets/images/heroes/13/talents/talent-10.png'); }
+.talent-1311 { background: url('../../assets/images/heroes/13/talents/talent-11.png'); }
+.talent-1312 { background: url('../../assets/images/heroes/13/talents/talent-12.png'); }
+.talent-1313 { background: url('../../assets/images/heroes/13/talents/talent-13.png'); }
+.talent-1314 { background: url('../../assets/images/heroes/13/talents/talent-14.png'); }
+.talent-1315 { background: url('../../assets/images/heroes/13/talents/talent-15.png'); }
+.talent-1316 { background: url('../../assets/images/heroes/13/talents/talent-16.png'); }
+.talent-1317 { background: url('../../assets/images/heroes/13/talents/talent-17.png'); }
+.talent-1318 { background: url('../../assets/images/heroes/13/talents/talent-18.png'); }
+.talent-1401 { background: url('../../assets/images/heroes/14/talents/talent-01.png'); }
+.talent-1402 { background: url('../../assets/images/heroes/14/talents/talent-02.png'); }
+.talent-1403 { background: url('../../assets/images/heroes/14/talents/talent-03.png'); }
+.talent-1404 { background: url('../../assets/images/heroes/14/talents/talent-04.png'); }
+.talent-1405 { background: url('../../assets/images/heroes/14/talents/talent-05.png'); }
+.talent-1406 { background: url('../../assets/images/heroes/14/talents/talent-06.png'); }
+.talent-1407 { background: url('../../assets/images/heroes/14/talents/talent-07.png'); }
+.talent-1408 { background: url('../../assets/images/heroes/14/talents/talent-08.png'); }
+.talent-1409 { background: url('../../assets/images/heroes/14/talents/talent-09.png'); }
+.talent-1410 { background: url('../../assets/images/heroes/14/talents/talent-10.png'); }
+.talent-1411 { background: url('../../assets/images/heroes/14/talents/talent-11.png'); }
+.talent-1412 { background: url('../../assets/images/heroes/14/talents/talent-12.png'); }
+.talent-1413 { background: url('../../assets/images/heroes/14/talents/talent-13.png'); }
+.talent-1414 { background: url('../../assets/images/heroes/14/talents/talent-14.png'); }
+.talent-1415 { background: url('../../assets/images/heroes/14/talents/talent-15.png'); }
+.talent-1416 { background: url('../../assets/images/heroes/14/talents/talent-16.png'); }
+.talent-1417 { background: url('../../assets/images/heroes/14/talents/talent-17.png'); }
+.talent-1418 { background: url('../../assets/images/heroes/14/talents/talent-18.png'); }
+.talent-1501 { background: url('../../assets/images/heroes/15/talents/talent-01.png'); }
+.talent-1502 { background: url('../../assets/images/heroes/15/talents/talent-02.png'); }
+.talent-1503 { background: url('../../assets/images/heroes/15/talents/talent-03.png'); }
+.talent-1504 { background: url('../../assets/images/heroes/15/talents/talent-04.png'); }
+.talent-1505 { background: url('../../assets/images/heroes/15/talents/talent-05.png'); }
+.talent-1506 { background: url('../../assets/images/heroes/15/talents/talent-06.png'); }
+.talent-1507 { background: url('../../assets/images/heroes/15/talents/talent-07.png'); }
+.talent-1508 { background: url('../../assets/images/heroes/15/talents/talent-08.png'); }
+.talent-1509 { background: url('../../assets/images/heroes/15/talents/talent-09.png'); }
+.talent-1510 { background: url('../../assets/images/heroes/15/talents/talent-10.png'); }
+.talent-1511 { background: url('../../assets/images/heroes/15/talents/talent-11.png'); }
+.talent-1512 { background: url('../../assets/images/heroes/15/talents/talent-12.png'); }
+.talent-1513 { background: url('../../assets/images/heroes/15/talents/talent-13.png'); }
+.talent-1514 { background: url('../../assets/images/heroes/15/talents/talent-14.png'); }
+.talent-1515 { background: url('../../assets/images/heroes/15/talents/talent-15.png'); }
+.talent-1516 { background: url('../../assets/images/heroes/15/talents/talent-16.png'); }
+.talent-1517 { background: url('../../assets/images/heroes/15/talents/talent-17.png'); }
+.talent-1518 { background: url('../../assets/images/heroes/15/talents/talent-18.png'); }
+
+.talent-1601 { background: url('../../assets/images/heroes/16/talents/talent-01.png'); }
+.talent-1602 { background: url('../../assets/images/heroes/16/talents/talent-02.png'); }
+.talent-1603 { background: url('../../assets/images/heroes/16/talents/talent-03.png'); }
+.talent-1604 { background: url('../../assets/images/heroes/16/talents/talent-04.png'); }
+.talent-1605 { background: url('../../assets/images/heroes/16/talents/talent-05.png'); }
+.talent-1606 { background: url('../../assets/images/heroes/16/talents/talent-06.png'); }
+.talent-1607 { background: url('../../assets/images/heroes/16/talents/talent-07.png'); }
+.talent-1608 { background: url('../../assets/images/heroes/16/talents/talent-08.png'); }
+.talent-1609 { background: url('../../assets/images/heroes/16/talents/talent-09.png'); }
+.talent-1610 { background: url('../../assets/images/heroes/16/talents/talent-10.png'); }
+.talent-1611 { background: url('../../assets/images/heroes/16/talents/talent-11.png'); }
+.talent-1612 { background: url('../../assets/images/heroes/16/talents/talent-12.png'); }
+.talent-1613 { background: url('../../assets/images/heroes/16/talents/talent-13.png'); }
+.talent-1614 { background: url('../../assets/images/heroes/16/talents/talent-14.png'); }
+.talent-1615 { background: url('../../assets/images/heroes/16/talents/talent-15.png'); }
+.talent-1616 { background: url('../../assets/images/heroes/16/talents/talent-16.png'); }
+.talent-1617 { background: url('../../assets/images/heroes/16/talents/talent-17.png'); }
+.talent-1618 { background: url('../../assets/images/heroes/16/talents/talent-18.png'); }
+
+.talent-1701 { background: url('../../assets/images/heroes/17/talents/talent-01.png'); }
+.talent-1702 { background: url('../../assets/images/heroes/17/talents/talent-02.png'); }
+.talent-1703 { background: url('../../assets/images/heroes/17/talents/talent-03.png'); }
+.talent-1704 { background: url('../../assets/images/heroes/17/talents/talent-04.png'); }
+.talent-1705 { background: url('../../assets/images/heroes/17/talents/talent-05.png'); }
+.talent-1706 { background: url('../../assets/images/heroes/17/talents/talent-06.png'); }
+.talent-1707 { background: url('../../assets/images/heroes/17/talents/talent-07.png'); }
+.talent-1708 { background: url('../../assets/images/heroes/17/talents/talent-08.png'); }
+.talent-1709 { background: url('../../assets/images/heroes/17/talents/talent-09.png'); }
+.talent-1710 { background: url('../../assets/images/heroes/17/talents/talent-10.png'); }
+.talent-1711 { background: url('../../assets/images/heroes/17/talents/talent-11.png'); }
+.talent-1712 { background: url('../../assets/images/heroes/17/talents/talent-12.png'); }
+.talent-1713 { background: url('../../assets/images/heroes/17/talents/talent-13.png'); }
+.talent-1714 { background: url('../../assets/images/heroes/17/talents/talent-14.png'); }
+.talent-1715 { background: url('../../assets/images/heroes/17/talents/talent-15.png'); }
+.talent-1716 { background: url('../../assets/images/heroes/17/talents/talent-16.png'); }
+.talent-1717 { background: url('../../assets/images/heroes/17/talents/talent-17.png'); }
+.talent-1718 { background: url('../../assets/images/heroes/17/talents/talent-18.png'); }
+
+.talent-1801 { background: url('../../assets/images/heroes/18/talents/talent-01.png'); }
+.talent-1802 { background: url('../../assets/images/heroes/18/talents/talent-02.png'); }
+.talent-1803 { background: url('../../assets/images/heroes/18/talents/talent-03.png'); }
+.talent-1804 { background: url('../../assets/images/heroes/18/talents/talent-04.png'); }
+.talent-1805 { background: url('../../assets/images/heroes/18/talents/talent-05.png'); }
+.talent-1806 { background: url('../../assets/images/heroes/18/talents/talent-06.png'); }
+.talent-1807 { background: url('../../assets/images/heroes/18/talents/talent-07.png'); }
+.talent-1808 { background: url('../../assets/images/heroes/18/talents/talent-08.png'); }
+.talent-1809 { background: url('../../assets/images/heroes/18/talents/talent-09.png'); }
+.talent-1810 { background: url('../../assets/images/heroes/18/talents/talent-10.png'); }
+.talent-1811 { background: url('../../assets/images/heroes/18/talents/talent-11.png'); }
+.talent-1812 { background: url('../../assets/images/heroes/18/talents/talent-12.png'); }
+.talent-1813 { background: url('../../assets/images/heroes/18/talents/talent-13.png'); }
+.talent-1814 { background: url('../../assets/images/heroes/18/talents/talent-14.png'); }
+.talent-1815 { background: url('../../assets/images/heroes/18/talents/talent-15.png'); }
+.talent-1816 { background: url('../../assets/images/heroes/18/talents/talent-16.png'); }
+.talent-1817 { background: url('../../assets/images/heroes/18/talents/talent-17.png'); }
+.talent-1818 { background: url('../../assets/images/heroes/18/talents/talent-18.png'); }
+
+.talent-1901 { background: url('../../assets/images/heroes/19/talents/talent-01.png'); }
+.talent-1902 { background: url('../../assets/images/heroes/19/talents/talent-02.png'); }
+.talent-1903 { background: url('../../assets/images/heroes/19/talents/talent-03.png'); }
+.talent-1904 { background: url('../../assets/images/heroes/19/talents/talent-04.png'); }
+.talent-1905 { background: url('../../assets/images/heroes/19/talents/talent-05.png'); }
+.talent-1906 { background: url('../../assets/images/heroes/19/talents/talent-06.png'); }
+.talent-1907 { background: url('../../assets/images/heroes/19/talents/talent-07.png'); }
+.talent-1908 { background: url('../../assets/images/heroes/19/talents/talent-08.png'); }
+.talent-1909 { background: url('../../assets/images/heroes/19/talents/talent-09.png'); }
+.talent-1910 { background: url('../../assets/images/heroes/19/talents/talent-10.png'); }
+.talent-1911 { background: url('../../assets/images/heroes/19/talents/talent-11.png'); }
+.talent-1912 { background: url('../../assets/images/heroes/19/talents/talent-12.png'); }
+.talent-1913 { background: url('../../assets/images/heroes/19/talents/talent-13.png'); }
+.talent-1914 { background: url('../../assets/images/heroes/19/talents/talent-14.png'); }
+.talent-1915 { background: url('../../assets/images/heroes/19/talents/talent-15.png'); }
+.talent-1916 { background: url('../../assets/images/heroes/19/talents/talent-16.png'); }
+.talent-1917 { background: url('../../assets/images/heroes/19/talents/talent-17.png'); }
+.talent-1918 { background: url('../../assets/images/heroes/19/talents/talent-18.png'); }
+
+.talent-2001 { background: url('../../assets/images/heroes/20/talents/talent-01.png'); }
+.talent-2002 { background: url('../../assets/images/heroes/20/talents/talent-02.png'); }
+.talent-2003 { background: url('../../assets/images/heroes/20/talents/talent-03.png'); }
+.talent-2004 { background: url('../../assets/images/heroes/20/talents/talent-04.png'); }
+.talent-2005 { background: url('../../assets/images/heroes/20/talents/talent-05.png'); }
+.talent-2006 { background: url('../../assets/images/heroes/20/talents/talent-06.png'); }
+.talent-2007 { background: url('../../assets/images/heroes/20/talents/talent-07.png'); }
+.talent-2008 { background: url('../../assets/images/heroes/20/talents/talent-08.png'); }
+.talent-2009 { background: url('../../assets/images/heroes/20/talents/talent-09.png'); }
+.talent-2010 { background: url('../../assets/images/heroes/20/talents/talent-10.png'); }
+.talent-2011 { background: url('../../assets/images/heroes/20/talents/talent-11.png'); }
+.talent-2012 { background: url('../../assets/images/heroes/20/talents/talent-12.png'); }
+.talent-2013 { background: url('../../assets/images/heroes/20/talents/talent-13.png'); }
+.talent-2014 { background: url('../../assets/images/heroes/20/talents/talent-14.png'); }
+.talent-2015 { background: url('../../assets/images/heroes/20/talents/talent-15.png'); }
+.talent-2016 { background: url('../../assets/images/heroes/20/talents/talent-16.png'); }
+.talent-2017 { background: url('../../assets/images/heroes/20/talents/talent-17.png'); }
+.talent-2018 { background: url('../../assets/images/heroes/20/talents/talent-18.png'); }

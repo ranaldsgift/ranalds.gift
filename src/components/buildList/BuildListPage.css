@@ -1,0 +1,16 @@
+.build-list-page > * {
+    width: 100%;
+}
+.build-list-page {
+    display: grid;
+    color: #fff;
+    grid-template-columns: 1fr 3.5fr;
+    grid-template-rows: 68px calc(100% - 68px);
+    grid-template-areas: "heroSelect buildListContainer" "heroSelect buildListContainer";
+    box-shadow: inset 0 0 0px #88191961;
+    position: relative;
+    height: 100%;
+    width: calc(100% - 40px);
+    padding: 20px;
+    grid-column-gap: 20px;
+}

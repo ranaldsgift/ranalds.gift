@@ -1,0 +1,302 @@
+@media (max-width: 500px) {
+    .build-jewelry-summary {
+        grid-template-areas: "necklaceIcon traitIcon" "necklacePropertyContainer necklacePropertyContainer" "charmIcon traitIcon2" "charmPropertyContainer charmPropertyContainer" "trinketIcon traitIcon3" "trinketPropertyContainer trinketPropertyContainer" !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 50px auto 50px auto 50px auto !important;
+    }
+    .necklace-icon {
+        grid-area: necklaceIcon;
+    }
+    .charn-icon {
+        grid-area: charmIcon;
+    }
+    .trinket-icon {
+        grid-area: trinketIcon;
+    }
+    .necklace-property-container {
+        grid-area: necklacePropertyContainer;
+    }
+    .charm-property-container {
+        grid-area: charmPropertyContainer;
+    }
+    .trinket-property-container {
+        grid-area: trinketPropertyContainer;
+    }
+    .build-jewelry-summary .jewelry-icon, .build-jewelry-summary .trait-icon {
+        width: 50px;
+        justify-self: center;
+    }
+}
+@media (max-width: 1000px) {
+    .page-title-label {
+        width: 300px !important;
+        background-position-x: center !important;
+        left: calc(50% - 150px) !important;
+        background: url('../images/labels/label-11.png') center no-repeat !important;
+        background-size: contain !important;
+        top: 20px;
+    }
+    .page-title-label-background {
+        display: none !important;
+    }
+    .page-title-label::after {
+        color: #27220c;
+        font-family: 'caslon-antique-bold';
+    }
+    .hero-page {
+        width: auto !important;
+        grid-template-columns: 100% !important;
+        grid-template-areas: "heroSelect" "heroContainer" "heroInventory" !important;
+    }
+    .hero-page .hero-select-container {
+        height: 200px !important;
+    }
+    .hero-icon-container {
+        width: 100% !important;
+        padding: 0px !important;
+        grid-column-gap: 0px !important;
+        grid-row-gap: 0px !important;
+        grid-template-rows: 1fr 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+        grid-auto-flow: column;
+        position: relative;
+        border: none;
+        padding: 6px !important;
+        width: calc(100% - 12px) !important;
+        background: black;
+    }
+    .hero-icon-container::after {
+        position: absolute;
+        content: '';
+        border-image: url('../images/borders/border-01.png');
+        border-image-slice: 15;
+        border-image-width: 15px;
+        border-style: solid;
+        width: calc(100% - 6px);
+        height: 100%;        
+        top: -2px;        
+        left: 0px;
+        box-shadow: -1px 0 0 0 #564640 !important;
+    }
+    .hero-icon-container > * {
+        border: none !important;
+        background-size: cover !important;
+        z-index: 1;
+    }
+    .hero-icon-container > :hover, .hero-icon-container > .selected {
+        box-shadow: none !important;
+        outline: none !important;
+        filter: none !important;
+    }
+    .hero-icon-container > :not(:hover), .hero-icon-container > :not(.selected) {
+        filter: grayscale(80%);
+    }
+    .hero-overview-container {
+        height: auto !important;
+    }
+    .hero-page .hero-details-container {
+        grid-template-columns: 1fr !important;
+        grid-row-gap: 10px !important;
+        grid-template-areas: "heroSummary" "heroPassive" "heroSkill" "heroPerks" "buildSummary" !important;
+    }
+    .build-summary-container {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
+        grid-template-areas: "buildMeleeSummary" "buildRangeSummary" "buildJewelrySummary";
+        grid-row-gap: 20px;
+    }
+    .build-melee-summary {
+        grid-area: buildMeleeSummary;
+        justify-self: center;
+    }
+    .build-range-summary {
+        grid-area: buildRangeSummary;
+        justify-self: center;
+    }
+    .build-jewelry-summary {
+        grid-area: buildJewelrySummary;
+        justify-self: center;
+    }
+    .hero-talents-container {
+        height: auto !important;  
+    }
+    .talent-name {
+        font-size: 115% !important;    
+    }
+    .hero-talents-grid .talent-icon {
+        background-size: cover !important;
+    }
+    .talent-button-wrapper {
+        grid-template-columns: 70px auto !important;
+    }
+    .talent-button-wrapper .talent-name {
+        font-size: 120% !important;    
+    }
+    .hero-talents-container::after {
+        top: 0;
+    }
+    .hero-talent {    
+      box-shadow: inset 0px 10px 10px -10px white, -1px -1px 0 0 #564640 !important;
+      font-size: 160%;
+    }
+    .hero-talents-grid {
+        position: relative !important;
+        grid-template-rows: 40px repeat(24, 66px) !important;
+        grid-template-columns: 1fr !important;
+        grid-template-areas: "heroTalentsHeader" 
+                            "heroTalentLevel5" 
+                            "heroTalent1" 
+                            "heroTalent2"
+                            "heroTalent3"
+                            "heroTalentLevel10"
+                            "heroTalent4"
+                            "heroTalent5"
+                            "heroTalent6"
+                            "heroTalentLevel15"
+                            "heroTalent7"
+                            "heroTalent8"
+                            "heroTalent9"
+                            "heroTalentLevel20"
+                            "heroTalent10"
+                            "heroTalent11"
+                            "heroTalent12"
+                            "heroTalentLevel25"
+                            "heroTalent13"
+                            "heroTalent14"
+                            "heroTalent15"
+                            "heroTalentLevel30"
+                            "heroTalent16"
+                            "heroTalent17"
+                            "heroTalent18" !important;
+    }
+
+    .talent-lock-icon.level-5 {
+        grid-area: heroTalentLevel5;
+    }
+    .talent-lock-icon.level-10 {
+        grid-area: heroTalentLevel10;
+    }
+    .talent-lock-icon.level-15 {
+        grid-area: heroTalentLevel15;
+    }
+    .talent-lock-icon.level-20 {
+        grid-area: heroTalentLevel20;
+    }
+    .talent-lock-icon.level-25 {
+        grid-area: heroTalentLevel25;
+    }
+    .talent-lock-icon.level-30 {
+        grid-area: heroTalentLevel30;
+    }
+
+    .hero-talent[data-talent="1"][data-tier="1"] {
+        grid-area: heroTalent1;
+    }        
+    .hero-talent[data-talent="2"][data-tier="1"] {
+        grid-area: heroTalent2;
+    }        
+    .hero-talent[data-talent="3"][data-tier="1"] {
+        grid-area: heroTalent3;
+    }  
+    .hero-talent[data-talent="1"][data-tier="2"] {
+        grid-area: heroTalent4;
+    }        
+    .hero-talent[data-talent="2"][data-tier="2"] {
+        grid-area: heroTalent5;
+    }        
+    .hero-talent[data-talent="3"][data-tier="2"] {
+        grid-area: heroTalent6;
+    }        
+    .hero-talent[data-talent="1"][data-tier="3"] {
+        grid-area: heroTalent7;
+    }
+    .hero-talent[data-talent="2"][data-tier="3"] {
+        grid-area: heroTalent8;
+    }        
+    .hero-talent[data-talent="3"][data-tier="3"] {
+        grid-area: heroTalent9;
+    }        
+    .hero-talent[data-talent="1"][data-tier="4"] {
+        grid-area: heroTalent10;
+    }        
+    .hero-talent[data-talent="2"][data-tier="4"] {
+        grid-area: heroTalent11;
+    }  
+    .hero-talent[data-talent="3"][data-tier="4"] {
+        grid-area: heroTalent12;
+    }
+    .hero-talent[data-talent="1"][data-tier="5"] {
+        grid-area: heroTalent13;
+    }        
+    .hero-talent[data-talent="2"][data-tier="5"] {
+        grid-area: heroTalent14;
+    }        
+    .hero-talent[data-talent="3"][data-tier="5"] {
+        grid-area: heroTalent15;
+    }
+    .hero-talent[data-talent="1"][data-tier="6"] {
+        grid-area: heroTalent16;
+    }        
+    .hero-talent[data-talent="2"][data-tier="6"] {
+        grid-area: heroTalent17;
+    }        
+    .hero-talent[data-talent="3"][data-tier="6"] {
+        grid-area: heroTalent18;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1899px) {
+    .hero-page {
+        width: auto !important;
+        grid-template-columns: auto !important;
+        grid-template-areas: "heroSelect" "heroContainer" "heroInventory" !important;
+    }
+}
+@media (min-width: 1000px) and (max-width: 1299px) {
+    .hero-page .hero-select-container {
+        height: 300px !important;
+    }
+    .hero-page .hero-icon-container {
+        grid-template-columns: unset !important;
+        grid-template-rows: 1fr 1fr !important;
+        grid-auto-flow: column !important;
+    }
+    .talent-name {
+        font-size: 115% !important;    
+    }
+    .talent-button-wrapper {
+        grid-template-columns: 70px auto !important;
+    }
+    .hero-talent .talent-icon {
+        background-size: cover !important;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1899px) {
+    .hero-overview-container {
+        background-size: 100% auto !important;
+    }
+    .hero-page .hero-select-container {
+        height: 150px !important;
+    }
+    .hero-page .hero-icon-container {
+        grid-template-columns: unset !important;
+        grid-template-rows: 1fr !important;
+        grid-auto-flow: column !important;
+    }
+    .hero-icon-container > * {
+        background-size: cover !important;
+    }
+    .talent-button-wrapper {
+        grid-template-columns: 90px auto !important;
+    }
+}
+  
+
+@media (min-width: 1900px) {
+    .hero-page {
+        grid-template-columns: 392px 980px 392px !important;
+        grid-template-areas: "heroSelect heroContainer heroInventory" !important;
+        padding-top: 30px;
+    }
+}

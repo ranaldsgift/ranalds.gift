@@ -1,0 +1,130 @@
+
+.build-list-page .hero-select-container, .hero-page .hero-select-container {
+  height: 850px;
+}
+
+.hero-select-container {    
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-self: center;
+  grid-area: heroSelect;
+  grid-template-rows: 33px 1fr;
+  box-shadow: -1px -1px 0 0 #564640;
+}
+.hero-icon-container>* {
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: center center;
+  max-height: 136px;
+  align-self: center;
+  height: 100%;
+}
+.hero-icon-container>*:not(:hover) {
+  box-shadow: inset 0 0 0 1000px #00000038;
+}
+.hero-icon-container>*:hover, .hero-icon-container>*.selected {
+  box-shadow: 0px 0px 8px 2px #ffd700;
+  outline: 1px solid white;
+}
+.hero-icon-01 {
+  background-image: url('../../assets/images/heroes/01/portrait.png');
+}
+.hero-icon-02 {
+  background-image: url('../../assets/images/heroes/02/portrait.png');
+}
+.hero-icon-03 {
+  background-image: url('../../assets/images/heroes/03/portrait.png');
+}
+.hero-icon-04 {
+  background-image: url('../../assets/images/heroes/04/portrait.png');
+}
+.hero-icon-05 {
+  background-image: url('../../assets/images/heroes/05/portrait.png');
+}
+.hero-icon-06 {
+  background-image: url('../../assets/images/heroes/06/portrait.png');
+}
+.hero-icon-07 {
+  background-image: url('../../assets/images/heroes/07/portrait.png');
+}
+.hero-icon-08 {
+  background-image: url('../../assets/images/heroes/08/portrait.png');
+}
+.hero-icon-09 {
+  background-image: url('../../assets/images/heroes/09/portrait.png');
+}
+.hero-icon-10 {
+  background-image: url('../../assets/images/heroes/10/portrait.png');
+}
+.hero-icon-11 {
+  background-image: url('../../assets/images/heroes/11/portrait.png');
+}
+.hero-icon-12 {
+  background-image: url('../../assets/images/heroes/12/portrait.png');
+}
+.hero-icon-13 {
+  background-image: url('../../assets/images/heroes/13/portrait.png');
+}
+.hero-icon-14 {
+  background-image: url('../../assets/images/heroes/14/portrait.png');
+}
+.hero-icon-15 {
+  background-image: url('../../assets/images/heroes/15/portrait.png');
+}
+.hero-icon-16 {
+  background-image: url('../../assets/images/heroes/16/portrait.png');
+}
+.hero-icon-17 {
+  background-image: url('../../assets/images/heroes/17/portrait.png');
+}
+.hero-icon-18 {
+  background-image: url('../../assets/images/heroes/18/portrait.png');
+}
+.hero-icon-19 {
+  background-image: url('../../assets/images/heroes/19/portrait.png');
+}
+.hero-icon-20 {
+  background-image: url('../../assets/images/heroes/20/portrait.png');
+}
+.hero-icon-container {
+  display: grid;
+  width: calc(100% - 46px);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-self: center;
+  padding: 20px;
+  z-index: 1;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000;
+  box-shadow: inset 0 0 100px #000;
+}
+.hero-select-header {
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: grid;
+  align-content: center;
+  grid-template-rows: 1fr;
+  background-color: black;
+}
+.hero-select-header-background {
+
+  width: calc(100% - 58px);
+  margin-left: 30px;
+  background-color: #000;
+  height: calc(100% - 6px);
+  align-self: center;
+  display: grid;
+}
+.hero-select-header p {
+  color: #c15b24;
+  align-self: center;
+  font-size: 120%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-select-container .hero-icon-17, .hero-select-container .hero-icon-18, .hero-select-container .hero-icon-19, .hero-select-container .hero-icon-20 {
+  pointer-events: none;
+}

@@ -1,0 +1,194 @@
+.fullscreen-background-image {
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image: url('../../assets/images/background3.jpg');
+  background-size: cover;
+}
+.fullscreen-background-image-2 {
+  display: none;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image: url('../../assets/images/background2.jpg');
+  background-size: cover;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+.fullscreen-background-image-3 {
+  display: none;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image: url('../../assets/images/background.jpg');
+  background-size: cover;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+.fullscreen-background video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 101%;
+}
+.background1 {
+  background: url('../../assets/images/backgrounds/background1.jpg')
+}
+.background2 {
+  background: url('../../assets/images/backgrounds/background2.jpg')
+}
+.background3 {
+  background: url('../../assets/images/backgrounds/background3.jpg')
+}
+.background4 {
+  background: url('../../assets/images/backgrounds/background4.jpg')
+}
+.background5 {
+  background: url('../../assets/images/backgrounds/background5.jpg')
+}
+.background6 {
+  background: url('../../assets/images/backgrounds/background6.jpg')
+}
+.background7 {
+  background: url('../../assets/images/backgrounds/background7.jpg')
+}
+.background8 {
+  background: url('../../assets/images/backgrounds/background8.jpg')
+}
+.background9 {
+  background: url('../../assets/images/backgrounds/background9.jpg')
+}
+.background10 {
+  background: url('../../assets/images/backgrounds/background10.jpg')
+}
+.background11 {
+  background: url('../../assets/images/backgrounds/background11.jpg')
+}
+.background-12 {
+  background: url('../../assets/images/backgrounds/background12.png')
+}
+.background-12 {
+  background: url('../../assets/images/backgrounds/background12.png')
+}
+.background-13 {
+  background: url('../../assets/images/backgrounds/background13.png')
+}
+.background-14 {
+  background: url('../../assets/images/backgrounds/background14.png')
+}
+.background-15 {
+  background: url('../../assets/images/backgrounds/background15.png')
+}
+.background-16 {
+  background: url('../../assets/images/backgrounds/background16.png')
+}
+.background-17 {
+  background: url('../../assets/images/backgrounds/background17.png')
+}
+.background-18 {
+  background: url('../../assets/images/backgrounds/background18.png')
+}
+.background-19 {
+  background: url('../../assets/images/backgrounds/background19.png')
+}
+.background-20 {
+  background: url('../../assets/images/backgrounds/background20.png')
+}
+.background-21 {
+  background: url('../../assets/images/backgrounds/background21.png')
+}
+.background-22 {
+  background: url('../../assets/images/backgrounds/background22.png')
+}
+.background-24 {
+  background: url('../../assets/images/backgrounds/background24.png')
+}
+.background-25 {
+  background: url('../../assets/images/backgrounds/background25.png')
+}
+.background-26 {
+  background: url('../../assets/images/backgrounds/background26.png')
+}
+.background-27 {
+  background: url('../../assets/images/backgrounds/background27.png')
+}
+.background-28 {
+  background: url('../../assets/images/backgrounds/background28.png')
+}
+.background-29 {
+  background: url('../../assets/images/backgrounds/background29.png')
+}
+.background-30 {
+  background: url('../../assets/images/backgrounds/background30.png')
+}
+.background-31 {
+  background: url('../../assets/images/backgrounds/background31.png')
+}
+.background-32 {
+  background: url('../../assets/images/backgrounds/background32.png')
+}
+.background-33 {
+  background: url('../../assets/images/backgrounds/background33.png')
+}
+.background-34 {
+  background: url('../../assets/images/backgrounds/background34.png')
+}
+.background-35 {
+  background: url('../../assets/images/backgrounds/background35.png')
+}
+.background-36 {
+  background: url('../../assets/images/backgrounds/background36.png')
+}
+.background-38 {
+  background: url('../../assets/images/backgrounds/background38.png')
+}
+
+.label-01 {
+  background: url('../../assets/images/labels/label-01.png');
+}
+.label-02 {
+  background: url('../../assets/images/labels/label-02.png');
+}
+.label-03 {
+  background: url('../../assets/images/labels/label-03.png');
+}
+.label-04 {
+  background: url('../../assets/images/labels/label-04.png');
+}
+.label-05 {
+  background: url('../../assets/images/labels/label-05.png');
+}
+.label-06 {
+  background: url('../../assets/images/labels/label-06.png');
+}
+.label-07 {
+  background: url('../../assets/images/labels/label-07.png');
+}
+.label-08 {
+  background: url('../../assets/images/labels/label-08.png');
+}
+.label-09 {
+  background: url('../../assets/images/labels/label-09.png');
+}
+.label-10 {
+  background: url('../../assets/images/labels/label-10.png');
+}
+.label-11 {
+  background: url('../../assets/images/labels/label-11.png');
+}
+.label-12 {
+  background: url('../../assets/images/labels/label-12.png');
+}
+.label-13 {
+  background: url('../../assets/images/labels/label-13.png');
+}
+.label-14 {
+  background: url('../../assets/images/labels/label-14.png');
+}
+.hex-frame-01 {
+  background: url('../../assets/images/borders/hex-frame-01.png');
+}

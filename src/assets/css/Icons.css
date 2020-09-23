@@ -1,0 +1,68 @@
+.melee-icon {
+    background: url('../images/icons/melee-icon.png') black;
+    height: 60px;
+    width: 60px;    
+    background-size: contain;    
+    align-self: center;
+    justify-self: right;
+}
+.range-icon {
+    background: url('../images/icons/range-icon.png') black;
+    height: 60px;
+    width: 60px;
+    background-size: contain;
+    align-self: center;
+    justify-self: right;
+}
+.necklace-icon {
+    background: url('../images/icons/necklace-icon.png') black;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.charm-icon {
+    background: url('../images/icons/charm-icon.png') black;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.trinket-icon {
+    background: url('../images/icons/trinket-icon.png') black;
+    background-position: calc(50% + 1px) center;
+    background-repeat: no-repeat;
+}
+.stamina-icon {
+    background: url('../../assets/images/icons/stamina.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    display: grid;
+}
+.stamina-angle-background {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #9abfd9;
+    background: #9abfd9;
+    display: grid;
+    margin-top: 7px;
+}
+
+.stamina-angle-background>div {
+    display: grid;
+    border-radius: inherit;
+}
+.stamina-angle-90 {
+    background: linear-gradient(134deg, transparent 50%, #141414 50%), linear-gradient(44deg, #141414 50%, transparent 50%);
+    border-radius: inherit;
+}
+.stamina-angle-180 {
+    background: linear-gradient(180deg, transparent 50%, #141414 50%), linear-gradient(0deg, #141414 50%, transparent 50%);
+    display: grid;
+}
+.stamina-angle-120 {
+    background: linear-gradient(150deg, transparent 50%, #141414 50%), linear-gradient(30deg, #141414 50%, transparent 50%);
+    display: grid;
+}
+.stamina-angle-40 {
+    background: linear-gradient(110deg, transparent 50%, #141414 50%), linear-gradient(70deg, #141414 50%, transparent 50%);
+    border-radius: inherit;
+}

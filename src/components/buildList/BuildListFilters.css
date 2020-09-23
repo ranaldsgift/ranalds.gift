@@ -1,0 +1,35 @@
+.build-list-filters {
+    display: grid;
+    height: 100%;
+    align-content: center;
+    text-align: left;
+    grid-area: buildListFilters;
+    align-self: end;
+    box-shadow: inset 0 0px 50px #0d0303;
+    padding-left: 20px;
+    grid-auto-columns: min-content;
+    grid-auto-flow: column;
+    grid-column-gap: 20px;
+}
+.build-list-filter > select {
+    height: 38px;
+    text-align: center;
+    font-family: caslon-antique;
+    padding-right: 30px;
+}
+.build-list-filter::after {
+
+  content: '\25BC';
+  position: absolute;
+  top: 8px;
+  right: 23px;
+  background: linear-gradient(to bottom, #2b1212 35%, #000);
+  cursor: pointer;
+  pointer-events: none;
+  transition: .25s all ease;
+  color: #c15b24;
+
+}
+.build-list-filter {
+    position: relative;
+}

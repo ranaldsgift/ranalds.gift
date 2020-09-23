@@ -1,0 +1,55 @@
+.hero-equipment-container {
+    grid-area: heroEquipment;
+    display: grid;
+    color: #c15b24;
+    grid-template-areas: "meleeContainer rangeContainer";
+    font-size: 132%;
+    text-transform: uppercase;
+    box-shadow: inset 0 40px 50px black;
+    grid-template-columns: 1fr 1fr;
+  }
+  .melee-container {
+    grid-area: meleeContainer;
+    grid-template-rows: 35px 25px 1fr;
+    display: grid;
+    align-content: center;
+    background-position-y: -10px;
+    grid-template-areas: "meleeHeader" "meleeDivider" "meleeContainer";
+  }
+  .range-container {
+    grid-area: rangeContainer;
+    grid-template-rows: 35px 25px 1fr;
+    display: grid;  
+    align-content: center;
+    background-position-x: -28px;
+    background-position-y: center;
+    grid-template-areas: "rangeHeader" "rangeDivider" "rangeContainer";
+  }
+  .melee-header {
+    grid-area: meleeHeader;
+    align-self: end;
+  }
+  .range-header {
+    grid-area: rangeHeader;
+    align-self: end;
+  }
+  .melee-divider {
+    grid-area: meleeDivider;
+    height: 26px;
+  }
+  .range-divider {
+    grid-area: rangeDivider;
+    height: 26px;
+  }
+  .weapon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    max-width: 325px;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 7px;
+    grid-column-gap: 7px;
+    justify-self: center;
+    margin: 12px;
+  }

@@ -1,0 +1,242 @@
+.build-list-item {
+    box-shadow: inset 0px 1000px #0d0202eb;
+    display: grid;
+    grid-template-columns: 100px auto 340px 240px 190px 25px;
+    position: relative;
+    grid-template-rows: 34px 46px 30px;
+    grid-row-gap: 5px;
+    grid-template-areas: "heroIcon buildName buildName buildName buildName buildName" "heroIcon buildDescription buildTalents buildWeapons buildTraits emptySpace" "heroIcon buildDescription buildFooter buildFooter buildFooter buildFooter";
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.build-list-item:hover {
+    box-shadow: inset 0px 1000px #261010e8;
+}
+.build-list-item::after {
+    background: radial-gradient(ellipse at top, black, white);
+    height: 100%;
+    width: 100%;
+    content: '';
+    position: absolute;
+    z-index: 0;
+    opacity: 0.06;
+}
+.build-hero-icon {
+    width: calc(100% - 21px);
+    height: calc(100% - 21px);
+    grid-area: heroIcon;
+    justify-self: center;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.build-name {
+    grid-area: buildName;
+    align-self: center;
+    margin-top: 4px;
+    justify-self: left;
+}
+.build-description-container {
+    grid-area: buildDescription;
+    justify-items: flex-start;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "buildHeroName" "buildAuthor";
+    text-align: left;
+}
+.talents {
+    grid-area: buildTalents;
+    display: grid;
+    grid-template-columns: repeat(6,46px);    
+    justify-self: center;
+    grid-column-gap: 5px;
+}
+.weapons {
+    grid-area: buildWeapons;
+    display: grid;
+    grid-template-columns: repeat(4, 46px);
+    grid-column-gap: 5px;
+    justify-content: center;
+}
+.traits {
+    grid-area: buildTraits;
+    display: grid;
+    grid-template-columns: repeat(3,46px);    
+    justify-self: center;
+    grid-column-gap: 5px;
+}
+.build-footer {
+    grid-area: buildFooter;
+    background: linear-gradient(to right, #0000,#ffffff14);
+    margin-right: 3px;
+    justify-self: right;
+    border-radius: 0 0 8px 0;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 1px;
+}
+.build-hero {
+    color: #8a8add;
+
+}
+.build-author {
+    text-transform: initial;
+}
+.build-footer > p {
+    align-content: center;
+    display: grid;
+    height: 100%;
+    margin-right: 10px;
+    font-size: 85%;
+    justify-content: right;
+
+}
+.weapon-icon:hover::before {
+    height: auto;
+    width: 400px;
+    display: grid;
+    position: absolute;
+    background: radial-gradient(#440c0ca8 10%, #0000 60%) #2d1212;
+    bottom: 60px;
+    right: -190px;
+    border-image: url('../../assets/images/borders/border-10.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    padding: 5px;
+    white-space: pre;
+    text-transform: initial;
+    align-content: center;
+    z-index: 1;
+}
+
+.trait-icon:hover::before {
+    /*content: 'Hitting more than 3 enemies in one swing generates temporary health.';*/
+    height: auto;
+    width: 400px;
+    display: grid;
+    position: absolute;
+    background: radial-gradient(#440c0ca8 10%, #0000 60%) #2d1212;
+    bottom: 60px;
+    right: -190px;
+    border-image: url('../../assets/images/borders/border-10.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    padding: 5px;
+    white-space: pre;
+    text-transform: initial;
+    align-content: center;
+    z-index: 1;
+}
+.traits .trait-icon:nth-child(1):hover::before {
+    right: -142px;
+}.traits .trait-icon:nth-child(2):hover::before {
+    right: -91px;
+}
+
+.traits .trait-icon:hover::before {    
+    right: -40px;
+}
+
+.build-list-item>* {
+    z-index: 1;
+}
+.build-list-item .talent-icon {
+    box-shadow: inset 0 0 65px #0000009e;
+}
+.trait-icon {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    position: relative;
+    background-size: calc(100% - 12px) !important;
+}
+.trait-icon::after {
+    content: '';
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    background-color: black !important;
+    z-index: -1;
+    position: relative;
+}
+
+.trait-heroic-intervention {
+    background: url('../../assets/images/traits/heroic-intervention.png') black;
+}
+.trait-off-balance {
+    background: url('../../assets/images/traits/off-balance.png') black;
+}
+.trait-opportunist {
+    background: url('../../assets/images/traits/opportunist.png') black;
+}
+.trait-parry {
+    background: url('../../assets/images/traits/parry.png') black;
+}
+.trait-resourceful-combatant {
+    background: url('../../assets/images/traits/resourceful-combatant.png') black;
+}
+.trait-swift-slaying {
+    background: url('../../assets/images/traits/swift-slaying.png') black;
+}
+.trait-barrage {
+    background: url('../../assets/images/traits/barrage.png') black;
+}
+.trait-conservative-shooter {
+    background: url('../../assets/images/traits/conservative-shooter.png') black;
+}
+.trait-heat-sink {
+    background: url('../../assets/images/traits/heat-sink.png') black;
+}
+.trait-hunter {
+    background: url('../../assets/images/traits/hunter.png') black;
+}
+.trait-inspirational-shot {
+    background: url('../../assets/images/traits/inspirational-shot.png') black;
+}
+.trait-resourceful-sharpshooter {
+    background: url('../../assets/images/traits/resourceful-sharpshooter.png') black;
+}
+.trait-scrounger {
+    background: url('../../assets/images/traits/scrounger.png') black;
+}
+.trait-thermal-equalizer {
+    background: url('../../assets/images/traits/thermal-equalizer.png') black;
+}
+.trait-barkskin {
+    background: url('../../assets/images/traits/barkskin.png') black;
+}
+.trait-shallyas-boon {
+    background: url('../../assets/images/traits/boon-of-shallya.png') black;
+}
+.trait-hand-of-shallya {
+    background: url('../../assets/images/traits/hand-of-shallya.png') black;
+}
+.trait-healers-touch {
+    background: url('../../assets/images/traits/healers-touch.png') black;
+}
+.trait-natural-bond {
+    background: url('../../assets/images/traits/natural-bond.png') black;
+}
+.trait-concoction {
+    background: url('../../assets/images/traits/concoction.png') black;
+}
+.trait-decanter {
+    background: url('../../assets/images/traits/decanter.png') black;
+}
+.trait-home-brewer {
+    background: url('../../assets/images/traits/home-brewer.png') black;
+}
+.trait-proxy {
+    background: url('../../assets/images/traits/proxy.png') black;
+}
+.trait-explosive-ordinance {
+    background: url('../../assets/images/traits/explosive-ordinance.png') black;
+}
+.trait-grenadier {
+    background: url('../../assets/images/traits/grenadier.png') black;
+}
+.trait-shrapnel {
+    background: url('../../assets/images/traits/shrapnel.png') black;
+}

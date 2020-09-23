@@ -1,0 +1,185 @@
+.inventory-item-display-container {
+    display: grid;
+    grid-template-rows: 60px 1fr 35px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "itemHeader" "itemSummary" "itemFooter"
+}
+.inventory-item-header {
+    grid-area: itemHeader;
+    border-image: url('../../assets/images/borders/border-01.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    font-size: 170%;
+    color: #db7e16;
+    align-content: center;
+    display: grid;
+    background: radial-gradient(65% 85% at bottom, #a81c1c, black);
+}
+.inventory-item-summary {
+    grid-area: itemSummary;
+    border-image: url('../../assets/images/borders/border-01.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+}
+.inventory-item-footer {
+    grid-area: itemFooter;
+    border-image: url('../../assets/images/borders/border-01.png');
+    border-image-slice: 15; 
+    border-image-width: 15px;
+    border-style: solid;
+    color: #30e158;
+    align-content: center;
+    display: grid;
+    background: black;
+    text-transform: capitalize;
+}
+.inventory-item-summary-container {
+    grid-area: itemSummary;
+    border-image: url('../../assets/images/borders/border-01.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    display: grid;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "itemPower itemStamina" "itemProperties itemProperties" "itemTrait itemTrait";
+    background: url('../../assets/images/backgrounds/background22.png');
+}
+.jewelry-tab .inventory-item-summary-container {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "itemPower itemProperties itemProperties" "itemTrait itemTrait itemTrait";    
+    grid-row-gap: 10px;
+}
+.jewelry-tab .inventory-item-display-container {
+    grid-template-areas: "itemHeader" "itemSummary";
+    grid-template-rows: 60px 1fr;
+}
+.jewelry-tab .inventory-item-footer {
+    display: none;
+}
+.item-power-level::before {
+    content: 'Power';
+    font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
+}
+.item-power-level {
+    grid-area: itemPower;
+    font-size: 42px;
+    justify-self: left;
+    margin-left: 10px;
+    margin-top: 24px;
+    position: relative;
+}
+.item-stamina::before {
+    content: 'Stamina';
+    font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
+    right: 0;
+}
+.item-stamina {
+    grid-area: itemStamina;
+    font-size: 28px;
+    justify-self: right;
+    margin-right: 10px;
+    margin-top: 24px;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 8px;
+}
+.item-properties-container::before {
+    content: 'Properties:';
+    font-size: 16px;
+}
+.item-properties-container {
+    grid-area: itemProperties;
+    text-align: left;
+    margin-left: 10px;
+    position: relative;
+}
+.item-properties-container li {
+    color: #79b2f7;
+    margin-left: 15px; 
+    list-style-type: square;
+}
+.item-properties-container li::marker {
+    margin-top: -2px;
+}
+.item-trait-container {
+    grid-area: itemTrait;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 18px 1fr;
+    grid-template-areas: "traitIcon traitName" "traitIcon traitDescription";
+    text-align: left;
+    padding: 0 10px;
+    grid-column-gap: 10px;
+}
+.inventory-item-display-container .item-trait-icon {
+    grid-area: traitIcon;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+    height: 48px;
+    background-size: auto !important;
+    border-image: url('../../assets/images/borders/border-04.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+}
+.item-trait-icon::after {
+    background-color: #0000 !important;
+}
+.item-trait-name {
+    grid-area: traitName;
+    align-self: end;
+    color: #30e158;
+}
+.item-trait-description {
+    grid-area: traitDescription;
+    margin-bottom: 16px;
+    min-height: 40px;
+}
+.jewelry-tab .item-properties-container {
+    margin-top: 10px;
+}
+.item-properties-container select {
+    position: absolute;
+    left: 17px;
+    border: 0;
+    background: none;
+    color: #0000;
+    margin: 0;
+    padding: 0;    
+    width: 200px;
+}
+select>* {
+    color: #30e158;
+    background: black;
+    font-family: 'caslon-antique';
+}
+.item-properties-container select:nth-of-type(1) {
+    top: 20px;
+}
+.item-properties-container select:nth-of-type(2) {
+    top: 40px;
+}
+.item-trait-container select {
+    grid-area: traitName;
+    border: none;
+    background: none;
+    color: #0000;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+.inventory-item-display-container .item-properties-container li::after,
+.inventory-item-display-container .item-trait-name::after
+{
+  content: "\25BE";
+  margin-left: 3px;
+}

@@ -1,0 +1,44 @@
+.build-summary-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: buildSummary;
+    color: #f0f0f0;
+    text-align: left;
+}
+.build-summary-container li {
+    margin-left: 25px;
+}
+.build-summary-container .weapon-background {
+    cursor: initial;
+}
+.build-melee-summary, .build-range-summary {
+    display: grid;
+    grid-template-areas: "itemSummaryHeader itemSummaryHeader" "weaponIcon propertyContainer" "traitIcon propertyContainer";
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 24px 60px 60px;
+    grid-row-gap: 10px;
+}
+.build-jewelry-summary {
+    display: grid;
+    grid-template-areas: "jewelryIcon traitIcon necklacePropertyContainer" "jewelryIcon traitIcon charmPropertyContainer" "jewelryIcon traitIcon trinketPropertyContainer";
+    grid-template-columns: 40px 40px 1fr;
+    grid-template-rows: 40px 40px 40px;
+    grid-row-gap: 5px;
+    align-self: center;
+}
+.build-melee-summary .trait-icon, .build-range-summary .trait-icon {
+    grid-area: traitIcon;
+}
+.build-melee-summary .weapon-icon, .build-range-summary .weapon-icon {
+    grid-area: weaponIcon;
+}
+.build-melee-summary .property-container, .build-range-summary .property-container {
+    grid-area: propertyContainer;
+    align-content: center;
+    display: grid;
+}
+.item-summary-header {
+    grid-area: itemSummaryHeader;
+    font-size: 140%;
+    justify-self: center;
+}

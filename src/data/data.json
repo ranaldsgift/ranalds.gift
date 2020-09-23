@@ -1,0 +1,2264 @@
+[
+  {
+    "heroes": [
+  {
+    "name":"Markus Kruber",
+    "careers":[
+      {
+        "name":"Mercenary",
+		"codename": "es_mercenary",
+		"health":"125",
+        "passives":[
+          {
+            "name":"Paced Strikes",
+            "description":"Hitting 3 enemies in one swing grants 10% increased attack speed for 6 seconds.",
+			"modifiers": [
+				{
+				  "name":"Attack Speed",
+				  "value":"0.10",
+				  "duration":"6",
+				  "condition":"Hit 3 enemies in one swing"
+				}
+			]
+          },
+          {
+            "name":"Hitting the Sweet Spot",
+            "description":"Attacks cleave through more enemies.",
+			"modifiers": [
+				{
+				  "name":"Cleave",
+				  "value":"unknown"
+				}
+			]
+          },
+          {
+            "name":"No More Laughin' Now!",
+            "description":"Increased crit chance.",
+			"modifiers": [
+				{
+				  "name":"Critical Chance",
+				  "value":"0.05"
+				}
+			]
+          }
+        ],
+        "skill":{
+          "name":"Morale Boost",
+          "description":"Markus grants nearby party members a boost of temporary health and staggers nearby enemies.",
+		  "cooldown":"180",
+		  "radius": ""
+        },
+        "talents":[
+          [
+            {
+              "name":"Ready for Action",
+              "description":"Increases stamina regeneration by 30%.",
+			  "modifiers": [
+				  {
+					"name":"Stamina regeneration",
+					"value":"30%"
+				  }
+			  ]
+            },
+            {
+              "name":"And Stay Down!",
+              "description":"Increases critical hit chance by 5%.",
+			  "modifiers": [
+				  {
+				    "name":"Critical Chance",
+				    "value":"5%"
+				  }
+			  ]
+            },
+            {
+              "name":"Battle Scars",
+              "description":"Increases healing effects by 30%.",
+			  "modifiers": [
+				  {
+				    "name":"Healing Effects",
+				    "value":"30%"
+				  }
+			  ]
+            }
+          ],
+          [
+            {
+              "name":"The More The Merrier!",
+              "description":"Increases Power by 3% for every nearby enemy and stacks up to 5 times.",
+			  "modifiers": [
+				  {
+				    "name":"Power",
+				    "value":"3%",
+					"stacks":"5",
+				    "condition":"Every nearby enemy"
+				  }
+			  ]
+            },
+            {
+              "name":"Desperate Defiance",
+              "description":"Reduces damage taken by 35% when below 50% health.",
+			  "modifiers": [
+				  {
+				    "name":"Damage Taken Reduction",
+				    "value":"25%",
+				    "condition":"Under 50% health"
+				  }
+			  ]
+            },
+            {
+              "name":"Shrug it Off",
+              "description":"Reduces the attack interruption time when taking damage by 35%.",
+			  "modifiers": [
+				  {
+				    "name":"Attack Interruption Reduction",
+				    "value":"35%"
+				  }
+			  ]
+            }
+          ],
+          [
+            {
+              "name":"Reikland Reaper",
+              "description":"Increases Power by 15% when Paced Strikes is active.",
+			  "modifiers": [
+				  {
+				    "name":"Power",
+				    "value":"10%",
+				    "condition":"On passive"
+				  }
+			  ]
+            },
+            {
+              "name":"Blade Barrier",
+              "description":"Reduces damage taken by 25% when Paced Strikes is active.",
+			  "modifiers": [
+				  {
+				    "name":"Damage Taken Reduction",
+				    "value":"25%",
+				    "condition":"On passive"
+				  }
+			  ]
+            },
+            {
+              "name":"Strike Together",
+              "description":"Paced Strikes spreads to nearby allies.",
+			  "modifiers": [
+				  {
+				    "name":"Passive Share",
+					"duration":"6",
+				    "condition":"Hit 3 enemies in one swing"
+				  }
+			  ]
+            }
+          ],
+          [
+            {
+              "name":"For the Empire!",
+              "description":"Critical hits grant temporary health.",
+			  "modifiers": [
+				  {
+				    "name":"Temporary Health",
+				    "condition":"Critical hits"
+				  }
+			  ]
+            },
+            {
+              "name":"Soldier's Spirit",
+              "description":"Kills grant temporary health.",
+			  "modifiers": [
+				  {
+				    "name":"Temporary Health",
+				    "condition":"Kills"
+				  }
+			  ]
+            },
+            {
+              "name":"The Harder They Fall",
+              "description":"When bosses die, gain health.",
+			  "modifiers": [
+				  {
+				    "name":"Health Gain",
+				    "condition":"Bosses die"
+				  }
+			  ]
+            }
+          ],
+          [
+            {
+              "name":"Gabbler",
+              "description":"Reduces the cooldown of Morale Boost by 30%.",
+			  "modifiers": [
+				  {
+				    "name":"Cooldown Reduction",
+				    "value":"30%"
+				  }
+			  ]
+            },
+            {
+              "name":"Inspirational",
+              "description":"Increases the temporary health gained from Morale Boost.",
+			  "modifiers": [
+				  {
+				    "name":"Health Gain",
+				    "condition":"Bosses die"
+				  }
+			  ]
+            },
+            {
+              "name":"On Yer Feet, Mates!",
+              "description":"Morale Boost also revives knocked down allies."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Huntsman",		
+		"codename": "es_huntsman",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Waste Not, Want Not",
+            "description":"Ranged headshots recovers 1 ammunition."
+          },
+          {
+            "name":"Poacher's Mark",
+            "description":"Double effective range for ranged weapons."
+          },
+          {
+            "name":"Call Out Weakness",
+            "description":"Critical strike chance aura."
+          }
+        ],
+        "skill":{
+          "name":"Hunter's Prowl",
+          "description":"Markus disappears from sight for a brief period, allowing him to ambush foes.",
+		  "cooldown":"90"
+        },
+        "talents":[
+          [
+            {
+              "name":"Keep 'Em Coming",
+              "description":"Increases reload speed by 20%."
+            },
+            {
+              "name":"On Target",
+              "description":"Reduces ranged weapon spread by 25%."
+            },
+            {
+              "name":"Ourdoorsman",
+              "description":"Grants an extra Stamina shield."
+            }
+          ],
+          [
+            {
+              "name":"Scavenger",
+              "description":"When Bosses are killed, Markus gains 100% of his maximum ammo."
+            },
+            {
+              "name":"Make 'Em Bleed",
+              "description":"Critical hits cause enemies to take increased damage."
+            },
+            {
+              "name":"Hands Off!",
+              "description":"Enemies that grab or pounce Markus take double damage."
+            }
+          ],
+          [
+            {
+              "name":"Taal's Blessing",
+              "description":"Markus recovers 2 ammuition from scoring headshots."
+            },
+            {
+              "name":"Makin' It Look Easy",
+              "description":"After scoring a ranged headshot Markus gains 25% increased critical hit chance."
+            },
+            {
+              "name":"Thrill of the Hunt",
+              "description":"Ranged headshots Increase reload speed by 35% for 2 seconds."
+            }
+          ],
+          [
+            {
+              "name":"For the Empire!",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Soldier's Spirit",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"The Harder They Fall",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Blend In",
+              "description":"Reduces the cooldown of Hunter's Prowl by 30%."
+            },
+            {
+              "name":"Hunter's Respite",
+              "description":"Markus recovers 4 health every second while under the effect of Hunter's Prowl."
+            },
+            {
+              "name":"I'm Coming for Ya",
+              "description":"Markus Gains a 20% power increase during Hunter's Prowl."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Foot Knight",
+		"codename": "es_knight",
+		"health":"150",
+          "passives":[
+          {
+            "name":"Protective Presence",
+            "description":"Damage resistance aura."
+          },
+          {
+            "name":"Taal's Fortitude'",
+            "description":"Increased stamina."
+          },
+          {
+            "name":"No Guts, No Glory",
+            "description":"Reduced damage taken."
+          }
+        ],
+        "skill":{
+          "name":"Valiant Charge",
+          "description":"Markus charges forward, slamming into enemies and knocking them back.",
+		  "cooldown":"30"
+        },
+        "talents":[
+          [
+            {
+              "name":"Bulwark",
+              "description":"Increases effective block and push angle by 50%."
+            },
+            {
+              "name":"Bastion of the Reik",
+              "description":"Increases maximum Health by 25%."
+            },
+            {
+              "name":"Onslaught",
+              "description":"Increases attack speed by 5%."
+            }
+          ],
+          [
+            {
+              "name":"Regroup",
+              "description":"Reviving party members grant them 50% damage reduction for 10 seconds."
+            },
+            {
+              "name":"Counter-Attack",
+              "description":"Gain uninterruptible attacks for 5 seconds after block is broken."
+            },
+            {
+              "name":"Build Momentum",
+              "description":"Successful charged attacks grant 40% increased stamina regeneration for 2 seconds."
+            }
+          ],
+          [
+            {
+              "name":"Battle Dril",
+              "description":"Protective Presence also grants one stamina shield."
+            },
+            {
+              "name":"Defensive Formation",
+              "description":"Increases damage reduction from Protective Presence by 5%."
+            },
+            {
+              "name":"Drillmaster",
+              "description":"Protective Presence also increases movement speed by 5%."
+            }
+          ],
+          [
+            {
+              "name":"For the Empire!",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Soldier's Spirit",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"The Harder They Fall",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"A Life of Battle.",
+              "description":"Reduces the cooldown of Valiant Charge by 30%."
+            },
+            {
+              "name":"Glory Hound",
+              "description":"Valiant Charge also grants 25% power for 10 seconds."
+            },
+            {
+              "name":"Hold Ground",
+              "description":"Valiant Charge grants a 100% reduction to stamina block cost for 10 seconds. "
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Bardin Goreksson",
+    "careers":[
+      {
+        "name":"Ranger Veteran",
+		"codename": "dr_ranger",
+		"health":"100",
+         "passives":[
+          {
+            "name":"Survivalist",
+            "description":"Specials drop ammo pickups on death."
+          },
+          {
+            "name":"Loaded for Battle",
+            "description":"Increased ammo capacity."
+          },
+          {
+            "name":"Fast Hands",
+            "description":"Increased reload speed."
+          }
+        ],
+        "skill":{
+          "name":"Disengage",
+          "description":"Bardin deploys a smoke bomb that conceals him from enemies whilst he stays inside the cloud.",
+		  "cooldown":"120"
+        },
+        "talents":[
+          [
+            {
+              "name":"Hunter's Eye",
+              "description":"Reduces Ranged Spread by 25%."
+            },
+            {
+              "name":"Apply Pressure",
+              "description":"Increases effect of healing by 30%."
+            },
+            {
+              "name":"Foe-Feller",
+              "description":"Increases attack speed by 5%."
+            }
+          ],
+          [
+            {
+              "name":"Last Resort",
+              "description":"Bardin gains a 25% Power increase when out of ammunition."
+            },
+            {
+              "name":"No Dawdling!",
+              "description":"Increases movement speed by 5%."
+            },
+            {
+              "name":"Curl Up",
+              "description":"While grabbed or pounced all damage taken is reduced by 50%."
+            }
+          ],
+          [
+            {
+              "name":"Battle-Brew",
+              "description":"Survivalist grants a Grenade instead of ammunition on in four."
+            },
+            {
+              "name":"Grungni's Cunning",
+              "description":"Increases ammunition restored by Bardin's Survivalist ammunition pickups."
+            },
+            {
+              "name":"Master Brewer",
+              "description":"Survivalist grants a potion instead of ammunition one in three."
+            }
+          ],
+          [
+            {
+              "name":"Just Drunk Enough",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Grudge-Borne",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Grimnir's Champion",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Ranger's Ambush",
+              "description":"Increases the duration of Disengage stealth to 14 seconds."
+            },
+            {
+              "name":"Preparation",
+              "description":"Reduces the cooldown of Disengage by 30%."
+            },
+            {
+              "name":"Catch a Breath",
+              "description":"Bardin recovers 20 health when activating Disengage."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Iron Breaker",
+		"codename": "dr_ironbreaker",
+		"health":"150",
+          "passives":[
+          {
+            "name":"Gromril Armour",
+            "description":"Completely absorbs one hit every 20 seconds."
+          },
+          {
+            "name":"Dwarf-Forged",
+            "description":"Reduced damage taken."
+          },
+          {
+            "name":"Doughty",
+            "description":"Increased stamina."
+          },
+          {
+            "name":"Resilient",
+            "description":"Increased stun resistance."
+          }
+        ],
+        "skill":{
+          "name":"Impenetrable",
+          "description":"Bardin taunts all nearby man-sized enemies, gains increased defense and can block any attack for the next 10 seconds.",
+		  "cooldown":"180"
+        },
+        "talents":[
+          [
+            {
+              "name":"Shield of Valaya",
+              "description":"Increases effective block and push angle by 50%."
+            },
+            {
+              "name":"Stoutfellow",
+              "description":"Increases Maximum health by 20%."
+            },
+            {
+              "name":"Indefatigable",
+              "description":"Grants an extra stamina shield."
+            }
+          ],
+          [
+            {
+              "name":"Gazul's Duty",
+              "description":"Reviving an ally reduces their damage taken by 50% for 10 seconds."
+            },
+            {
+              "name":"Irondrake",
+              "description":"Reduces the overheat generated by Drakefire weapons by 30%."
+            },
+            {
+              "name":"Miner's Rhythm",
+              "description":"After landing a charged attack, Bardin recovers stamina 40% faster for 2 seconds."
+            }
+          ],
+          [
+            {
+              "name":"Ironbreaker's Resolve",
+              "description":"Increases Stamina regen by 50% when Gromril Armour is active."
+            },
+            {
+              "name":"Rune-Forged",
+              "description":"Bardin receives 10 health whenever Gromril Armour absorbs a hit."
+            },
+            {
+              "name":"Tunnel Fighter",
+              "description":"Reduces the cooldown of Gromril Armour to 13 seconds."
+            }
+          ],
+          [
+            {
+              "name":"Just Drunk Enough",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Grudge-Borne",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Grimnir's Champion",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Heart of Gromril",
+              "description":"Increases the Duration of Impenetrable to 15 seconds."
+            },
+            {
+              "name":"Booming Taunt",
+              "description":"Inpenetrable taunt radius is increased fo 15."
+            },
+            {
+              "name":"Oi! Wazzok!",
+              "description":"Impenetrable taunt now forces bosses to attack Bardin."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Slayer",
+		"codename": "dr_slayer",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Trophy Hunter",
+            "description":"Stacking damage buff on hitting an enemy."
+          },
+          {
+            "name":"Path of Carnage",
+            "description":"Increased attack speed."
+          }
+        ],
+        "skill":{
+          "name":"Leap",
+          "description":"Bardin leaps forward to stun a target, and gains a burst of attack speed.",
+		  "cooldown":"40"
+        },
+        "talents":[
+          [
+            {
+              "name":"Stoutfellow",
+              "description":"Increases health by 25%."
+            },
+            {
+              "name":"Hack and Slash",
+              "description":"Increases critical hit chance by 5%."
+            },
+            {
+              "name":"See it Coming",
+              "description":"Increases Dodge Range by 20%."
+            }
+          ],
+          [
+            {
+              "name":"Oblivious to Pain",
+              "description":"Damage taken from one attack is reduced to 10 damage or half of its original value whichever is highest."
+            },
+            {
+              "name":"Stunty Saviour",
+              "description":"Increases movement speed by 15% when Bardin is the last hero standing."
+            },
+            {
+              "name":"Crippling Wounds",
+              "description":"Critical hits cause enemies to take increased damage."
+            }
+          ],
+          [
+            {
+              "name":"Unstoppable!",
+              "description":"Increases the duration of the buffs gained from Trophy Hunter to 5 seconds."
+            },
+            {
+              "name":"Moving Target",
+              "description":"Trophy Hunter also increases defence with every buff stack."
+            },
+            {
+              "name":"Adrenaline Surge",
+              "description":"On max stacks, Trophy Hunter grants cooldown reduction for Leap."
+            }
+          ],
+          [
+            {
+              "name":"Just Drunk Enough",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Grudge-Borne",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Grimnir's Champion",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Crunch!",
+              "description":"Increases the stagger effect when landing near enemies with Leap."
+            },
+            {
+              "name":"Unstoppable",
+              "description":"Attacks are uninterruptible after using Leap."
+            },
+            {
+              "name":"No Escape",
+              "description":"After Leap Bardin also increases movement speed by 25%."
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Kerillian",
+    "careers":[
+      {
+        "name":"Waystalker",
+		"codename": "we_waywatcher",
+		"health":"100",
+		"passives":[
+          {
+            "name":"Amaranthe",
+            "description":"Kerillian regenerates health over time when below half health."
+          },
+          {
+            "name":"Arrow-storm",
+            "description":"Increased ammo capacity."
+          },
+          {
+            "name":"Waywatcher's Bow",
+            "description":"Double effective range for ranged weapons."
+          }
+        ],
+        "skill":{
+          "name":"Trueshot Volley",
+          "description":"Kerillian shoots a volley of arrows that seek out enemies in her path.",
+		  "cooldown":"70"
+        },
+        "talents":[
+          [
+            {
+              "name":"Fury of Anath Raema",
+              "description":"Increases attack speed by 5%."
+            },
+            {
+              "name":"Morai-Heg's Scorn",
+              "description":"Increases critical hit chance by 5%."
+            },
+            {
+              "name":"Hukon's Tenacity",
+              "description":"Increases stamina regeneration by 30%."
+            }
+          ],
+          [
+            {
+              "name":"Ironfeather Flights",
+              "description":"Returns 30% ammunition on boss death."
+            },
+            {
+              "name":"Daughter of the Hunt",
+              "description":"While above 45% health, Kerillian's critical hits gain 30% additional power boost."
+            },
+            {
+              "name":"Arcane Bodkins",
+              "description":"Increases damage bonus of headshots."
+            }
+          ],
+          [
+            {
+              "name":"Isha's Embrace",
+              "description":"Increases Kerillian's health regeneration."
+            },
+            {
+              "name":"Vaul's Quiver",
+              "description":"Regeneration also recovers arrows or bolts."
+            },
+            {
+              "name":"Rejuvenating Locus",
+              "description":"Regeneration also applied on all party members but the effect is halved."
+            }
+          ],
+          [
+            {
+              "name":"Weavebound",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Khaine's Thirst",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Champion of Athel Loren",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Asrai Focus",
+              "description":"Reduces the cooldown of Trueshot Volley by 30%."
+            },
+            {
+              "name":"Lifebloom Arrows",
+              "description":"Using Trueshot Volley recovers 20 temporary health."
+            },
+            {
+              "name":"Kurnous' Blessing",
+              "description":"Using Trueshot recovers 20% of Kerillian's maximum ammunition."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Handmaiden",
+		"codename": "we_maidenguard",
+		"health":"125",
+          "passives":[
+          {
+            "name":"The Dance of Seasons",
+            "description":"Increased dodge distance."
+          },
+          {
+            "name":"Renewal",
+            "description":"Stamina regeneration aura."
+          },
+          {
+            "name":"Ariel's Benison",
+            "description":"Revive can't be interrupted by damaging attacks."
+          }
+        ],
+        "skill":{
+          "name":"Dash",
+          "description":"Kerillian dashes forward through enemies. Hitting enemies with this ability causes them to bleed.",
+		  "cooldown":"20"
+        },
+        "talents":[
+          [
+            {
+              "name":"Asrai Vigor",
+              "description":"Grants an extra Stamina shield."
+            },
+            {
+              "name":"Wraithwillow Stance",
+              "description":"Increases area for effective blocks and pushes by 50%."
+            },
+            {
+              "name":"Quiver of Plenty",
+              "description":"Increases ammunition amount by 40%. "
+            }
+          ],
+          [
+            {
+              "name":"Triumph of the Cadai",
+              "description":"Clears any wounds and converts any temporary health to permanent health when bosses die."
+            },
+            {
+              "name":"Eldrazor's Precision",
+              "description":"Increases Power Level by 15% but reduces attack speed by 5%."
+            },
+            {
+              "name":"Defiance",
+              "description":"Reduce damage taken by 50% when Kerillian is the last hero standing."
+            }
+          ],
+          [
+            {
+              "name":"Gladerunner",
+              "description":"Increases movement speed by 5%."
+            },
+            {
+              "name":"Shadowstep",
+              "description":"Further increases dodge distance by 20%."
+            },
+            {
+              "name":"Hukon's Tenacity",
+              "description":"Increases stamina regeneration speed by an additional 50%."
+            }
+          ],
+          [
+            {
+              "name":"Weavebond",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Khaine's Thirst",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Champion of Athel Loren",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Gift of Ladrielle",
+              "description":"Kerillian disappears from enemy perception for 3 seconds after using Dash."
+            },
+            {
+              "name":"Bladedancer",
+              "description":"Dash now deals damage to enemies as Kerillian passes through them but stuns less."
+            },
+            {
+              "name":"Handmaiden's Grace",
+              "description":"Reduces the cooldown of Dash by 30%"
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Shade",
+		"codename": "we_shade",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Murderous Prowess",
+            "description":"Critical hit backstabs instantly slay man-sized enemies."
+          },
+          {
+            "name":"Assassin's Blade",
+            "description":"50% additional damage when attacking enemies from behind."
+          }
+        ],
+        "skill":{
+          "name":"Infiltrate",
+          "description":"Kerillian becomes undetectable and can pass through enemies. Lasts for 10 seconds, or until she attacks.",
+		  "cooldown":"60"
+        },
+        "talents":[
+          [
+            {
+              "name":"Hukon's Tenacity",
+              "description":"Increases stamina regeneration by 30%."
+            },
+            {
+              "name":"Fury of Anath Raema",
+              "description":"Increases attack speed by 5%."
+            },
+            {
+              "name":"Shadowstep",
+              "description":"Increases dodge range by 20%."
+            }
+          ],
+          [
+            {
+              "name":"Gladerunner",
+              "description":"Increases movement speed by 5%."
+            },
+            {
+              "name":"Ellinill's Venom",
+              "description":"Increases damage taken by enemies disabling Kerillian by 100%."
+            },
+            {
+              "name":"Hekarti's Bounty",
+              "description":"Increases power by 15% when the party holds at least one Grimoire."
+            }
+          ],
+          [
+            {
+              "name":"Ereth Khial's Herald",
+              "description":"Assassin's Blade is increased to 75% additional damage when attacking enemies from behind."
+            },
+            {
+              "name":"Mistress of Sacrifice",
+              "description":"Increased angle for triggering backstabs."
+            },
+            {
+              "name":"Bloodfletcher",
+              "description":"Backstabs return 1 ammo or bolt."
+            }
+          ],
+          [
+            {
+              "name":"Weavebound",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Khaine's Thirst",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Champion of Loren",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Veilwalker",
+              "description":"Increases duration of Infiltrate to 15 seconds."
+            },
+            {
+              "name":"Shadowhunter",
+              "description":"Infiltrate stealth no longer breaks when firing ranged weapon."
+            },
+            {
+              "name":"Shadespirit",
+              "description":"Reduces cooldown of Infiltrate by 30%."
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Victor Saltzpyre",
+    "careers":[
+      {
+        "name":"Witch Hunter Captain",
+		"codename": "wh_captain",
+		"health":"100",
+         "passives":[
+          {
+            "name":"Witch-Hunt",
+            "description":"Tagged enemies take additional damage."
+          },
+          {
+            "name":"Eternal Guard",
+            "description":"No light attack block cost from frontal attacks."
+          },
+          {
+            "name":"Killing Shot",
+            "description":"Critical hit headshots instantly slay man-sized enemies."
+          }
+        ],
+        "skill":{
+          "name":"Animosity",
+          "description":"Victor pushes back nearby enemies, and boosts nearby allies' critial hit chance for 6 seconds.",
+		  "cooldown":"180"
+        },
+        "talents":[
+          [
+            {
+              "name":"Charmed Life",
+              "description":"Increase dodge range by 20%."
+            },
+            {
+              "name":"Unflagging Spirit",
+              "description":"Grants an extra stamina shield."
+            },
+            {
+              "name":"Always Prepared",
+              "description":"Increase maximum ammunition by 30%."
+            }
+          ],
+          [
+            {
+              "name":"Abjured Temptation",
+              "description":"Increase power by 15% when the party holds at least one Grimoire."
+            },
+            {
+              "name":"Deathknell",
+              "description":"Increases headshot damage bonus."
+            },
+            {
+              "name":"Suffer No Heresy",
+              "description":"Reduce the damage taken when disabled by 50%."
+            }
+          ],
+          [
+            {
+              "name":"Marked for Death",
+              "description":"Witch-Hunt grants 10% increase attack speed for 4 seconds when taggable enemies die."
+            },
+            {
+              "name":"Justice's Bounty",
+              "description":"Witch-Hunt recovers 2 health for the party when taggable enemies die."
+            },
+            {
+              "name":"Wild Fervour",
+              "description":"Increase critical hit chance by 8% for 4 seconds when taggable enemies die."
+            }
+          ],
+          [
+            {
+              "name":"Holy Cause",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Righteous Zeal",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Purifier",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Redoubled Purpse",
+              "description":"Reduce the cooldown of animosity by 30%."
+            },
+            {
+              "name":"Resonating Faith",
+              "description":"Increase the duration of animosity to 10 seconds."
+            },
+            {
+              "name":"Fierce Oratory",
+              "description":"Increase the radius of animosity by 50%."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Bounty Hunter",
+		"codename": "wh_bountyhunter",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Blessed Shots",
+            "description":"Guaranteed ranged critical hit every 10 seconds or on melee kill."
+          },
+          {
+            "name":"Ammo Pouches",
+            "description":"Increased ammo capacity."
+          },
+          {
+            "name":"Quick Release",
+            "description":"Increased reload speed."
+          }
+        ],
+        "skill":{
+          "name":"Locked and Loaded",
+          "description":"Victor fires a powerful shot that pierces enemies.",
+		  "cooldown":"90"
+        },
+        "talents":[
+          [
+            {
+              "name":"Swift Reload",
+              "description":"Increases reload speed by 20%"
+            },
+            {
+              "name":"Make Them Count",
+              "description":"Reduces ranged weapon spread by 25%."
+            },
+            {
+              "name":"Vicious Virtue",
+              "description":"Increases attack speed by 5%."
+            }
+          ],
+          [
+            {
+              "name":"Leave None Behind",
+              "description":"Increases revive speed by 30%"
+            },
+            {
+              "name":"Necessary Means",
+              "description":"Gain 25% increased Power when out of ammunition"
+            },
+            {
+              "name":"Crippling Strike",
+              "description":"Increases the power boost of critical hits by 25%."
+            }
+          ],
+          [
+            {
+              "name":"Pious Fervour",
+              "description":"Critical hits grant 2 temporary health."
+            },
+            {
+              "name":"Cruel Fortune",
+              "description":"Reduces cooldown on Blessed Shots to 7 seconds."
+            },
+            {
+              "name":"Prize Bounty",
+              "description":"Shots affected by Blessed Shots consumes no ammunition."
+            }
+          ],
+          [
+            {
+              "name":"Holy Cause",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Righteous Zeal",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Purifier",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Encore",
+              "description":"Reduces cooldown of Locked and Loaded by 30%."
+            },
+            {
+              "name":"Double-shotted",
+              "description":"Modifies Victors sidearm to fire two powerful bullets in a straight line."
+            },
+            {
+              "name":"Buckshot",
+              "description":"Modifies Victors sidearm to fire two blasts of pellets devastating cone."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Zealot",
+		"codename": "wh_zealot",
+		"health":"150",
+		"passives":[
+          {
+            "name":"Fiery Faith",
+            "description":"Power increases by 5% for every 25 health missing to a maximum bonus of 20%."
+          },
+          {
+            "name":"Unswerving Strikes",
+            "description":"Heavy attacks can't be interrupted by damaging attacks."
+          },
+          {
+            "name":"Heart of Iron",
+            "description":"Resist death on taking lethal damage."
+          }
+        ],
+        "skill":{
+          "name":"Holy Fervor",
+          "description":"Victor charges forward and gains 25% increased attack speed for 5 seconds.",
+		  "cooldown":"60"
+        },
+        "talents":[
+          [
+            {
+              "name":"Holy Endurance",
+              "description":"Increases stamina regeneration speed by 30%."
+            },
+            {
+              "name":"Saint of Battle",
+              "description":"Increases critical hit chance by 5%."
+            },
+            {
+              "name":"Strong of Will",
+              "description":"Reduces stun duration by 35%"
+            }
+          ],
+          [
+            {
+              "name":"No Surrender!",
+              "description":"Increases Power by 3% for every nearby enemy and stacks up to 5 times."
+            },
+            {
+              "name":"Flagellant",
+              "description":"Damage taken from one attack is reduced to 10 damage or half its original value whichever is highest."
+            },
+            {
+              "name":"Suppress Pain",
+              "description":"Reduces damage taken by 35% while below 50% health."
+            }
+          ],
+          [
+            {
+              "name":"Shield of Faith",
+              "description":"Fiery Faith also increases block and push angle by 10% per 25 health missing. This effect stacks up to 5 times."
+            },
+            {
+              "name":"Holy Crusader",
+              "description":"Fiery Faith also increases power boost of critical hits by 10 per 25 health missing. This effect stacks up to 5 times."
+            },
+            {
+              "name":"Undying Fervour",
+              "description":"Fiery Faith also grants stamina per 25 health missing. This effect stacks up to 5 times."
+            }
+          ],
+          [
+            {
+              "name":"Holy Cause",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Righteous Zeal",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Purifier",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Frother",
+              "description":"Reduces the cooldown of Holy Fervour by 30%."
+            },
+            {
+              "name":"Pleasure from Pain",
+              "description":"Holy Fervour causes Victor to restore 2 health for each successful hit."
+            },
+            {
+              "name":"Blessed Frenzy",
+              "description":"Increases the duration of Holy Fervour's attack speed buff to 8 seconds."
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Sienna Fuegonasus",
+    "careers":[
+      {
+        "name":"Battle Wizard",
+		"codename": "bw_adept",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Tranquility",
+            "description":"Avoiding damage and not casting spells for 8 seconds automatically ventilates Overcharge."
+          },
+          {
+            "name":"Reckless Haste",
+            "description":"Overcharge increases spell charge speed."
+          },
+          {
+            "name":"Pyromatic Surge",
+            "description":"Increased ranged damage."
+          }
+        ],
+        "skill":{
+          "name":"Fire Walk",
+          "description":"Sienna teleports forward, leaving a blanket of fire in her wake.",
+		  "cooldown":"40"
+        },
+        "talents":[
+          [
+            {
+              "name":"Cauterise Wounds",
+              "description":"Increases healing recieved by 30%."
+            },
+            {
+              "name":"Fuelled by Fire",
+              "description":"Grants an extra Stamina shield."
+            },
+            {
+              "name":"Voracious Conjuring",
+              "description":"Increases ranged attack charge speed by 15%."
+            }
+          ],
+          [
+            {
+              "name":"World Aflame",
+              "description":"Every nearby enemy increases power by 5%, this effect can stack up to 5 times."
+            },
+            {
+              "name":"Molten Skin",
+              "description":"Reduces damage taken by 50% when Sienna is the last hero standing."
+            },
+            {
+              "name":"Flickerform",
+              "description":"Reduces stun duration from being hit by enemies by 35%."
+            }
+          ],
+          [
+            {
+              "name":"Burning Vigour",
+              "description":"Reduces stamina cost of blocking attacks by 40% when Tranquility is active."
+            },
+            {
+              "name":"Rechannel",
+              "description":"When Tranquility is active, Sienna's ranged charge time is reduced by 40%."
+            },
+            {
+              "name":"Centered",
+              "description":"Increases the effect of Tranquility."
+            }
+          ],
+          [
+            {
+              "name":"Seething Embers",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Soul Snare",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Blazing Harvest",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Volan's Quickening",
+              "description":"Reduces the cooldown of Fire Walk by 30%."
+            },
+            {
+              "name":"Lava Walker",
+              "description":"Fire Walk trail lingers for 10 seconds."
+            },
+            {
+              "name":"Burnout",
+              "description":"Fire Walk removes all overcharge."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Pyromancer",
+		"codename": "bw_scholar",
+		"health":"100",
+        "passives":[
+          {
+            "name":"Critical Mass",
+            "description":"Increased critical strike chance based on Overcharge level."
+          },
+          {
+            "name":"Searing Focus",
+            "description":"Increased ranged damage."
+          }
+        ],
+        "skill":{
+          "name":"The Burning Head",
+          "description":"Sienna unleashes a fiery projectile that seeks out foes.",
+		  "cooldown":"40"
+        },
+        "talents":[
+          [
+            {
+              "name":"Focusing Lens",
+              "description":"Reduced ranged attack spread by 25%."
+            },
+            {
+              "name":"Martial Study",
+              "description":"Increased attack speed by 5%."
+            },
+            {
+              "name":"Natural Talent",
+              "description":"Reduces overcharge generated by 10%."
+            }
+          ],
+          [
+            {
+              "name":"Ashen Form",
+              "description":"Reduces damage taken when disabled by 50%."
+            },
+            {
+              "name":"Dissipate",
+              "description":"Increases overcharge decay speed when affected by a Grimoire by 100%."
+            },
+            {
+              "name":"Quickening",
+              "description":"Increases spell charge speed by 25% while below 50% health."
+            }
+          ],
+          [
+            {
+              "name":"Shield of Tarnus",
+              "description":"Critical Mass also reduces the stamina cost of blocking attacks by 10% per 8 overcharge and stacks up to 5 times."
+            },
+            {
+              "name":"Blazing Equilibrium",
+              "description":"Critical Mass also reduces overcharge generated by 5% per 8 overcharge and stacks up to 5 times."
+            },
+            {
+              "name":"One with the Flame",
+              "description":"Critical Mass also increases attack speed by 2% per 8 overcharge and stacks up to 5 times."
+            }
+          ],
+          [
+            {
+              "name":"Seething Embers",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Soul Snare",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Blazing Harvest",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Exhaust",
+              "description":"The Burning Head also removes all overcharge."
+            },
+            {
+              "name":"Bonded Flame",
+              "description":"The Burning Head grants 10 temporary health when used."
+            },
+            {
+              "name":"Fiery Heart",
+              "description":"Reduces the cooldown of The Burning Head by 30%."
+            }
+          ]
+        ]
+      },
+      {
+        "name":"Unchained",
+		"codename": "bw_unchained",
+		"health":"150",
+        "passives":[
+          {
+            "name":"Blood Magic",
+            "description":"50% damage taken transfered to Overcharge."
+          },
+          {
+            "name":"Slave to Aqshy",
+            "description":"No Overcharge slowdown."
+          },
+          {
+            "name":"Unstable Strength",
+            "description":"Increased melee power on high Overcharge."
+          },
+          {
+            "name":"Blazing Sinews",
+            "description":"Reduced block cost on high Overcharge, consumes Overcharge."
+          }
+        ],
+        "skill":{
+          "name":"Living Bomb",
+          "description":"Sienna explodes, dealing damage to surrounding enemies and clearing her Overcharge.",
+		  "cooldown":"120"
+        },
+        "talents":[
+          [
+            {
+              "name":"Backblast",
+              "description":"Increases effective block and push arc by 50%."
+            },
+            {
+              "name":"Form of the Fire Wind",
+              "description":"Increases max overcharge by 25%."
+            },
+            {
+              "name":"Volcanic Body",
+              "description":"Increases maximum health by 20%."
+            }
+          ],
+          [
+            {
+              "name":"Feuerbach's Fury",
+              "description":"Successful charged melee attacks grant 40% increased stamina regeneration for 2 seconds."
+            },
+            {
+              "name":"Essence Syphon",
+              "description":"Clears any wounds and converts temporary health to permanent health when bosses die."
+            },
+            {
+              "name":"Seared Nerves",
+              "description":"Revived allies take 50% less damage for 10 seconds."
+            }
+          ],
+          [
+            {
+              "name":"Dissispate",
+              "description":"Reduces damage taken from venting overcharge by 50%."
+            },
+            {
+              "name":"Conduit",
+              "description":"Increases rate of venting overcharge by 50%."
+            },
+            {
+              "name":"Natural Talent",
+              "description":"Reduces overcharge generated by 15%."
+            }
+          ],
+          [
+            {
+              "name":"Seething Embers",
+              "description":"Critical hits grant temporary health."
+            },
+            {
+              "name":"Soul Snare",
+              "description":"Kills grant temporary health."
+            },
+            {
+              "name":"Blazing Harvest",
+              "description":"When bosses die, gain health."
+            }
+          ],
+          [
+            {
+              "name":"Flame Wave",
+              "description":"Increases the radius of Living Bomb explosion by 50%."
+            },
+            {
+              "name":"Blazing Crescendo",
+              "description":"Increase the explosion damage of Living Bomb."
+            },
+            {
+              "name":"Tick, Tick, Tick...",
+              "description":"Reduces the cooldown of Living Bomb by 30%."
+            }
+          ]
+        ]
+      }
+    ]
+  }
+  ],
+	"melee_weapons": [
+		{
+			"name":"Dual Axes",
+			"codename": "dr_dual_axes",
+			"templateName": "dual_wield_axes_template_1",
+			"icon": "dual_axes.png",
+			"stamina": "",
+			"dodgeCount": "",
+			"blockSpeed": "",
+			"blockRadius": "",
+			"attackSwingIcons": [
+				{
+					"name": "light_attack_left_upward",
+					"icon": "diag-up-left"
+				}
+			],
+			"attackPatterns": [],
+			"class": ["Slayer"]
+		},
+		{
+			"name":"One Hand Hammer",
+			"codename": "dr_1h_hammer",
+			"templateName": "one_handed_hammer_template_2",
+			"class": ["Ranger Veteran", "Iron Breaker", "Slayer"]
+		},
+		{
+			"name":"One Hand Axe",
+			"codename": "dr_1h_axe",
+			"templateName": "one_hand_axe_template_2",
+			"class": ["Ranger Veteran", "Iron Breaker", "Slayer"]
+		},
+		{
+			"name":"Hammer and Shield",
+			"codename": "dr_1h_hammer_shield",
+			"templateName": "one_handed_hammer_shield_template_2",
+			"class": ["Ranger Veteran", "Iron Breaker"]
+		},
+		{
+			"name":"Axe and Shield",
+			"codename": "dr_1h_axe_shield",
+			"templateName": "one_hand_axe_shield_template_1",
+			"class": ["Ranger Veteran", "Iron Breaker"]
+		},
+		{
+			"name":"Two Hand Axe",
+			"codename": "dr_2h_axe",
+			"templateName": "two_handed_axes_template_1",
+			"class": ["Ranger Veteran", "Iron Breaker", "Slayer"]
+		},
+		{
+			"name":"Two Hand Hammer",
+			"codename": "dr_2h_hammer",
+			"templateName": "two_handed_hammers_template_1",
+			"class": ["Ranger Veteran", "Iron Breaker", "Slayer"]
+		},
+		{
+			"name":"Pickaxe",
+			"codename": "dr_2h_pickaxe",
+			"templateName": "two_handed_picks_template_1",
+			"class": ["Ranger Veteran", "Iron Breaker", "Slayer"]
+		},
+		{
+			"name":"Dual Daggers",
+			"codename": "we_dual_daggers",
+			"templateName": "dual_wield_daggers_template_1",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Sword and Dagger",
+			"codename": "we_sword_dagger",
+			"templateName": "dual_wield_sword_dagger_template_1",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Dual Swords",
+			"codename": "we_dual_swords",
+			"templateName": "dual_wield_swords_template_1",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Glaive",
+			"codename": "we_2h_axe",
+			"templateName": "two_handed_axes_template_2",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Spear",
+			"codename": "we_2h_spear",
+			"templateName": "two_handed_spears_elf_template_1",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Two Hand Sword",
+			"codename": "we_2h_sword",
+			"templateName": "two_handed_swords_wood_elf_template",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"One Hand Sword",
+			"codename": "we_1h_sword",
+			"templateName": "we_one_hand_sword_template_1",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"One Hand Hammer",
+			"codename": "es_1h_hammer",
+			"templateName": "one_handed_hammer_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"One Hand Sword",
+			"codename": "es_1h_sword",
+			"templateName": "one_handed_swords_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Hammer and Shield",
+			"codename": "es_1h_hammer_shield",
+			"templateName": "one_handed_hammer_shield_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Sword and Shield",
+			"codename": "es_1h_sword_shield",
+			"templateName": "one_handed_sword_shield_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Halberd",
+			"codename": "es_2h_axe",
+			"templateName": "two_handed_halberds_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Two Hand Hammer",
+			"codename": "es_2h_hammer",
+			"templateName": "two_handed_hammers_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Two Hand Sword",
+			"codename": "es_2h_sword",
+			"templateName": "two_handed_swords_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Executioner Sword",
+			"codename": "es_2h_executioner_sword",
+			"templateName": "two_handed_swords_executioner_template_1",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Rapier",
+			"codename": "wh_1h_rapier",
+			"templateName": "fencing_sword_template_1",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"One Hand Axe",
+			"codename": "wh_1h_axe",
+			"templateName": "one_hand_axe_template_1",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Falchion",
+			"codename": "wh_1h_falchion",
+			"templateName": "one_hand_falchion_template_1",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Flail",
+			"codename": "wh_1h_flail",
+			"templateName": "one_handed_flail_template_1",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Two Hand Sword",
+			"codename": "wh_2h_sword",
+			"templateName": "two_handed_swords_template_1",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Flaming Sword",
+			"codename": "bw_1h_flaming_sword",
+			"templateName": "flaming_sword_template_1",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"]
+		},
+		{
+			"name":"Ceremonial Dagger",
+			"codename": "bw_1h_dagger",
+			"templateName": "one_handed_daggers_template_1",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"]
+		},
+		{
+			"name":"One Hand Sword",
+			"codename": "bw_1h_sword",
+			"templateName": "one_handed_swords_template_1",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"]
+		},
+		{
+			"name":"One Hand Mace",
+			"codename": "bw_1h_hammer",
+			"templateName": "one_handed_hammer_wizard_template_1",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"]
+		}
+	],
+	"range_weapons": [
+		{
+			"name":"Handgun",
+			"class": ["Ranger Veteran", "Iron Breaker"]
+		},
+		{
+			"name":"Crossbow",
+			"class": ["Ranger Veteran", "Iron Breaker"]
+		},
+		{
+			"name":"Grudgeraker",
+			"class": ["Ranger Veteran", "Iron Breaker"]
+		},
+		{
+			"name":"Drakefire Pistols",
+			"class": ["Iron Breaker"],
+			"heat":"yes"
+		},
+		{
+			"name":"Drakegun",
+			"class": ["Iron Breaker"],
+			"heat":"yes"
+		},
+		{
+			"name":"Dual Axes",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"One Hand Hammer",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"One Hand Axe",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"Two Hand Axe",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"Two Hand Hammer",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"Pickaxe",
+			"class": ["Slayer"]
+		},
+		{
+			"name":"Swiftbow",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Longbow",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Hagbane Swiftbow",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Volley Crossbow",
+			"class": ["Waystalker", "Shade", "Handmaiden"]
+		},
+		{
+			"name":"Longbow",
+			"class": ["Huntsman"]
+		},
+		{
+			"name":"Handgun",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Repeater Handgun",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Blunderbuss",
+			"class": ["Mercenary", "Foot Knight", "Huntsman"]
+		},
+		{
+			"name":"Crossbow",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Volley Crossbow",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Repeater Pistol",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Brace of Pistols",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Crossbow",
+			"class": ["Witch Hunter Captain", "Bounty Hunter", "Zealot"]
+		},
+		{
+			"name":"Bolt Staff",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"],
+			"heat":"yes"
+		},
+		{
+			"name":"Beam Staff",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"],
+			"heat":"yes"
+		},
+		{
+			"name":"Fireball Staff",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"],
+			"heat":"yes"
+		},
+		{
+			"name":"Conflagration Staff",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"],
+			"heat":"yes"
+		},
+		{
+			"name":"Flamestorm Staff",
+			"class": ["Battle Wizard", "Pyromancer", "Unchained"],
+			"heat":"yes"
+		}
+	],
+	"melee_properties": [
+		{
+			"name":"Attack Speed",
+			"min_value":"3",
+			"max_value":"5",
+			"step":"0.2"
+		},
+		{
+			"name":"Stamina",
+			"min_value":"1",
+			"max_value":"2",
+			"step":"1"
+		},
+		{
+			"name":"Block Cost Reduction",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Crit Chance",
+			"min_value":"3",
+			"max_value":"5",
+			"step":"0.2"
+		},
+		{
+			"name":"Crit Power",
+			"min_value":"10",
+			"max_value":"20",
+			"step":"1"
+		},
+		{
+			"name":"Push/Block Angle",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Power vs Skaven",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Chaos",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		}
+	],
+	"range_properties": [
+		{
+			"name":"Crit Chance",
+			"min_value":"3",
+			"max_value":"5",
+			"step":"0.2"
+		},
+		{
+			"name":"Crit Power",
+			"min_value":"10",
+			"max_value":"20",
+			"step":"1"
+		},
+		{
+			"name":"Power vs Skaven",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Chaos",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Infantry",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Armored",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Berserkers",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Monsters",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		}
+	],
+	"necklace_properties": [
+		{
+			"name":"Stamina",
+			"min_value":"1",
+			"max_value":"2",
+			"step":"1"
+		},
+		{
+			"name":"Block Cost Reduction",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Health",
+			"min_value":"10",
+			"max_value":"20",
+			"step":"1"
+		},
+		{
+			"name":"Push/Block Angle",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Damage reduction vs Skaven",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Damage reduction vs Chaos",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Damage reduction vs Area",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		}
+	],
+	"charm_properties": [
+	
+		{
+			"name":"Attack Speed",
+			"min_value":"3",
+			"max_value":"5",
+			"step":"0.2"
+		},
+		{
+			"name":"Crit Power",
+			"min_value":"10",
+			"max_value":"20",
+			"step":"1"
+		},
+		{
+			"name":"Power vs Skaven",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Chaos",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Infantry",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Armored",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Berserkers",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Power vs Monsters",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		}
+	],
+	"trinket_properties": [
+		{
+			"name":"Cooldown Reduction",
+			"min_value":"5",
+			"max_value":"10",
+			"step":"0.5"
+		},
+		{
+			"name":"Crit Chance",
+			"min_value":"3",
+			"max_value":"5",
+			"step":"0.2"
+		},
+		{
+			"name":"Curse Resistance",
+			"min_value":"11",
+			"max_value":"33",
+			"step":"0.2"
+		},
+		{
+			"name":"Movement Speed",
+			"min_value":"5",
+			"max_value":"5",
+			"step":"0"
+		},
+		{
+			"name":"Respawn Speed",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Revive Speed",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		},
+		{
+			"name":"Stamina Recovery Rate",
+			"min_value":"10",
+			"max_value":"30",
+			"step":"2"
+		}
+	],
+	"melee_traits": [
+		{
+			"name":"Heroic Intervention",
+			"description":"Assisting an ally under attack grants both players a damage shield for a short time"
+		},
+		{
+			"name":"Off Balance",
+			"description":"Blocking an attack increases the amount of damage the attacker takes by 50% for 3 seconds"
+		},
+		{
+			"name":"Opportunist",
+			"description":"Increases push strength by 50% against an attacking enemy"
+		},
+		{
+			"name":"Parry",
+			"description":"Timed blocks reduce stamina cost by 100%"
+		},
+		{
+			"name":"Resourceful Combatant",
+			"description":"Melee critical hits reduce the remaining cooldown of your career skill by 2%"
+		},
+		{
+			"name":"Swift Slaying",
+			"description":"Critical melee strikes increase attack speed by 20% for 5 seconds​"
+		}
+	],
+	"range_traits": [
+		{
+			"name":"Barrage",
+			"description":"Consecutive attacks against the same targets boosts attack power by 5% for 5 seconds"
+		},
+		{
+			"name":"Conservative Shooter",
+			"description":"Headshots replenish 1 ammo"
+		},
+		{
+			"name":"Heat Sink",
+			"description":"Reduce overheat by 4 on critical hits",
+			"heat":"yes"
+		},
+		{
+			"name":"Hunter",
+			"description":"Critical hits increase attack power by 25% against targets with the same armor class for a short time"
+		},
+		{
+			"name":"Inspirational Shot",
+			"description":"Headshots restore stamina to nearby allies"
+		},
+		{
+			"name":"Resourceful Sharpshooter",
+			"description":"Ranged critical hits reduces remaining cooldown of your career skill by 2%"
+		},
+		{
+			"name":"Scrounger",
+			"description":"Critical hits restore 2 ammo"
+		},
+		{
+			"name":"Thermal Equalizer",
+			"description":"Weapon generates 20% less heat​",
+			"heat":"yes"
+		}
+	],
+	"necklace_traits": [
+		{
+			"name":"Barkskin",
+			"description":"Reduces damage taken by 50% for 10 seconds after using healing supplies"
+		},
+		{
+			"name":"Hand of Shallya",
+			"description":"Healing an ally with a medpack also heals you for 35% of your missing health"
+		},
+		{
+			"name":"Healers Touch",
+			"description":"25% chance to not consume healing item on use"
+		},
+		{
+			"name":"Natural Bond",
+			"description":"Grants passive health regeneration but can no longer heal yourself"
+		},
+		{
+			"name":"Shallya's Boon",
+			"description":"Increases effect of healing on you by 30%​"
+		}
+	],
+	"charm_traits": [
+		{
+			"name":"Concoction",
+			"description":"Drinking a potion grants the benefits of all possible potions (effects only last half as long)"
+		},
+		{
+			"name":"Decanter",
+			"description":"Increases the duration of potion effects by 50%"
+		},
+		{
+			"name":"Home Brewer",
+			"description":"Grants base 25% chance to not consume potion when drinking"
+		},
+		{
+			"name":"Proxy",
+			"description":"Consuming a potion spread the effect to the nearest ally​"
+		}
+	],
+	"trinket_traits": [
+		{
+			"name":"Explosive Ordnance",
+			"description":"Increases explosion radius by 50%"
+		},
+		{
+			"name":"Grenadier",
+			"description":"25% chance to not consume a used bomb"
+		},
+		{
+			"name":"Shrapnel",
+			"description":"Grenades cause hit enemies to take 20% increased damage for 10 seconds​"
+		}
+	]
+  }
+]

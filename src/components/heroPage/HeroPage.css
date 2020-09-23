@@ -1,0 +1,281 @@
+.hero-page {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-areas: "heroSelect heroContainer heroInventory";
+  height: 100%;
+  padding: 20px;
+  padding-top: 30px;
+  grid-column-gap: 20px;
+}
+.hero-page .inventory-container {
+  grid-area: heroInventory;
+}
+.hero-page-url-state {
+  left: 0;
+  height: 40px;  
+  cursor: pointer;  
+  color: #f0f0f0;  
+  grid-area: heroPageStateUrl;  
+  position: relative;  
+  justify-self: center;
+  width: calc(100% - 6px) !important; 
+  background: black;
+  border-image: url('../../assets/images/borders/border-01.png');
+  border-image-slice: 15;
+  border-image-width: 15px;
+  border-style: solid;
+}
+.hero-page-url-state::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  margin-left: 38px;
+  width: 28px;
+  height: 28px;
+  background: url('../../assets/images/icons/link.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.hero-page-url-state::before {
+  content: 'Copy URL';
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;  
+  justify-content: center;
+}
+.hero-container {
+  grid-area: heroContainer;
+  box-shadow: -1px -1px 0 0 #564640;
+  display: grid;
+}
+.hero-page > * {
+  width: 100%;
+}
+.hero-side-container {
+  grid-area: heroSideContainer;
+  padding: 10px
+}
+.hero-summary-container {
+  grid-area: heroSummary;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  grid-template-areas: "heroName heroName" "heroPortrait heroAttributes";
+  align-items: start;
+}
+.hero-page .hero-portrait {
+
+  height: 121px;
+  width: 100px;
+
+}
+
+.hero-side-container {
+  background-size: cover;
+}
+
+.hero-side-container {
+  grid-area: heroSideContainer;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 65px 153px 150px 150px 120px;
+  grid-template-areas: "heroName" "heroSummary" "heroPassive" "heroSkill" "heroPerks";
+  color: #c15b24;
+  box-shadow: -1px -1px 0 0 #564640;
+}
+
+.hero-skill-container {
+  grid-area: heroSkill;
+}
+.hero-passive-container {
+  grid-area: heroPassive;
+}
+.hero-passive-container, .hero-skill-container {
+  display: grid;
+  grid-template-rows: 30px auto;  
+  grid-template-columns: 70px 1fr;  
+  grid-template-areas: "abilityHeader abilityHeader" "abilityIcon abilityDescription";  
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+}
+.hero-perks-container {
+  grid-area: heroPerks;
+}
+.hero-portrait {
+  height: 144px;
+  width: 124px;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-area: heroPortrait;
+}
+.hero-attributes {
+  display: grid;
+  grid-template-rows: 25px 38px 25px 35px;
+  text-align: left;
+  justify-content: left;
+  justify-items: left;
+  grid-template-columns: 1fr;   
+  grid-area: heroAttributes;
+  position: relative;
+}
+.hero-summary > p:nth-child(2n+1) {
+  font-size: 150%;
+}
+.hero-summary > p {
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.health-value {
+  height: 24px;  
+  background: linear-gradient(90deg,#06730a,#31d014);
+  color: #f0d9af;  
+  border: 1px solid #f0d9af;  
+  border-radius: 2px;  
+  left: 0; 
+  justify-content: center;
+  align-content: center;
+  display: grid; 
+  width: 100%;
+}
+.skill-cooldown-value {
+  height: 24px;  
+  background: linear-gradient(90deg,#2b1d7e,#6c48a8);
+  content: '40 seconds';  
+  left: 0;
+  color: #f0d9af;  
+  border: 1px solid #f0d9af;  
+  border-radius: 2px;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  width: 100%;
+}
+
+.hero-skill-header::after {
+  content: 'Career Skill';
+}
+.hero-passive-header::after, .hero-skill-header::after {
+  position: absolute;
+  right: 0;
+  font-size: 75%;
+  color: #848484;
+  margin-top: 5px;
+}
+.hero-passive-header::after {
+  content: 'Passive Ability';
+}
+.hero-skill-header::after {
+  content: 'Career Skill';
+}
+.hero-passive-header, .hero-skill-header, .hero-perks-header, .hero-name-header {
+  grid-area: abilityHeader;
+  text-align: left;
+  align-self: end;
+  font-size: 140%;
+  position: relative;
+}
+.hero-passive-header::before, .hero-skill-header::before, .hero-perks-header::before, .hero-name-header::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background-image: linear-gradient(90deg,#808080b3 10%, #80808000);
+}
+.hero-ability-icon {
+    grid-area: abilityIcon;
+    background-repeat: no-repeat;
+}
+.hero-passive-description, .hero-skill-description, .hero-perk-item-description {
+  text-align: left;
+  color:#c8c8c8;
+  font-size: 110%;
+}
+.hero-perk-item-header {
+  font-size: 120%;
+  text-align: left;
+}
+.hero-perk-item-description {
+
+  margin-left: 13px;
+
+}
+.hero-name-container {
+  grid-area: heroName;
+}
+.hero-name-header { 
+  text-transform: uppercase;
+}
+.hero-name {
+  text-align: left;
+  color: #c8c8c8;
+  font-size: 110%;
+}
+.hero-navigation-container {
+  grid-area: heroNavigation;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+.navigation-button {
+  background: black;
+  box-shadow: inset 0 3px 6px white;
+  color: #a58d71;
+  align-content: center;
+  display: grid;
+  cursor: pointer;
+}
+.navigation-button.selected, .navigation-button:hover {
+  box-shadow: inset 0 9px 6px -6px white, inset 0 -9px 20px -6px #6a371d;
+  color: #f0f0f0;
+}
+.hero-container .hero-summary-tab {
+  display: grid;
+  grid-template-areas: "heroOverview" "heroPageStateUrl" "heroTalents";
+  grid-template-rows: auto auto 1fr;
+  height: calc(100% - 34px);
+}
+.hero-overview-container {
+  display: grid;
+  grid-template-areas: "heroDetails" "buildSummary";
+  grid-template-rows: auto auto;
+  grid-row-gap: 20px;
+}
+.hero-page .hero-overview-container {
+  background: url('../../assets/images/backgrounds/background14.png');
+  border-image: url('../../assets/images/borders/border-01.png');
+  border-image-slice: 15;
+  border-image-width: 15px;
+  border-style: solid;
+  padding: 10px;
+}
+.hero-page .hero-details-container {  
+  display: grid;
+  grid-template-areas: "heroSummary heroPassive heroPerks" "heroSummary heroSkill heroPerks" "buildSummary buildSummary buildSummary";
+  grid-area: heroDetails;
+  color: #c15b24;
+  grid-template-rows: minmax(105px, auto) auto 1fr;
+  grid-column-gap: 20px;
+  grid-template-columns: 200px 500px 1fr;
+}
+.hero-details-container .hero-ability-icon {
+  height: 60px;
+  width: 60px;
+  background-size: contain;
+}
+.hero-perk-item-container {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+}
+
+.hero-container .container-tabs-list li {
+  cursor: initial;
+}

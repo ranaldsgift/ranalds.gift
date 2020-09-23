@@ -1,0 +1,12 @@
+.weapon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    max-width: 325px;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 7px;
+    grid-column-gap: 7px;
+    justify-self: center;
+    margin: 12px;
+  }

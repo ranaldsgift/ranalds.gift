@@ -16,8 +16,8 @@ class LoginPage extends Component {
           <form>
             <input type="text" id="loginEmail" className="border-03" placeholder="E-MAIL"></input>
             <input type="password" id="loginPassword" className="border-03" placeholder="PASSWORD"></input>
-            <button id="loginButton" className="app-navigation-button border-04" onClick={this.loginUser.bind(this)}>Login</button>
-            <button className="app-navigation-button border-04" data-pagename="registerPage"><Link to="/register">Register</Link></button>
+            <button id="loginButton" className="app-navigation-button button-01 border-04" onClick={this.loginUser.bind(this)}>Login</button>
+            <button className="app-navigation-button button-01 border-04" data-pagename="registerPage"><Link to="/register">Register</Link></button>
           </form>
         </div>
     );

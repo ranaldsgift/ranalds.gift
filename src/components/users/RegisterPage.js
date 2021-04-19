@@ -14,7 +14,7 @@ class RegisterPage extends Component {
             <input type="text" id="registerEmail" className="border-03" placeholder="E-MAIL"></input>
             <input type="password" id="registerPassword" className="border-03" placeholder="PASSWORD"></input>
             <input type="password" id="registerPasswordVerify" className="border-03" placeholder="VERIFY PASSWORD"></input>
-            <button id="registerButton" className="app-navigation-button border-04" onClick={this.registerUser.bind(this)}>Register</button>
+            <button id="registerButton" className="app-navigation-button button-01 border-04" onClick={this.registerUser.bind(this)}>Register</button>
           </form>
         </div>
     );

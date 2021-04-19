@@ -42,7 +42,12 @@ class BuildSummary extends Component {
     var rangeProperty1 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
     var rangeProperty2 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
 
-    if (parseInt(state.careerId) === 6  && range.name.indexOf('Throwing Axes') < 0 || parseInt(state.careerId) === 16) {
+    if (parseInt(state.careerId) === 6  && range.name.indexOf('Throwing Axes') < 0) {
+        rangeProperty1 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
+        rangeProperty2 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
+    }
+
+    if (parseInt(state.careerId) === 16) {
         rangeProperty1 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
         rangeProperty2 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
     }
@@ -72,14 +77,21 @@ class BuildSummary extends Component {
         meleeTrait = traitsData.range.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[0]); });
     }
 
-    if (parseInt(state.careerId) === 6 && range.name.indexOf('Throwing Axes') < 0 || parseInt(state.careerId) === 16) {
+    if (parseInt(state.careerId) === 6 && range.name.indexOf('Throwing Axes') < 0) {
+        rangeTrait = traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[1]); });
+    }
+
+    if (parseInt(state.careerId) === 16) {
         rangeTrait = traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[1]); });
     }
       
     return (
         <div className="build-summary-container">
             <div className="build-melee-summary">
-                <p className="item-summary-header">{melee.name}</p>
+                <div className="item-summary-header">
+                    <p className="item-name">{melee.name}</p>
+                    <p className="item-trait-name">{meleeTrait.name}</p>
+                </div>
                 <div className="weapon-background">
                     <div className={melee.codeName}>
                         <div className="weapon-icon" data-id={melee.id} data-type="melee"></div>
@@ -92,7 +104,10 @@ class BuildSummary extends Component {
                 </div>
             </div>
             <div className="build-range-summary">
-                <p className="item-summary-header">{range.name}</p>
+                <div className="item-summary-header">
+                    <p className="item-name">{range.name}</p>
+                    <p className="item-trait-name">{rangeTrait.name}</p>
+                </div>
                 <div className="weapon-background">
                     <div className={range.codeName}>
                         <div className="weapon-icon" data-id={range.id} data-type="range"></div>
@@ -104,22 +119,38 @@ class BuildSummary extends Component {
                     <li className="item-property-2">{`+ ${parseFloat(rangeProperty2.max_value).toFixed(1)}% ${rangeProperty2.name}`}</li>
                 </div>
             </div>
-            <div className="build-jewelry-summary">
+            <div className="build-jewelry-summary necklace-summary">
+                <div className="item-summary-header">
+                    <p className="item-name">Necklace</p>
+                    <p className="item-trait-name">{necklaceTrait.name}</p>
+                </div>
                 <div className="jewelry-icon necklace-icon border-04"></div>
                 <div className={`trait-icon trait-${necklaceTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
-                <div className="necklace-property-container">                                    
+                <div className="necklace-property-container property-container">                                    
                     <li className="item-property-1">{`+ ${parseFloat(necklaceProperty1.max_value).toFixed(1)}${necklaceModifier1} ${necklaceProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(necklaceProperty2.max_value).toFixed(1)}${necklaceModifier2} ${necklaceProperty2.name}`}</li>
                 </div>
+            </div>
+            <div className="build-jewelry-summary charm-summary">
+                <div className="item-summary-header">
+                    <p className="item-name">Charm</p>
+                    <p className="item-trait-name">{charmTrait.name}</p>
+                </div>
                 <div className="jewelry-icon charm-icon border-04"></div>
                 <div className={`trait-icon trait-${charmTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
-                <div className="charm-property-container">                                    
+                <div className="charm-property-container property-container">                                    
                     <li className="item-property-1">{`+ ${parseFloat(charmProperty1.max_value).toFixed(1)}% ${charmProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(charmProperty2.max_value).toFixed(1)}% ${charmProperty2.name}`}</li>
                 </div>
+            </div>
+            <div className="build-jewelry-summary trinket-summary">
+                <div className="item-summary-header">
+                    <p className="item-name">Trinket</p>
+                    <p className="item-trait-name">{trinketTrait.name}</p>
+                </div>
                 <div className="jewelry-icon trinket-icon border-04"></div>
                 <div className={`trait-icon trait-${trinketTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
-                <div className="trinket-property-container">
+                <div className="trinket-property-container property-container">
                     <li className="item-property-1">{`+ ${parseFloat(trinketProperty1.max_value).toFixed(1)}% ${trinketProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(trinketProperty2.max_value).toFixed(1)}% ${trinketProperty2.name}`}</li>
                 </div>

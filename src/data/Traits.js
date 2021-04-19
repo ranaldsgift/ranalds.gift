@@ -122,7 +122,7 @@ export const traitsData =
             {
                 "id": "4",
                 "name":"Proxy",
-                "description":"Consuming a potion spreads the effect to the nearest ally​."
+                "description":"Consuming a potion spreads the effect to the nearest ally."
             }
         ],
         "trinket": [

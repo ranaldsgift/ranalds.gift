@@ -1146,186 +1146,109 @@ export const heroesData = [
         ]
     },
     {
-        "id": 17,
-        "name": "Foot Knight",
-        "codeName": "es_knight",
-        "heroName": "Markus Kruber",
-        "health": 150,
-        "passive": {
-            "name": "Protective Presence",
-            "description": "Aura that reduces damage taken by 15%.",
-            "modifier": {
-                "type": "damage_reduction",
-                "value": 0.15,
-                "conditional": false,
-                "aura": true
-            }
-        },
-        "skill": {
-            "name": "Valiant Charge",
-            "description": "Markus charges forward, slamming into enemies and knocking them back.",
-            "notes": "Staggers bosses",
-            "cooldown": 30
-        },
-        "perks": [
-            {
-                "name": "Taal's Fortitude",
-                "description": "Grant's an extra stamina shield.",
-                "modifier": {
-                    "type": "stamina",
-                    "value": 2,
-                    "conditional": false
-                }
-            },            
-            {
-                "name": "No Guts, No Glory",
-                "description": "Reduces damage taken by 10%.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.1,
-                    "conditional": false
-                }
-            }
-        ],
-        "talents": [
-            {                
-                "name": "Back Off, Ugly!",
-                "description": "Staggering an enemy with a melee attack grants temporary health. Health gained is based on the strength of the stagger."
-            },
-            {                
-                "name": "Bloody Unstoppable!",
-                "description": "Striking multiple enemies in one swing grants temporary health based on the number of targets hit. Max 5 enemies."
-            },
-            {                
-                "name": "Templar’s Rally",
-                "description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20% of their maximum health. Clears any wounds."
-            },
-            {                
-                "name": "Staggering Force",
-                "description": "Increases stagger power by 35%.",
-                "modifier": {
-                    "type": "stagger",
-                    "value": 0.35,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "Have at Thee!",
-                "description": "Staggering an elite enemy increases power by 15% for 10 seconds.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.15,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Crowd Clearer",
-                "description": "Pushing an enemy increases attack speed by 15% for 3 seconds.",
-                "modifier": {
-                    "type": "attack_speed",
-                    "value": 0.15,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Bulwark",
-                "description": "Enemies that you stagger take 10% more damage from melee attacks for 5 seconds.\n\nDeal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
-            },
-            {                
-                "name": "Mainstay",
-                "description": "Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
-            },
-            {                
-                "name": "Enhanced Power",
-                "description": "Increases total Power Level by 7.5% (incorrect in-game). This is calculated before other buffs are applied.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.07,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "Rock of the Reikland",
-                "description": "Protective Presence also grants 20% block cost reduction.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.2,
-                    "conditional": false,
-                    "aura": true
-                }
-            },
-            {                
-                "name": "Defensive Formation",
-                "description": "Increases damage reduction from Protective Presence by 5%.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.05,
-                    "conditional": false,
-                    "aura": true
-                }
-            },
-            {                
-                "name": "Taal’s Champion",
-                "description": "Increases power level by 10%. Removes damage reduction and no longer effects allies.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.1,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "It’s Hero Time",
-                "description": "Increases movement speed by 30% when an ally is incapcitated.",
-                "modifier": {
-                    "type": "move_speed",
-                    "value": 0.3,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Counter-Punch",
-                "description": "Blocking an attack removes the stamina cost of pushing for 2 seconds."
-            },
-            {                
-                "name": "That’s Bloody Teamwork!",
-                "description": "Reduces damage taken by 5% for each nearby ally.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.05,
-                    "conditional": true,
-                    "stacks": 3
-                }
-            },
-            {                
-                "name": "Numb to Pain",
-                "description": "Valiant Charge grants invulnerablility for 3 seconds.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 1.0,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Trample",
-                "description": "Enemies hit by Valiant Charge takes 20% increased damage for 5 seconds. Does not stack with similar effects.",
-                "modifier": {
-                    "type": "enemy_damage",
-                    "value": 0.2,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Bull of Ostland!",
-                "description": "Each enemy hit with Valiant Charge grants 3% attack speed for 10 seconds. Stacks up to 10 times.",
-                "modifier": {
-                    "type": "attack_speed",
-                    "value": 0.03,
-                    "conditional": true,
-                    "stacks": 10
-                }
-            }
-        ]
-    },
+		"id": 17,
+		"name": "Outcast Engineer",
+		"codeName": "dr_engineer",
+		"heroName": "Outcast Engineer",
+		"health": 100,
+		"passive": {
+			"name": "Build Pressure",
+			"description": "Holding reload with the Steam-Assisted Crank Gun (Mk II) equipped builds Pressure. Each stack of Pressure lasts for 12 seconds and gradually restores the Ability Bar. Stacks up to 5 times."
+		},
+		"skill": {
+			"name": "Steam-Assisted Crank Gun (Mk II)",
+			"description": "Unleash the fearsome firepower of Bardin's custom creation. Shots reduce the Ability Bar. Any accumulated Pressure is lost upon firing.",
+			"cooldown": "60"
+		},
+		"perks": [
+			{
+				"name": "Gunsmith",
+				"description": "Increases max Ammo by 50%."
+			},
+			{
+				"name": "Spotter",
+				"description": "Increases Ranged Power of nearby allies by 10%."
+			},
+			{
+				"name": "Utility Belt",
+				"description": "Bardin can carry up to 3 Bombs (of any type) at one time. Pressing the Bomb keybind cycles between them."
+			}
+		],
+		"talents": [
+			{
+				"name": "Engineer's Resolve",
+				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+			},
+			{
+				"name": "Morgrim's Enthusiasm",
+				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+			},
+			{
+				"name": "Pouch of the Good Stuff",
+				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+			},
+			{
+				"name": "Leading Shots",
+				"description": "Every 4 Ranged Attack is a guaranteed Critical Hit."
+			},
+			{
+				"name": "Armour Piercing Slugs",
+				"description": "Ranged Attacks pierce 1 additional enemy."
+			},
+			{
+				"name": "Scavenged Shot",
+				"description": "Melee Power is increased by 10%. Every 5 Melee kill makes Bardin's next Ranged Attack consume no Ammo."
+			},
+			{
+				"name": "Bulwark",
+				"description": "Enemies that you stagger take 10% more damage from melee attacks for 2 seconds.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Mainstay",
+				"description": "Deal 40% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Enhanced Power",
+				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
+			},
+			{
+				"name": "Full Head of Steam",
+				"description": "Upon reaching 5 stacks of Pressure, Bardin gains 15.0% Power for 10 seconds."
+			},
+			{
+				"name": "Experimental Steam Capacitors",
+				"description": "Pressure stacks are no longer removed upon reaching full charge or firing the Steam-Assisted Crank Gun (Mk II)."
+			},
+			{
+				"name": "Superior Gaskets",
+				"description": "Pressure is not lost over time. Each stack of Pressure grants 2.5% Attack Speed. Max stacks reduced by 1."
+			},
+			{
+				"name": "Ablative Armour",
+				"description": "Every 5 seconds Bardin gains a stack of Damage Reduction. Stacks up to 5 times. Each stack reduces damage taken by 5%. Taking damage removes a stack."
+			},
+			{
+				"name": "Bombardier",
+				"description": "Bardin's Bombs gain the effect of both regular Bombs and Incendiary Bombs."
+			},
+			{
+				"name": "Piston Power",
+				"description": "Every 15 seconds Bardin gains a buff that grants immense Stagger to his next charged attack."
+			},
+			{
+				"name": "Gromril-Plated Shot",
+				"description": "Reduces the Steam-Assisted Crank Gun (Mk II)'s rate of fire, but increases Damage and Armour Penetration."
+			},
+			{
+				"name": "Linked Compression Chamber",
+				"description": "The Steam-Assisted Crank Gun (Mk II) starts firing at full speed, rather than taking time to ramp up."
+			},
+			{
+				"name": "Innovative Ammo Hoppers",
+				"description": "Increases Bardin's Ability Bar by 50%. Killing a Special makes the Steam-Assisted Crank Gun (Mk II) not consume the Ability Bar for the next 4 seconds."
+			}
+		]
+	},
     {
         "id": 7,
         "name": "Waystalker",

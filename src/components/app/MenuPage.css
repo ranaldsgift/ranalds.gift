@@ -1,0 +1,160 @@
+/* .app-navigation-button::before, .app-navigation-button::after {
+    position: absolute;
+    content: '';
+    height: calc(100% + 8px);
+    width: 100%;  
+    background-repeat: no-repeat; 
+    top: -4px;
+  }
+  .app-navigation-button::before {
+    background: url('../../assets/images/borders/border-28.png') no-repeat;
+    left: -10px;
+  }
+  .app-navigation-button::after {
+    background: url('../../assets/images/borders/border-28.png') no-repeat;
+    transform: scaleX(-1);
+    right: -10px;
+  }
+  .app-navigation-button {
+    position: relative;
+    max-width: 300px;
+    justify-self: center;
+    width: calc(100% - 50px);
+    color: #928962;
+    background: url('../../assets/images/labels/label-06.png') no-repeat center;
+    background-size: cover;
+    align-content: center;
+    display: grid;
+    text-transform: uppercase;
+    font-size: 120%;
+    box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -4px 1px rgb(141, 141, 141) !important;
+    text-decoration: none;
+    height: 53px;
+    margin: 5px;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+  .app-navigation-button:hover {
+    box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -4px 1px rgb(141 141 141), 1px 0px 5px #a9711d !important;
+}
+  .react-tabs__tab--selected.app-navigation-button {
+    background: url('../../assets/images/labels/label-06.png') no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 75px black, inset 0 8px 1px white, inset 0 -6px 1px white, inset 0 -9px 20px 6px #6a371d !important;
+    display: grid;
+    grid-template-rows: 100%;
+  }
+  .react-tabs__tab--selected.app-navigation-button a {
+    color: #f0f0f0;
+  }
+  .app-navigation-button a {
+    text-decoration: none;
+    color: #928962;
+    z-index: 1;
+    align-content: center;
+    height: 53px;  
+    display: grid;
+    outline: 0;
+    width: 100%;
+    cursor: pointer;
+  } */
+  .app-navigation-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    padding: 0;  
+    z-index: 2;
+    position: relative;
+  }
+  .navigation-menu-page {
+    display: none;
+    top: 50px;
+    position: relative;
+  }
+  #root.showNav .navigation-menu-page {
+    display: block;
+  }
+  #root.showNav .app-container-frame {
+    display: none;
+  }
+  #root.showNav .page-title {
+      display: none;
+  }
+  /*#root.showNav .fullscreen-background-video {
+    display: block !important;
+}
+#root.showNav .fullscreen-background-image {
+    display: none;
+}*/
+#root.loggedIn .loginPageMenuButton {
+    display: none;
+}
+#root:not(.loggedIn) .userPageMenuButton, #root:not(.loggedIn) .logoutMenuButton {
+    display: none;
+}
+  .menu-title-label{
+      z-index: 1;
+      position: relative;
+  }
+  
+.menu-title-label::after {
+    content: "Ranald's Gift";
+    text-transform: uppercase;
+    position: relative;
+    top: 0px;
+    color: #c15b24;
+    font-size: 3em;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px black;
+  }
+  .menu-title-divider {
+    height: 50px;
+    z-index: 2;
+    position: relative;
+}
+.menu-title-divider-bottom {
+  height: 60px;
+  z-index: 2;
+  position: relative;
+}
+#backgroundVideo {
+    position: relative;
+    z-index: 100;
+}
+
+
+.nagivation-menu-button, .nagivation-menu-overlay {
+    position: fixed;
+    height: 40px;
+    width: 140px;
+    left: 20px;
+    cursor: pointer;
+}
+.nagivation-menu-button {
+    background: url('../../assets/images/icons/menu.png') no-repeat;
+    background-size: contain;
+    z-index: 100;
+}
+.nagivation-menu-button:hover .nagivation-menu-overlay {
+    background: url('../../assets/images/icons/menu_active.png') no-repeat;
+    background-size: contain;
+    z-index: 101;
+}
+.showNav .nagivation-menu-button {
+    display: none;
+}
+
+#root:not(.loggedIn) .auth-button, #root.loggedIn .unauth-button {
+  display: none;
+}
+#root.showNav .close-menu-button {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  color: #fff;
+  font-size: 2em;
+  font-family: monospace;
+  cursor: pointer;
+}

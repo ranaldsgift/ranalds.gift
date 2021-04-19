@@ -5,12 +5,12 @@
     position: relative;
     grid-template-rows: 34px 46px 30px;
     grid-row-gap: 5px;
-    grid-template-areas: "heroIcon buildName buildName buildName buildName buildName" "heroIcon buildDescription buildTalents buildWeapons buildTraits emptySpace" "heroIcon buildDescription buildFooter buildFooter buildFooter buildFooter";
+    grid-column-gap: 10px;
+    grid-template-areas: "heroIcon buildDescription buildDescription buildDescription buildDescription buildDescription"
+                        "heroIcon buildTalents buildTalents buildWeapons buildTraits emptySpace"
+                        "heroIcon buildFooter buildFooter buildFooter buildFooter buildFooter";
     text-transform: uppercase;
     cursor: pointer;
-}
-.build-list-item:hover {
-    box-shadow: inset 0px 1000px #261010e8;
 }
 .build-list-item::after {
     background: radial-gradient(ellipse at top, black, white);
@@ -21,34 +21,40 @@
     z-index: 0;
     opacity: 0.06;
 }
+.edit-build-page .build-list-item .weapons, .edit-build-page .build-list-item .traits {
+    display: none;
+}
+.edit-build-page .build-list-item {
+    grid-template-columns: 100px auto 1fr;
+}
 .build-hero-icon {
-    width: calc(100% - 21px);
-    height: calc(100% - 21px);
+    width: 80px;
+    height: 94px;
     grid-area: heroIcon;
     justify-self: center;
     align-self: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .build-name {
-    grid-area: buildName;
-    align-self: center;
-    margin-top: 4px;
+    font-size: 1.2em;
+    align-self: end;
     justify-self: left;
+    color: #c15b24;
 }
 .build-description-container {
     grid-area: buildDescription;
     justify-items: flex-start;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "buildHeroName" "buildAuthor";
+    grid-template-rows: auto auto auto;
     text-align: left;
+    display: grid;
 }
 .talents {
     grid-area: buildTalents;
     display: grid;
-    grid-template-columns: repeat(6,46px);    
-    justify-self: center;
+    grid-template-columns: repeat(6,30px);
     grid-column-gap: 5px;
+    height: 30px
 }
 .weapons {
     grid-area: buildWeapons;
@@ -67,27 +73,29 @@
 .build-footer {
     grid-area: buildFooter;
     background: linear-gradient(to right, #0000,#ffffff14);
-    margin-right: 3px;
+    padding-right: 10px;
     justify-self: right;
     border-radius: 0 0 8px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
+    align-content: center;
+    font-size: 0.8em;
     width: 100%;
-    margin-top: 4px;
-    margin-bottom: 1px;
+    justify-content: right;
 }
 .build-hero {
-    color: #8a8add;
-
+    font-size: 0.8em;
+    align-self: center;
 }
-.build-author {
-    text-transform: initial;
+.build-footer .patch-number {
+    justify-self: right;
+    color: #31d014;
 }
 .build-footer > p {
     align-content: center;
     display: grid;
     height: 100%;
-    margin-right: 10px;
-    font-size: 85%;
-    justify-content: right;
 
 }
 .weapon-icon:hover::before {
@@ -239,4 +247,46 @@
 }
 .trait-shrapnel {
     background: url('../../assets/images/traits/shrapnel.png') black;
+}
+.build-author a {
+    align-self: center;
+    color: #0096fb;
+    text-transform: capitalize;
+    justify-self: left;
+    padding-left: 5px;
+}
+.build-page .build-hero-icon {
+    margin: 6px;
+}
+.build-page .build-list-item .talents, .build-page .build-list-item .traits, .build-page .build-list-item .weapons {
+    display: none;
+}
+.build-footer .roles {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: left;
+    text-align: left;
+    white-space: nowrap;
+    color: #c8c8c8;
+}
+.roles {
+    color: #c8c8c8;
+}
+.build-list-item {
+    color: #c8c8c8;
+}
+.build-page .build-list-item {
+    color: #c8c8c8;
+    grid-template-columns: 100px 1fr !important;
+    grid-template-rows: 1fr 30px;
+    grid-template-areas:
+        "heroIcon buildDescription"
+        "heroIcon buildFooter";
+    grid-row-gap: 0px;
+}
+a:hover>.build-list-item {
+    box-shadow: inset 0px 1000px #261010e8;
+}
+.build-author-by {
+    text-transform: lowercase;
 }

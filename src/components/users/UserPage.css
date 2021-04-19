@@ -1,0 +1,20 @@
+.user-info-container {
+    color: #8bc34a;
+    font-size: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    justify-items: left;
+    text-align: left;
+    margin: 0 auto;
+    grid-column-gap: 15px;
+    grid-row-gap: 5px;
+}
+.user-info-container>span:nth-child(2n+1) {
+    justify-self: right;
+    color:#808080;
+}
+
+.user-page {
+    padding: 10px;
+}

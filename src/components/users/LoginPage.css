@@ -1,0 +1,44 @@
+
+#root[data-page-name="loginPage"] .app-container-frame {
+    width: 700px;
+    height: 400px;
+    left: calc(50% - 350px);
+    top: calc(50vh - 200px);
+  }
+  #root[data-page-name="loginPage"] .page-title {
+    position: absolute;
+    top: calc(50vh - 232px);
+  }
+  #root[data-page-name="loginPage"] .page-title-label-background {
+    top: calc(50vh - 222px);
+  }
+  #root[data-page-name="loginPage"] input {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 4px;
+    width: 220px;
+    height: 42px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+    text-align: center;
+    width: 318px;
+    background-color: #200000;
+    text-align: center;
+    color: white;
+    outline: none;
+  }
+  #root[data-page-name="loginPage"] form {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    justify-items: center;
+  }
+  #root[data-page-name="loginPage"] .app-container {
+      display: grid;
+      align-content: center;
+  }

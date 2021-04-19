@@ -14,8 +14,8 @@ class HeroSelect extends Component {
 
   render() {
     return (
-      <div className="hero-select-container background-12">
-        <div className="hero-select-header border-01">
+      <div className="hero-select-container">
+        <div className="hero-select-header border-01" title="Show/Hide Hero Selection" onClick={this.toggleHeroSelect}>
           <div className="hero-select-header-background">
             <p>Hero Selection</p>
           </div>
@@ -25,6 +25,16 @@ class HeroSelect extends Component {
         </div>
       </div>
     );
+  }
+
+  toggleHeroSelect() {
+    var heroSelectContainer = document.querySelector('.hero-icon-container');
+    if (!heroSelectContainer.style.display || heroSelectContainer.style.display === 'grid') {
+      heroSelectContainer.style.display = 'none';
+    }
+    else {
+      heroSelectContainer.style.display = 'grid';
+    }
   }
 
   renderHeroes() {

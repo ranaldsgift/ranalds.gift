@@ -4,13 +4,14 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const config = {   
-    apiKey: "AIzaSyDtUozP43e9ygkqV0HpKYRFznePouI2zg0",
-    authDomain: "verminbuilds.firebaseapp.com",
-    databaseURL: "https://verminbuilds.firebaseio.com",
-    projectId: "verminbuilds",
-    storageBucket: "verminbuilds.appspot.com",
-    messagingSenderId: "939733493836",
-    appId: "1:939733493836:web:633eca15d156a09e3a2ce9"
+    apiKey: "AIzaSyBD4fAmwgqETnUzgH3D7MLG08_nbH7FH8Y",
+    authDomain: "ranaldsgift.firebaseapp.com",
+    databaseURL: "https://ranaldsgift.firebaseio.com",
+    projectId: "ranaldsgift",
+    storageBucket: "ranaldsgift.appspot.com",
+    messagingSenderId: "228473427597",
+    appId: "1:228473427597:web:74d72aa23648fb1a5cf4c4",
+    measurementId: "G-9LDVWJ6KT1"
 };
 
 const ALGOLIA_ID = "BLL3SVMO33";

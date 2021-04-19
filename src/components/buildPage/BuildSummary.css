@@ -1,30 +1,31 @@
 .build-summary-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-area: buildSummary;
     color: #f0f0f0;
     text-align: left;
 }
 .build-summary-container li {
-    margin-left: 25px;
+    list-style-type: none;
 }
 .build-summary-container .weapon-background {
     cursor: initial;
 }
 .build-melee-summary, .build-range-summary {
     display: grid;
-    grid-template-areas: "itemSummaryHeader itemSummaryHeader" "weaponIcon propertyContainer" "traitIcon propertyContainer";
-    grid-template-columns: 60px 1fr;
-    grid-template-rows: 24px 60px 60px;
+    grid-template-areas: "itemSummaryHeader itemSummaryHeader itemSummaryHeader" "weaponIcon traitIcon empty" "propertyContainer propertyContainer propertyContainer";
+    grid-template-columns: 60px 60px 1fr;
+    grid-template-rows: 1fr 60px 1fr;
     grid-row-gap: 10px;
+    grid-column-gap: 10px;
 }
 .build-jewelry-summary {
     display: grid;
-    grid-template-areas: "jewelryIcon traitIcon necklacePropertyContainer" "jewelryIcon traitIcon charmPropertyContainer" "jewelryIcon traitIcon trinketPropertyContainer";
-    grid-template-columns: 40px 40px 1fr;
-    grid-template-rows: 40px 40px 40px;
-    grid-row-gap: 5px;
-    align-self: center;
+    grid-template-areas: "itemSummaryHeader itemSummaryHeader itemSummaryHeader" "jewelryIcon traitIcon empty" "propertyContainer propertyContainer propertyContainer";
+    grid-template-columns: 60px 60px 1fr;
+    grid-template-rows: 1fr 60px 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
 }
 .build-melee-summary .trait-icon, .build-range-summary .trait-icon {
     grid-area: traitIcon;
@@ -32,13 +33,27 @@
 .build-melee-summary .weapon-icon, .build-range-summary .weapon-icon {
     grid-area: weaponIcon;
 }
-.build-melee-summary .property-container, .build-range-summary .property-container {
+.property-container {
     grid-area: propertyContainer;
     align-content: center;
     display: grid;
 }
 .item-summary-header {
     grid-area: itemSummaryHeader;
-    font-size: 140%;
-    justify-self: center;
+    font-size: 1.4em;
+    align-self: end;
+}
+.item-name {
+    position: relative;
+}
+.item-name::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    background-image: linear-gradient(90deg,#808080b3 10%, #80808000);
+}
+.build-summary-container .item-trait-name {
+    font-size: 0.8em;
 }

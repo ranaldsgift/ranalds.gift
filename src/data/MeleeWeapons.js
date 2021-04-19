@@ -60,7 +60,7 @@ export const meleeWeaponsData = [
         "name": "Axe",
         "codeName": "dr_1h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_shield_breaking",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer",
         "dodgeDistance": 1.2,
         "dodgeSpeed": 1.2,
         "stamina": 6,
@@ -74,7 +74,7 @@ export const meleeWeaponsData = [
         "name": "Hammer",
         "codeName": "dr_1h_hammer",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer",
         "dodgeDistance": 1.2,
         "dodgeSpeed": 1.2,
         "stamina": 9,
@@ -88,7 +88,7 @@ export const meleeWeaponsData = [
         "name": "Great Axe",
         "codeName": "dr_2h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_shield_breaking,weapon_keyword_armour_piercing",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer",
         "dodgeDistance": 1,
         "dodgeSpeed": 1,
         "stamina": 5,
@@ -102,7 +102,7 @@ export const meleeWeaponsData = [
         "name": "Two-Handed Hammer",
         "codeName": "dr_2h_hammer",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_armour_piercing",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer",
         "dodgeDistance": 1,
         "dodgeSpeed": 1,
         "stamina": 6,
@@ -116,7 +116,7 @@ export const meleeWeaponsData = [
         "name": "War Pick",
         "codeName": "dr_2h_pick",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_heavy_charge",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer",
         "dodgeDistance": 1,
         "dodgeSpeed": 1,
         "stamina": 6,
@@ -144,7 +144,7 @@ export const meleeWeaponsData = [
         "name": "Axe & Shield",
         "codeName": "dr_shield_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_powerful_blocks",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeDistance": 1,
         "dodgeSpeed": 1,
         "stamina": 10,
@@ -158,7 +158,7 @@ export const meleeWeaponsData = [
         "name": "Hammer & Shield",
         "codeName": "dr_shield_hammer",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_powerful_blocks",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeDistance": 1,
         "dodgeSpeed": 1,
         "stamina": 10,
@@ -475,7 +475,7 @@ export const meleeWeaponsData = [
         "id": 37,
         "name": "Dual Hammers",
         "codeName": "dr_hammers",
-        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger"
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer"
     },
     {
         "id": 38,
@@ -518,5 +518,11 @@ export const meleeWeaponsData = [
         "name": "Bretonnian Longsword",
         "codeName": "es_bastard_sword",
         "canWield": "es_questingknight, es_mercenary, es_huntsman, es_knight"
+    },
+    {
+        "id": 45,
+        "name": "Cog Hammer",
+        "codeName": "dr_2h_cog_hammer",
+        "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer"
     }
 ]

@@ -11,6 +11,9 @@ class BuildListPage extends Component {
   render() {
     const [state] = this.context;
 
+    var root = document.getElementById('root');
+    root.dataset.pageName = 'buildsPage';
+
     return (
         <div className="build-list-page">
             <HeroSelect careerId={state.careerId} updateStateType="UPDATE_CAREER"></HeroSelect>

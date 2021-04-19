@@ -295,8 +295,10 @@
 
 @media (min-width: 1900px) {
     .hero-page {
-        grid-template-columns: 392px 980px 392px !important;
+        grid-template-columns: 1fr 980px 1fr !important;
         grid-template-areas: "heroSelect heroContainer heroInventory" !important;
-        padding-top: 30px;
+    }
+    .hero-icon-container {
+        height: 600px;
     }
 }

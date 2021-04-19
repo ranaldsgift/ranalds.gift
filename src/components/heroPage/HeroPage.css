@@ -3,8 +3,6 @@
   grid-template-columns: 1fr 2.5fr 1fr;
   grid-template-areas: "heroSelect heroContainer heroInventory";
   height: 100%;
-  padding: 20px;
-  padding-top: 30px;
   grid-column-gap: 20px;
 }
 .hero-page .inventory-container {
@@ -62,16 +60,13 @@
   grid-area: heroSummary;
   display: grid;
   grid-template-rows: 60px 1fr;
-  grid-template-columns: auto 1fr;
-  grid-column-gap: 10px;
-  grid-template-areas: "heroName heroName" "heroPortrait heroAttributes";
+  grid-template-columns: 145px 1fr;
+  grid-column-gap: 20px;
+  grid-template-areas: "heroPortrait heroName" "heroPortrait heroAttributes";
   align-items: start;
 }
 .hero-page .hero-portrait {
-
-  height: 121px;
-  width: 100px;
-
+  height: 175px;
 }
 
 .hero-side-container {
@@ -106,11 +101,10 @@
   grid-area: heroPerks;
 }
 .hero-portrait {
-  height: 144px;
-  width: 124px;
   background-repeat: no-repeat;
   background-position: center;
   grid-area: heroPortrait;
+  background-size: contain;
 }
 .hero-attributes {
   display: grid;
@@ -130,32 +124,6 @@
   text-align: left;
   position: relative;
 }
-.health-value {
-  height: 24px;  
-  background: linear-gradient(90deg,#06730a,#31d014);
-  color: #f0d9af;  
-  border: 1px solid #f0d9af;  
-  border-radius: 2px;  
-  left: 0; 
-  justify-content: center;
-  align-content: center;
-  display: grid; 
-  width: 100%;
-}
-.skill-cooldown-value {
-  height: 24px;  
-  background: linear-gradient(90deg,#2b1d7e,#6c48a8);
-  content: '40 seconds';  
-  left: 0;
-  color: #f0d9af;  
-  border: 1px solid #f0d9af;  
-  border-radius: 2px;
-  justify-content: center;
-  align-content: center;
-  display: grid;
-  width: 100%;
-}
-
 .hero-skill-header::after {
   content: 'Career Skill';
 }
@@ -253,16 +221,17 @@
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
-  padding: 10px;
+  padding: 20px;
 }
 .hero-page .hero-details-container {  
   display: grid;
-  grid-template-areas: "heroSummary heroPassive heroPerks" "heroSummary heroSkill heroPerks" "buildSummary buildSummary buildSummary";
+  grid-template-areas: "heroSummary heroPerks" "heroPassive heroSkill" "buildSummary buildSummary";
   grid-area: heroDetails;
   color: #c15b24;
   grid-template-rows: minmax(105px, auto) auto 1fr;
   grid-column-gap: 20px;
-  grid-template-columns: 200px 500px 1fr;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 .hero-details-container .hero-ability-icon {
   height: 60px;
@@ -274,8 +243,12 @@
   grid-template-rows: auto auto;
   grid-auto-columns: 1fr;
   grid-auto-flow: row;
+  margin-left: 5px;
 }
 
 .hero-container .container-tabs-list li {
   cursor: initial;
+}
+.hero-name-header {
+  color: #c15b24;
 }

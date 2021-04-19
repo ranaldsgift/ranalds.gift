@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
 import './HeroDetails.css';
 import {heroesData} from '../../data/Heroes'
+import { AppContext } from '../../stores/Store';
 
 class HeroDetails extends Component {
+  static contextType = AppContext;
   render() {
+    const [state] = this.context;
     var careerId = this.props.careerId ? this.props.careerId : 1;
     var hero = heroesData.find((hero) => { return hero.id === parseInt(careerId)});
     hero = hero ? hero : heroesData[0];
+
+    let healthValue = hero.health;
+    let bonusHealth = 0;
+
+    if (state.properties[4] === 3 || state.properties[5] === 3) {
+      bonusHealth = hero.health * 0.2;
+    }
+
+    let healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{hero.health.toString() + ' HP'}</span></div>
+    
+    if (bonusHealth > 0) {
+      healthValue += bonusHealth;
+      console.log('health value --------' + healthValue);
+      healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{hero.health.toString() + ' HP'}<span className="bonus-health">&nbsp;{'+' + bonusHealth.toString() + ' HP'}</span></span></div>
+    }
+
     return (
       <div className="hero-details-container">
           <div className="hero-summary-container">
@@ -14,12 +33,16 @@ class HeroDetails extends Component {
               <p className="hero-name-header">{hero.name}</p>
               <p className="hero-name">{hero.heroName}</p>
             </div>
-            <div className={`hero-portrait hero-${hero.id}-portrait border-07`}></div>
+            <div className={`hero-portrait hero-${hero.id}-portrait-alt`}></div>
             <div className="hero-attributes">
               <p>Health</p>
-              <p className={`health-value value-${hero.health} health-value-tier-c`}>{hero.health} HP</p>
-              <p class="skill-cooldown-label">Skill Cooldown</p>
-              <p className={`skill-cooldown-value value-${hero.skill.cooldown} skill-cooldown-tier-a`}>{hero.skill.cooldown} seconds</p>
+              <div className="health-bar" data-value={healthValue}>
+                {healthBar}
+              </div>
+              <p className="skill-cooldown-label">Skill Cooldown</p>
+              <div className="cooldown-bar" data-value={hero.skill.cooldown}>
+                <div className="stat-container"><span className={`skill-cooldown-value value-${hero.skill.cooldown} skill-cooldown-tier-a`}>{hero.skill.cooldown.toString() + 's'}</span></div>
+              </div>
             </div>
           </div>
           <div className="hero-skill-container">

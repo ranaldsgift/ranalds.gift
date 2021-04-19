@@ -7,7 +7,8 @@
     grid-row-gap: 15px;
     grid-auto-rows: auto;
     grid-row: 2;
-    scrollbar-width: none;
+    padding: 20px;
+    box-shadow: -1px -1px 0 0 #564640;
 }
 
 ::-webkit-scrollbar {

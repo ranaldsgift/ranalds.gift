@@ -1,7 +1,6 @@
 import React from 'react'
 import { AppContext } from './Store';
 import {withRouter} from 'react-router';
-import Firebase from '../utils/Firebase'
 
 const HeroPageContext = React.createContext();
 

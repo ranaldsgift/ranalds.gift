@@ -18,6 +18,9 @@ class HeroPage extends Component {
     const [state, updateState] = this.context;
     this.careerId = state.careerId;
 
+    var root = document.getElementById('root');
+    root.dataset.pageName = 'heroesPage';
+
     if (state.careerId === 0) {
       if (typeof this.props.match.params.careerId != "undefined") {
         updateState({
@@ -52,11 +55,11 @@ class HeroPage extends Component {
       updateState({type: "UPDATE_ALL_TALENTS", payload: this.talents});
     }
 
-    var urlState = `${state.careerId}/${Object.values(state.talents).join('')}/${state.meleeId},${state.properties[0]},${state.properties[1]},${state.traits[0]}/${state.rangeId},${state.properties[2]},${state.properties[3]},${state.traits[1]}/${state.properties[4]},${state.properties[5]},${state.traits[2]}/${state.properties[6]},${state.properties[7]},${state.traits[3]}/${state.properties[8]},${state.properties[9]},${state.traits[4]}`
+    //var urlState = `${state.careerId}/${Object.values(state.talents).join('')}/${state.meleeId},${state.properties[0]},${state.properties[1]},${state.traits[0]}/${state.rangeId},${state.properties[2]},${state.properties[3]},${state.traits[1]}/${state.properties[4]},${state.properties[5]},${state.traits[2]}/${state.properties[6]},${state.properties[7]},${state.traits[3]}/${state.properties[8]},${state.properties[9]},${state.traits[4]}`
 
     return (
       <div className="hero-page">
-        <HeroSelect careerId={this.careerId} updateStateType="UPDATE_HERO_CAREER" heroSelectionChanged={this.heroSelectionChanged}></HeroSelect>
+        <HeroSelect careerId={this.careerId}></HeroSelect>
         <div className={`hero-container hero-career-${this.careerId}`}>
           <Tabs className="container-tabs">
             <TabList className="container-tabs-list">

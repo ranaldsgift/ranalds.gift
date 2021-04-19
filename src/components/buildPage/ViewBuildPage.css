@@ -1,0 +1,11 @@
+.edit-build-button {
+  grid-area: buildName;
+  justify-self: right;
+  align-self: center;
+  margin-right: 20px;
+  color: #fff;
+  display: none;
+}
+.build-page[data-author='true'] .edit-build-button {
+  display: block;
+}

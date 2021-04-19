@@ -6,10 +6,10 @@ import BackgroundVideoPoster from '../../assets/videos/backgrounds/home-frame.pn
 function Background() {
     return (
         <div className="fullscreen-background">
+            <div className="fullscreen-background-image"></div>
             <video style={{display: 'none'}} autoPlay={true} loop={true} poster={BackgroundVideoPoster} className="fullscreen-background-video">                
                 <source src={BackgroundVideo} type="video/mp4"></source>
             </video>
-            <div className="fullscreen-background-image"></div>
         </div>
     );    
 }

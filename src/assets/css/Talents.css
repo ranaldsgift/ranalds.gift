@@ -17,12 +17,14 @@
     border-image: url('../../assets/images/borders/border-10.png');
     border-image-slice: 15;
     border-image-width: 15px;
+    border-image-repeat: repeat;
     border-style: solid;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
     box-shadow: inset 0 0 100px #00000069;
 }
 .talent-1::after {

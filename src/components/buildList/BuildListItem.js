@@ -2,70 +2,59 @@ import React, {Component} from 'react';
 import './BuildList.css';
 import './BuildListItem.css';
 import '../../assets/css/Talents.css';
+import HeroTalentIcon from '../heroTalents/HeroTalentIcon';
+import { Link } from 'react-router-dom';
+import { DataHelper } from '../../utils/DataHelper';
+import WeaponIcon from '../inventory/WeaponIcon';
+import TraitIcon from '../traits/TraitIcon';
 
 
 class BuildListItem extends Component {
   constructor(props) {
     super(props);
-    
-    var careerNumber = Math.floor(Math.random() * 15 + 1);
-    var talentIcon1 = Math.floor(Math.random() * 3 + 1);
-    var talentIcon2 = Math.floor(Math.random() * 3 + 4);
-    var talentIcon3 = Math.floor(Math.random() * 3 + 7);
-    var talentIcon4 = Math.floor(Math.random() * 3 + 10);
-    var talentIcon5 = Math.floor(Math.random() * 3 + 13);
-    var talentIcon6 = Math.floor(Math.random() * 3 + 16);
-    var careerString = careerNumber;
-    if (careerNumber < 10) {
-      careerString = "0" + careerNumber;
-    }
-
-    this.state = {
-      career: careerString,
-      talent1: talentIcon1,
-      talent2: talentIcon2,
-      talent3: talentIcon3,
-      talent4: talentIcon4,
-      talent5: talentIcon5,
-      talent6: talentIcon6,
-    }
   }
   
   render() {
+    var buildModifiedDate = new Date(this.props.buildData.dateModified.seconds * 1000);
+    
+    var careerData = DataHelper.getCareer(this.props.buildData.careerId);
+    var rangeType = (this.props.buildData.careerId === 6 || this.props.buildData.careerId === 16) ? "melee" : "range";
+    var patchData = DataHelper.getPatchFromDate(buildModifiedDate);
+
     return (
-<div className="build-list-item border-02 background7">
-          <div className={`build-hero-icon hero-icon-${this.state.career} border-04`}></div>
-          <p className="build-name">Yer Best Friend Kruber</p>
+      <Link to={'/build/' + this.props.buildId + '/view'}>
+        <div className="build-list-item border-02 background7">
+          <div className={`build-hero-icon hero-icon-${this.props.buildData.careerId} border-04`}></div>
           <div className="build-description-container">
-              <p className="build-hero">Mercenary</p>
-              <p className="build-author">B-Fir3</p>
-              <p className="date-modified">09/03/19</p>
+            <p className="build-name header-underline">{this.props.buildData.name}</p>
+            <p className="build-hero">{careerData.name}</p>
+            <span className="build-author build-author-by">by<Link to={`/user/${this.props.buildData.userId}/view`} className="">{this.props.buildData.username}</Link></span>
           </div>
-          <p></p>
           <div className="talents">
-            <div className={`talent-icon talent-${this.state.career}0${this.state.talent1} talent-2`}></div>
-            <div className={`talent-icon talent-${this.state.career}0${this.state.talent2} talent-2`}></div>
-            <div className={`talent-icon talent-${this.state.career}0${this.state.talent3} talent-2 `}></div>
-            <div className={`talent-icon talent-${this.state.career}${this.state.talent4} talent-2`}></div>
-            <div className={`talent-icon talent-${this.state.career}${this.state.talent5} talent-3`}></div>
-            <div className={`talent-icon talent-${this.state.career}${this.state.talent6} talent-1`}></div>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent1} tier='1' careerId={this.props.buildData.careerId}></HeroTalentIcon>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent2} tier='2' careerId={this.props.buildData.careerId}></HeroTalentIcon>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent3} tier='3' careerId={this.props.buildData.careerId}></HeroTalentIcon>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent4} tier='4' careerId={this.props.buildData.careerId}></HeroTalentIcon>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent5} tier='5' careerId={this.props.buildData.careerId}></HeroTalentIcon>
+            <HeroTalentIcon talentNumber={this.props.buildData.talent6} tier='6' careerId={this.props.buildData.careerId}></HeroTalentIcon>
           </div>
           <div className="weapons">
-            <div className="weapon-icon weapon-01 weapon-background border-10"></div>
-            <div className="trait-icon trait-parry border-10"></div>
-            <div className="weapon-icon weapon-02 weapon-background border-10"></div>
-            <div className="trait-icon trait-conservative-shooter border-10"></div>
+            <WeaponIcon id={this.props.buildData.meleeId} type="melee"></WeaponIcon>
+            <TraitIcon id={this.props.buildData.meleeTrait} type="melee"></TraitIcon>
+            <WeaponIcon id={this.props.buildData.rangeId} type={rangeType}></WeaponIcon>            
+            <TraitIcon id={this.props.buildData.rangeTrait} type={rangeType}></TraitIcon>
           </div>
           <div className="traits">
-            <div className="trait-icon trait-barkskin border-10"></div>
-            <div className="trait-icon trait-proxy border-10"></div>
-            <div className="trait-icon trait-shrapnel border-10"></div>
+            <TraitIcon id={this.props.buildData.necklaceTrait} type="necklace"></TraitIcon>
+            <TraitIcon id={this.props.buildData.charmTrait} type="charm"></TraitIcon>
+            <TraitIcon id={this.props.buildData.trinketTrait} type="trinket"></TraitIcon>
           </div>
           <div className="build-footer">
-              <p className="patch-number">Tank - Legend - v2.0.8</p>
-              <div></div>
+              <p className="roles">{this.props.buildData.roles.join(' / ')}</p>
+              <p className="patch-number">Patch {patchData.number}</p>
           </div>
         </div>
+      </Link>
     );
   }
 }

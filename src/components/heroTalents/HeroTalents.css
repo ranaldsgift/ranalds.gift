@@ -204,6 +204,23 @@
   box-shadow: 0px 0px 5px 1px black;
   visibility: hidden;
 }
+.hero-talents-container.show-descriptions {
+  height: auto;
+}
+.hero-talents-container.show-descriptions .hero-talents-grid {
+  position: relative;
+  grid-template-rows: 40px repeat(6, min-content);
+}
+.hero-talents-container.show-descriptions .talent-description {
+  grid-area: talentDescription;
+  visibility: visible;
+  position: relative;
+  bottom: auto;
+}
+.hero-talents-container.show-descriptions .talent-button-wrapper {
+  grid-template-areas: "talentIcon talentName" "talentDescription talentDescription";
+  grid-template-rows: 80px 1fr;
+}
 .hero-talent:hover .talent-description {
   visibility: visible;
 }
@@ -358,8 +375,13 @@
   background: linear-gradient(-16deg,rgba(30,10,20,.65) 30%,transparent);
 }
 
-.hero-talents-container.talents-selected .hero-talent:not(.selected) {
-  filter: grayscale(100%);
+.hero-talents-container.tier-1-selected .hero-talent.tier-1:not(.selected),
+.hero-talents-container.tier-2-selected .hero-talent.tier-2:not(.selected),
+.hero-talents-container.tier-3-selected .hero-talent.tier-3:not(.selected),
+.hero-talents-container.tier-4-selected .hero-talent.tier-4:not(.selected),
+.hero-talents-container.tier-5-selected .hero-talent.tier-5:not(.selected),
+.hero-talents-container.tier-6-selected .hero-talent.tier-6:not(.selected) {
+    filter: grayscale(1);
 }
 .hero-talents-grid-bg, .hero-talents-grid-border {
   position: absolute;

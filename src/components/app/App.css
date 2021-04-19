@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+html, body, #root, .App {
+  min-height: 100%;
+}
 .App {
   text-align: center;
 }
@@ -34,17 +39,20 @@
 
 .app-container {
   margin: 18px;
-  height: calc(100% - 42px);                 
+  height: calc(100% - 42px);
+  padding: 20px;
+  filter: brightness(1.2);
 }
 .app-container-frame {
-  position: relative;
-  margin-top: 42px;
+  position: absolute;
+  top: 42px;
   left: 20px;
   width: calc(100% - 40px);
   background-color: #000000c2;
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: -2px -2px 2px black;
+  min-height: 250px;
 }
 .hidden {
     display: none !important;
@@ -71,36 +79,42 @@ p {
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-02 {
   border-image: url('../../assets/images/borders/border-02.png');
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-03 {
   border-image: url('../../assets/images/borders/border-03.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
+  border-image-slice: 18;
+  border-image-width: 18px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-04 {
   border-image: url('../../assets/images/borders/border-04.png');
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-05 {
   border-image: url('../../assets/images/borders/border-05.png');
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-06 {
   border-image: url('../../assets/images/borders/border-06.png');
   border-image-slice: 120;
   border-image-width: 120px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .border-07 {
   border-image: url('../../assets/images/borders/border-07.png');
@@ -339,12 +353,24 @@ select::-ms-expand {
   display: none;
 }
 /* Custom Select */
+.select-list, .multiselect-container {
+  background: linear-gradient(to bottom, #2b1212 35%, #000);
+  text-align: center;
+  font-family: caslon-antique;
+  border-image: url('../../assets/images/borders/border-13.png');
+  border-image-width: 25px;
+  border-image-slice: 25;
+  outline: none;
+  color: #30e158 !important;
+  border-style: solid;
+  width: auto !important;
+}
 select {
   position: relative;
   display: flex;
   background: linear-gradient(to bottom, #2b1212 35%, #000);
   overflow: hidden;
-  font-size: 100%;
+  font-size: 1.3em;
 }
 select {
   flex: 1;
@@ -356,20 +382,19 @@ select {
 select:hover::after {
   color: #f39c12;
 }
-select:hover {
-
-  background: linear-gradient(to bottom, #2b1212 35%, #000 75%, #626262);
-
-}
 input, textarea {
-  font-family: caslon-antique;
+  font-family: 'caslon-antique';
 }
 select {
   text-align: center;
-  font-family: caslon-antique;
+  font-family: 'caslon-antique';
   border-image: url('../../assets/images/borders/border-13.png');
   border-image-width: 25px;
   border-image-slice: 25;
+}
+select option {
+  font-family: 'caslon-antique';
+  font-size: 18px;
 }
 
 .scroll-01 {
@@ -420,24 +445,74 @@ select {
 .divider-06 {
   background: url('../../assets/images/dividers/divider-06.png') no-repeat center;
 }
-.app-navigation-button::before, .app-navigation-button::after {
-  position: absolute;
-  content: '';
-  height: calc(100% + 8px);
-  width: 100%;  
-  background-repeat: no-repeat; 
-  top: -4px;
+.divider-01 {
+  background: url('../../assets/images/dividers/divider-01.png') no-repeat center;
 }
-.app-navigation-button::before {
-  background: url('../../assets/images/borders/border-22.png') no-repeat;
-  left: -28px;
+.divider-02 {
+  background: url('../../assets/images/dividers/divider-02.png') no-repeat center;
 }
-.app-navigation-button::after {
-  background: url('../../assets/images/borders/border-22.png') no-repeat;
-  transform: scaleX(-1);
-  right: -28px;
+.divider-04 {
+  background: url('../../assets/images/dividers/divider-04.png') no-repeat center;
 }
-.app-navigation-button {
+.divider-05 {
+  background: url('../../assets/images/dividers/divider-05.png') no-repeat center;
+}
+.divider-07 {
+  background: url('../../assets/images/dividers/divider-07.png') no-repeat center;
+}
+.divider-08 {
+  background: url('../../assets/images/dividers/divider-08.png') no-repeat center;
+}
+.divider-09 {
+  background: url('../../assets/images/dividers/divider-09.png') no-repeat center;
+}
+.divider-10 {
+  background: url('../../assets/images/dividers/divider-10.png') no-repeat center;
+}
+.divider-11 {
+  background: url('../../assets/images/dividers/divider-11.png') no-repeat center;
+}
+.divider-12 {
+  background: url('../../assets/images/dividers/divider-12.png') no-repeat center;
+}
+.divider-13 {
+  background: url('../../assets/images/dividers/divider-13.png') no-repeat center;
+}
+.divider-14 {
+  background: url('../../assets/images/dividers/divider-14.png') no-repeat center;
+}
+.divider-15 {
+  background: url('../../assets/images/dividers/divider-15.png') no-repeat center;
+}
+.divider-16 {
+  background: url('../../assets/images/dividers/divider-16.png') no-repeat center;
+}
+.divider-17 {
+  background: url('../../assets/images/dividers/divider-17.png') no-repeat center;
+}
+.divider-18 {
+  background: url('../../assets/images/dividers/divider-18.png') no-repeat center;
+}
+.divider-19 {
+  background: url('../../assets/images/dividers/divider-19.png') no-repeat center;
+}
+.divider-20 {
+  background: url('../../assets/images/dividers/divider-20.png') no-repeat center;
+}
+
+.button-02 {
+  background: url('../../assets/images/backgrounds/button-02.png') no-repeat center;
+}
+
+.button-01 a {
+  color: #928962;
+  height: 100%;
+  display: grid;
+  z-index: 1;
+  align-content: center;
+}
+
+.button-01 {
   position: relative;
   max-width: 300px;
   justify-self: center;
@@ -449,41 +524,69 @@ select {
   display: grid;
   text-transform: uppercase;
   font-size: 120%;
-  box-shadow: inset 0 0 75px black, inset 0 8px 1px white, inset 0 -6px 1px white !important;
+  box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -7px 10px rgb(179 0 0) !important;
   text-decoration: none;
+  height: 53px;
+  margin: 5px;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.button-01::before {
+  background: url('../../assets/images/borders/border-28.png') no-repeat;
+  left: -12px;
+  content: '';
+}
+.button-01:hover {
+  box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -17px 30px rgb(179 0 0) !important;
   cursor: pointer;
 }
-.react-tabs__tab--selected.app-navigation-button {
-  background: url('../../assets/images/labels/label-06.png') no-repeat center;
-  background-size: cover;
-  box-shadow: inset 0 0 75px black, inset 0 8px 1px white, inset 0 -6px 1px white, inset 0 -9px 20px 6px #6a371d !important;
-  display: grid;
-  grid-template-rows: 100%;
+.button-01::after {
+  background: url('../../assets/images/borders/border-28.png') no-repeat;
+  transform: scaleX(-1);
+  right: -12px;
+  content: '';
 }
-.react-tabs__tab--selected.app-navigation-button a {
-  color: #f0f0f0;
+.button-01::before, .button-01::after {
+  position: absolute;
+  content: '';
+  height: calc(100% + 8px);
+  width: 100%;  
+  background-repeat: no-repeat; 
+  top: -4px;
 }
-.app-navigation-button a {
+.chain-decoration {
+  position: absolute;
+  height: calc(100% + 44px);
+  width: 20px;
+  background-repeat: repeat-y;
+}
+.chain-decoration.left {
+  top: -18px;
+  left: calc(50% + 90px);
+}
+.chain-decoration.right {
+  top: -18px;
+  left: calc(50% - 90px);  
+}
+a {
   text-decoration: none;
-  color: #928962;
-  z-index: 1;
-  align-content: center;
-  height: 100%;  
-  display: grid;
-  outline: 0;
+  color: initial;
+}
+
+.header-underline {
+    position: relative;
+    width: 100%;
+  }
+
+.header-underline::before {
+  content: '';
   position: absolute;
   width: 100%;
-}
-.app-navigation-container {
-  display: grid;
-  position: absolute;
-  top: -7px;
-  height: 40px;
-  width: calc(100% - 240px);
-  left: 120px;
-  grid-auto-flow: column;
-  grid-template-columns: 1fr 650px 1fr;
-  padding: 0;  
-  margin: 0;
-  z-index: 2;
+  height: 2px;
+  bottom: 0;
+  background-image: linear-gradient(90deg,#808080b3 10%, #80808000);
 }

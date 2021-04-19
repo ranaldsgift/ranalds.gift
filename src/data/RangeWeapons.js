@@ -60,7 +60,7 @@ export const rangeWeaponsData = [
         "name": "Drakefire Pistols",
         "codeName": "dr_drake_pistol",
         "description": "weapon_keyword_overheat,weapon_keyword_crowd_control,weapon_keyword_damage_over_time",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeCount": 2,
         "dodgeDistance": 0.85
     },
@@ -69,7 +69,7 @@ export const rangeWeaponsData = [
         "name": "Drakegun",
         "codeName": "dr_drakegun",
         "description": "weapon_keyword_crowd_control,weapon_keyword_close_range,weapon_keyword_overheat",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeCount": 1,
         "dodgeDistance": 0.85
     },
@@ -78,7 +78,7 @@ export const rangeWeaponsData = [
         "name": "Handgun",
         "codeName": "dr_handgun",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_headshotting",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeCount": 2,
         "dodgeDistance": 1,
         "clipSize": 1,
@@ -89,7 +89,7 @@ export const rangeWeaponsData = [
         "name": "Grudge-Raker",
         "codeName": "dr_rakegun",
         "description": "weapon_keyword_high_damage,weapon_keyword_crowd_control,weapon_keyword_close_range",
-        "canWield": "dr_ironbreaker,dr_ranger",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer",
         "dodgeCount": 3,
         "dodgeDistance": 1,
         "clipSize": 2,
@@ -232,5 +232,11 @@ export const rangeWeaponsData = [
         "name": "Throwing Axes",
         "codeName": "dr_throwing_axes",
         "canWield": "dr_ranger"
+    },
+    {
+        "id": 24,
+        "name": "Masterwork Pistol",
+        "codeName": "dr_steam_pistol",
+        "canWield": "dr_ironbreaker,dr_ranger,dr_engineer"
     }
 ]

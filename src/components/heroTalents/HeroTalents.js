@@ -14,7 +14,6 @@ class HeroTalents extends Component {
 
   getTalents(careerId) {
     for (var i = 0; i < heroesData.length; i++) {
-      console.log(heroesData[i])
       if (heroesData[i].id === parseInt(careerId)) {
         return heroesData[i].talents;
       }
@@ -59,7 +58,7 @@ class HeroTalents extends Component {
     var talent = talents[talentNumber-1];
     return <div data-talent={talentValue} data-tier={tier} onClick={(e) => updateState({type: "UPDATE_TALENTS", payload: { tier: parseInt(e.currentTarget.dataset.tier), talent: parseInt(e.currentTarget.dataset.talent)}})} key={talentString} className={talentClassName}>
             <div className="talent-button-wrapper">
-              <div className={`talent-icon ${talentString}`}></div>
+              <div className={`talent-icon ${talentString}`} data-talent={talentValue} data-tier={tier} data-career={careerId}></div>
               <p className="talent-name">{talent.name}</p>
               <p className="talent-description">{talent.description}</p>
             </div>
@@ -67,19 +66,36 @@ class HeroTalents extends Component {
   }
 
   render() {
+    const [state] = this.context;
     var talentsContainerClass = '';
     var selectedTalents = this.props.talents ? this.props.talents : [0,0,0,0,0,0];
-    if (!Object.values(selectedTalents).includes(0)) {
-      talentsContainerClass = "talents-selected"
+
+    if (selectedTalents[0] > 0) {
+      talentsContainerClass += ' tier-1-selected'
+    }
+    if (selectedTalents[1] > 0) {
+      talentsContainerClass += ' tier-2-selected'
+    }
+    if (selectedTalents[2] > 0) {
+      talentsContainerClass += ' tier-3-selected'
+    }
+    if (selectedTalents[3] > 0) {
+      talentsContainerClass += ' tier-4-selected'
+    }
+    if (selectedTalents[4] > 0) {
+      talentsContainerClass += ' tier-5-selected'
+    }
+    if (selectedTalents[5] > 0) {
+      talentsContainerClass += ' tier-6-selected'
     }
 
     return (
-      <div className={`hero-talents-container ${talentsContainerClass}`}>
-        <div className="hero-talents-grid">
+      <div className={`hero-talents-container${talentsContainerClass}`}>
+        <div className="hero-talents-grid" data-career={state.careerId}>
           <p className="hero-talents-header">Talents</p>          
           {this.renderTalents()}
-          <div class="hero-talents-grid-bg"></div>
-          <div class="hero-talents-grid-border"></div>
+          <div className="hero-talents-grid-bg"></div>
+          <div className="hero-talents-grid-border"></div>
         </div>
       </div>
     );

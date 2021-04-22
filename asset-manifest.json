@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/ranalds.gift/static/css/main.6417f535.chunk.css",
-    "main.js": "/ranalds.gift/static/js/main.1974d87f.chunk.js",
-    "main.js.map": "/ranalds.gift/static/js/main.1974d87f.chunk.js.map",
+    "main.css": "/ranalds.gift/static/css/main.f3752ddc.chunk.css",
+    "main.js": "/ranalds.gift/static/js/main.55c046c2.chunk.js",
+    "main.js.map": "/ranalds.gift/static/js/main.55c046c2.chunk.js.map",
     "runtime-main.js": "/ranalds.gift/static/js/runtime-main.57123388.js",
     "runtime-main.js.map": "/ranalds.gift/static/js/runtime-main.57123388.js.map",
     "static/css/2.50bcfbf9.chunk.css": "/ranalds.gift/static/css/2.50bcfbf9.chunk.css",
-    "static/js/2.9b1e9588.chunk.js": "/ranalds.gift/static/js/2.9b1e9588.chunk.js",
-    "static/js/2.9b1e9588.chunk.js.map": "/ranalds.gift/static/js/2.9b1e9588.chunk.js.map",
+    "static/js/2.3835064c.chunk.js": "/ranalds.gift/static/js/2.3835064c.chunk.js",
+    "static/js/2.3835064c.chunk.js.map": "/ranalds.gift/static/js/2.3835064c.chunk.js.map",
     "index.html": "/ranalds.gift/index.html",
-    "precache-manifest.12ebe287b288ed9dbd4ba24544effc76.js": "/ranalds.gift/precache-manifest.12ebe287b288ed9dbd4ba24544effc76.js",
+    "precache-manifest.62ae1c2e8ee43d0d1baaa7dc7fb59695.js": "/ranalds.gift/precache-manifest.62ae1c2e8ee43d0d1baaa7dc7fb59695.js",
     "service-worker.js": "/ranalds.gift/service-worker.js",
     "static/css/2.50bcfbf9.chunk.css.map": "/ranalds.gift/static/css/2.50bcfbf9.chunk.css.map",
-    "static/css/main.6417f535.chunk.css.map": "/ranalds.gift/static/css/main.6417f535.chunk.css.map",
-    "static/js/2.9b1e9588.chunk.js.LICENSE.txt": "/ranalds.gift/static/js/2.9b1e9588.chunk.js.LICENSE.txt",
+    "static/css/main.f3752ddc.chunk.css.map": "/ranalds.gift/static/css/main.f3752ddc.chunk.css.map",
+    "static/js/2.3835064c.chunk.js.LICENSE.txt": "/ranalds.gift/static/js/2.3835064c.chunk.js.LICENSE.txt",
     "static/media/App.css": "/ranalds.gift/static/media/hex-frame-07.629e0c5d.png",
     "static/media/Background.css": "/ranalds.gift/static/media/label-14.dbf7fb5d.png",
     "static/media/EditBuildPage.css": "/ranalds.gift/static/media/label-06.1a914cb2.png",
-    "static/media/HeroDetails.css": "/ranalds.gift/static/media/border-15.74c38fbd.png",
+    "static/media/HeroDetails.css": "/ranalds.gift/static/media/background18.90fa2001.png",
     "static/media/InventoryItemDisplay.css": "/ranalds.gift/static/media/background22.ed2290bd.png",
     "static/media/HeroTalents.css": "/ranalds.gift/static/media/talent-lock-icon.adcaacad.png",
     "static/media/Weapons.css": "/ranalds.gift/static/media/wh_fencing_sword.57ddd26f.png",
@@ -32,8 +32,8 @@
   "entrypoints": [
     "static/js/runtime-main.57123388.js",
     "static/css/2.50bcfbf9.chunk.css",
-    "static/js/2.9b1e9588.chunk.js",
-    "static/css/main.6417f535.chunk.css",
-    "static/js/main.1974d87f.chunk.js"
+    "static/js/2.3835064c.chunk.js",
+    "static/css/main.f3752ddc.chunk.css",
+    "static/js/main.55c046c2.chunk.js"
   ]
 }

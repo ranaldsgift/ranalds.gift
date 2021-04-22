@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16d7b1f652784c20c6865a4ba3893a1b",
+    "revision": "6d4d0ca13930f4023c3f7e4a9c61f820",
     "url": "/ranalds.gift/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ranalds.gift/static/css/2.50bcfbf9.chunk.css"
   },
   {
-    "revision": "f014e829c74e309d12a6",
-    "url": "/ranalds.gift/static/css/main.58c69059.chunk.css"
+    "revision": "9dbaacd4336a5f32f72f",
+    "url": "/ranalds.gift/static/css/main.22cd4acd.chunk.css"
   },
   {
     "revision": "8049230a7a5b724b700f",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ranalds.gift/static/js/2.3835064c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f014e829c74e309d12a6",
-    "url": "/ranalds.gift/static/js/main.3459a264.chunk.js"
+    "revision": "9dbaacd4336a5f32f72f",
+    "url": "/ranalds.gift/static/js/main.cfa026bf.chunk.js"
   },
   {
     "revision": "53d6527e325312af66ca",

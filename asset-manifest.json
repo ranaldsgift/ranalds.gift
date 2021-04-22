@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ranalds.gift/static/css/main.22cd4acd.chunk.css",
-    "main.js": "/ranalds.gift/static/js/main.cfa026bf.chunk.js",
-    "main.js.map": "/ranalds.gift/static/js/main.cfa026bf.chunk.js.map",
+    "main.js": "/ranalds.gift/static/js/main.c928df60.chunk.js",
+    "main.js.map": "/ranalds.gift/static/js/main.c928df60.chunk.js.map",
     "runtime-main.js": "/ranalds.gift/static/js/runtime-main.57123388.js",
     "runtime-main.js.map": "/ranalds.gift/static/js/runtime-main.57123388.js.map",
     "static/css/2.50bcfbf9.chunk.css": "/ranalds.gift/static/css/2.50bcfbf9.chunk.css",
     "static/js/2.3835064c.chunk.js": "/ranalds.gift/static/js/2.3835064c.chunk.js",
     "static/js/2.3835064c.chunk.js.map": "/ranalds.gift/static/js/2.3835064c.chunk.js.map",
     "index.html": "/ranalds.gift/index.html",
-    "precache-manifest.96e13b343b6e8ac809dc1c1d0f34a1d9.js": "/ranalds.gift/precache-manifest.96e13b343b6e8ac809dc1c1d0f34a1d9.js",
+    "precache-manifest.c6c07cf6c493d1d2bf3e1df507efa1ef.js": "/ranalds.gift/precache-manifest.c6c07cf6c493d1d2bf3e1df507efa1ef.js",
     "service-worker.js": "/ranalds.gift/service-worker.js",
     "static/css/2.50bcfbf9.chunk.css.map": "/ranalds.gift/static/css/2.50bcfbf9.chunk.css.map",
     "static/css/main.22cd4acd.chunk.css.map": "/ranalds.gift/static/css/main.22cd4acd.chunk.css.map",
@@ -34,6 +34,6 @@
     "static/css/2.50bcfbf9.chunk.css",
     "static/js/2.3835064c.chunk.js",
     "static/css/main.22cd4acd.chunk.css",
-    "static/js/main.cfa026bf.chunk.js"
+    "static/js/main.c928df60.chunk.js"
   ]
 }

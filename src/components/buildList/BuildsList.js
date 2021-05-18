@@ -394,7 +394,7 @@ class BuildsList extends Component {
       this.state.potions.forEach((item) => {
         selectedValues.push(item.id);
       });
-      filters.push({ field: 'potion', comparison: 'in', value: selectedValues })
+      filters.push({ field: 'potion', comparison: 'array-contains-any', value: selectedValues })
     }
 
     if (this.state.roles.length > 0) {

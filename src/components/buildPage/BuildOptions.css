@@ -12,7 +12,8 @@
     grid-template-columns: min-content;
     position: relative;
     height: 100%;
-    padding: 0;
+    grid-auto-rows: 1fr;
+    padding: 0 !important;
 }
 .search-wrapper > span {
     align-self: center;

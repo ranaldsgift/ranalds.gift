@@ -19,13 +19,13 @@ import {
   ChannelControlHelper,
   LoadBalancer,
   getFirstUsableConfig,
+  LoadBalancingConfig
 } from './load-balancer';
 import { ServiceConfig, validateServiceConfig } from './service-config';
 import { ConnectivityState } from './channel';
-import { createResolver, Resolver } from './resolver';
+import { ConfigSelector, createResolver, Resolver } from './resolver';
 import { ServiceError } from './call';
 import { Picker, UnavailablePicker, QueuePicker } from './picker';
-import { LoadBalancingConfig } from './load-balancing-config';
 import { BackoffTimeout } from './backoff-timeout';
 import { Status } from './constants';
 import { StatusObject } from './call-stream';
@@ -36,6 +36,7 @@ import { SubchannelAddress } from './subchannel';
 import { GrpcUri, uriToString } from './uri-parser';
 import { ChildLoadBalancerHandler } from './load-balancer-child-handler';
 import { ChannelOptions } from './channel-options';
+import { PickFirstLoadBalancingConfig } from './load-balancer-pick-first';
 
 const TRACER_NAME = 'resolving_load_balancer';
 
@@ -44,6 +45,40 @@ function trace(text: string): void {
 }
 
 const DEFAULT_LOAD_BALANCER_NAME = 'pick_first';
+
+function getDefaultConfigSelector(serviceConfig: ServiceConfig | null): ConfigSelector {
+  return function defaultConfigSelector(methodName: string, metadata: Metadata) {
+    const splitName = methodName.split('/').filter(x => x.length > 0);
+    const service = splitName[0] ?? '';
+    const method = splitName[1] ?? '';
+    if (serviceConfig && serviceConfig.methodConfig) {
+      for (const methodConfig of serviceConfig.methodConfig) {
+        for (const name of methodConfig.name) {
+          if (name.service === service && (name.method === undefined || name.method === method)) {
+            return {
+              methodConfig: methodConfig,
+              pickInformation: {},
+              status: Status.OK
+            };
+          }
+        }
+      }
+    }
+    return {
+      methodConfig: {name: []},
+      pickInformation: {},
+      status: Status.OK
+    };
+  }
+}
+
+export interface ResolutionCallback {
+  (configSelector: ConfigSelector): void;
+}
+
+export interface ResolutionFailureCallback {
+  (status: StatusObject): void;
+}
 
 export class ResolvingLoadBalancer implements LoadBalancer {
   /**
@@ -92,7 +127,9 @@ export class ResolvingLoadBalancer implements LoadBalancer {
   constructor(
     private readonly target: GrpcUri,
     private readonly channelControlHelper: ChannelControlHelper,
-    private readonly channelOptions: ChannelOptions
+    private readonly channelOptions: ChannelOptions,
+    private readonly onSuccessfulResolution: ResolutionCallback,
+    private readonly onFailedResolution: ResolutionFailureCallback
   ) {
     if (channelOptions['grpc.service_config']) {
       this.defaultServiceConfig = validateServiceConfig(
@@ -133,6 +170,7 @@ export class ResolvingLoadBalancer implements LoadBalancer {
           addressList: SubchannelAddress[],
           serviceConfig: ServiceConfig | null,
           serviceConfigError: ServiceError | null,
+          configSelector: ConfigSelector | null,
           attributes: { [key: string]: unknown }
         ) => {
           let workingServiceConfig: ServiceConfig | null = null;
@@ -163,13 +201,7 @@ export class ResolvingLoadBalancer implements LoadBalancer {
           }
           const workingConfigList =
             workingServiceConfig?.loadBalancingConfig ?? [];
-          if (workingConfigList.length === 0) {
-            workingConfigList.push({
-              name: 'pick_first',
-              pick_first: {},
-            });
-          }
-          const loadBalancingConfig = getFirstUsableConfig(workingConfigList);
+          const loadBalancingConfig = getFirstUsableConfig(workingConfigList, true);
           if (loadBalancingConfig === null) {
             // There were load balancing configs but none are supported. This counts as a resolution failure
             this.handleResolutionFailure({
@@ -185,6 +217,8 @@ export class ResolvingLoadBalancer implements LoadBalancer {
             loadBalancingConfig,
             attributes
           );
+          const finalServiceConfig = workingServiceConfig ?? this.defaultServiceConfig;
+          this.onSuccessfulResolution(configSelector ?? getDefaultConfigSelector(finalServiceConfig));
         },
         onError: (error: StatusObject) => {
           this.handleResolutionFailure(error);
@@ -201,6 +235,7 @@ export class ResolvingLoadBalancer implements LoadBalancer {
         this.updateState(this.latestChildState, this.latestChildPicker);
       }
     });
+    this.backoffTimeout.unref();
   }
 
   private updateResolution() {
@@ -232,6 +267,7 @@ export class ResolvingLoadBalancer implements LoadBalancer {
         ConnectivityState.TRANSIENT_FAILURE,
         new UnavailablePicker(error)
       );
+      this.onFailedResolution(error);
     }
     this.backoffTimeout.runOnce();
   }
@@ -262,6 +298,7 @@ export class ResolvingLoadBalancer implements LoadBalancer {
 
   destroy() {
     this.childLoadBalancer.destroy();
+    this.innerResolver.destroy();
     this.updateState(ConnectivityState.SHUTDOWN, new UnavailablePicker());
   }
 

@@ -1,5 +1,4 @@
 .inventory-item-container {
-    background: url(/static/media/background27.df6690a1.png);
     box-shadow: inset 0 40px 50px black;
 }
 .inventory-container { 
@@ -14,42 +13,42 @@
     grid-area: heroEquipment;
     display: grid;
     color: #c15b24;
-    grid-template-areas: "meleeContainer rangeContainer";
+    grid-template-areas: "primaryContainer secondaryContainer";
     font-size: 132%;
     text-transform: uppercase;
     box-shadow: inset 0 40px 50px black;
     grid-template-columns: 1fr 1fr;
   }
-  .melee-container {
-    grid-area: meleeContainer;
+  .primary-container {
+    grid-area: primaryContainer;
     grid-template-rows: 35px 25px 1fr;
     display: grid;
     align-content: center;
     background-position-y: -10px;
-    grid-template-areas: "meleeHeader" "meleeDivider" "meleeContainer";
+    grid-template-areas: "primaryHeader" "primaryDivider" "primaryContainer";
   }
-  .range-container {
-    grid-area: rangeContainer;
+  .secondary-container {
+    grid-area: secondaryContainer;
     grid-template-rows: 35px 25px 1fr;
     display: grid;  
     align-content: center;
     background-position-y: -10px;
-    grid-template-areas: "rangeHeader" "rangeDivider" "rangeContainer";
+    grid-template-areas: "secondaryHeader" "secondaryDivider" "secondaryContainer";
   }
-  .melee-header {
-    grid-area: meleeHeader;
+  .primary-header {
+    grid-area: primaryHeader;
     align-self: end;
   }
-  .range-header {
-    grid-area: rangeHeader;
+  .secondary-header {
+    grid-area: secondaryHeader;
     align-self: end;
   }
-  .melee-divider {
-    grid-area: meleeDivider;
+  .primary-divider {
+    grid-area: primaryDivider;
     height: 26px;
   }
-  .range-divider {
-    grid-area: rangeDivider;
+  .secondary-divider {
+    grid-area: secondaryDivider;
     height: 26px;
   }
   .weapon-container {

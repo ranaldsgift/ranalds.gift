@@ -9,3 +9,6 @@
 .build-page[data-author='true'] .edit-build-button {
   display: block;
 }
+.build-page[data-readonly='true'] .search-wrapper>span>i {
+  display: none;
+}

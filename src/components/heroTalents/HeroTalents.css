@@ -165,6 +165,7 @@
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
+  border-image-repeat: repeat;
 }
 .hero-talent:nth-of-type(3n+1) {    
   box-shadow: inset 0px 10px 10px -10px white, -1px -1px 0 0 #564640;
@@ -253,64 +254,64 @@
   position: relative;
 }
 
-.hero-career-1 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='1'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(87, 57, 57, 0.23);
 }
-.hero-career-2 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='2'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(89, 98, 61, 0.25);
 }
-.hero-career-3 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='3'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(9,20,41,.45);
 } 
-.hero-career-4 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='4'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(29,37,5,.45);
 }
-.hero-career-5 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='5'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(10,54,63,.45);
 }
-.hero-career-6 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='6'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(52,0,0,.45);
 }
-.hero-career-7 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='7'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(10,23,8,.45);
 }
-.hero-career-8 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='8'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(13,26,43,.45);
 }
-.hero-career-9 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='9'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(31,20,40,.45);
 }
-.hero-career-10 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='10'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(32,38,40,.45);
 }
-.hero-career-11 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='11'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(40,31,15,.45);
 }
-.hero-career-12 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='12'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(35,35,30,.45);
 }
-.hero-career-13 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='13'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(46,16,0,.45);
 }
-.hero-career-14 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='14'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(36,6,2,.45);
 }
-.hero-career-15 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='15'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
-.hero-career-16 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='16'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
-.hero-career-17 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='17'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
-.hero-career-18 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='18'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
-.hero-career-19 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='19'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
-.hero-career-20 .hero-talents-grid-bg {
+.hero-talents-grid[data-career='20'] .hero-talents-grid-bg {
   box-shadow: inset 1000px 1000px 1000px rgba(30,10,20,.45);
 }
 
@@ -392,7 +393,7 @@
   z-index: 0;
 }
 .hero-talents-grid-bg {
- background:url(/static/media/background26.689428e1.png) bottom;
+ background-position-y: bottom;
  -webkit-filter:contrast(175%) saturate(200%);
  filter:contrast(175%) saturate(200%);
 }
@@ -405,4 +406,45 @@
  background:radial-gradient(rgba(0,0,0,.77),rgba(0,0,0,.45));
  width: calc(100% - 6px);
 height: calc(100% - 6px);
+}
+span.show-talent-descriptions {
+  grid-area: heroTalentsHeader;
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+  top: 8px;
+  color: #0096fb;
+}
+.hero-talents-container[data-show-descriptions='true'] .hero-talent .talent-description {
+  visibility: visible;
+  position: relative;
+  bottom: unset;
+}
+
+.hero-talents-container[data-show-descriptions='true'] .hero-talent .talent-button-wrapper {
+  grid-template-areas:
+"talentIcon talentName"
+"talentDescription talentDescription";
+  grid-template-rows: 83px 1fr;
+}
+
+.hero-talents-container[data-show-descriptions='true'] .hero-talents-grid {
+  grid-template-rows: auto auto auto auto auto auto auto;
+  position: relative;
+}
+
+.hero-talents-container[data-show-descriptions='true'] {
+  height: auto !important;
+}
+.hero-talents-container[data-show-descriptions='true'] .talent-description {
+  grid-area: talentDescription;
+}
+.hero-talents-container[data-show-descriptions='true'] .talent-lock-icon {
+  align-self: start;
+  height: 85px;
+}
+
+.hero-talents-container[data-show-descriptions='true'] .talent-lock-icon::after {
+  align-content: start;
+  margin-top: 34px;
 }

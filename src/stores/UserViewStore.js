@@ -20,9 +20,11 @@ function reducer(state, action) {
         case 'UPDATE_USER_BUILDS':
             console.log('update user builds list ');
             console.log(action.payload);
-            return {...state, userBuilds: action.payload};
+            return {...state, userBuilds: action.payload.builds, userBuildsLastDoc: action.payload.lastDoc, userBuildsPageCount: action.payload.totalPages, userBuildsCurrentPage: action.payload.currentPage};
         case 'UPDATE_LIKED_BUILDS':
-            return {...state, likedBuilds: action.payload};
+            
+            return {...state, likedBuilds: action.payload.builds, likedBuildsLastDoc: action.payload.lastDoc, likedBuildsPageCount: action.payload.totalPages, likedBuildsCurrentPage: action.payload.currentPage};
+            //return {...state, likedBuilds: action.payload};
         default:
             throw new Error('Error updating User Page state.');
     }
@@ -39,7 +41,14 @@ export default function UserViewStore(props) {
         dateCreated: '',
         dateModified: '',
         userBuilds: [],
-        likedBuilds: []
+        userBuildsLastDoc: {},
+        userBuildsPageCount: 0,
+        userBuildsCurrentPage: 1,
+        likedBuilds: [],
+        likedBuildsLastDoc: {},
+        likedBuildsPageCount: 0,
+        likedBuildsCurrentPage: 1,
+        userFilters: [{field: 'userId', comparison: '==', value: 'il853JiLs8VoxVPRU97p0kxp8Ks2'}]
     });
 
     return (

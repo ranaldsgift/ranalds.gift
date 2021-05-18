@@ -20,8 +20,15 @@ class HeroSelect extends Component {
             <p>Hero Selection</p>
           </div>
         </div>
+        <div className="hero-character-icons border-01 background-34 left-shadow">
+          <div className="kruber-character-icon character-icon"></div>
+          <div className="bardin-character-icon character-icon"></div>
+          <div className="kerillian-character-icon character-icon"></div>
+          <div className="saltzpyre-character-icon character-icon"></div>
+          <div className="sienna-character-icon character-icon"></div>
+        </div>
         <div className="hero-icon-container background-12 border-01">
-        {this.renderHeroes()}
+        {this.renderHeroes(this.props.heroSelectHandler)}
         </div>
       </div>
     );
@@ -39,10 +46,13 @@ class HeroSelect extends Component {
 
   renderHeroes() {
     var selectedCareerId = this.props.careerId;
+    var selectedCareers = this.props.selectedValues;
+    console.log('selected careers ' + selectedCareers);
 
     let heroIconList = [];
 
     for (var i = 0; i < heroesData.length; i++) {
+      
       let careerId = heroesData[i].id;
       let heroClassName = "border-02 hero-icon-0" + careerId;
       let keyValue = "hero-icon-0" + careerId;
@@ -54,16 +64,26 @@ class HeroSelect extends Component {
       if (parseInt(selectedCareerId) === parseInt(careerId)) {
           heroClassName += " selected";
       }
-      
-      heroIconList.push(<div data-career={careerId} onClick={this.updateHeroSelect}
-                           key={keyValue} className={heroClassName}></div>);
+
+      if (selectedCareers && selectedCareers.indexOf(parseInt(careerId)) > -1) {
+        heroClassName += " selected";
+      }
+
+      if (this.props.onSelect) {
+        heroIconList.push(<div data-career={careerId} onClick={this.props.onSelect}
+          key={keyValue} className={heroClassName}></div>);
+      }
+      else {      
+        heroIconList.push(<div data-career={careerId} onClick={this.updateHeroSelect}
+                             key={keyValue} className={heroClassName}></div>);
+      }
     }
     return heroIconList;
   }
 
   updateHeroSelect(e) {
     const [state, updateState] = this.context;
-    updateState({type: "UPDATE_CAREER", payload: e.target.dataset.career})
+    updateState({type: "UPDATE_CAREER", payload: parseInt(e.target.dataset.career)})
   }
 }
 

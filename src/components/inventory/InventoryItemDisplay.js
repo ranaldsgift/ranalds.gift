@@ -12,20 +12,13 @@ class InventoryItemDisplay extends Component
     render() {
       const [state] = this.context;
 
-      switch (this.props.type) {
+      switch (this.props.item.traitCategory) {
         case 'melee':
-          if (parseInt(state.careerId) === 6 && this.props.item.name.indexOf('Throwing Axes') >= 0) {
-            return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.range, 0, 1, 0);
-          }
           return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, 0, 1, 0);
         case 'range':
-          if (parseInt(state.careerId) === 6 && this.props.item.name.indexOf('Throwing Axes') < 0) {
-            return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, 2, 3, 1);
-          }
-          if (parseInt(state.careerId) === 16) {
-            return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, 2, 3, 1);
-          }
           return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.range, 2, 3, 1);
+        case 'magic':
+          return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.magic, 2, 3, 1);
         case 'necklace':
           return this.renderItemDisplay(this.props.item, propertiesData.necklace, traitsData.necklace, 4, 5, 2);
         case 'charm':

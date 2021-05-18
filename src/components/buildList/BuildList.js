@@ -1,8 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect, useRef} from 'react';
 import './BuildList.css';
 import './BuildListItem.css';
 import BuildListItem from './BuildListItem';
 import 'simplebar/dist/simplebar.min.css';
+import BuildsListStore from '../../stores/PagedBuildListStore';
+import { db } from '../../utils/Firebase';
+import { AppContext } from '../../stores/Store';
 
 // accept a userid, if no id provided get all builds with page limits
 // if an id is passed, get the builds for this user only
@@ -10,14 +13,59 @@ import 'simplebar/dist/simplebar.min.css';
 class BuildList extends Component {
   constructor(props) {
     super(props);
+
+
+/*     this.state = {
+      builds: [],
+      isDataLoaded: false
+    }; */
   }
 
+  //current page index and total pages from props
+
+  //specify the type of build list... or make specific types of build lists...
+  //filters based on properties: userid, careerid, patch
+
+  //static contextType = AppContext;
+
   render() {
-    console.log('rendering build list for user ' + this.props.userId);
-    console.log(this.props.builds);
+    //const [state, updateState] = this.context;
+
+
+/*     if (!this.state.isDataLoaded) {
+      let buildList = [];
+  
+      let buildsQuery = db.collection("builds");
+  
+      var filters = [{ field: 'userId', comparison: '==', value: 'il853JiLs8VoxVPRU97p0kxp8Ks2' }];
+  
+      if (this.props.filters) {
+        filters = this.props.filters;
+      }
+  
+      filters.forEach((filter) => {
+        buildsQuery = buildsQuery.where(filter.field, filter.comparison, filter.value);
+      });
+  
+      buildsQuery.limit(10).get().then((querySnapshot) => {
+  
+        var builds = [];
+        querySnapshot.forEach((build) => {
+          buildList.push({ id: build.id, data: build.data()});
+        });
+  
+        this.setState({builds: buildList, isDataLoaded: true})
+      });
+    } */
+    /* 
+     if (!this.state.isDataLoaded) {
+    this.setState({isDataLoaded: true})
+     } */
 
     return (
-          <div className="build-list border-01 background-16">
+          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-16">
+            <span class="build-list-header header-underline">{this.props.name}</span>
+            {/* <button className="build-list-page-button" onClick={this.props.handleNextPage}>Next Page</button> */}
             {this.renderBuilds(this.props.builds)}
           </div>
     );
@@ -31,9 +79,7 @@ class BuildList extends Component {
     }
     var buildsHtml = [];
     builds.forEach((build) => {
-      console.log('build item');
-      console.log(build.data);
-      buildsHtml.push(<BuildListItem buildId={build.id} buildData={build.data}></BuildListItem>)
+      buildsHtml.push(<BuildListItem key={build.id} buildId={build.id} buildData={build.data}></BuildListItem>)
     });
     return buildsHtml;
   }

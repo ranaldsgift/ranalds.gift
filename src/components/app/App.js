@@ -12,7 +12,6 @@ import BuildListPage from '../buildList/BuildListPage'
 import { Route, Router } from 'react-router-dom'
 import "react-tabs/style/react-tabs.css";
 import HeroPageStore from '../../stores/HeroPageStore';
-import BuildsListPageStore from '../../stores/BuildsListPageStore';
 import BuildPageStore from '../../stores/BuildPageStore';
 import LoginPage from '../users/LoginPage';
 import RegisterPage from '../users/RegisterPage';
@@ -25,6 +24,9 @@ import { UserContext } from '../../stores/UserStore';
 import UserPageContainer from '../users/UserPageContainer';
 import UserViewStore from '../../stores/UserViewStore';
 import ViewBuildPage from '../buildPage/ViewBuildPage';
+import BuildListPageStore from '../../stores/BuildListPageStore';
+import BuildsList from '../buildList/BuildsList';
+import { DataHelper } from '../../utils/DataHelper';
 
 class App extends Component {
   static contextType = UserContext;
@@ -32,9 +34,10 @@ class App extends Component {
   render() {  
     const [state, updateState] = this.context;
 
+    //DataHelper.getBuildStats();
+
     auth.onAuthStateChanged((user) => {
-      console.log('auth state changed')
-      console.log(user);
+      console.log('auth state changed');
 
       var root = document.getElementById('root');
       if (user !== null) {
@@ -89,6 +92,22 @@ class App extends Component {
       }
     });
 
+
+    //planned features
+    //teams page
+    //stats page with breakdowns about builds
+    //build comparison tool
+    //weapon data numbers
+    //CW pages/info/support
+    //bestiary/equipment guide
+    //user ranks for builds created/likes/supporter/vip/mod
+    //admin mod page to manage builds in db
+    //additional user stats on user page, # of builds, likes etc
+    //about page with credits, source link and contribution page
+    //full build summary with all stats after all calculated buffs from talents/properties/traits/etc
+    //integrate with a mod that exports data to display current build, or import data from RG to change existing build in game
+
+
     return (
       <Router history={history}>
       <div className="App" id="app">
@@ -97,15 +116,15 @@ class App extends Component {
         <div className="page-title page-title-label label-01"></div>
         <div className="page-title page-title-label-background"></div>
         <div className="app-container-frame border-06">
-          <div className="app-container background-35">
+          <div className="app-container background7">
             <Route path="/home" component={HomePage}></Route>
             <Route path="/about" component={AboutPage}></Route>
             <HeroPageStore>
               <Route path="/heroes/:careerId?/:talents?/:melee?/:range?/:necklace?/:charm?/:trinket?" component={HeroPage}></Route>
             </HeroPageStore>
-            <BuildsListPageStore>
-              <Route path="/builds" component={BuildListPage}></Route>
-            </BuildsListPageStore>
+            <BuildListPageStore>
+              <Route path="/builds" component={BuildsList}></Route>
+            </BuildListPageStore>
             <BuildPageStore>
               <Route path="/build/:buildId/edit" component={EditBuildPage}></Route>
             </BuildPageStore>

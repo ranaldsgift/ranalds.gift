@@ -129,6 +129,7 @@
     border-image: url('../../assets/images/borders/border-04.png');
     border-image-slice: 15;
     border-image-width: 15px;
+    border-image-repeat: repeat;
     border-style: solid;
 }
 .item-trait-icon::after {

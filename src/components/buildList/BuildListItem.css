@@ -1,14 +1,14 @@
 .build-list-item {
     box-shadow: inset 0px 1000px #0d0202eb;
     display: grid;
-    grid-template-columns: 100px auto 340px 240px 190px 25px;
+    grid-template-columns: 100px auto auto 1fr;
     position: relative;
-    grid-template-rows: 34px 46px 30px;
+    grid-template-rows: auto 45px 30px;
     grid-row-gap: 5px;
     grid-column-gap: 10px;
-    grid-template-areas: "heroIcon buildDescription buildDescription buildDescription buildDescription buildDescription"
-                        "heroIcon buildTalents buildTalents buildWeapons buildTraits emptySpace"
-                        "heroIcon buildFooter buildFooter buildFooter buildFooter buildFooter";
+    grid-template-areas: "heroIcon buildDescription buildDescription buildDescription"
+                        "heroIcon buildWeapons buildTraits empty"
+                        "heroIcon buildFooter buildFooter buildFooter";
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -45,29 +45,28 @@
 .build-description-container {
     grid-area: buildDescription;
     justify-items: flex-start;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 30px 20px auto;
     text-align: left;
     display: grid;
 }
-.talents {
+.build-list-item .talents {
     grid-area: buildTalents;
     display: grid;
-    grid-template-columns: repeat(6,30px);
+    grid-template-columns: repeat(6,45px);
     grid-column-gap: 5px;
-    height: 30px
+    height: 45px;
 }
 .weapons {
     grid-area: buildWeapons;
     display: grid;
-    grid-template-columns: repeat(4, 46px);
+    grid-template-columns: repeat(4, 45px);
     grid-column-gap: 5px;
     justify-content: center;
 }
 .traits {
     grid-area: buildTraits;
     display: grid;
-    grid-template-columns: repeat(3,46px);    
-    justify-self: center;
+    grid-template-columns: repeat(3,45px);
     grid-column-gap: 5px;
 }
 .build-footer {
@@ -81,7 +80,7 @@
     grid-column-gap: 10px;
     align-content: center;
     font-size: 0.8em;
-    width: 100%;
+    width: calc(100% - 10px);
     justify-content: right;
 }
 .build-hero {
@@ -96,6 +95,7 @@
     align-content: center;
     display: grid;
     height: 100%;
+    padding-top: 2px;
 
 }
 .weapon-icon:hover::before {
@@ -287,6 +287,25 @@
 a:hover>.build-list-item {
     box-shadow: inset 0px 1000px #261010e8;
 }
-.build-author-by {
+.build-author-by, .build-author {
+    text-transform: initial;
+}
+.build-list-item .talent-icon[data-talent='1']::after, .build-list-item .talent-icon[data-talent='2']::after, .build-list-item .talent-icon[data-talent='3']::after {content: '';}
+.build-list-item .talent-icon[data-talent='1']::after {
+    content: '1';
+}
+.build-list-item .talent-icon[data-talent='2']::after {
+    content: '2';
+}
+.build-list-item .talent-icon[data-talent='3']::after {
+    content: '3';
+}
+.build-list-item .talents {
+    display: none;
+}
+.build-author {
+    color:#0096fb;
+}
+.date-updated {
     text-transform: lowercase;
 }

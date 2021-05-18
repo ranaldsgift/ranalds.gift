@@ -8,6 +8,7 @@ import { AppContext } from '../../stores/Store';
 import {heroesData} from '../../data/Heroes'
 import {meleeWeaponsData} from '../../data/MeleeWeapons'
 import {rangeWeaponsData} from '../../data/RangeWeapons'
+import { DataHelper } from '../../utils/DataHelper';
 
 class Inventory extends Component {
     static contextType = AppContext;
@@ -15,21 +16,20 @@ class Inventory extends Component {
     const [state] = this.context;
     var hero = heroesData.find((hero) => { return hero.id === parseInt(state.careerId); });
     hero = hero ? hero : heroesData[0];
-    var heroWeapons = meleeWeaponsData.filter((weapon) => { return weapon.canWield.indexOf(hero.codeName) >= 0; });
+
+    var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(hero.id);
+    var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(hero.id);
     
-    var melee = heroWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.meleeId); });
-    if (!melee) {
-        melee = heroWeapons[0];
+    var primaryWeapon = primaryWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.primaryWeaponId); });
+    if (!primaryWeapon) {
+        primaryWeapon = primaryWeapons[0];
     }
     
-    if (parseInt(state.careerId) !== 6 && parseInt(state.careerId) !== 16) {
-        heroWeapons = rangeWeaponsData.filter((weapon) => { return weapon.canWield.indexOf(hero.codeName) >= 0; });
+    var secondaryWeapon = secondaryWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.secondaryWeaponId); });
+    if (!secondaryWeapon) {
+        secondaryWeapon = secondaryWeapons[0];
     }
-    
-    var range = heroWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.rangeId); });
-    if (!range) {
-        range = heroWeapons[0];
-    }
+
     return (
         <Tabs className="container-tabs inventory-container">
             <TabList className="container-tabs-list">
@@ -38,17 +38,17 @@ class Inventory extends Component {
                 <Tab>Jewelry</Tab>
             </TabList>
             <TabPanel>
-                <ItemSelect type={"melee"}></ItemSelect>
-                <InventoryItemDisplay trait={state.traits[0]} properties={[state.properties[0], state.properties[1]]} item={melee} type={"melee"}></InventoryItemDisplay>
+                <ItemSelect type={"primary"} selectedItemId={state.primaryWeaponId} careerId={state.careerId}></ItemSelect>
+                <InventoryItemDisplay trait={state.traits[0]} properties={[state.properties[0], state.properties[1]]} item={primaryWeapon}></InventoryItemDisplay>
             </TabPanel>
             <TabPanel>
-                <ItemSelect type={"range"}></ItemSelect>
-                <InventoryItemDisplay trait={state.traits[1]} properties={[state.properties[2], state.properties[3]]} item={range} type={"range"}></InventoryItemDisplay>
+                <ItemSelect type={"secondary"} selectedItemId={state.secondaryWeaponId} careerId={state.careerId}></ItemSelect>
+                <InventoryItemDisplay trait={state.traits[1]} properties={[state.properties[2], state.properties[3]]} item={secondaryWeapon} type={"range"}></InventoryItemDisplay>
             </TabPanel>
             <TabPanel className="jewelry-tab react-tabs__tab-panel">
-                <InventoryItemDisplay trait={state.traits[2]} properties={[state.properties[4], state.properties[5]]} item={{name: 'Necklace'}} type={"necklace"}></InventoryItemDisplay>
-                <InventoryItemDisplay trait={state.traits[3]} properties={[state.properties[6], state.properties[7]]} item={{name: 'Charm'}} type={"charm"}></InventoryItemDisplay>
-                <InventoryItemDisplay trait={state.traits[4]} properties={[state.properties[8], state.properties[9]]} item={{name: 'Trinket'}} type={"trinket"}></InventoryItemDisplay>
+                <InventoryItemDisplay trait={state.traits[2]} properties={[state.properties[4], state.properties[5]]} item={{name: 'Necklace', propertyCategory: 'necklace', traitCategory: 'necklace'}}></InventoryItemDisplay>
+                <InventoryItemDisplay trait={state.traits[3]} properties={[state.properties[6], state.properties[7]]} item={{name: 'Charm', propertyCategory: 'charm', traitCategory: 'charm'}}></InventoryItemDisplay>
+                <InventoryItemDisplay trait={state.traits[4]} properties={[state.properties[8], state.properties[9]]} item={{name: 'Trinket', propertyCategory: 'trinket', traitCategory: 'trinket'}}></InventoryItemDisplay>
             </TabPanel>
         </Tabs>
     );

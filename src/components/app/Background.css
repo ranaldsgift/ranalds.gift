@@ -122,7 +122,8 @@
   background: url('../../assets/images/backgrounds/background28.png')
 }
 .background-29 {
-  background: url('../../assets/images/backgrounds/background29.png')
+  background: url('../../assets/images/backgrounds/background29.png');
+  background-size: cover;
 }
 .background-30 {
   background: url('../../assets/images/backgrounds/background30.png')

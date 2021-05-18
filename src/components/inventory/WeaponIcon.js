@@ -4,18 +4,14 @@ import './WeaponIcon.css';
 class WeaponIcon extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            id: props.id,
-            type: props.type
-        }
     }
 
   render() {
+    var weaponIconClass = this.props.selected ? 'weapon-icon selected' : 'weapon-icon';
       return (
-        <div class="weapon-icon-container weapon-background" data-id={this.state.id} data-type={this.state.type}>
-            <div class="weapon-icon">
-                <div class="weapon-icon-border"></div>
+        <div key={this.props.id} className="weapon-icon-container weapon-background" data-id={this.props.id} data-slot={this.props.slot} onClick={this.props.handleClick}>
+            <div className={weaponIconClass}>
+                <div className="weapon-border"></div>
             </div>
         </div>
     );

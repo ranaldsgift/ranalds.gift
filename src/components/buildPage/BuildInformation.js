@@ -18,25 +18,29 @@ class BuildInformation extends Component {
             return;
         }
 
+
         db.collection('builds').doc(state.buildId).get().then((build) => {
-            console.log('liking build');
             if (!build.exists) {
                 return;
             }
 
-            if (!build.data().likes.includes(auth.currentUser.uid)) {
-                var likesList = build.data().likes;
-                likesList.push(auth.currentUser.uid)
+            if (!build.data().likes || !build.data().likes.includes(auth.currentUser.uid)) {
+                var likesList = build.data().likes ? build.data().likes : [];
+                var newLikeCount = build.data().likeCount + 1;
+                likesList.push(auth.currentUser.uid);
+
                 build.ref.update({
-                    likes: likesList
+                    likes: likesList,
+                    likeCount: newLikeCount
                 }).then(() => {
                     console.log('Successfully liked build'); 
 
                     updateState({
-                        type: "UPDATE_LIKE_STATE", 
+                        type: "UPDATE_LIKES", 
                         payload: {
-                            isLiked: true,
-                            likes: likesList
+                            likes: likesList,
+                            likeCount: newLikeCount,
+                            isLikedByUser: true
                         }
                     });
                 }).catch((error) => { 
@@ -44,43 +48,6 @@ class BuildInformation extends Component {
                 });
             }
         });
-
-        /* db.collection('buildLikes').where('userId', '==', auth.currentUser.uid).where('buildId', '==', state.buildId).get().then((querySnapshot) => {
-            if (querySnapshot.size > 0) {
-                console.log('Build like data found');
-                console.log(querySnapshot.docs[0].data());
-                var buildLikesDoc = querySnapshot.docs[0];
-                buildLikesDoc.ref.update({
-                    likes: true
-                }).then(() => {
-                    console.log('Successfully liked build'); 
-
-                    updateState({
-                        type: "UPDATE_LIKE_STATE", 
-                        payload: true
-                    });
-                }).catch((error) => { 
-                    console.error('Error liking build:', error); 
-                });
-            } else {
-                db.collection('buildLikes').add({
-                    userId: auth.currentUser.uid,
-                    buildId: state.buildId,
-                    likes: true
-                }).then((buildLikeRef) => {
-                    console.log('Successfully liked build');
-
-                    updateState({
-                        type: "UPDATE_LIKE_STATE", 
-                        payload: true
-                    });
-                }).catch((error) => {
-                    console.error('Error liking build:', error);
-                })
-            }
-        }).catch((error) => {
-            console.error('Error getting data from BuildLikes table:', error);
-        }); */
     }
 
     handleUnlikeBuild() {
@@ -98,17 +65,21 @@ class BuildInformation extends Component {
 
             if (build.data().likes.includes(auth.currentUser.uid)) {
                 var likesList = build.data().likes;
-                likesList.pop(auth.currentUser.uid)
+                var newLikeCount = build.data().likeCount - 1;
+                likesList.pop(auth.currentUser.uid);
+                
                 build.ref.update({
-                    likes: likesList
+                    likes: likesList,
+                    likeCount: newLikeCount
                 }).then(() => {
                     console.log('Successfully unliked build'); 
 
                     updateState({
-                        type: "UPDATE_LIKE_STATE", 
+                        type: "UPDATE_LIKES", 
                         payload: {
-                            isLiked: false,
-                            likes: likesList
+                            likes: likesList,
+                            likeCount: newLikeCount,
+                            isLikedByUser: false
                         }
                     });
                 }).catch((error) => { 
@@ -116,55 +87,19 @@ class BuildInformation extends Component {
                 });
             }
         });
-
-        /* db.collection('buildLikes').where('userId', '==', auth.currentUser.uid).where('buildId', '==', state.buildId).get().then((querySnapshot) => {
-            if (querySnapshot.size > 0) {
-                console.log('Build like data found');
-                console.log(querySnapshot.docs[0].data());
-                var buildLikesDoc = querySnapshot.docs[0];
-                buildLikesDoc.ref.update({
-                    likes: false
-                }).then(() => {
-                    console.log('Successfully unliked build'); 
-
-                    updateState({
-                        type: "UPDATE_LIKE_STATE", 
-                        payload: false
-                    });
-                }).catch((error) => { 
-                    console.error('Error liking build:', error); 
-                });
-            }
-        }).catch((error) => {
-            console.error('Error getting data from BuildLikes table:', error);
-        }); */
     }
 
     render() {
         const [state, updateState] = this.context;
 
-/*         db.collection('buildLikes').where('buildId', '==', state.buildId).where('likes', '==', true).get().then((querySnapshot) => {
-            if (querySnapshot.size >= 0) {
-                if (querySnapshot.size !== state.likes) {
-                    updateState({
-                        type: "UPDATE_LIKES", 
-                        payload: querySnapshot.size
-                    });
-                }
-            }
-        }); */
-
         auth.onAuthStateChanged((user) => {
             if (user !== null) {
-                var userLikesBuild = state.likes.includes(user.uid);
+                var userLikesBuild = state.likes ? state.likes.includes(user.uid) : false;
   
                 if (state.isLiked !== userLikesBuild) {
                     updateState({
-                        type: "UPDATE_LIKE_STATE",
-                        payload: {
-                            isLiked: userLikesBuild,
-                            likes: state.likes
-                        }
+                        type: "UPDATE_USER_LIKE",
+                        payload: userLikesBuild
                     });
                 }
             }
@@ -175,7 +110,7 @@ class BuildInformation extends Component {
                     <div><span>Created by</span><Link to={'/user/' + state.userId + '/view'}>{state.username}</Link></div>
                     <div><span>Patch</span><span>{state.patch}</span></div>
                     <div class="build-like-container">
-                        <span>{state.likes.length}</span>
+                        <span>{state.likeCount}</span>
                         <i class="material-icons like-icon" onClick={this.handleLikeBuild.bind(this)}>star_border</i>
                         <i class="material-icons unlike-icon" onClick={this.handleUnlikeBuild.bind(this)}>star</i>
                     </div>

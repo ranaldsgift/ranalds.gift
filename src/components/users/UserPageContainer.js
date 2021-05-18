@@ -15,6 +15,8 @@ function UserPageContainer() {
   console.log('rendering user page for uid ' + params.userId);
 
   if (state.userId !== params.userId) {
+
+    console.log('updating user page container state');
     var userId = params.userId;
 
     db.collection('users').doc(userId).get().then((doc) => {
@@ -32,7 +34,7 @@ function UserPageContainer() {
         }
       });
       
-      db.collection('builds').where("userId", "==", userId).get().then((querySnapshot) => {
+      db.collection('builds').where("userId", "==", userId).orderBy('dateModified').limit(10).get().then((querySnapshot) => {
         var userBuilds = [];
         querySnapshot.forEach((build) => {
           userBuilds.push({ id: build.id, data: build.data()});
@@ -40,14 +42,19 @@ function UserPageContainer() {
 
         updateState({
           type: "UPDATE_USER_BUILDS", 
-          payload: userBuilds
+          payload: {
+            builds: userBuilds,
+            lastDoc: querySnapshot.docs[querySnapshot.docs.length-1],
+            currentPage: 1,
+            totalPages: Math.round(querySnapshot.size / 10) + 1
+          }
         }); 
       });
 
       if (auth.currentUser.uid === userId) {
         console.log('Authed user is user page user');
 
-        db.collection('builds').where("likes", "array-contains", userId).get().then((querySnapshot) => {
+        db.collection('builds').where("likes", "array-contains", userId).orderBy('dateModified').limit(10).get().then((querySnapshot) => {
           var likedBuilds = [];
           querySnapshot.forEach((build) => {
             likedBuilds.push({ id: build.id, data: build.data()});
@@ -55,7 +62,12 @@ function UserPageContainer() {
 
           updateState({
             type: "UPDATE_LIKED_BUILDS", 
-            payload: likedBuilds
+            payload: {
+              builds: likedBuilds,
+              lastDoc: querySnapshot.docs[querySnapshot.docs.length-1],
+              currentPage: 1,
+              totalPages: Math.round(querySnapshot.size / 10) + 1
+            }
           }); 
         });
       }

@@ -83,10 +83,6 @@
     box-shadow: -1px -1px 0 0 #564640;
     background: url('../../assets/images/backgrounds/background34.png');
   }
-  .edit-build-page[data-dirty='true'] #saveBuildButton:hover {
-    box-shadow: inset 0 0 75px black, inset 0 5px 4px white, inset 0 -5px 4px rgb(141 141 141) !important;
-    cursor: pointer;
-}
 .edit-build-page .build-details-container {
     display: grid;
     grid-template-rows: 40px auto auto;
@@ -189,7 +185,7 @@
   display: grid;
   align-content: center;
 }
-.container-tabs .react-tabs__tab--selected {
+ul[role="tablist"] li[aria-selected="true"] {
   background: #000;
   box-shadow: inset 0 9px 6px -6px white, inset 0 -9px 20px -6px #6a371d !important;
   color: #f0f0f0;
@@ -314,6 +310,6 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-.build-page[data-readonly='true'] .build-main-container>.react-tabs li:nth-child(n+2) {
+.build-page[data-readonly='true'] .build-main-container>.react-tabs>li:nth-child(n+2) {
   display: none;
 }

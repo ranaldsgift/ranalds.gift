@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppContext } from './Store';
 import { PatchList } from '../data/PatchList';
+import { DataHelper } from '../utils/DataHelper';
 
 const BuildPageContext = React.createContext();
 
@@ -20,16 +21,15 @@ function buildPageReducer(state, action) {
                 return patch.date < dateModified;
             });
 
-            console.log('filtered patches');
-            console.log(filteredPatchList[filteredPatchList.length - 1]);
-
+            
+            // TODO - Confirm patch is first patch before date modified
             var patch = filteredPatchList[filteredPatchList.length - 1].number;
 
             return {...state,
                 buildId: buildId,
                 careerId: build.careerId,
-                meleeId: build.meleeId,
-                rangeId: build.rangeId,
+                primaryWeaponId: build.primaryWeapon.id,
+                secondaryWeaponId: build.secondaryWeapon.id,
                 talents: [
                     build.talent1,
                     build.talent2,
@@ -39,31 +39,33 @@ function buildPageReducer(state, action) {
                     build.talent6
                 ],
                 properties: [
-                    build.meleeProperty1,
-                    build.meleeProperty2,
-                    build.rangeProperty1,
-                    build.rangeProperty2,
-                    build.necklaceProperty1,
-                    build.necklaceProperty2,
-                    build.charmProperty1,
-                    build.charmProperty2,
-                    build.trinketProperty1,
-                    build.trinketProperty2
+                    build.primaryWeapon.property1Id,
+                    build.primaryWeapon.property2Id,
+                    build.secondaryWeapon.property1Id,
+                    build.secondaryWeapon.property2Id,
+                    build.necklace.property1Id,
+                    build.necklace.property2Id,
+                    build.charm.property1Id,
+                    build.charm.property2Id,
+                    build.trinket.property1Id,
+                    build.trinket.property2Id
                 ],
                 traits: [
-                    build.meleeTrait,
-                    build.rangeTrait,
-                    build.necklaceTrait,
-                    build.charmTrait,
-                    build.trinketTrait
+                    build.primaryWeapon.traitId,
+                    build.secondaryWeapon.traitId,
+                    build.necklace.traitId,
+                    build.charm.traitId,
+                    build.trinket.traitId
                 ],
                 name: build.name,
                 description: build.description,
-                difficulty: build.difficulty,
-                mission: build.mission,
-                potion: build.potion,
-                roles: build.roles,
+                difficulties: DataHelper.getDifficultiesByIds(build.difficulties),
+                missions: DataHelper.getMissionsByIds(build.missions),
+                potions: DataHelper.getPotionsByIds(build.potions),
+                roles: DataHelper.getRolesByIds(build.roles),
+                books: DataHelper.getBooksByIds(build.books),
                 likes: build.likes,
+                likeCount: build.likeCount,
                 patch: patch,
                 userId: build.userId,
                 username: build.username,
@@ -89,10 +91,10 @@ function buildPageReducer(state, action) {
             return {...state, talents: newTalents, dirty: true};
         case 'UPDATE_ITEM_SELECT':
             switch (action.payload.type) {
-                case 'melee':
-                    return {...state, meleeId: parseInt(action.payload.id), dirty: true};
-                case 'range':
-                    return {...state, rangeId: parseInt(action.payload.id), dirty: true};
+                case 'primary':
+                    return {...state, primaryWeaponId: parseInt(action.payload.id), dirty: true};
+                case 'secondary':
+                    return {...state, secondaryWeaponId: parseInt(action.payload.id), dirty: true};
                 case 'necklace':
                     var necklace = {...state.necklace};
                     necklace.id = parseInt(action.payload.id);
@@ -109,11 +111,13 @@ function buildPageReducer(state, action) {
                     throw new Error('Error updating Hero Page state.');
             }
         case 'UPDATE_DIFFICULTY':
-            return {...state, difficulty: action.payload, dirty: true};
+            return {...state, difficulties: action.payload, dirty: true};
         case 'UPDATE_MISSION':
-            return {...state, mission: action.payload, dirty: true};
+            return {...state, missions: action.payload, dirty: true};
+        case 'UPDATE_BOOKS':
+            return {...state, books: action.payload, dirty: true};
         case 'UPDATE_POTION':
-            return {...state, potion: action.payload, dirty: true};
+            return {...state, potions: action.payload, dirty: true};
         case 'UPDATE_ROLES':
             return {...state, roles: action.payload, dirty: true};
         case 'UPDATE_DESCRIPTION':
@@ -123,7 +127,7 @@ function buildPageReducer(state, action) {
         case 'UPDATE_DIRTY':
             return {...state, dirty: action.payload};
         case 'UPDATE_LIKES':
-            return {...state, likes: action.payload};
+            return {...state, likes: action.payload.likes, likeCount: action.payload.likeCount, isLiked: action.payload.isLikedByUser};
         case 'UPDATE_READONLY':
             return {...state, readonly: action.payload};
         case 'UPDATE_SIMILAR_BUILDS':
@@ -134,21 +138,12 @@ function buildPageReducer(state, action) {
             return {...state, createBuild: action.payload, readonly: !action.payload};
         case 'UPDATE_AUTHOR':
             return {...state, createBuild: action.payload, readonly: !action.payload};
-        case 'UPDATE_LIKE_STATE':
-/*             var likeState = {...state.isLiked};
-            if (likeState !== action.payload) {
-                switch (action.payload) {
-                    case true:
-                        var likeCount = state.likes + 1;
-                        console.log('like count ' + likeCount);
-                        return {...state, isLiked: action.payload, likes: likeCount};
-                    case false:
-                        var likeCount = state.likes - 1;
-                        console.log('like count ' + likeCount);
-                        return {...state, isLiked: action.payload, likes: likeCount};
-                }
-            } */
-            return {...state, isLiked: action.payload.isLiked, likes: action.payload.likes};
+        case 'UPDATE_USER_LIKE':
+            return {...state, isLiked: action.payload};
+        case 'ADD_USER_LIKE':
+            return {...state, isLiked: true};
+        case 'REMOVE_USER_LIKE':
+            return {...state, isLiked: false};
         default:
             throw new Error('Error updating Build Page state.');
     }
@@ -158,19 +153,20 @@ export default function BuildPageStore(props) {
     const stateHook = React.useReducer(buildPageReducer, {
         buildId: 0,
         careerId: 1,
-        meleeId: 0,
-        rangeId: 0,
-        talents: [-1,0,0,0,0,0],
+        primaryWeaponId: 14,
+        secondaryWeaponId: 11,
+        talents: [0,0,0,0,0,0],
         properties: [1,2,1,2,1,2,1,2,1,2],
         propertyValues: [0,0,0,0,0,0,0,0,0,0],
         traits: [1,1,1,1,1],
         name: '',
         description: '',
-        difficulty: 'Difficulty',
-        mission: 'Mission',
-        potion: 'Potion',
+        difficulties: [],
+        missions: [],
+        potions: [],
         roles: [],
         likes: [],
+        books: [],
         patch: '',
         userId: '',
         username: '',
@@ -178,7 +174,13 @@ export default function BuildPageStore(props) {
         dirty: false,
         readonly: true,
         similarBuilds: [],
+        similarBuildsLastDocument: {},
+        similarBuildsCurrentPage: 0,
+        similarBuildsCount: 0,
         userBuilds: [],
+        userBuildsLastDocument: {},
+        userBuildsCurrentPage: 0,
+        userBuildsCount: 0,
         isFromDb: false,
         createBuild: false,
         isLiked: false

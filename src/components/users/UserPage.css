@@ -2,19 +2,29 @@
     color: #8bc34a;
     font-size: 1.5em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 400px;
+    grid-template-columns: max-content 1fr;
     justify-items: left;
     text-align: left;
-    margin: 0 auto;
     grid-column-gap: 15px;
     grid-row-gap: 5px;
+    padding: 10px 20px;
 }
 .user-info-container>span:nth-child(2n+1) {
-    justify-self: right;
     color:#808080;
 }
 
 .user-page {
     padding: 10px;
+    display: grid;
+    justify-content: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: 1000px;
+    grid-row-gap: 20px;
+}
+.user-build-lists {
+    width: 1000px;
+    position: relative;
+    box-shadow: -1px -1px 0 0 #564640;
 }

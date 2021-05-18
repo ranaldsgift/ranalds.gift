@@ -35,14 +35,19 @@ class HeroDetails extends Component {
             </div>
             <div className={`hero-portrait hero-${hero.id}-portrait-alt`}></div>
             <div className="hero-attributes">
-              <p>Health</p>
-              <div className="health-bar" data-value={healthValue}>
-                {healthBar}
+              <div className="health-container">
+                <p>Health</p>
+                <div className="health-bar" data-value={healthValue}>
+                  {healthBar}
+                </div>
               </div>
-              <p className="skill-cooldown-label">Skill Cooldown</p>
-              <div className="cooldown-bar" data-value={hero.skill.cooldown}>
-                <div className="stat-container"><span className={`skill-cooldown-value value-${hero.skill.cooldown} skill-cooldown-tier-a`}>{hero.skill.cooldown.toString() + 's'}</span></div>
+              <div className="cooldown-container">
+                <p className="skill-cooldown-label">Skill Cooldown</p>
+                <div className="cooldown-bar" data-value={hero.skill.cooldown}>
+                  <div className="stat-container"><span className={`skill-cooldown-value value-${hero.skill.cooldown} skill-cooldown-tier-a`}>{hero.skill.cooldown.toString() + 's'}</span></div>
+                </div>
               </div>
+              
             </div>
           </div>
           <div className="hero-skill-container">

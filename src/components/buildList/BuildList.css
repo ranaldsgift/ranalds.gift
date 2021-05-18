@@ -8,13 +8,17 @@
     grid-auto-rows: auto;
     grid-row: 2;
     padding: 20px;
+    align-content: start;    
+    grid-area: buildList;
     box-shadow: -1px -1px 0 0 #564640;
 }
+
+
 
 ::-webkit-scrollbar {
     display:none;
 }
-.build-list-container {
+/* .build-list-container {
     grid-area: buildListContainer;
     height: 100%;
     box-shadow: inset 0 0 100px black, -1px -1px 0 0 #564640;
@@ -48,11 +52,76 @@
 .build-list-container .simplebar-content-wrapper {
     padding: 20px;
     height: calc(100% - 3px) !important;
-}
+} */
 .build-list > .build-list-item:last-child {
     margin-bottom: 20px;
 }
 
 .simplebar-content-wrapper {
     height: calc(100% - 3px) !important;
+}
+.build-list-header {
+    font-size: 1.2em;
+    text-align: left;
+    color: #c62626;
+    text-transform: uppercase;
+}
+.build-creation-info {
+    grid-column-gap: 5px;
+    display: grid;
+    grid-auto-flow: column;
+}
+.build-creation-info {
+    grid-column-gap: 5px;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.build-list-container {
+    display: grid;
+    grid-template-areas:
+        "heroSelect buildFilters"
+        "heroSelect buildList";
+    grid-template-columns: 392px 1fr;
+    grid-column-gap: 20px;
+    grid-template-rows: auto 1fr;
+    grid-row-gap: 20px;
+}
+
+.select-filters-container {
+    grid-area: buildFilters;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    grid-auto-columns: 1fr;
+}
+
+.select-filters-container>* {
+    min-height: 44px;
+}
+
+.build-list-container .hero-select-container {
+    width: 100%;
+}
+
+.page-controls {
+    grid-area: pageControls;    
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-auto-columns: 1fr;
+    box-shadow: -1px -1px 0 0 #564640;
+    margin-bottom: -2px;
+}
+.paged-build-list {
+    grid-template-areas:
+        "heroSelect buildFilters"
+        "heroSelect empty"
+        "heroSelect buildList"
+        "heroSelect pageControls";
+    grid-template-rows: auto 20px 1fr auto;
+    grid-row-gap: 0px;
+}
+.build-list-container:not(.paged-build-list) .build-list {
+    box-shadow: -1px -1px 0 0 #564640;
 }

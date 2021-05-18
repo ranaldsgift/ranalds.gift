@@ -13,15 +13,14 @@ class TraitIcon extends Component {
 
   render() {
       var traitName = '';
-      var traitData = DataHelper.getTraitData(this.state.id, this.state.type);
+      var traitData = DataHelper.getTraitFromCategory(this.state.type, this.state.id);
 
       if (traitData) {
-          console.log(traitData);
           traitName = traitData.name.toLowerCase().replace(' ', '-');
       }
 
       return (
-        <div className={`trait-icon trait-${traitName} border-10`}></div>
+        <div className={`trait-icon trait-${traitName} border-04`}></div>
     );
   }
 

@@ -44,33 +44,55 @@ export const traitsData =
                 "description":"Headshots replenish 1 ammunition."
             },
             {
-                "id": "3",
+                "id": "43",
+                "name":"Hunter",
+                "description":"Critical hits increase attack power by 25% against targets with the same armor class for 10 seconds."
+            },
+            {
+                "id": "4",
+                "name":"Inspirational Shot",
+                "description":"Headshots restore stamina to nearby allies."
+            },
+            {
+                "id": "5",
+                "name":"Resourceful Sharpshooter",
+                "description":"Ranged critical hits reduce the cooldown of your Career Skill by 4%. This effect can only trigger every 4 seconds."
+            },
+            {
+                "id": "6",
+                "name":"Scrounger",
+                "description":"Critical hits restore 5% of maximum ammunition. Can trigger once per attack."
+            }
+        ],
+        "magic": [
+            {
+                "id": "1",
+                "name":"Barrage",
+                "description":"Consecutive attacks against the same targets boost attack power by 5% for 5 seconds."
+            },
+            {
+                "id": "2",
                 "name":"Heat Sink",
                 "description":"Critical hits refund the overcharge cost of the attack.",
                 "heat":"yes"
             },
             {
-                "id": "4",
+                "id": "3",
                 "name":"Hunter",
                 "description":"Critical hits increase attack power by 25% against targets with the same armor class for 10 seconds."
             },
             {
-                "id": "5",
+                "id": "4",
                 "name":"Inspirational Shot",
                 "description":"Headshots restore stamina to nearby allies."
             },
             {
-                "id": "6",
+                "id": "5",
                 "name":"Resourceful Sharpshooter",
                 "description":"Ranged critical hits reduce the cooldown of your Career Skill by 4%. This effect can only trigger every 4 seconds."
             },
             {
-                "id": "7",
-                "name":"Scrounger",
-                "description":"Critical hits restore 5% of maximum ammunition. Can trigger once per attack."
-            },
-            {
-                "id": "8",
+                "id": "6",
                 "name":"Thermal Equalizer",
                 "description":"Weapon generates 20% less overheat.​",
                 "heat":"yes"

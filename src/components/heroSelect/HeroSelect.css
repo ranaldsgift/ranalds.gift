@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   justify-self: center;
   grid-area: heroSelect;
-  grid-template-rows: 33px 1fr;
+  grid-template-rows: 33px auto 1fr;
 }
 .hero-icon-container>* {
   background-repeat: no-repeat;
@@ -89,9 +89,9 @@
   justify-self: center;
   padding: 20px;
   z-index: 1;
-  -moz-box-shadow: inset 0 0 10px #000000, -1px -1px 0 0 #564640;
-  -webkit-box-shadow: inset 0 0 10px #000000, -1px -1px 0 0 #564640;
-  box-shadow: inset 0 0 10px #000000, -1px -1px 0 0 #564640;
+  -moz-box-shadow: inset 0 0 10px #000000, -1px 0 0 0 #564640;
+  -webkit-box-shadow: inset 0 0 10px #000000, -1px 0 0 0 #564640;
+  box-shadow: inset 0 0 10px #000000, -1px 0 0 0 #564640;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 .hero-select-header {
@@ -104,12 +104,9 @@
   background-color: black;
   box-shadow: -1px -1px 0 0 #564640;
   cursor: pointer;
+  margin-bottom: -2px;
 }
 .hero-select-header-background {
-
-  width: calc(100% - 58px);
-  margin-left: 30px;
-  background-color: #000;
   height: calc(100% - 6px);
   align-self: center;
   display: grid;
@@ -124,4 +121,31 @@
 
 .hero-select-container .hero-icon-18, .hero-select-container .hero-icon-19, .hero-select-container .hero-icon-20 {
   pointer-events: none;
+}
+.kruber-character-icon {
+  background: url('../../assets/images/heroes/hero-class-01.png');
+}
+.bardin-character-icon {
+  background: url('../../assets/images/heroes/hero-class-02.png');
+}
+.kerillian-character-icon {
+  background: url('../../assets/images/heroes/hero-class-03.png');
+}
+.saltzpyre-character-icon {
+  background: url('../../assets/images/heroes/hero-class-04.png');
+}
+.sienna-character-icon {
+  background: url('../../assets/images/heroes/hero-class-05.png');
+}
+.hero-character-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-template-rows: 66px;
+  padding: 10px;
+}
+
+.hero-character-icons>.character-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
 }

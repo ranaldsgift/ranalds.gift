@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import { AppContext } from '../../stores/Store';
 import { Multiselect } from 'multiselect-react-dropdown';
 import './BuildOptions.css';
+import DifficultySelect from '../select/DifficultySelect';
+import MissionSelect from '../select/MissionSelect';
+import PotionSelect from '../select/PotionSelect';
+import RoleSelect from '../select/RoleSelect';
+import BookSelect from '../select/BookSelect';
 
 class BuildOptions extends Component {
     static contextType = AppContext;
@@ -22,7 +27,13 @@ class BuildOptions extends Component {
 
     return (
         <div className="build-options-container">
-                                <select value={state.difficulty} onChange={this.difficultySelectChange}>
+          <DifficultySelect selectedValues={state.difficulties}></DifficultySelect>
+          <MissionSelect selectedValues={state.missions}></MissionSelect>
+          <PotionSelect selectedValues={state.potions}></PotionSelect>
+          <BookSelect selectedValues={state.books}></BookSelect>
+          <RoleSelect selectedValues={state.roles}></RoleSelect>
+
+                                {/* <select value={state.difficulty} onChange={this.difficultySelectChange}>
                                     <option defaultValue hidden>Difficulty</option>
                                     {this.getDifficultyOptions()}
                                 </select>
@@ -34,7 +45,7 @@ class BuildOptions extends Component {
                                     <option hidden defaultValue>Potion Preference</option>
                                     {this.getPotionOptions()}
                                 </select>
-                                <Multiselect isObject={false} options={rolesData} selectedValues={state.roles} displayValue="name" placeholder="Add Roles" hidePlaceholder="true" onSelect={this.roleSelected} onRemove={this.roleRemoved}></Multiselect>
+                                <Multiselect isObject={false} options={rolesData} selectedValues={state.roles} displayValue="name" placeholder="Add Roles" hidePlaceholder="true" onSelect={this.roleSelected} onRemove={this.roleRemoved}></Multiselect> */}
                             </div>
         );
       }

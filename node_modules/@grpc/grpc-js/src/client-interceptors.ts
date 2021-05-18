@@ -311,21 +311,11 @@ export class InterceptingCall implements InterceptingCallInterface {
 }
 
 function getCall(channel: Channel, path: string, options: CallOptions): Call {
-  let deadline;
-  let host;
-  const parent = null;
-  let propagateFlags;
-  let credentials;
-  if (options) {
-    deadline = options.deadline;
-    host = options.host;
-
-    propagateFlags = options.propagate_flags;
-    credentials = options.credentials;
-  }
-  if (deadline === undefined) {
-    deadline = Infinity;
-  }
+  const deadline = options.deadline ?? Infinity;
+  const host = options.host;
+  const parent = options.parent ?? null;
+  const propagateFlags = options.propagate_flags;
+  const credentials = options.credentials;
   const call = channel.createCall(path, deadline, host, parent, propagateFlags);
   if (credentials) {
     call.setCredentials(credentials);
@@ -357,10 +347,11 @@ class BaseInterceptingCall implements InterceptingCallInterface {
     let serialized: Buffer;
     try {
       serialized = this.methodDefinition.requestSerialize(message);
-      this.call.sendMessageWithContext(context, serialized);
     } catch (e) {
       this.call.cancelWithStatus(Status.INTERNAL, `Request message serialization failure: ${e.message}`);
+      return;
     }
+    this.call.sendMessageWithContext(context, serialized);
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sendMessage(message: any) {
@@ -380,7 +371,6 @@ class BaseInterceptingCall implements InterceptingCallInterface {
         let deserialized: any;
         try {
           deserialized = this.methodDefinition.responseDeserialize(message);
-          interceptingListener?.onReceiveMessage?.(deserialized);
         } catch (e) {
           readError = {
             code: Status.INTERNAL,
@@ -388,7 +378,9 @@ class BaseInterceptingCall implements InterceptingCallInterface {
             metadata: new Metadata(),
           };
           this.call.cancelWithStatus(readError.code, readError.details);
+          return;
         }
+        interceptingListener?.onReceiveMessage?.(deserialized);
       },
       onReceiveStatus: (status) => {
         if (readError) {

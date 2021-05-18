@@ -8,7 +8,7 @@ p.skill-cooldown-label {
     position: relative;
 }
 .health-bar::after, .cooldown-bar::after {
-    border-image: url('../../assets/images/borders/border-15.png');
+    border-image: url('../../assets/images/borders/border-11.png');
     border-image-slice: 15;
     border-image-width: 15px;
     border-image-repeat: repeat;
@@ -82,6 +82,7 @@ p.skill-cooldown-label {
 }
 .stat-container span {
     padding-top: 4px;
+    text-shadow: 0 0 3px black;
 }
 .stat-container {
   color: #f0d9af;
@@ -98,4 +99,5 @@ p.skill-cooldown-label {
 }
 .bonus-health {
   color: #000;
+  text-shadow: none !important;
 }

@@ -10,6 +10,10 @@ class HeroTalents extends Component {
     super(props);
     this.renderTalents = this.renderTalents.bind(this);
     this.renderTalent = this.renderTalent.bind(this);
+
+    this.state = {
+      showDescriptions: false
+    }
   }
 
   getTalents(careerId) {
@@ -90,15 +94,25 @@ class HeroTalents extends Component {
     }
 
     return (
-      <div className={`hero-talents-container${talentsContainerClass}`}>
+      <div className={`hero-talents-container${talentsContainerClass}`} data-show-descriptions={this.state.showDescriptions}>
         <div className="hero-talents-grid" data-career={state.careerId}>
-          <p className="hero-talents-header">Talents</p>          
+          <span className="hero-talents-header">Talents</span>
+          <span class="show-talent-descriptions" onClick={this.clickShowDescriptions.bind(this)}>Show Descriptions</span>
           {this.renderTalents()}
-          <div className="hero-talents-grid-bg"></div>
+          <div className="hero-talents-grid-bg background-26"></div>
           <div className="hero-talents-grid-border"></div>
         </div>
       </div>
     );
+  }
+
+  clickShowDescriptions() {
+    if (document.querySelector('.hero-talents-container').dataset.showDescriptions === 'false') {
+      this.setState({ showDescriptions: true });
+    }
+    else {      
+      this.setState({ showDescriptions: false });
+    }
   }
 
   handleTalentClick(e) {

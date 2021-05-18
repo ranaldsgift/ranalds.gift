@@ -108,13 +108,17 @@
 }
 .hero-attributes {
   display: grid;
-  grid-template-rows: 25px 38px 25px 35px;
+  grid-template-rows: 1fr 1fr;
   text-align: left;
   justify-content: left;
   justify-items: left;
   grid-template-columns: 1fr;   
   grid-area: heroAttributes;
   position: relative;
+  grid-row-gap: 10px;
+}
+.health-container, .cooldown-container {
+  width: 100%;
 }
 .hero-summary > p:nth-child(2n+1) {
   font-size: 150%;

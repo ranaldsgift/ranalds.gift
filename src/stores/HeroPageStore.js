@@ -113,8 +113,8 @@ function heroPageReducer(state, action) {
             
             return {...state,
                         careerId: careerId,
-                        meleeId: meleeId,
-                        rangeId: rangeId,
+                        primaryWeaponId: meleeId,
+                        secondaryWeaponId: rangeId,
                         talents: talents,
                         properties: properties,
                         traits: traits
@@ -130,21 +130,21 @@ function heroPageReducer(state, action) {
             return {...state, talents: action.payload};
         case 'UPDATE_ITEM_SELECT':
             switch (action.payload.type) {
-                case 'melee':
-                    return {...state, meleeId: action.payload.id};
-                case 'range':
-                    return {...state, rangeId: action.payload.id};
+                case 'primary':
+                    return {...state, primaryWeaponId: parseInt(action.payload.id)};
+                case 'secondary':
+                    return {...state, secondaryWeaponId: parseInt(action.payload.id)};
                 case 'necklace':
                     var necklace = {...state.necklace};
-                    necklace.id = action.payload.id;
+                    necklace.id = parseInt(action.payload.id);
                     return {...state, necklace: necklace};
                 case 'charm':
                     var charm = {...state.charm};
-                    charm.id = action.payload.id;
+                    charm.id = parseInt(action.payload.id);
                     return {...state, charm: charm};
                 case 'trinket':
                     var trinket = {...state.trinket};
-                    trinket.id = action.payload.id;
+                    trinket.id = parseInt(action.payload.id);
                     return {...state, trinket: trinket};
                 default:
                     throw new Error('Error updating Hero Page state.');
@@ -167,8 +167,8 @@ export default withRouter(function HeroPageStore(props) {
     const stateHook = React.useReducer(heroPageReducer, {
         history: props.history,
         careerId: 0,
-        meleeId: 0,
-        rangeId: 0,
+        primaryWeaponId: 14,
+        secondaryWeaponId: 11,
         talents: [-1,0,0,0,0,0],
         properties: [1,2,1,2,1,2,1,2,1,2],
         propertyValues: [0,0,0,0,0,0,0,0,0,0],

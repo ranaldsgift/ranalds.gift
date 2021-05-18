@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import { AppContext } from '../../stores/Store';
 import './BuildSummary.css';
 import {heroesData} from '../../data/Heroes'
-import {meleeWeaponsData} from '../../data/MeleeWeapons'
-import {rangeWeaponsData} from '../../data/RangeWeapons'
-import { propertiesData } from '../../data/Properties';
-import { traitsData } from '../../data/Traits';
+import {weaponsData} from '../../data/Weapons'
+import WeaponIcon from '../inventory/WeaponIcon';
+import * as Constants from '../../data/Constants';
+import { DataHelper } from '../../utils/DataHelper';
 
 class BuildSummary extends Component {
     static contextType = AppContext;
@@ -15,108 +15,75 @@ class BuildSummary extends Component {
     var hero = heroesData.find((hero) => { return parseInt(hero.id) === parseInt(state.careerId); });
     hero = hero ? hero : heroesData[0];
     
-    var heroWeapons = meleeWeaponsData.filter((weapon) => { return weapon.canWield.indexOf(hero.codeName) >= 0; });
+    var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(state.careerId);
+    var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(state.careerId);
     
-    var melee = heroWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.meleeId); });
-    if (!melee) {
-        melee = heroWeapons[0];
-    }
-    
-    if (parseInt(state.careerId) !== 6 && parseInt(state.careerId) !== 16) {
-        heroWeapons = rangeWeaponsData.filter((weapon) => { return weapon.canWield.indexOf(hero.codeName) >= 0; });
+    var primaryWeapon = primaryWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.primaryWeaponId); });
+    if (!primaryWeapon) {
+        primaryWeapon = primaryWeapons[0];
     }
     
-    var range = heroWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.rangeId); });
-    if (!range) {
-        range = heroWeapons[0];
+    var secondaryWeapon = secondaryWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(state.secondaryWeaponId); });
+    if (!secondaryWeapon) {
+        secondaryWeapon = secondaryWeapons[0];
     }
     
-    var meleeProperty1 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[0]); });
-    var meleeProperty2 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[1]); });
+    var primaryWeaponProperty1 = DataHelper.getPropertyFromCategory(primaryWeapon.propertyCategory, state.properties[Constants.PRIMARY_PROPERTY1_INDEX]);
+    var primaryWeaponProperty2 = DataHelper.getPropertyFromCategory(primaryWeapon.propertyCategory, state.properties[Constants.PRIMARY_PROPERTY2_INDEX]);
 
-    if (parseInt(state.careerId) === 6  && melee.name.indexOf('Throwing Axes') >= 0) {
-        meleeProperty1 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[0]); });
-        meleeProperty2 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[1]); });
-    }
+    var secondaryWeaponProperty1 = DataHelper.getPropertyFromCategory(secondaryWeapon.propertyCategory, state.properties[Constants.SECONDARY_PROPERTY1_INDEX]);
+    var secondaryWeaponProperty2 = DataHelper.getPropertyFromCategory(secondaryWeapon.propertyCategory, state.properties[Constants.SECONDARY_PROPERTY2_INDEX]);
 
-    var rangeProperty1 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
-    var rangeProperty2 = propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
+    var necklaceProperty1 = DataHelper.getPropertyFromCategory("necklace", state.properties[Constants.NECKLACE_PROPERTY1_INDEX]);
+    var necklaceProperty2 = DataHelper.getPropertyFromCategory("necklace", state.properties[Constants.NECKLACE_PROPERTY2_INDEX]);
 
-    if (parseInt(state.careerId) === 6  && range.name.indexOf('Throwing Axes') < 0) {
-        rangeProperty1 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
-        rangeProperty2 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
-    }
+    var charmProperty1 = DataHelper.getPropertyFromCategory("charm", state.properties[Constants.CHARM_PROPERTY1_INDEX]);
+    var charmProperty2 = DataHelper.getPropertyFromCategory("charm", state.properties[Constants.CHARM_PROPERTY2_INDEX]);
 
-    if (parseInt(state.careerId) === 16) {
-        rangeProperty1 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[2]); });
-        rangeProperty2 = propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(state.properties[3]); });
-    }
+    var trinketProperty1 = DataHelper.getPropertyFromCategory("trinket", state.properties[Constants.TRINKET_PROPERTY1_INDEX]);
+    var trinketProperty2 = DataHelper.getPropertyFromCategory("trinket", state.properties[Constants.TRINKET_PROPERTY2_INDEX]);
 
-    var necklaceProperty1 = propertiesData.necklace.find((property) => { return parseInt(property.id) === parseInt(state.properties[4]); });
-    var necklaceProperty2 = propertiesData.necklace.find((property) => { return parseInt(property.id) === parseInt(state.properties[5]); });
-
-    var charmProperty1 = propertiesData.charm.find((property) => { return parseInt(property.id) === parseInt(state.properties[6]); });
-    var charmProperty2 = propertiesData.charm.find((property) => { return parseInt(property.id) === parseInt(state.properties[7]); });
-
-    var trinketProperty1 = propertiesData.trinket.find((property) => { return parseInt(property.id) === parseInt(state.properties[8]); });
-    var trinketProperty2 = propertiesData.trinket.find((property) => { return parseInt(property.id) === parseInt(state.properties[9]); });
-
-    var meleeModifier1 = meleeProperty1.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
-    var meleeModifier2 = meleeProperty2.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
+    var meleeModifier1 = primaryWeaponProperty1.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
+    var meleeModifier2 = primaryWeaponProperty2.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
 
     var necklaceModifier1 = necklaceProperty1.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
     var necklaceModifier2 = necklaceProperty2.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
 
-    var meleeTrait = traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[0]); });
-    var rangeTrait = traitsData.range.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[1]); });
-    var necklaceTrait = traitsData.necklace.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[2]); });
-    var charmTrait = traitsData.charm.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[3]); });
-    var trinketTrait = traitsData.trinket.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[4]); });
-    
-    if (parseInt(state.careerId) === 6 && melee.name.indexOf('Throwing Axes') >= 0) {
-        meleeTrait = traitsData.range.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[0]); });
-    }
+    var primaryWeaponTrait = DataHelper.getTraitFromCategory(primaryWeapon.traitCategory, state.traits[Constants.PRIMARY_TRAIT_INDEX]);
+    var secondaryWeaponTrait = DataHelper.getTraitFromCategory(secondaryWeapon.traitCategory, state.traits[Constants.SECONDARY_TRAIT_INDEX]);
+    var necklaceTrait = DataHelper.getTraitFromCategory("necklace", state.traits[Constants.NECKLACE_TRAIT_INDEX]);
+    var charmTrait = DataHelper.getTraitFromCategory("charm", state.traits[Constants.CHARM_TRAIT_INDEX]);
+    var trinketTrait = DataHelper.getTraitFromCategory("trinket", state.traits[Constants.TRINKET_TRAIT_INDEX]);
 
-    if (parseInt(state.careerId) === 6 && range.name.indexOf('Throwing Axes') < 0) {
-        rangeTrait = traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[1]); });
-    }
-
-    if (parseInt(state.careerId) === 16) {
-        rangeTrait = traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(state.traits[1]); });
+    var rangeType = "range";
+    if (state.careerId === 6 || state.careerId === 16) {
+        rangeType = "melee";
     }
       
     return (
         <div className="build-summary-container">
             <div className="build-melee-summary">
                 <div className="item-summary-header">
-                    <p className="item-name">{melee.name}</p>
-                    <p className="item-trait-name">{meleeTrait.name}</p>
+                    <p className="item-name">{primaryWeapon.name}</p>
+                    <p className="item-trait-name">{primaryWeaponTrait.name}</p>
                 </div>
-                <div className="weapon-background">
-                    <div className={melee.codeName}>
-                        <div className="weapon-icon" data-id={melee.id} data-type="melee"></div>
-                    </div>
-                </div>
-                <div className={`trait-icon trait-${meleeTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
+                <WeaponIcon key={primaryWeapon.id} id={primaryWeapon.id} slot={"primary"}></WeaponIcon>
+                <div className={`trait-icon trait-${primaryWeaponTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
                 <div className="property-container">
-                    <li className="item-property-1">{`+ ${parseFloat(meleeProperty1.max_value).toFixed(1)}${meleeModifier1} ${meleeProperty1.name}`}</li>
-                    <li className="item-property-2">{`+ ${parseFloat(meleeProperty2.max_value).toFixed(1)}${meleeModifier2} ${meleeProperty2.name}`}</li>
+                    <li className="item-property-1">{`+ ${parseFloat(primaryWeaponProperty1.max_value).toFixed(1)}${meleeModifier1} ${primaryWeaponProperty1.name}`}</li>
+                    <li className="item-property-2">{`+ ${parseFloat(primaryWeaponProperty2.max_value).toFixed(1)}${meleeModifier2} ${primaryWeaponProperty2.name}`}</li>
                 </div>
             </div>
             <div className="build-range-summary">
                 <div className="item-summary-header">
-                    <p className="item-name">{range.name}</p>
-                    <p className="item-trait-name">{rangeTrait.name}</p>
+                    <p className="item-name">{secondaryWeapon.name}</p>
+                    <p className="item-trait-name">{secondaryWeaponTrait.name}</p>
                 </div>
-                <div className="weapon-background">
-                    <div className={range.codeName}>
-                        <div className="weapon-icon" data-id={range.id} data-type="range"></div>
-                    </div>
-                </div>
-                <div className={`trait-icon trait-${rangeTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
+                <WeaponIcon key={secondaryWeapon.id} id={secondaryWeapon.id} slot={"secondary"}></WeaponIcon>
+                <div className={`trait-icon trait-${secondaryWeaponTrait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
                 <div className="property-container">                                                    
-                    <li className="item-property-1">{`+ ${parseFloat(rangeProperty1.max_value).toFixed(1)}% ${rangeProperty1.name}`}</li>
-                    <li className="item-property-2">{`+ ${parseFloat(rangeProperty2.max_value).toFixed(1)}% ${rangeProperty2.name}`}</li>
+                    <li className="item-property-1">{`+ ${parseFloat(secondaryWeaponProperty1.max_value).toFixed(1)}% ${secondaryWeaponProperty1.name}`}</li>
+                    <li className="item-property-2">{`+ ${parseFloat(secondaryWeaponProperty2.max_value).toFixed(1)}% ${secondaryWeaponProperty2.name}`}</li>
                 </div>
             </div>
             <div className="build-jewelry-summary necklace-summary">

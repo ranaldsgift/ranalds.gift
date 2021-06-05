@@ -1,0 +1,12 @@
+.rating-icon, .rated-icon {
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+}
+
+.build-page[data-liked='false'] .rated-icon {
+    display: none;
+}
+.build-page[data-liked='true'] .rating-icon {
+    display: none;
+}

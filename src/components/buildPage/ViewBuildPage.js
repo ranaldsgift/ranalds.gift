@@ -12,8 +12,8 @@ import { AppContext } from '../../stores/Store';
 import { useParams } from 'react-router';
 import { db } from '../../utils/Firebase';
 import { UserContext } from '../../stores/UserStore';
-import { Link } from 'react-router-dom';
-import BuildInformation from './BuildInformation';
+import BuildHeader from './BuildHeader';
+import BuildGuide from './BuildGuide';
 
 function ViewBuildPage() {
 
@@ -107,22 +107,31 @@ function ViewBuildPage() {
 
         console.log('build user id: ' + state.userId + ' user context id ' + userState.userId);
         let isAuthor = state.userId === userState.userId;
+        let isLiked = userState.likedBuilds.includes(state.buildId);
 
         return (
-            <div className="edit-build-page build-page" data-author={isAuthor} data-liked={state.isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
+            <div className="edit-build-page build-page" data-author={isAuthor} data-liked={isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
                 <span id="buildSaveIndicator" className="border-03 background-18">Build saved...</span>
-                <div className="build-left-container">            
+                <div className="build-left-container top-left-shadow">            
                     <BuildList builds={state.similarBuilds} name="Similar Builds"></BuildList>
                 </div>
                 <div className="build-main-container">
                     <Tabs>
                         <TabList>
-                            <Tab>Summary</Tab>
-                            <Tab>Videos</Tab>
-                            <Tab>Combos</Tab>                        
+                            <Tab>Summary</Tab>                
                         </TabList>
                         <TabPanel className="build-summary-tab">
-                            <div className="build-details-container">
+                            <div className="build-main-summary-container">
+                                <BuildHeader></BuildHeader>
+                                <HeroDetails careerId={state.careerId}></HeroDetails>
+                                <BuildOptions hideEmpty={true}></BuildOptions>
+                                <BuildGuide></BuildGuide>
+                                <BuildSummary></BuildSummary>
+                            </div>
+
+
+{/*                             <div className="build-details-container">
+                                <BuildHeaderDetails></BuildHeaderDetails>
                                 <HeroDetails careerId={state.careerId}></HeroDetails>
                                 <input type="text" className="build-name-input border-02 background-18" placeholder="Name your build" value={state.name} readOnly></input>
                                 <Link to={`/build/${state.buildId}/edit`} className="edit-build-button">edit</Link>
@@ -130,20 +139,12 @@ function ViewBuildPage() {
                                 <BuildInformation></BuildInformation>
                                 <BuildOptions></BuildOptions>
                             </div>
-                            <BuildSummary></BuildSummary>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="build-additional-info">
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="hero-abilities">
-                            </div>                        
+                            <BuildSummary></BuildSummary> */}
                         </TabPanel>
                     </Tabs>
-                    <div className="build-talents-container">
-                        <HeroTalents contextActionType="UPDATE_TALENTS" careerId={state.careerId} talents={state.talents}></HeroTalents>
-                    </div>
+                            <div className="build-talents-container">
+                                <HeroTalents contextActionType="UPDATE_TALENTS" readonly={true} careerId={state.careerId} talents={state.talents}></HeroTalents>
+                            </div>
                 </div>
                 <div className="build-right-container">
                     <Inventory></Inventory>

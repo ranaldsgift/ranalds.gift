@@ -31,19 +31,19 @@ class Inventory extends Component {
     }
 
     return (
-        <Tabs className="container-tabs inventory-container">
+        <Tabs className="container-tabs inventory-container top-left-shadow">
             <TabList className="container-tabs-list">
-                <Tab>Melee</Tab>
-                <Tab>Range</Tab>
-                <Tab>Jewelry</Tab>
+                <Tab>Primary</Tab>
+                <Tab>Secondary</Tab>
+                <Tab>Equipment</Tab>
             </TabList>
             <TabPanel>
                 <ItemSelect type={"primary"} selectedItemId={state.primaryWeaponId} careerId={state.careerId}></ItemSelect>
-                <InventoryItemDisplay trait={state.traits[0]} properties={[state.properties[0], state.properties[1]]} item={primaryWeapon}></InventoryItemDisplay>
+                <InventoryItemDisplay trait={state.traits[0]} properties={[state.properties[0], state.properties[1]]} item={primaryWeapon} slot="primary"></InventoryItemDisplay>
             </TabPanel>
             <TabPanel>
                 <ItemSelect type={"secondary"} selectedItemId={state.secondaryWeaponId} careerId={state.careerId}></ItemSelect>
-                <InventoryItemDisplay trait={state.traits[1]} properties={[state.properties[2], state.properties[3]]} item={secondaryWeapon} type={"range"}></InventoryItemDisplay>
+                <InventoryItemDisplay trait={state.traits[1]} properties={[state.properties[2], state.properties[3]]} item={secondaryWeapon} slot="secondary"></InventoryItemDisplay>
             </TabPanel>
             <TabPanel className="jewelry-tab react-tabs__tab-panel">
                 <InventoryItemDisplay trait={state.traits[2]} properties={[state.properties[4], state.properties[5]]} item={{name: 'Necklace', propertyCategory: 'necklace', traitCategory: 'necklace'}}></InventoryItemDisplay>

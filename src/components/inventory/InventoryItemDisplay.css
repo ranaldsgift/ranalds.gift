@@ -15,6 +15,7 @@
     align-content: center;
     display: grid;
     background: radial-gradient(65% 85% at bottom, #a81c1c, black);
+    text-align: center;
 }
 .inventory-item-summary {
     grid-area: itemSummary;
@@ -25,15 +26,12 @@
 }
 .inventory-item-footer {
     grid-area: itemFooter;
-    border-image: url('../../assets/images/borders/border-01.png');
-    border-image-slice: 15; 
-    border-image-width: 15px;
-    border-style: solid;
     color: #30e158;
     align-content: center;
     display: grid;
     background: black;
     text-transform: capitalize;
+    text-align: center;
 }
 .inventory-item-summary-container {
     grid-area: itemSummary;
@@ -47,12 +45,12 @@
     grid-template-areas: "itemPower itemStamina" "itemProperties itemProperties" "itemTrait itemTrait";
     background: url('../../assets/images/backgrounds/background22.png');
 }
-.jewelry-tab .inventory-item-summary-container {
+/* .jewelry-tab .inventory-item-summary-container {
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: "itemPower itemProperties itemProperties" "itemTrait itemTrait itemTrait";    
     grid-row-gap: 10px;
-}
+} */
 .jewelry-tab .inventory-item-display-container {
     grid-template-areas: "itemHeader" "itemSummary";
     grid-template-rows: 60px 1fr;
@@ -144,6 +142,7 @@
     grid-area: traitDescription;
     margin-bottom: 16px;
     min-height: 40px;
+    max-width: calc(100% - 50px);
 }
 .jewelry-tab .item-properties-container {
     margin-top: 10px;
@@ -183,4 +182,7 @@ select>* {
 {
   content: "\25BE";
   margin-left: 3px;
+}
+.inventory-item-container-header {
+    text-align: center;
 }

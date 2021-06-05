@@ -10,7 +10,7 @@
     padding: 20px;
     align-content: start;    
     grid-area: buildList;
-    box-shadow: -1px -1px 0 0 #564640;
+    box-shadow: -1px 0px 0 0 #564640;
 }
 
 
@@ -80,12 +80,14 @@
 .build-list-container {
     display: grid;
     grid-template-areas:
-        "heroSelect buildFilters"
-        "heroSelect buildList";
-    grid-template-columns: 392px 1fr;
-    grid-column-gap: 20px;
-    grid-template-rows: auto 1fr;
-    grid-row-gap: 20px;
+        "heroSelect"
+        "buildFilters"
+        "buildList"
+        "pageControls";
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .select-filters-container {
@@ -94,6 +96,7 @@
     grid-auto-flow: column;
     grid-column-gap: 10px;
     grid-auto-columns: 1fr;
+    padding: 20px;
 }
 
 .select-filters-container>* {
@@ -113,15 +116,77 @@
     box-shadow: -1px -1px 0 0 #564640;
     margin-bottom: -2px;
 }
-.paged-build-list {
-    grid-template-areas:
-        "heroSelect buildFilters"
-        "heroSelect empty"
-        "heroSelect buildList"
-        "heroSelect pageControls";
-    grid-template-rows: auto 20px 1fr auto;
-    grid-row-gap: 0px;
-}
 .build-list-container:not(.paged-build-list) .build-list {
     box-shadow: -1px -1px 0 0 #564640;
+}
+.build-list-label {
+    text-align: left;
+    color: #f0d9af;
+}
+
+.build-list-container .hero-icon-container .hero-select-icon[data-career='1'] {
+    background: url('../../assets/images/heroes/01/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='2'] {
+    background: url('../../assets/images/heroes/02/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='3'] {
+    background: url('../../assets/images/heroes/03/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='4'] {
+    background: url('../../assets/images/heroes/04/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='5'] {
+    background: url('../../assets/images/heroes/05/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='6'] {
+    background: url('../../assets/images/heroes/06/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='7'] {
+    background: url('../../assets/images/heroes/07/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='8'] {
+    background: url('../../assets/images/heroes/08/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='9'] {
+    background: url('../../assets/images/heroes/09/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='10'] {
+    background: url('../../assets/images/heroes/10/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='11'] {
+    background: url('../../assets/images/heroes/11/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='12'] {
+    background: url('../../assets/images/heroes/12/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='13'] {
+    background: url('../../assets/images/heroes/13/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='14'] {
+    background: url('../../assets/images/heroes/14/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='15'] {
+    background: url('../../assets/images/heroes/15/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='16'] {
+    background: url('../../assets/images/heroes/16/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='17'] {
+    background: url('../../assets/images/heroes/17/portrait-wide.png'), url('../../assets/images/backgrounds/background29.png');
+}
+.build-list-container .hero-icon-container .hero-select-icon[data-career='18'], .build-list-container .hero-select-icon[data-career='19'], .build-list-container .hero-select-icon[data-career='20'] {
+    display: none;
+}
+.build-list-container .hero-icon-container .hero-select-icon {
+    width: 203px;
+    height: 74px;
+}
+.build-list-container .hero-icon-container {
+    display: grid;
+    width: calc(100% - 46px);
+    grid-template-columns: unset !important;
+    grid-auto-columns: min-content;
+    grid-auto-flow: column;
+    justify-content: center;
 }

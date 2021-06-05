@@ -97,6 +97,7 @@
   .menu-title-label{
       z-index: 1;
       position: relative;
+      text-align: center;
   }
   
 .menu-title-label::after {

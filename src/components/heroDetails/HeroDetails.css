@@ -15,11 +15,12 @@ p.skill-cooldown-label {
     border-style: solid;
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0px;
+    left: 0px;
     height: 100%;
     width: 100%;
-    z-index: 1
+    z-index: 1;
+    box-sizing: border-box;
 }
 .health-bar::before, .cooldown-bar::before {
     background-image: url('../../assets/images/backgrounds/background18.png');
@@ -27,10 +28,13 @@ p.skill-cooldown-label {
     background-repeat: no-repeat;
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0px;
+    left: 0px;
     height: 100%;
     width: 100%;
+}
+.health-value {
+    color: #000;
 }
 .health-bar[data-value="100"] .stat-container {
     width: 55%;
@@ -75,14 +79,10 @@ p.skill-cooldown-label {
     width: 100%;
 }
 .health-bar .stat-container {    
-  background: linear-gradient(90deg,#06730a,#31d014 97%, #31d0147a 100%);
+  background: linear-gradient(90deg,#06730ab3,#31d014b3 100%), url('../../assets/images/backgrounds/background-42.png') center / cover;
 }
 .cooldown-bar .stat-container {    
-    background: linear-gradient(90deg,#2b1d7e,#6c48a8 97%, #6c48a87a 100%);
-}
-.stat-container span {
-    padding-top: 4px;
-    text-shadow: 0 0 3px black;
+    background: linear-gradient(90deg,#2b1d7eb3,#6c48a8b3 100%), url('../../assets/images/backgrounds/background-42.png') center / cover;
 }
 .stat-container {
   color: #f0d9af;
@@ -96,6 +96,9 @@ p.skill-cooldown-label {
   grid-template-rows: 1fr;
   grid-auto-columns: auto;
   align-items: center;
+  box-shadow: inset 0px 5px 2px 2px #ffffff60;
+  font-size: 1.2em;  
+  border-radius: 0 15px 15px 0;
 }
 .bonus-health {
   color: #000;

@@ -20,11 +20,10 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    grid-template-columns: 1000px;
+    grid-template-columns: auto;
     grid-row-gap: 20px;
 }
 .user-build-lists {
-    width: 1000px;
     position: relative;
     box-shadow: -1px -1px 0 0 #564640;
 }

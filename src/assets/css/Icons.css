@@ -66,3 +66,13 @@
     background: linear-gradient(110deg, transparent 50%, #141414 50%), linear-gradient(70deg, #141414 50%, transparent 50%);
     border-radius: inherit;
 }
+.rated-icon {
+    background: url('../../assets/images/icons/rated-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.rating-icon {
+    background: url('../../assets/images/icons/rating-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

@@ -44,7 +44,7 @@ export const traitsData =
                 "description":"Headshots replenish 1 ammunition."
             },
             {
-                "id": "43",
+                "id": "3",
                 "name":"Hunter",
                 "description":"Critical hits increase attack power by 25% against targets with the same armor class for 10 seconds."
             },

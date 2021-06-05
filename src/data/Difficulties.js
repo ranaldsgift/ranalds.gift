@@ -5,5 +5,6 @@ export const difficultyData = [
     { id: 4, name: 'Champion' },
     { id: 5, name: 'Veteran' },
     { id: 6, name: 'Recruit' },
-    { id: 7, name: 'Modded' }
+    { id: 7, name: 'C1DWONS' },
+    { id: 8, name: 'C3DWONS' }
 ];

@@ -14,32 +14,33 @@ import BuildSummary from '../buildPage/BuildSummary';
 class HeroPage extends Component {
   static contextType = AppContext;
 
+  componentDidMount() {
+    const [state, updateState] = this.context;
+
+    if (typeof this.props.match.params.careerId != "undefined" && state.careerId !== this.props.match.params.careerId) {
+      updateState({
+        type: "INIT_STATE_FROM_URL", 
+        payload: { 
+          careerId: this.props.match.params.careerId,
+          talents: this.props.match.params.talents,
+          melee: this.props.match.params.melee,
+          range: this.props.match.params.range,
+          necklace: this.props.match.params.necklace,
+          charm: this.props.match.params.charm,
+          trinket: this.props.match.params.trinket
+        }
+      });
+      return null;
+    }
+
+  }
+
   render() {
     const [state, updateState] = this.context;
     this.careerId = state.careerId;
 
     var root = document.getElementById('root');
     root.dataset.pageName = 'heroesPage';
-
-    if (state.careerId === 0) {
-      if (typeof this.props.match.params.careerId != "undefined") {
-        updateState({
-          type: "INIT_STATE_FROM_URL", 
-          payload: { 
-            careerId: this.props.match.params.careerId,
-            talents: this.props.match.params.talents,
-            melee: this.props.match.params.melee,
-            range: this.props.match.params.range,
-            necklace: this.props.match.params.necklace,
-            charm: this.props.match.params.charm,
-            trinket: this.props.match.params.trinket
-          }
-        });
-      } else {
-        updateState({type: "UPDATE_CAREER", payload: 1});
-      }
-      return null;
-    }
 
     if (this.props.match.params.careerId !== state.careerId && state.careerId === 0) {
       this.careerId = this.props.match.params.careerId;
@@ -53,6 +54,7 @@ class HeroPage extends Component {
     if(this.props.match.params.talents && this.talents[0] < 0) {
       this.talents = this.props.match.params.talents.substring(0,6).split('').map((talent) => { return parseInt(talent); });
       updateState({type: "UPDATE_ALL_TALENTS", payload: this.talents});
+      return null;
     }
 
     //var urlState = `${state.careerId}/${Object.values(state.talents).join('')}/${state.meleeId},${state.properties[0]},${state.properties[1]},${state.traits[0]}/${state.rangeId},${state.properties[2]},${state.properties[3]},${state.traits[1]}/${state.properties[4]},${state.properties[5]},${state.traits[2]}/${state.properties[6]},${state.properties[7]},${state.traits[3]}/${state.properties[8]},${state.properties[9]},${state.traits[4]}`
@@ -72,7 +74,7 @@ class HeroPage extends Component {
                 <HeroDetails careerId={this.careerId}></HeroDetails>
                 <BuildSummary></BuildSummary>
               </div>
-              <span className="hero-page-url-state" onClick={this.copyUrlStateToClipboard.bind(this)}></span>
+              <span className="hero-page-url-state border-01" onClick={this.copyUrlStateToClipboard.bind(this)}></span>
               <HeroTalents contextActionType="UPDATE_HERO_TALENTS" careerId={this.careerId} talents={this.talents}></HeroTalents>
             </TabPanel>
             <TabPanel className="hero-builds-tab">

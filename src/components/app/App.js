@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 import '../../assets/css/Talents.css';
 import '../../assets/css/Weapons.css';
+import '../../assets/css/Borders.css';
 import '../../assets/css/Icons.css';
+import '../../assets/css/Dividers.css';
 import '../../assets/css/Heroes.css';
-import '../../assets/css/Layouts.css';
 import Background from './Background'
 import HeroPage from '../heroPage/HeroPage'
 import EditBuildPage from '../buildPage/EditBuildPage'
@@ -27,6 +28,7 @@ import ViewBuildPage from '../buildPage/ViewBuildPage';
 import BuildListPageStore from '../../stores/BuildListPageStore';
 import BuildsList from '../buildList/BuildsList';
 import { DataHelper } from '../../utils/DataHelper';
+import '../../assets/css/Layouts.css';
 
 class App extends Component {
   static contextType = UserContext;
@@ -57,7 +59,8 @@ class App extends Component {
                 username: doc.data().username,
                 email: user.email,
                 steam: doc.data().steam,
-                twitch: doc.data().twitch,
+                twitch: doc.data().twitch,                
+                likedBuilds: doc.data().likedBuilds,
                 dateCreated: doc.data().dateCreated,
                 dateModified: doc.data().dateModified
               }
@@ -84,6 +87,7 @@ class App extends Component {
               email: '',
               steam: '',
               twitch: '',
+              likedBuilds: [],
               dateCreated: {},
               dateModified: {}
             }
@@ -115,8 +119,8 @@ class App extends Component {
         <Background></Background>
         <div className="page-title page-title-label label-01"></div>
         <div className="page-title page-title-label-background"></div>
-        <div className="app-container-frame border-06">
-          <div className="app-container background7">
+        <div className="app-container-frame border-06 background7">
+          <div className="app-container">
             <Route path="/home" component={HomePage}></Route>
             <Route path="/about" component={AboutPage}></Route>
             <HeroPageStore>
@@ -139,6 +143,7 @@ class App extends Component {
               <UserViewStore>
                 <Route path="/user/:userId" component={UserPageContainer}></Route>
               </UserViewStore>
+            <Route exact path="/" component={HomePage}></Route>
           </div>
         </div>
       </div>

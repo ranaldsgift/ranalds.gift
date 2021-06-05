@@ -21,33 +21,53 @@ class BuildOptions extends Component {
     }
     
   render() {
-    const [state] = this.context;
-
-    const rolesData = [ 'Frontliner', 'Backliner', 'Horde Focus', 'Boss Focus', 'Elite Focus', 'Special Focus', 'Tank', 'CC', 'Support', 'Solo' ];
-
     return (
-        <div className="build-options-container">
-          <DifficultySelect selectedValues={state.difficulties}></DifficultySelect>
-          <MissionSelect selectedValues={state.missions}></MissionSelect>
-          <PotionSelect selectedValues={state.potions}></PotionSelect>
-          <BookSelect selectedValues={state.books}></BookSelect>
-          <RoleSelect selectedValues={state.roles}></RoleSelect>
-
-                                {/* <select value={state.difficulty} onChange={this.difficultySelectChange}>
-                                    <option defaultValue hidden>Difficulty</option>
-                                    {this.getDifficultyOptions()}
-                                </select>
-                                <select value={state.mission} onChange={this.missionSelectChange}>
-                                    <option hidden defaultValue>Mission</option>
-                                    {this.getMissionOptions()}
-                                </select>
-                                <select value={state.potion} onChange={this.potionSelectChange}>
-                                    <option hidden defaultValue>Potion Preference</option>
-                                    {this.getPotionOptions()}
-                                </select>
-                                <Multiselect isObject={false} options={rolesData} selectedValues={state.roles} displayValue="name" placeholder="Add Roles" hidePlaceholder="true" onSelect={this.roleSelected} onRemove={this.roleRemoved}></Multiselect> */}
-                            </div>
+      <div className="build-options-container divider-03 top">
+        {this.renderOptions()}
+      </div>
         );
+      }
+
+      renderOptions() {
+        const [state] = this.context;
+
+        var optionsHtml = [];
+
+        var selectedDifficulties = state.difficulty ? [state.difficulty] : [];
+        var selectedMissions = state.mission ? [state.mission] : [];
+        var selectedPotions = state.potion ? [state.potion] : [];
+        var selectedBooks = state.book ? [state.book] : [];
+        
+        if (this.props.hideEmpty) {
+          if (selectedDifficulties.length > 0) {
+            optionsHtml.push(<DifficultySelect selectedValues={selectedDifficulties}></DifficultySelect>);
+          }
+
+          if (selectedMissions.length > 0) {
+            optionsHtml.push(<MissionSelect selectedValues={selectedMissions}></MissionSelect>);
+          }
+
+          if (selectedPotions.length > 0) {
+            optionsHtml.push(<PotionSelect selectedValues={selectedPotions}></PotionSelect>);
+          }
+
+          if (selectedBooks.length > 0) {
+            optionsHtml.push(<BookSelect selectedValues={selectedBooks}></BookSelect>);
+          }
+
+          if (state.roles.length > 0) {
+            optionsHtml.push(<RoleSelect selectedValues={state.roles}></RoleSelect>);
+          }
+        }
+        else {
+          optionsHtml.push(<DifficultySelect selectedValues={selectedDifficulties}></DifficultySelect>);
+          optionsHtml.push(<MissionSelect selectedValues={selectedMissions}></MissionSelect>);
+          optionsHtml.push(<PotionSelect selectedValues={selectedPotions}></PotionSelect>);
+          optionsHtml.push(<BookSelect selectedValues={selectedBooks}></BookSelect>);
+          optionsHtml.push(<RoleSelect selectedValues={state.roles}></RoleSelect>);
+        }
+
+        return optionsHtml;
       }
 
       getDifficultyOptions() {

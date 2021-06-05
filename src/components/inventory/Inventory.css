@@ -4,11 +4,6 @@
 .inventory-container { 
     color: #f0f0f0;
 }
-
-.inventory-container > * {
-    box-shadow: -1px -1px 0 0 #564640;
-}
-
 .hero-equipment-container {
     grid-area: heroEquipment;
     display: grid;
@@ -63,3 +58,6 @@
     justify-self: center;
     margin: 12px;
   }
+  .weapon-border, .trait-icon, .jewelry-icon {
+    box-shadow: inset 0 2px 2px #fff;
+}

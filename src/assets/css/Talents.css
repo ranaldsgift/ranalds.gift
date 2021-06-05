@@ -13,20 +13,6 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 150%;
 }
-.build-list-item .talent-icon::after {
-    border-image: url('../../assets/images/borders/border-10.png');
-    border-image-slice: 15;
-    border-image-width: 15px;
-    border-image-repeat: repeat;
-    border-style: solid;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    box-shadow: inset 0 0 100px #00000069;
-}
 .talent-1::after {
     content: '1';
 }
@@ -37,7 +23,7 @@
     content: '3';
 }
 .talent-icon:hover::before {
-    /*content: 'Hitting more than 3 enemies in one swing generates temporary health.';*/
+    content: 'Hitting more than 3 enemies in one swing generates temporary health.';
     height: 40px;
     width: 400px;
     display: grid;
@@ -53,7 +39,6 @@
     white-space: unset;
     text-transform: initial;
     align-content: center;
-
 }
 
 .talent-left::after {

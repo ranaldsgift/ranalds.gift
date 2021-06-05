@@ -8,7 +8,6 @@ import PagedBuildList from '../buildList/PagedBuildList';
 import './UserPage.css';
 
 function UserPage(props) {
-  useTraceUpdate(props);
     const [state, updateState] = useContext(UserViewContext);
 
     //show user information from database
@@ -54,7 +53,7 @@ function UserPage(props) {
     }
 
     return (
-      <div className="user-page background-20 border-02">
+      <div className="user-page background-22 border-02">
         <div className="user-info-container background-14 border-08">
           <span type="text">Username</span>
           <span type="text">{state.username}</span>
@@ -86,7 +85,7 @@ function UserPage(props) {
     );
   }
 
-  function useTraceUpdate(props) {
+/*   function useTraceUpdate(props) {
     const prev = useRef(props);
     useEffect(() => {
       const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
@@ -100,6 +99,6 @@ function UserPage(props) {
       }
       prev.current = props;
     });
-  }
+  } */
 
 export default UserPage;

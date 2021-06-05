@@ -12,11 +12,19 @@ class InventoryItemDisplay extends Component
     render() {
       const [state] = this.context;
 
+      var property1Index, property2Index, traitIndex;
+      
       switch (this.props.item.traitCategory) {
         case 'melee':
-          return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, 0, 1, 0);
+          property1Index = this.props.slot === "primary" ? 0 : 2;
+          property2Index = this.props.slot === "primary" ? 1 : 3;
+          traitIndex = this.props.slot === "primary" ? 0 : 1;
+          return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, property1Index, property2Index, traitIndex);
         case 'range':
-          return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.range, 2, 3, 1);
+          property1Index = this.props.slot === "primary" ? 0 : 2;
+          property2Index = this.props.slot === "primary" ? 1 : 3;
+          traitIndex = this.props.slot === "primary" ? 0 : 1;
+          return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.range, property1Index, property2Index, traitIndex);
         case 'magic':
           return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.magic, 2, 3, 1);
         case 'necklace':
@@ -41,11 +49,19 @@ class InventoryItemDisplay extends Component
       }
       const [state] = this.context;
 
-      var property1 = propertyData.find((property) => { return parseInt(property.id) === parseInt(this.props.properties[0]); });
-      var property2 = propertyData.find((property) => { return parseInt(property.id) === parseInt(this.props.properties[1]); });
+      var property1Index = propertyData.findIndex((property) => { return parseInt(property.id) === parseInt(this.props.properties[0]); });
+      var property2Index = propertyData.findIndex((property) => { return parseInt(property.id) === parseInt(this.props.properties[1]); });
+
+      var property1 = propertyData[property1Index];
+      var property2 = propertyData[property2Index];
       var trait = traitData.find((trait) => { return parseInt(trait.id) === parseInt(this.props.trait); });
       var propertyModifier1 = property1.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
       var propertyModifier2 = property2.name.toLowerCase().indexOf('stamina') >= 0 ? '' : '%';
+
+      var propertyData1 = propertyData.slice();
+      var propertyData2 = propertyData.slice();
+      propertyData1.splice(property2Index, 1);
+      propertyData2.splice(property1Index, 1);
 
       return (
           <div className="inventory-item-display-container">
@@ -55,18 +71,18 @@ class InventoryItemDisplay extends Component
                   {itemStaminaHtml}
                   <div className="item-properties-container">
                     <li className="item-property-1">{`+ ${parseFloat(property1.max_value).toFixed(1)}${propertyModifier1} ${property1.name}`}</li>
-                    <PropertiesSelect propertyData={propertyData} propertyIndex={propertyIndex1} selected={state.properties[propertyIndex1]}></PropertiesSelect>
+                    <PropertiesSelect propertyData={propertyData1} propertyIndex={propertyIndex1} selected={state.properties[propertyIndex1]}></PropertiesSelect>
                     <li className="item-property-2">{`+ ${parseFloat(property2.max_value).toFixed(1)}${propertyModifier2} ${property2.name}`}</li>
-                    <PropertiesSelect propertyData={propertyData} propertyIndex={propertyIndex2} selected={state.properties[propertyIndex2]}></PropertiesSelect>
+                    <PropertiesSelect propertyData={propertyData2} propertyIndex={propertyIndex2} selected={state.properties[propertyIndex2]}></PropertiesSelect>
                   </div>
                   <div className="item-trait-container">
                     <div className={`item-trait-icon trait-icon trait-${trait.name.toLowerCase().replace(/'/g,'').replace(/ /g, '-')} border-04`}></div>
                     <p className="item-trait-name">{trait.name}</p>
-                    <TraitsSelect data={traitData} index={traitIndex} selected={state.properties[propertyIndex2]}></TraitsSelect>
+                    <TraitsSelect data={traitData} index={traitIndex} selected={state.traits[traitIndex]}></TraitsSelect>
                     <p className="item-trait-description">{trait.description}</p>
                   </div>
               </div>
-              <p className="inventory-item-footer">{itemDescription.replace(/weapon_keyword_/g, '').replace(/_/g, ' ').split(',').join(', ')}</p>
+              <p className="inventory-item-footer border-01">{itemDescription.replace(/weapon_keyword_/g, '').replace(/_/g, ' ').split(',').join(', ')}</p>
           </div>
       );
     }      

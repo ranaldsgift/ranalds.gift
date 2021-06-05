@@ -13,7 +13,7 @@ class PropertiesSelect extends Component {
         });
 
       return (
-          <select data-property={this.props.propertyIndex} onChange={this.handlePropertySelectChange.bind(this)} defaultValue={this.props.selected-1}>
+          <select data-property={this.props.propertyIndex} onChange={this.handlePropertySelectChange.bind(this)} defaultValue={this.props.selected}>
               {propertyOptions}
           </select>
       );

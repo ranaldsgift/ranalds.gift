@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './TraitIcon.css';
 import { DataHelper } from '../../utils/DataHelper';
 
 class TraitIcon extends Component {
@@ -20,7 +21,12 @@ class TraitIcon extends Component {
       }
 
       return (
-        <div className={`trait-icon trait-${traitName} border-04`}></div>
+        <div className={`trait-icon trait-${traitName} border-04`}>
+            <div className="tooltip border-35">
+                <span className="name header-underline">{traitData.name}</span>
+                <span className="description">{traitData.description}</span>
+            </div>
+        </div>
     );
   }
 

@@ -6,6 +6,7 @@ import {meleeWeaponsData} from '../../data/MeleeWeapons'
 import {rangeWeaponsData} from '../../data/RangeWeapons'
 import {weaponsData} from '../../data/Weapons'
 import WeaponIcon from './WeaponIcon';
+import { DataHelper } from '../../utils/DataHelper';
 
 class ItemSelect extends Component {
   static contextType = AppContext;
@@ -45,15 +46,15 @@ class ItemSelect extends Component {
     var weaponsForHero = [];
 
     if (itemType === "primary") {
-      weaponsForHero = weaponsData.filter((item) => { return item.canWieldPrimary.includes(careerId); });
+      weaponsForHero = DataHelper.getPrimaryWeaponsForCareer(careerId);
     } 
     else if (itemType === "secondary") {
-      weaponsForHero = weaponsData.filter((item) => { return item.canWieldSecondary.includes(careerId); });
+      weaponsForHero = DataHelper.getSecondaryWeaponsForCareer(careerId);
     }
 
     var selectedWeapon = weaponsForHero.find((item) => { return parseInt(item.id) === parseInt(selectedItemId); });
 
-    if (!selectedWeapon) {
+/*     if (!selectedWeapon) {
       selectedWeapon = weaponsForHero[0];
         
         updateState({
@@ -63,7 +64,7 @@ class ItemSelect extends Component {
               type: itemType
           }
       });
-    }
+    } */
     
     for (var i = 0; i < weaponsForHero.length; i++) {
       var weapon = weaponsForHero[i];

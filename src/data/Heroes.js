@@ -1,6 +1,7 @@
 export const heroesData = [
     {
         "id": 1,
+        "heroId": 1,
         "name": "Mercenary",
         "codeName": "es_mercenary",
         "heroName": "Markus Kruber",
@@ -155,6 +156,7 @@ export const heroesData = [
     },
     {
         "id": 2,
+        "heroId": 1,
         "name": "Huntsman",
         "codeName": "es_huntsman",
         "heroName": "Markus Kruber",
@@ -327,6 +329,7 @@ export const heroesData = [
     },
     {
         "id": 3,
+        "heroId": 1,
         "name": "Foot Knight",
         "codeName": "es_knight",
         "heroName": "Markus Kruber",
@@ -508,6 +511,7 @@ export const heroesData = [
     },
     {
         "id": 16,
+        "heroId": 1,
         "name": "Grail Knight",
         "codeName": "es_questingknight",
         "heroName": "Markus Kruber",
@@ -698,6 +702,7 @@ export const heroesData = [
     },
     {
         "id": 4,
+        "heroId": 2,
         "name": "Ranger Veteran",
         "codeName": "dr_ranger",
         "heroName": "Bardin Goreksson",
@@ -842,6 +847,7 @@ export const heroesData = [
     },
     {
         "id": 5,
+        "heroId": 2,
         "name": "Ironbreaker",
         "codeName": "dr_ironbreaker",
         "heroName": "Bardin Goreksson",
@@ -999,6 +1005,7 @@ export const heroesData = [
     },
     {
         "id": 6,
+        "heroId": 2,
         "name": "Slayer",
         "codeName": "dr_slayer",
         "heroName": "Bardin Goreksson",
@@ -1146,6 +1153,7 @@ export const heroesData = [
         ]
     },
     {
+        "heroId": 2,
 		"id": 17,
 		"name": "Outcast Engineer",
 		"codeName": "dr_engineer",
@@ -1251,6 +1259,7 @@ export const heroesData = [
 	},
     {
         "id": 7,
+        "heroId": 3,
         "name": "Waystalker",
         "codeName": "we_waywatcher",
         "heroName": "Kerillian",
@@ -1375,6 +1384,7 @@ export const heroesData = [
     },
     {
         "id": 8,
+        "heroId": 3,
         "name": "Handmaiden",
         "codeName": "we_maidenguard",
         "heroName": "Kerillian",
@@ -1534,6 +1544,7 @@ export const heroesData = [
     },
     {
         "id": 9,
+        "heroId": 3,
         "name": "Shade",
         "codeName": "we_shade",
         "heroName": "Kerillian",
@@ -1691,187 +1702,112 @@ export const heroesData = [
     },
     {
         "id": 18,
-        "name": "Foot Knight",
-        "codeName": "es_knight",
-        "heroName": "Markus Kruber",
-        "health": 150,
-        "passive": {
-            "name": "Protective Presence",
-            "description": "Aura that reduces damage taken by 15%.",
-            "modifier": {
-                "type": "damage_reduction",
-                "value": 0.15,
-                "conditional": false,
-                "aura": true
-            }
-        },
-        "skill": {
-            "name": "Valiant Charge",
-            "description": "Markus charges forward, slamming into enemies and knocking them back.",
-            "notes": "Staggers bosses",
-            "cooldown": 30
-        },
-        "perks": [
-            {
-                "name": "Taal's Fortitude",
-                "description": "Grant's an extra stamina shield.",
-                "modifier": {
-                    "type": "stamina",
-                    "value": 2,
-                    "conditional": false
-                }
-            },            
-            {
-                "name": "No Guts, No Glory",
-                "description": "Reduces damage taken by 10%.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.1,
-                    "conditional": false
-                }
-            }
-        ],
-        "talents": [
-            {                
-                "name": "Back Off, Ugly!",
-                "description": "Staggering an enemy with a melee attack grants temporary health. Health gained is based on the strength of the stagger."
-            },
-            {                
-                "name": "Bloody Unstoppable!",
-                "description": "Striking multiple enemies in one swing grants temporary health based on the number of targets hit. Max 5 enemies."
-            },
-            {                
-                "name": "Templar’s Rally",
-                "description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20% of their maximum health. Clears any wounds."
-            },
-            {                
-                "name": "Staggering Force",
-                "description": "Increases stagger power by 35%.",
-                "modifier": {
-                    "type": "stagger",
-                    "value": 0.35,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "Have at Thee!",
-                "description": "Staggering an elite enemy increases power by 15% for 10 seconds.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.15,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Crowd Clearer",
-                "description": "Pushing an enemy increases attack speed by 15% for 3 seconds.",
-                "modifier": {
-                    "type": "attack_speed",
-                    "value": 0.15,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Bulwark",
-                "description": "Enemies that you stagger take 10% more damage from melee attacks for 5 seconds.\n\nDeal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
-            },
-            {                
-                "name": "Mainstay",
-                "description": "Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
-            },
-            {                
-                "name": "Enhanced Power",
-                "description": "Increases total Power Level by 7.5% (incorrect in-game). This is calculated before other buffs are applied.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.07,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "Rock of the Reikland",
-                "description": "Protective Presence also grants 20% block cost reduction.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.2,
-                    "conditional": false,
-                    "aura": true
-                }
-            },
-            {                
-                "name": "Defensive Formation",
-                "description": "Increases damage reduction from Protective Presence by 5%.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.05,
-                    "conditional": false,
-                    "aura": true
-                }
-            },
-            {                
-                "name": "Taal’s Champion",
-                "description": "Increases power level by 10%. Removes damage reduction and no longer effects allies.",
-                "modifier": {
-                    "type": "power",
-                    "value": 0.1,
-                    "conditional": false
-                }
-            },
-            {                
-                "name": "It’s Hero Time",
-                "description": "Increases movement speed by 30% when an ally is incapcitated.",
-                "modifier": {
-                    "type": "move_speed",
-                    "value": 0.3,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Counter-Punch",
-                "description": "Blocking an attack removes the stamina cost of pushing for 2 seconds."
-            },
-            {                
-                "name": "That’s Bloody Teamwork!",
-                "description": "Reduces damage taken by 5% for each nearby ally.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 0.05,
-                    "conditional": true,
-                    "stacks": 3
-                }
-            },
-            {                
-                "name": "Numb to Pain",
-                "description": "Valiant Charge grants invulnerablility for 3 seconds.",
-                "modifier": {
-                    "type": "damage_reduction",
-                    "value": 1.0,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Trample",
-                "description": "Enemies hit by Valiant Charge takes 20% increased damage for 5 seconds. Does not stack with similar effects.",
-                "modifier": {
-                    "type": "enemy_damage",
-                    "value": 0.2,
-                    "conditional": true
-                }
-            },
-            {                
-                "name": "Bull of Ostland!",
-                "description": "Each enemy hit with Valiant Charge grants 3% attack speed for 10 seconds. Stacks up to 10 times.",
-                "modifier": {
-                    "type": "attack_speed",
-                    "value": 0.03,
-                    "conditional": true,
-                    "stacks": 10
-                }
-            }
-        ]
+        "heroId": 3,
+		"name": "Sister of the Thorn",
+		"codeName": "we_thornsister",
+		"heroName": "Kerillian",
+		"health": 125,
+		"passive": {
+			"name": "A Cluster of Radiants",
+			"description": "Kerillian is granted Radiance (a free use of her career skill) every 60 seconds."
+		},
+		"skill": {
+			"name": "Thornwake",
+			"description": "Kerillian conjures a Thorn Wall that hinders enemy movement. The Thorn Wall lasts for 6 seconds.",
+			"cooldown": "40"
+		},
+		"perks": [
+			{
+				"name": "A Murder of Spites",
+				"description": "Kerillian deals up to 50% more damage to wounded targets depending on their remaining health."
+			},
+			{
+				"name": "A Sustenance of Leechlings",
+				"description": "Whenever another party member receives temporary health while at full health, Kerillian gains temporary health instead."
+			},
+			{
+				"name": "An Attendance of Munificents",
+				"description": "All healing received by the party is increased by 25%."
+			}
+		],
+		"talents": [
+			{
+				"name": "Weavebond",
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+			},
+			{
+				"name": "Martial Blessing",
+				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+			},
+			{
+				"name": "Eternal Blossom",
+				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+			},
+			{
+				"name": "Surge of Malice",
+				"description": "While above 90% health Kerilian gains 15% Attack Speed."
+			},
+			{
+				"name": "Atharti's Delight",
+				"description": "Critical Strikes make the target Bleed."
+			},
+			{
+				"name": "Isha's Bounty",
+				"description": "Gaining health grants 5% Power for 8 seconds. Stacks up to 3 times."
+			},
+			{
+				"name": "Smiter",
+				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Mainstay",
+				"description": "Deal 40% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Enhanced Power",
+				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
+			},
+			{
+				"name": "Incandescence",
+				"description": "Radiance can stack 2 times."
+			},
+			{
+				"name": "Hekarti's Cruel Bargain",
+				"description": "For each Elite enemy slain near Kerillian, the cooldown of Radiance decreases by 1 seconds."
+			},
+			{
+				"name": "Radiant Inheritance",
+				"description": "Consuming Radiance grants Kerillian vastly increased combat potency for 15 seconds."
+			},
+			{
+				"name": "The Pale Queen's Choosing",
+				"description": "Every 8 seconds, Kerillian's next Ranged Attack consumes no resource and restores 3 permanent health."
+			},
+			{
+				"name": "Morai-Heg's Doomsight",
+				"description": "Gain 3 guaranteed Critical Strikes each time a career skill is used."
+			},
+			{
+				"name": "Repel",
+				"description": "Pushing at full Stamina increases the strength and range of the push by 100%."
+			},
+			{
+				"name": "Ironbark Thicket",
+				"description": "Increases the Duration of the Thorn Wall to 10 seconds."
+			},
+			{
+				"name": "Bloodrazor Thicket",
+				"description": "Increases the Thorn Wall's eruption damage and makes it apply Bleed, but lower both size and duration."
+			},
+			{
+				"name": "Blackvenom Thicket",
+				"description": "When the Thorn Wall expires, poisonous thorns explode outward, causing nearby enemies to take 20% increased damage for 10 seconds."
+			}
+		]
     },
     {
         "id": 10,
+        "heroId": 4,
         "name": "Witch Hunter Captain",
         "codeName": "wh_captain",
         "heroName": "Victor Saltzpyre",
@@ -2063,6 +1999,7 @@ export const heroesData = [
     },
     {
         "id": 11,
+        "heroId": 4,
         "name": "Bounty Hunter",
         "codeName": "wh_bountyhunter",
         "heroName": "Victor Saltzpyre",
@@ -2222,6 +2159,7 @@ export const heroesData = [
     },
     {
         "id": 12,
+        "heroId": 4,
         "name": "Zealot",
         "codeName": "wh_zealot",
         "heroName": "Victor Saltzpyre",
@@ -2384,6 +2322,7 @@ export const heroesData = [
     },
     {
         "id": 19,
+        "heroId": 4,
         "name": "Foot Knight",
         "codeName": "es_knight",
         "heroName": "Markus Kruber",
@@ -2565,6 +2504,7 @@ export const heroesData = [
     },
     {
         "id": 13,
+        "heroId": 5,
         "name": "Battle Wizard",
         "codeName": "bw_scholar",
         "heroName": "Sienna Fuegonasus",
@@ -2678,6 +2618,7 @@ export const heroesData = [
     {
         "id": 14,
         "name": "Pyromancer",
+        "heroId": 5,
         "codeName": "bw_adept",
         "heroName": "Sienna Fuegonasus",
         "health": 100,
@@ -2785,6 +2726,7 @@ export const heroesData = [
     },
     {
         "id": 15,
+        "heroId": 5,
         "name": "Unchained",
         "codeName": "bw_unchained",
         "heroName": "Sienna Fuegonasus",
@@ -2895,6 +2837,7 @@ export const heroesData = [
         ]
     }, {
         "id": 20,
+        "heroId": 5,
         "name": "Foot Knight",
         "codeName": "es_knight",
         "heroName": "Markus Kruber",

@@ -79,12 +79,28 @@ export class DataHelper {
       return data.filter((item) => { return ids.includes(item.id); });
     }
 
+    static getDataById = (data, id) => {
+      return data.find((item) => { return item.id === id; });
+    }
+
+    static getDifficultyById = (id) => {
+      return this.getDataById(difficultyData, id);
+    }
+
     static getDifficultiesByIds = (ids) => {
       return this.getDataByIds(difficultyData, ids);
     }
 
+    static getMissionById = (id) => {
+      return this.getDataById(missionData, id);
+    }
+
     static getMissionsByIds = (ids) => {
       return this.getDataByIds(missionData, ids);
+    }
+
+    static getPotionById = (id) => {
+      return this.getDataById(potionData, id);
     }
 
     static getPotionsByIds = (ids) => {
@@ -93,6 +109,10 @@ export class DataHelper {
 
     static getRolesByIds = (ids) => {
       return this.getDataByIds(roleData, ids);
+    }
+
+    static getBookById = (id) => {
+      return this.getDataById(bookData, id);
     }
 
     static getBooksByIds = (ids) => {
@@ -198,6 +218,11 @@ export class DataHelper {
     static getWeapon = (weaponId) => {
       //alert(weaponId);
       return weaponsData.find((weapon) => { return weapon.id === parseInt(weaponId); });
+    }
+
+    static getWeaponByCodename = (weaponCodename) => {
+      //alert(weaponId);
+      return weaponsData.find((weapon) => { return weapon.codeName === weaponCodename; });
     }
 
     static getTraitFromWeapon = (weaponId, traitId) => {

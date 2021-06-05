@@ -1,0 +1,23 @@
+.trait-icon>.tooltip {
+    padding: 1.5rem;
+    z-index: 3;
+    max-width: 400px;
+    transform: translateY(calc(-100% - 10px));
+    background: linear-gradient(0deg, #000000cf, #00000030), url('../../assets/images/backgrounds/background29.png');
+    background-size: cover;
+    text-transform: none;
+    position: absolute;
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 5px;
+    box-shadow: inset 0 0 10px 5px #000000;
+    visibility: hidden;
+
+}
+.trait-icon:hover>.tooltip {
+    visibility: visible;
+}
+.tooltip .name {
+    color: #c15b24;
+    text-transform: uppercase;
+}

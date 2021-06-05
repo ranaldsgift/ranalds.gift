@@ -35,7 +35,7 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
+  position: fixed;
 }
 .background1 {
   background: url('../../assets/images/backgrounds/background1.jpg')
@@ -56,7 +56,7 @@
   background: url('../../assets/images/backgrounds/background6.jpg')
 }
 .background7 {
-  background: url('../../assets/images/backgrounds/background7.jpg')
+  background: linear-gradient(45deg, #200000bd, #2000009e), url('../../assets/images/backgrounds/background7.jpg');
 }
 .background8 {
   background: url('../../assets/images/backgrounds/background8.jpg')
@@ -104,7 +104,7 @@
   background: url('../../assets/images/backgrounds/background21.png')
 }
 .background-22 {
-  background: url('../../assets/images/backgrounds/background22.png')
+  background: radial-gradient(ellipse at bottom, #6a371d69 15%, transparent), url('../../assets/images/backgrounds/background22.png');
 }
 .background-24 {
   background: url('../../assets/images/backgrounds/background24.png')
@@ -148,6 +148,9 @@
 }
 .background-38 {
   background: url('../../assets/images/backgrounds/background38.png')
+}
+.background-39 {
+  background: url('../../assets/images/backgrounds/background39.png')
 }
 
 .label-01 {
@@ -228,4 +231,38 @@
   @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+  }
+  
+  .hex-frame-01 {
+    background-image: url('../../assets/images/borders/hex-frame-01.png');
+  }
+  .hex-frame-01 {
+    background-image: url('../../assets/images/borders/hex-frame-01.png');
+  }
+  .hex-frame-02 {
+    background-image: url('../../assets/images/borders/hex-frame-02.png');
+  }
+  .hex-frame-03 {
+    background-image: url('../../assets/images/borders/hex-frame-03.png');
+  }
+  .hex-frame-04 {
+    background-image: url('../../assets/images/borders/hex-frame-04.png');
+  }
+  .hex-frame-05 {
+    background-image: url('../../assets/images/borders/hex-frame-05.png');
+  }
+  .hex-frame-06 {
+    background-image: url('../../assets/images/borders/hex-frame-06.png');
+  }
+  .hex-frame-07 {
+    background-image: url('../../assets/images/borders/hex-frame-07.png');
+  }
+  .background-40 {
+    background: url('../../assets/images/backgrounds/background40.png')
+  }
+  .background-41 {
+    background: url('../../assets/images/backgrounds/background41.png')
+  }
+  .background-42 {
+    background: url('../../assets/images/backgrounds/background-42.png')
   }

@@ -1,0 +1,8 @@
+.text-divider-01 {
+    background: url('../images/dividers/text-divider-01.png') no-repeat center / 93px 93px;
+}
+.text-divider-02 {
+    background: url('../images/dividers/text-divider-02.png') no-repeat center / 27px 28px;
+    width: 28px;
+    height: 28px;
+}

@@ -16,6 +16,8 @@ import history from '../../utils/History';
 import { UserContext } from '../../stores/UserStore';
 import { Link } from 'react-router-dom';
 import BuildInformation from './BuildInformation';
+import sizeof from 'firestore-size';
+import { DataHelper } from '../../utils/DataHelper';
 
 function EditBuildPage() {
 
@@ -129,124 +131,6 @@ function EditBuildPage() {
             }
         }
 
-        function decrementWeaponStat(careerStat, weaponId, property1Id, property2Id, traitId) {
-
-            let oldWeaponIndex = careerStat.weapons.findIndex((item) => { return item.id === weaponId;});
-            let oldWeapon = careerStat.weapons[oldWeaponIndex];
-
-            decrementStat(oldWeapon.properties, property1Id);
-            decrementStat(oldWeapon.properties, property2Id);
-            decrementStat(oldWeapon.traits, traitId);
-
-            oldWeapon.count -= 1;
-            careerStat.weapons[oldWeaponIndex] = oldWeapon;
-        }
-
-        function incrementWeaponStat(careerStat, weaponId, property1Id, property2Id, traitId) {
-
-            let weaponIndex = careerStat.weapons ? careerStat.weapons.findIndex((item) => { return item.id === weaponId;}) : -1;
-
-            if (weaponIndex < 0) {
-                let newWeapon = {
-                    id: weaponId,
-                    count: 0,
-                    properties: [],
-                    traits: []
-                }
-                careerStat.weapons ? careerStat.weapons.push(newWeapon) : careerStat.weapons = [newWeapon];
-                weaponIndex = careerStat.weapons.length - 1;
-            }
-
-            let weapon = careerStat.weapons[weaponIndex];
-
-            incrementStat(weapon.properties, property1Id);
-            incrementStat(weapon.properties, property2Id);
-            incrementStat(weapon.traits, traitId);
-
-            weapon.count += 1;
-            careerStat.weapons[weaponIndex] = weapon;
-        }     
-
-        function decrementStat(stats, statId) {
-            adjustStat(stats, statId, -1);
-        }
-
-        function incrementStat(stats, statId) {
-            adjustStat(stats, statId, 1);
-        }
-
-        function adjustStat(stats, statId, adjustmentValue) {
-            let statIndex = stats ? stats.findIndex((item) => { return item.id === statId;}) : -1;
-            
-            if (statIndex < 0) {
-                let newStat = {
-                    id: statId,
-                    count: 0
-                }
-                stats ? stats.push(newStat) : stats = [newStat];
-                statIndex = stats.length - 1;
-            }
-
-            stats[statIndex].count = stats[statIndex].count + adjustmentValue;
-        }
-
-        function incrementNecklaceStat(careerStat, property1Id, property2Id, traitId) {
-            if (!careerStat.necklace) {
-                careerStat.necklace = {
-                    properties: [],
-                    traits: []
-                }
-            }
-
-            incrementStat(careerStat.necklace.properties, property1Id);
-            incrementStat(careerStat.necklace.properties, property2Id);
-            incrementStat(careerStat.necklace.traits, traitId)
-        }
-
-        function incrementCharmStat(careerStat, property1Id, property2Id, traitId) {
-            if (!careerStat.charm) {
-                careerStat.charm = {
-                    properties: [],
-                    traits: []
-                }
-            }
-
-            incrementStat(careerStat.charm.properties, property1Id);
-            incrementStat(careerStat.charm.properties, property2Id);
-            incrementStat(careerStat.charm.traits, traitId)
-        }
-
-        function incrementTrinketStat(careerStat, property1Id, property2Id, traitId) {
-            if (!careerStat.trinket) {
-                careerStat.trinket = {
-                    properties: [],
-                    traits: []
-                }
-            }
-
-            incrementStat(careerStat.trinket.properties, property1Id);
-            incrementStat(careerStat.trinket.properties, property2Id);
-            incrementStat(careerStat.trinket.traits, traitId)
-        }
-
-        function decrementNecklaceStat(careerStat, property1Id, property2Id, traitId) {
-            decrementStat(careerStat.necklace.properties, property1Id);
-            decrementStat(careerStat.necklace.properties, property2Id);
-            decrementStat(careerStat.necklace.traits, traitId)
-        }
-
-        function decrementCharmStat(careerStat, property1Id, property2Id, traitId) {
-            decrementStat(careerStat.charm.properties, property1Id);
-            decrementStat(careerStat.charm.properties, property2Id);
-            decrementStat(careerStat.charm.traits, traitId)
-        }
-
-        function decrementTrinketStat(careerStat, property1Id, property2Id, traitId) {
-            decrementStat(careerStat.trinket.properties, property1Id);
-            decrementStat(careerStat.trinket.properties, property2Id);
-            decrementStat(careerStat.trinket.traits, traitId)
-        }
-
         function isCareerOrGearChanged(build) {
             return !(state.careerId === build.data().careerId &&
             state.primaryWeaponId === build.data().primaryWeapon.id &&
@@ -268,187 +152,274 @@ function EditBuildPage() {
             state.traits[Constants.TRINKET_TRAIT_INDEX] === build.data().trinket.trait);
         }
 
+        function isBuildReadyForSaving() {
+            return !state.talents.some((talent) => { return talent > 3 || talent < 1; }) && state.name.length > 2;
+        }
+
         function updateBuild() {
             if (state.userId !== auth.currentUser.uid) {
                 alert('You can\'t edit a build you didn\'t create.');
                 return;
             }
 
-            let buildStatsRef = db.collection('builds').doc('stats');
+            if (!isBuildReadyForSaving()) {
+                alert(`You can't save this build until you name it and select all six talents.`);
+                return;
+            }
+
+            let buildStatsRef = db.collection('stats').doc('builds');
             let buildRef = db.collection('builds').doc(state.buildId);
 
-            db.runTransaction((transaction) => {
-                return transaction.getAll(buildStatsRef, buildRef).then((querySnapshot) => {
-                    if (!querySnapshot || querySnapshot.size < 2) {
-                        console.log('Could not find stats and build document');
-                        return;
-                    }
+            db.runTransaction(async transaction => {
 
-                    let buildStats = querySnapshot.docs[0];
-                    let build = querySnapshot.docs[1];
-
-                    let careers = buildStats.data().careers;
-
-                    let newCareerIndex = careers.findIndex((career) => { return career.id === state.careerId});
-                    let newCareerStat = careers[newCareerIndex];
-                    let oldCareerIndex = careers.findIndex((career) => { return career.id === build.data().careerId});
-                    let oldCareerStat = careers[oldCareerIndex];
+                let buildStats = await transaction.get(buildStatsRef);
+                let build = await transaction.get(buildRef);
 
                     // PREPARE BUILD STATS
+
+                    var careers = buildStats.data().careers;
+                    var weapons = buildStats.data().weapons;
+                    var weaponProperties = buildStats.data().weaponProperties;
+                    var weaponTraits = buildStats.data().weaponTraits;
+                    var necklaceProperties = buildStats.data().necklaceProperties;
+                    var necklaceTraits = buildStats.data().necklaceTraits;
+                    var charmProperties = buildStats.data().charmProperties;
+                    var charmTraits = buildStats.data().charmTraits;
+                    var trinketProperties = buildStats.data().trinketProperties;
+                    var trinketTraits = buildStats.data().trinketTraits;
 
                     if (isCareerOrGearChanged(build)) {
                         //build equipment or career has changed, update stats in addition to saving changes
                     
                         if (state.careerId !== build.data().careerId) { // Career changed, decrement all stats from old career, increment all in new career
-            
-                            if (!newCareerStat) {
-                                newCareerStat = {
-                                    id: state.careerId,
-                                    count: 0,
-                                    weapons: [],
-                                    necklace: {
-                                        properties: [],
-                                        traits: []
-                                    },
-                                    charm: {
-                                        properties: [],
-                                        traits: []
-                                    },
-                                    trinket: {
-                                        properties: [],
-                                        traits: []
-                                    }
-                                }
+
+                            adjustCareerStat(careers, build.data().careerId, -1);
+                            adjustCareerStat(careers, state.careerId, 1);
+
+                            var oldTalents = [build.data().talent1, build.data().talent2, build.data().talent3, build.data().talent4, build.data().talent5, build.data().talent6];
+
+                            adjustCareerTalents(careers, build.data().careerId, oldTalents, -1);
+                            adjustCareerTalents(careers, state.careerId, state.talents, 1);
+
+                            //decrement old stats
+                            adjustWeaponStat(weapons, build.data().careerId, build.data().primaryWeapon.id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property1Id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property2Id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.traitId, -1);
+
+                            adjustWeaponStat(weapons, build.data().careerId, build.data().secondaryWeapon.id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property1Id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property2Id, -1);
+                            adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.traitId, -1);
+
+                            adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property1Id, -1);
+                            adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property2Id, -1);
+                            adjustPropertyOrTraitStat(necklaceTraits, build.data().careerId, build.data().necklace.traitId, -1);
+
+                            adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property1Id, -1);
+                            adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property2Id, -1);
+                            adjustPropertyOrTraitStat(charmTraits, build.data().careerId, build.data().charm.traitId, -1);
+
+                            adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property1Id, -1);
+                            adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property2Id, -1);
+                            adjustPropertyOrTraitStat(trinketTraits, build.data().careerId, build.data().trinket.traitId, -1);
+
+                            // increment new stats
+                            adjustWeaponStat(weapons, state.careerId, state.primaryWeaponId, 1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], 1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY2_INDEX], 1);
+                            adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.primaryWeaponId, state.traits[Constants.PRIMARY_TRAIT_INDEX], 1);
+
+                            adjustWeaponStat(weapons, state.careerId, state.secondaryWeaponId, 1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], 1);
+                            adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY2_INDEX], 1);
+                            adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.secondaryWeaponId, state.traits[Constants.SECONDARY_TRAIT_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], 1);
+                            adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY2_INDEX], 1);
+                            adjustPropertyOrTraitStat(necklaceTraits, state.careerId, state.traits[Constants.NECKLACE_TRAIT_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY1_INDEX], 1);
+                            adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY2_INDEX], 1);
+                            adjustPropertyOrTraitStat(charmTraits, state.careerId, state.traits[Constants.CHARM_TRAIT_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY1_INDEX], 1);
+                            adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY2_INDEX], 1);
+                            adjustPropertyOrTraitStat(trinketTraits, state.careerId, state.traits[Constants.TRINKET_TRAIT_INDEX], 1);
+                        }
+                        else { // Check talents and properties and traits of each weapon and gear item and increment/decrement where necessary\
+                            // TALENTS
+                            if (state.talents[0] !== build.data().talent1) {
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent1, 1, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[0], 1, 1);
+                            }
+                            if (state.talents[1] !== build.data().talent2) {
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent2, 2, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[1], 2, 1);
+                            }
+                            if (state.talents[2] !== build.data().talent3) {
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent3, 3, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[2], 3, 1);
+                            }
+                            if (state.talents[3] !== build.data().talent4) {
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent4, 4, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[3], 4, 1);
+                            }
+                            if (state.talents[4] !== build.data().talent5) {
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent5, 5, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[4], 5, 1);
+                            }
+                            if (state.talents[5] !== build.data().talent6) {                                
+                                adjustCareerTalent(careers, build.data().careerId, build.data().talent6, 6, -1);
+                                adjustCareerTalent(careers, state.careerId, state.talents[5], 6, 1);
                             }
 
-                            newCareerStat.count +=1;
-                            oldCareerStat.count -= 1;
-                            
-                            decrementWeaponStat(oldCareerStat, build.data().primaryWeapon.id, build.data().primaryWeapon.property1Id, build.data().primaryWeapon.property2Id, build.data().primaryWeapon.traitId);
-                            decrementWeaponStat(oldCareerStat, build.data().secondayWeapon.id, build.data().secondayWeapon.property1Id, build.data().secondayWeapon.property2Id, build.data().secondayWeapon.traitId);
-                            decrementNecklaceStat(oldCareerStat, build.data().necklace.property1Id, build.data().necklace.property2Id, build.data().necklace.traitId);
-                            decrementCharmStat(oldCareerStat, build.data().charm.property1Id, build.data().charm.property2Id, build.data().charm.traitId);
-                            decrementTrinketStat(oldCareerStat, build.data().trinket.property1Id, build.data().trinket.property2Id, build.data().trinket.traitId);
-                            
-                            incrementWeaponStat(newCareerStat, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], state.properties[Constants.PRIMARY_PROPERTY2_INDEX], state.properties[Constants.PRIMARY_TRAIT_INDEX]);
-                            incrementWeaponStat(newCareerStat, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], state.properties[Constants.SECONDARY_PROPERTY2_INDEX], state.properties[Constants.SECONDARY_TRAIT_INDEX]);
-                            incrementNecklaceStat(newCareerStat, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], state.properties[Constants.NECKLACE_PROPERTY2_INDEX], state.properties[Constants.NECKLACE_TRAIT_INDEX]);
-                            incrementCharmStat(newCareerStat, state.properties[Constants.CHARM_PROPERTY1_INDEX], state.properties[Constants.CHARM_PROPERTY2_INDEX], state.properties[Constants.CHARM_TRAIT_INDEX]);
-                            incrementTrinketStat(newCareerStat, state.properties[Constants.TRINKET_PROPERTY1_INDEX], state.properties[Constants.TRINKET_PROPERTY2_INDEX], state.properties[Constants.TRINKET_TRAIT_INDEX]);
-                            
-                            careers[oldCareerIndex] = oldCareerStat;
-                        }
-                        else { // Check properties and traits of each weapon and gear item and increment/decrement where necessary
+                            // PRIMARY WEAPON
                             if (state.primaryWeaponId !== build.data().primaryWeapon.id) {
-                                decrementWeaponStat(newCareerStat, build.data().primaryWeapon.id, build.data().primaryWeapon.property1Id, build.data().primaryWeapon.property2Id, build.data().primaryWeapon.traitId);
-                                incrementWeaponStat(newCareerStat, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], state.properties[Constants.PRIMARY_PROPERTY2_INDEX], state.properties[Constants.PRIMARY_TRAIT_INDEX]);
+                                adjustWeaponStat(weapons, build.data().careerId, build.data().primaryWeapon.id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property1Id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property2Id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.traitId, -1);
+
+                                adjustWeaponStat(weapons, state.careerId, state.primaryWeaponId, 1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], 1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY2_INDEX], 1);
+                                adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.primaryWeaponId, state.traits[Constants.PRIMARY_TRAIT_INDEX], 1);
                             } else {
                                 // Weapon is the same as before, only adjust properties/traits
-                                let weaponIndex = newCareerStat.weapons.findIndex((item) => { return item.id === build.data().primaryWeapon.id;});
-                                let weapon = newCareerStat.weapons[weaponIndex];
-
                                 //check if properties or trait changed
                                 if (state.properties[Constants.PRIMARY_PROPERTY1_INDEX] !== build.data().primaryWeapon.property1Id) {
-                                    // decrement property
-                                    decrementStat(weapon.properties, build.data().primaryWeapon.property1Id);
-                                    incrementStat(weapon.properties, state.properties[Constants.PRIMARY_PROPERTY1_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property1Id, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], 1);
                                 }
                                 if (state.properties[Constants.PRIMARY_PROPERTY2_INDEX] !== build.data().primaryWeapon.property2Id) {
-                                    // decrement property
-                                    decrementStat(weapon.properties, build.data().primaryWeapon.property2Id);
-                                    incrementStat(weapon.properties, state.properties[Constants.PRIMARY_PROPERTY2_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.property2Id, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY2_INDEX], 1);
                                 }
                                 if (state.traits[Constants.PRIMARY_TRAIT_INDEX] !== build.data().primaryWeapon.traitId) {
-                                    // decrement trait
-                                    decrementStat(weapon.traits, build.data().primaryWeapon.traitId);
-                                    incrementStat(weapon.traits, state.traits[Constants.PRIMARY_TRAIT_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().primaryWeapon.id, build.data().primaryWeapon.traitId, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.primaryWeaponId, state.traits[Constants.PRIMARY_TRAIT_INDEX], 1);
                                 }
 
                             }
 
+                            // SECONDARY WEAPON
                             if (state.secondaryWeaponId !== build.data().secondaryWeapon.id) {
-                                decrementWeaponStat(newCareerStat, build.data().secondayWeapon.id, build.data().secondayWeapon.property1Id, build.data().secondayWeapon.property2Id, build.data().secondayWeapon.traitId);
-                                incrementWeaponStat(newCareerStat, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], state.properties[Constants.SECONDARY_PROPERTY2_INDEX], state.properties[Constants.SECONDARY_TRAIT_INDEX]);
+                                adjustWeaponStat(weapons, build.data().careerId, build.data().secondaryWeapon.id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property1Id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property2Id, -1);
+                                adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.traitId, -1);
+
+                                adjustWeaponStat(weapons, state.careerId, state.secondaryWeaponId, 1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], 1);
+                                adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY2_INDEX], 1);
+                                adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.secondaryWeaponId, state.traits[Constants.SECONDARY_TRAIT_INDEX], 1);
                             } else {
-                                // Weapon is the same as before, only adjust properties/traits
-                                let weaponIndex = newCareerStat.weapons.findIndex((item) => { return item.id === build.data().secondaryWeapon.id;});
-                                let weapon = newCareerStat.weapons[weaponIndex];
 
                                 //check if properties or trait changed
                                 if (state.properties[Constants.SECONDARY_PROPERTY1_INDEX] !== build.data().secondaryWeapon.property1Id) {
-                                    // decrement property
-                                    decrementStat(weapon.properties, build.data().secondaryWeapon.property1Id);
-                                    incrementStat(weapon.properties, state.properties[Constants.SECONDARY_PROPERTY1_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property1Id, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], 1);
                                 }
                                 if (state.properties[Constants.SECONDARY_PROPERTY2_INDEX] !== build.data().secondaryWeapon.property2Id) {
-                                    // decrement property
-                                    decrementStat(weapon.properties, build.data().secondaryWeapon.property2Id);
-                                    incrementStat(weapon.properties, state.properties[Constants.SECONDARY_PROPERTY2_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.property2Id, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY2_INDEX], 1);
                                 }
                                 if (state.traits[Constants.SECONDARY_TRAIT_INDEX] !== build.data().secondaryWeapon.traitId) {
-                                    // decrement trait
-                                    decrementStat(weapon.traits, build.data().secondaryWeapon.traitId);
-                                    incrementStat(weapon.traits, state.traits[Constants.SECONDARY_TRAIT_INDEX]);
+                                    adjustWeaponPropertyOrTraitStat(weaponTraits, build.data().careerId, build.data().secondaryWeapon.id, build.data().secondaryWeapon.traitId, -1);
+                                    adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.secondaryWeaponId, state.traits[Constants.SECONDARY_TRAIT_INDEX], 1);
                                 }
                             }
+                            
+                            adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property1Id, -1);
+                            adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], 1);
 
-                            // REPEAT this for each property and trait
+                            adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property2Id, -1);
+                            adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY2_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(necklaceTraits, build.data().careerId, build.data().necklace.traitId, -1);
+                            adjustPropertyOrTraitStat(necklaceTraits, state.careerId, state.traits[Constants.NECKLACE_TRAIT_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property1Id, -1);
+                            adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY1_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property2Id, -1);
+                            adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY2_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(charmTraits, build.data().careerId, build.data().charm.traitId, -1);
+                            adjustPropertyOrTraitStat(charmTraits, state.careerId, state.traits[Constants.CHARM_TRAIT_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property1Id, -1);
+                            adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY1_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property2Id, -1);
+                            adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY2_INDEX], 1);
+
+                            adjustPropertyOrTraitStat(trinketTraits, build.data().careerId, build.data().trinket.traitId, -1);
+                            adjustPropertyOrTraitStat(trinketTraits, state.careerId, state.traits[Constants.TRINKET_TRAIT_INDEX], 1);
+                            
+
+
+                            // NECKLACE
                             if (state.properties[Constants.NECKLACE_PROPERTY1_INDEX] !== build.data().necklace.property1Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.necklace.properties, build.data().necklace.property1Id);
-                                incrementStat(newCareerStat.necklace.properties, state.properties[Constants.NECKLACE_PROPERTY1_INDEX]);
+                                adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property1Id, -1);
+                                adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], 1);
                             }
                             if (state.properties[Constants.NECKLACE_PROPERTY2_INDEX] !== build.data().necklace.property2Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.necklace.properties, build.data().necklace.property2Id);
-                                incrementStat(newCareerStat.necklace.properties, state.properties[Constants.NECKLACE_PROPERTY2_INDEX]);
+                                adjustPropertyOrTraitStat(necklaceProperties, build.data().careerId, build.data().necklace.property2Id, -1);
+                                adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY2_INDEX], 1);
                             }
                             if (state.traits[Constants.NECKLACE_TRAIT_INDEX] !== build.data().necklace.traitId) {
-                                // decrement trait
-                                decrementStat(newCareerStat.necklace.traits, build.data().necklace.traitId);
-                                incrementStat(newCareerStat.necklace.traits, state.traits[Constants.NECKLACE_TRAIT_INDEX]);
+                                adjustPropertyOrTraitStat(necklaceTraits, build.data().careerId, build.data().necklace.traitId, -1);
+                                adjustPropertyOrTraitStat(necklaceTraits, state.careerId, state.traits[Constants.NECKLACE_TRAIT_INDEX], 1);
                             }
                             
+                            // CHARM
                             if (state.properties[Constants.CHARM_PROPERTY1_INDEX] !== build.data().charm.property1Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.charm.properties, build.data().charm.property1Id);
-                                incrementStat(newCareerStat.charm.properties, state.properties[Constants.CHARM_PROPERTY1_INDEX]);
+                                adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property1Id, -1);
+                                adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY1_INDEX], 1);
                             }
                             if (state.properties[Constants.CHARM_PROPERTY2_INDEX] !== build.data().charm.property2Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.charm.properties, build.data().charm.property2Id);
-                                incrementStat(newCareerStat.charm.properties, state.properties[Constants.CHARM_PROPERTY2_INDEX]);
+                                adjustPropertyOrTraitStat(charmProperties, build.data().careerId, build.data().charm.property2Id, -1);
+                                adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY2_INDEX], 1);
                             }
                             if (state.traits[Constants.CHARM_TRAIT_INDEX] !== build.data().charm.traitId) {
-                                // decrement trait
-                                decrementStat(newCareerStat.charm.traits, build.data().charm.traitId);
-                                incrementStat(newCareerStat.charm.traits, state.traits[Constants.CHARM_TRAIT_INDEX]);
+                                adjustPropertyOrTraitStat(charmTraits, build.data().careerId, build.data().charm.traitId, -1);
+                                adjustPropertyOrTraitStat(charmTraits, state.careerId, state.traits[Constants.CHARM_TRAIT_INDEX], 1);
                             }
                             
+                            //TRINKET
                             if (state.properties[Constants.TRINKET_PROPERTY1_INDEX] !== build.data().trinket.property1Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.trinket.properties, build.data().trinket.property1Id);
-                                incrementStat(newCareerStat.trinket.properties, state.properties[Constants.TRINKET_PROPERTY1_INDEX]);
+                                adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property1Id, -1);
+                                adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY1_INDEX], 1);
                             }
                             if (state.properties[Constants.TRINKET_PROPERTY2_INDEX] !== build.data().trinket.property2Id) {
-                                // decrement property
-                                decrementStat(newCareerStat.trinket.properties, build.data().trinket.property2Id);
-                                incrementStat(newCareerStat.trinket.properties, state.properties[Constants.TRINKET_PROPERTY2_INDEX]);
+                                adjustPropertyOrTraitStat(trinketProperties, build.data().careerId, build.data().trinket.property2Id, -1);
+                                adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY2_INDEX], 1);
                             }
                             if (state.traits[Constants.TRINKET_TRAIT_INDEX] !== build.data().trinket.traitId) {
-                                // decrement trait
-                                decrementStat(newCareerStat.trinket.traits, build.data().trinket.traitId);
-                                incrementStat(newCareerStat.trinket.traits, state.traits[Constants.TRINKET_TRAIT_INDEX]);
+                                adjustPropertyOrTraitStat(trinketTraits, build.data().careerId, build.data().trinket.traitId, -1);
+                                adjustPropertyOrTraitStat(trinketTraits, state.careerId, state.traits[Constants.TRINKET_TRAIT_INDEX], 1);
                             }
-                        
-                            careers[newCareerIndex] = newCareerStat;
                         }
                         
-                        transaction.update(buildStatsRef, { careers: careers });
+                        transaction.update(buildStatsRef, { careers: careers, 
+                            weapons: weapons,
+                            weaponProperties: weaponProperties,
+                            weaponTraits: weaponTraits,
+                            necklaceProperties: necklaceProperties,
+                            necklaceTraits: necklaceTraits,
+                            charmProperties: charmProperties,
+                            charmTraits: charmTraits,
+                            trinketProperties: trinketProperties,
+                            trinketTraits: trinketTraits });
                     }
+
+                    var career = DataHelper.getCareer(state.careerId);
 
                     transaction.set(buildRef, {
                         careerId: state.careerId,
+                        heroId: career.heroId,
                         primaryWeapon: {
                             id: state.primaryWeaponId,
                             property1Id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
@@ -484,11 +455,11 @@ function EditBuildPage() {
                         talent6: state.talents[Constants.TALENT_TIER_6],
                         name: state.name,
                         description: state.description,
-                        difficulties: state.difficulties.map((item) => { return item.id }),
-                        missions: state.missions.map((item) => { return item.id }),
-                        potions: state.potions.map((item) => { return item.id }),
+                        difficulty: state.difficulty !== '' ? state.difficulty.id : '',
+                        mission: state.mission !== '' ? state.mission.id : '',
+                        potion: state.potion !== '' ? state.potion.id : '',
+                        book: state.book !== '' ? state.book.id : '',
                         roles: state.roles.map((item) => { return item.id }),
-                        books: state.books.map((item) => { return item.id }),
                         dateModified: new Date(),
                         //userId: auth.currentUser.uid,
                         //username: auth.currentUser.displayName,
@@ -496,7 +467,6 @@ function EditBuildPage() {
                         videos: state.videos,
                         isDeleted: false
                     }, {merge: true});
-                });
             }).then(() => {
                 console.log('Successfully updated stats for modified build');
                 console.log("Document updated with ID: ", state.buildId);
@@ -514,13 +484,118 @@ function EditBuildPage() {
             });
         }
 
+        function adjustWeaponPropertyOrTraitStat(stats, careerId, weaponId, statId, adjustValue) {
+            var stat = stats.find((stat) => { return stat.id === statId && stat.careerId === careerId && stat.weaponId === weaponId; });
+
+            if (!stat) {
+                stat = {
+                    id: statId,
+                    careerId: careerId,
+                    weaponId: weaponId,
+                    count: 0
+                }
+                stats.push(stat);
+            }
+
+            stat.count = stat.count + adjustValue;
+        }
+
+        function adjustPropertyOrTraitStat(stats, careerId, statId, adjustValue) {
+            var stat = stats.find((stat) => { return stat.id === statId && stat.careerId === careerId; });
+
+            if (!stat) {
+                stat = {
+                    id: statId,
+                    careerId: careerId,
+                    count: 0
+                }
+                stats.push(stat);
+            }
+
+            stat.count = stat.count + adjustValue;
+        }
+
+        function adjustCareerStat(stats, careerId, adjustValue) {
+            var stat = stats.find((stat) => { return stat.id === careerId; });
+
+            if (!stat) {
+                stat = {
+                    id: careerId,
+                    count: 0
+                }
+                stats.push(stat);
+            }
+
+            stat.count = stat.count + adjustValue;
+        }
+
+        function adjustCareerTalents(careerStats, careerId, talents, adjustValue) {           
+            adjustCareerTalent(careerStats, careerId, talents[0], 1, adjustValue);
+            adjustCareerTalent(careerStats, careerId, talents[1], 2, adjustValue);
+            adjustCareerTalent(careerStats, careerId, talents[2], 3, adjustValue);
+            adjustCareerTalent(careerStats, careerId, talents[3], 4, adjustValue);
+            adjustCareerTalent(careerStats, careerId, talents[4], 5, adjustValue);
+            adjustCareerTalent(careerStats, careerId, talents[5], 6, adjustValue);
+        }
+
+        function adjustCareerTalent(careerStats, careerId, talentId, tier, adjustValue) {
+            var careerStat = careerStats.find((stat) => { return stat.id === careerId; });
+
+            if (!careerStat) {
+                careerStat = {
+                    id: careerId,
+                    talents: [],
+                    count: 1
+                }
+                careerStats.push(careerStat);
+            }
+
+            if (!careerStats.talents) {
+                careerStats.talents = [];
+            }
+
+            var talentStat = careerStats.talents ? careerStats.talents.find((stat) => { return stat.id === talentId && stat.tier === tier; }) : null;
+
+            if (!talentStat) {
+                talentStat = {
+                    id: talentId,
+                    tier: tier,
+                    count: 0
+                }
+                careerStats.talents.push(talentStat);
+            }
+
+            talentStat.count = talentStat.count + adjustValue;
+        }
+
+        function adjustWeaponStat(stats, careerId, weaponId, adjustValue) {
+            var stat = stats.find((stat) => { return stat.id === weaponId && stat.careerId === careerId; });
+
+            if (!stat) {
+                stat = {
+                    id: weaponId,
+                    careerId: careerId,
+                    count: 0
+                }
+                stats.push(stat);
+            }
+
+            stat.count = stat.count + adjustValue;
+        }
+
         function createBuild() {
+            if (!auth.currentUser) {
+                alert(`You must be logged in to create a build.`);
+                return;
+            }
+
+            if (!isBuildReadyForSaving()) {
+                alert(`You can't save this build until you name it and select all six talents.`);
+                return;
+            }
             console.log('Creating new build.');
-            let increment = 1;//firebase.firestore.FieldValue.increment(1);
-
-            let batch = db.batch();
-
-            let buildStatsRef = db.collection('builds').doc('stats');
+            let buildStatsRef = db.collection('stats').doc('builds');
+            let newBuildDoc = db.collection('builds').doc();
 
             db.runTransaction((transaction) => {
                 return transaction.get(buildStatsRef).then((buildStats) => {
@@ -529,145 +604,60 @@ function EditBuildPage() {
                         return;
                     }
 
-                    console.log(buildStats.data());
-
                     var careers = buildStats.data().careers;
+                    var weapons = buildStats.data().weapons;
+                    var weaponProperties = buildStats.data().weaponProperties;
+                    var weaponTraits = buildStats.data().weaponTraits;
+                    var necklaceProperties = buildStats.data().necklaceProperties;
+                    var necklaceTraits = buildStats.data().necklaceTraits;
+                    var charmProperties = buildStats.data().charmProperties;
+                    var charmTraits = buildStats.data().charmTraits;
+                    var trinketProperties = buildStats.data().trinketProperties;
+                    var trinketTraits = buildStats.data().trinketTraits;
 
-                    var newCareerStat = careers.find((career) => {return career.id === state.careerId;});
-                    console.log(newCareerStat);
+                    adjustCareerStat(careers, state.careerId, 1);
 
-                    if (!newCareerStat) {
-                        newCareerStat = {
-                            id: state.careerId,
-                            count: 0,
-                            weapons: [],
-                            necklace: {
-                                properties: [],
-                                traits: []
-                            },
-                            charm: {
-                                properties: [],
-                                traits: []
-                            },
-                            trinket: {
-                                properties: [],
-                                traits: []
-                            }
-                        }
-                    }
+                    adjustCareerTalents(careers, state.careerId, state.talents, 1);
 
-                    newCareerStat.count += 1;
+                    adjustWeaponStat(weapons, state.careerId, state.primaryWeaponId, 1);
+                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], 1);
+                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY2_INDEX], 1);
+                    adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.primaryWeaponId, state.traits[Constants.PRIMARY_TRAIT_INDEX], 1);
 
-                    incrementWeaponStat(newCareerStat, state.primaryWeaponId, state.properties[Constants.PRIMARY_PROPERTY1_INDEX], state.properties[Constants.PRIMARY_PROPERTY2_INDEX], state.properties[Constants.PRIMARY_TRAIT_INDEX]);
-                    incrementWeaponStat(newCareerStat, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], state.properties[Constants.SECONDARY_PROPERTY2_INDEX], state.properties[Constants.SECONDARY_TRAIT_INDEX]);
-                    incrementNecklaceStat(newCareerStat, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], state.properties[Constants.NECKLACE_PROPERTY2_INDEX], state.properties[Constants.NECKLACE_TRAIT_INDEX]);
-                    incrementCharmStat(newCareerStat, state.properties[Constants.CHARM_PROPERTY1_INDEX], state.properties[Constants.CHARM_PROPERTY2_INDEX], state.properties[Constants.CHARM_TRAIT_INDEX]);
-                    incrementTrinketStat(newCareerStat, state.properties[Constants.TRINKET_PROPERTY1_INDEX], state.properties[Constants.TRINKET_PROPERTY2_INDEX], state.properties[Constants.TRINKET_TRAIT_INDEX]);
+                    adjustWeaponStat(weapons, state.careerId, state.secondaryWeaponId, 1);
+                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY1_INDEX], 1);
+                    adjustWeaponPropertyOrTraitStat(weaponProperties, state.careerId, state.secondaryWeaponId, state.properties[Constants.SECONDARY_PROPERTY2_INDEX], 1);
+                    adjustWeaponPropertyOrTraitStat(weaponTraits, state.careerId, state.secondaryWeaponId, state.traits[Constants.SECONDARY_TRAIT_INDEX], 1);
 
-                    /* var newPrimaryWeapon = newCareerStat.weapons ? newCareerStat.weapons.find((weapon) => {return weapon.id === state.primaryWeaponId;}) : null;
+                    adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY1_INDEX], 1);
+                    adjustPropertyOrTraitStat(necklaceProperties, state.careerId, state.properties[Constants.NECKLACE_PROPERTY2_INDEX], 1);
+                    adjustPropertyOrTraitStat(necklaceTraits, state.careerId, state.traits[Constants.NECKLACE_TRAIT_INDEX], 1);
 
-                    if (!newPrimaryWeapon) {
-                        newPrimaryWeapon = {
-                            id: state.primaryWeaponId,
-                            count: 0,
-                            properties: [],
-                            traits: []
-                        }
-                    }
+                    adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY1_INDEX], 1);
+                    adjustPropertyOrTraitStat(charmProperties, state.careerId, state.properties[Constants.CHARM_PROPERTY2_INDEX], 1);
+                    adjustPropertyOrTraitStat(charmTraits, state.careerId, state.traits[Constants.CHARM_TRAIT_INDEX], 1);
 
-                    newPrimaryWeapon.count += 1;
+                    adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY1_INDEX], 1);
+                    adjustPropertyOrTraitStat(trinketProperties, state.careerId, state.properties[Constants.TRINKET_PROPERTY2_INDEX], 1);
+                    adjustPropertyOrTraitStat(trinketTraits, state.careerId, state.traits[Constants.TRINKET_TRAIT_INDEX], 1);
 
-                    var newProperty1 = newPrimaryWeapon.properties ? newPrimaryWeapon.properties.find((property) => {return property.id === state.properties[Constants.PRIMARY_PROPERTY1_INDEX];}) : null;
+                    transaction.update(buildStatsRef, { careers: careers, 
+                                                        weapons: weapons,
+                                                        weaponProperties: weaponProperties,
+                                                        weaponTraits: weaponTraits,
+                                                        necklaceProperties: necklaceProperties,
+                                                        necklaceTraits: necklaceTraits,
+                                                        charmProperties: charmProperties,
+                                                        charmTraits: charmTraits,
+                                                        trinketProperties: trinketProperties,
+                                                        trinketTraits: trinketTraits });
+                                                        
 
-                    if (!newProperty1) {
-                        newProperty1 = {
-                            id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
-                            count: 0
-                        }
-                    }
+                    var career = DataHelper.getCareer(state.careerId);
 
-                    newProperty1.count += 1;
-
-                    var newProperty2 = newPrimaryWeapon.properties ? newPrimaryWeapon.properties.find((property) => {return property.id === state.properties[Constants.PRIMARY_PROPERTY2_INDEX];}) : null;
-
-                    if (!newProperty2) {
-                        newProperty2 = {
-                            id: state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                            count: 0
-                        }
-                    }
-
-                    newProperty2.count += 1;
-
-                    var newTrait = newPrimaryWeapon.traits ? newPrimaryWeapon.traits.find((trait) => {return trait.id === state.traits[Constants.PRIMARY_TRAIT_INDEX];}) : null;
-
-                    if (!newTrait) {
-                        newTrait = {
-                            id: state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                            count: 0
-                        }
-                    }
-
-                    newTrait.count += 1;
-
-                    var newTraitIndex = newPrimaryWeapon.traits ? newPrimaryWeapon.traits.findIndex((trait) => { return trait.id === newTrait.id}) : -1;
-                    if (newTraitIndex < 0) {
-                        newPrimaryWeapon.traits ? newPrimaryWeapon.traits.push(newTrait) : newPrimaryWeapon.traits = [newTrait];
-                    }
-                    else {
-                        newPrimaryWeapon.traits[newTraitIndex] = newTrait;
-                    }
-
-                    var newProperty1Index = newPrimaryWeapon.properties ? newPrimaryWeapon.properties.findIndex((property) => { return property.id === newProperty1.id}) : -1;
-                    if (newProperty1Index < 0) {
-                        newPrimaryWeapon.properties ? newPrimaryWeapon.properties.push(newProperty1) : newPrimaryWeapon.properties = [newProperty1];
-                    }
-                    else {
-                        newPrimaryWeapon.properties[newProperty1Index] = newProperty1;
-                    }
-
-                    var newProperty2Index = newPrimaryWeapon.properties ? newPrimaryWeapon.properties.findIndex((property) => { return property.id === newProperty2.id}) : -1;
-                    if (newProperty2Index < 0) {
-                        newPrimaryWeapon.properties ? newPrimaryWeapon.properties.push(newProperty2) : newPrimaryWeapon.properties = [newProperty2];
-                    }
-                    else {
-                        newPrimaryWeapon.properties[newProperty2Index] = newProperty2;
-                    }
-
-                    var newPrimaryWeaponIndex = newCareerStat.weapons ? newCareerStat.weapons.findIndex((weapon) => { return weapon.id === newPrimaryWeapon.id}) : -1;
-                    if (newPrimaryWeaponIndex < 0) {
-                        newCareerStat.weapons ? newCareerStat.weapons.push(newPrimaryWeapon) : newCareerStat.weapons = [newPrimaryWeapon];
-                    }
-                    else {
-                        newCareerStat.weapons[newPrimaryWeaponIndex] = newPrimaryWeapon;
-                    } */
-
-                    // SECONDARY WEAPON
-
-
-                    
-                    // NECKLACE
-
-
-
-                    // CHARM
-
-
-
-                    // TRINKET
-
-
-                    var newCareerStatIndex = careers ? careers.findIndex((career) => { return career.id === newCareerStat.id}) : -1;
-                    if (newCareerStatIndex < 0) {
-                        careers ? careers.push(newCareerStat) : careers = [newCareerStat];
-                    }
-                    else {
-                        careers[newCareerStatIndex] = newCareerStat;
-                    }
-                    
-                    transaction.update(buildStatsRef, { careers: careers });
-                    transaction.set(db.collection('builds').doc(), {
-                        careerId: state.careerId,                    
+                    transaction.set(newBuildDoc, {
+                        careerId: state.careerId,     
+                        heroId: career.heroId,
                         primaryWeapon: {
                             id: state.primaryWeaponId,
                             property1Id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
@@ -703,12 +693,15 @@ function EditBuildPage() {
                         talent6: state.talents[Constants.TALENT_TIER_6],
                         name: state.name,
                         description: state.description,
-                        difficulties: state.difficulties.map((item) => { return item.id }),
-                        missions: state.missions.map((item) => { return item.id }),
-                        potions: state.potions.map((item) => { return item.id }),
+                        difficulty: state.difficulty !== '' ? state.difficulty.id : '',
+                        mission: state.mission !== '' ? state.mission.id : '',
+                        potion: state.potion !== '' ? state.potion.id : '',
+                        book: state.book !== '' ? state.book.id : '',
                         roles: state.roles.map((item) => { return item.id }),
-                        books: state.books.map((item) => { return item.id }),
+                        likes: [],
                         likeCount: 0,
+                        favorites: [],
+                        favoriteCount: 0,
                         dateCreated: new Date(),
                         dateModified: new Date(),
                         userId: auth.currentUser.uid,
@@ -718,170 +711,10 @@ function EditBuildPage() {
                     });
                 });
             }).then(() => {
-                console.log('successfully updated stats');
+                console.log('Successfully created new build and updated stats');
+                history.push(`/build/${newBuildDoc.id}/edit`)
+
             });
-
-/*             batch.set(db.collection('builds').doc(), {
-                careerId: state.careerId,                    
-                primaryWeapon: {
-                    id: state.primaryWeaponId,
-                    property1Id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.PRIMARY_TRAIT_INDEX]
-                },
-                secondaryWeapon: {
-                    id: state.secondaryWeaponId,
-                    property1Id: state.properties[Constants.SECONDARY_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.SECONDARY_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.SECONDARY_TRAIT_INDEX]
-                },
-                necklace: {
-                    property1Id: state.properties[Constants.NECKLACE_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.NECKLACE_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.NECKLACE_TRAIT_INDEX]
-                },
-                charm: {
-                    property1Id: state.properties[Constants.CHARM_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.CHARM_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.CHARM_TRAIT_INDEX]
-                },
-                trinket: {
-                    property1Id: state.properties[Constants.TRINKET_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.TRINKET_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.TRINKET_TRAIT_INDEX]
-                },
-                talent1: state.talents[Constants.TALENT_TIER_1],
-                talent2: state.talents[Constants.TALENT_TIER_2],
-                talent3: state.talents[Constants.TALENT_TIER_3],
-                talent4: state.talents[Constants.TALENT_TIER_4],
-                talent5: state.talents[Constants.TALENT_TIER_5],
-                talent6: state.talents[Constants.TALENT_TIER_6],
-                name: state.name,
-                description: state.description,
-                difficulties: state.difficulties.map((item) => { return item.id }),
-                missions: state.missions.map((item) => { return item.id }),
-                potions: state.potions.map((item) => { return item.id }),
-                roles: state.roles.map((item) => { return item.id }),
-                books: state.books.map((item) => { return item.id }),
-                likeCount: 0,
-                dateCreated: new Date(),
-                dateModified: new Date(),
-                userId: auth.currentUser.uid,
-                username: auth.currentUser.displayName,
-                videos: state.videos,
-                isDeleted: false
-            });
-            batch.commit(); */
-
-/*             db.collection('builds').doc('stats').set({
-                careers: [
-                    {
-                        id: state.careerId,
-                        count: increment,
-                        weapons: [
-                            {
-                                id: state.primaryWeaponId,
-                                count: increment,
-                                properties: [
-                                    {
-                                        id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
-                                        count: increment
-                                    },
-                                    {
-                                        id: state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                                        count: increment
-                                    }
-                                ],
-                                traits: [
-                                    {
-                                        id: state.traits[Constants.PRIMARY_TRAIT_INDEX],
-                                        count: increment
-                                    }
-                                ]
-                            },
-                            {
-                                id: state.secondaryWeaponId,
-                                count: increment,
-                                properties: [
-                                    {
-                                        id: state.properties[Constants.SECONDARY_PROPERTY1_INDEX],
-                                        count: increment
-                                    },
-                                    {
-                                        id: state.properties[Constants.SECONDARY_PROPERTY2_INDEX],
-                                        count: increment
-                                    }
-                                ],
-                                traits: [
-                                    {
-                                        id: state.traits[Constants.SECONDARY_TRAIT_INDEX],
-                                        count: increment
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }); */
-
-/*             db.collection('builds').add({
-                careerId: state.careerId,                    
-                primaryWeapon: {
-                    id: state.primaryWeaponId,
-                    property1Id: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.PRIMARY_TRAIT_INDEX]
-                },
-                secondaryWeapon: {
-                    id: state.secondaryWeaponId,
-                    property1Id: state.properties[Constants.SECONDARY_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.SECONDARY_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.SECONDARY_TRAIT_INDEX]
-                },
-                necklace: {
-                    property1Id: state.properties[Constants.NECKLACE_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.NECKLACE_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.NECKLACE_TRAIT_INDEX]
-                },
-                charm: {
-                    property1Id: state.properties[Constants.CHARM_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.CHARM_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.CHARM_TRAIT_INDEX]
-                },
-                trinket: {
-                    property1Id: state.properties[Constants.TRINKET_PROPERTY1_INDEX],
-                    property2Id: state.properties[Constants.TRINKET_PROPERTY2_INDEX],
-                    traitId: state.traits[Constants.TRINKET_TRAIT_INDEX]
-                },
-                talent1: state.talents[Constants.TALENT_TIER_1],
-                talent2: state.talents[Constants.TALENT_TIER_2],
-                talent3: state.talents[Constants.TALENT_TIER_3],
-                talent4: state.talents[Constants.TALENT_TIER_4],
-                talent5: state.talents[Constants.TALENT_TIER_5],
-                talent6: state.talents[Constants.TALENT_TIER_6],
-                name: state.name,
-                description: state.description,
-                difficulties: state.difficulties,
-                missions: state.missions,
-                potions: state.potions,
-                roles: state.roles,
-                books: state.books,
-                likeCount: 0,
-                dateCreated: new Date(),
-                dateModified: new Date(),
-                userId: auth.currentUser.uid,
-                username: auth.currentUser.displayName,
-                videos: state.videos,
-                isDeleted: false
-            }).then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
-                history.push('/build/' + docRef.id + '/edit');
-
-                //redirect to build edit page here
-
-            }).catch((error) => {
-                console.error("Error adding document: ", error);
-            }); */
         }
 
         function saveBuild() {
@@ -924,23 +757,6 @@ function EditBuildPage() {
                     property2Id: state.properties[Constants.TRINKET_PROPERTY2_INDEX],
                     traitId: state.traits[Constants.TRINKET_TRAIT_INDEX]
                 },
-/*                     primaryWeaponId: state.primaryWeaponId,
-                primaryWeaponProperty1: state.properties[Constants.PRIMARY_PROPERTY1_INDEX],
-                primaryWeaponProperty2:state.properties[Constants.PRIMARY_PROPERTY2_INDEX],
-                primaryWeaponTrait: state.traits[Constants.PRIMARY_TRAIT_INDEX],
-                secondaryWeaponId: state.secondaryWeaponId,
-                secondaryWeaponProperty1: state.properties[Constants.SECONDARY_PROPERTY1_INDEX],
-                secondaryWeaponProperty2: state.properties[Constants.SECONDARY_PROPERTY2_INDEX],
-                secondaryWeaponTrait: state.traits[Constants.SECONDARY_TRAIT_INDEX],
-                necklaceProperty1: state.properties[Constants.NECKLACE_PROPERTY1_INDEX],
-                necklaceProperty2: state.properties[Constants.NECKLACE_PROPERTY2_INDEX],
-                necklaceTrait: state.traits[Constants.NECKLACE_TRAIT_INDEX],
-                charmProperty1: state.properties[Constants.CHARM_PROPERTY1_INDEX],
-                charmProperty2: state.properties[Constants.CHARM_PROPERTY2_INDEX],
-                charmTrait: state.traits[Constants.CHARM_TRAIT_INDEX],
-                trinketProperty1: state.properties[Constants.TRINKET_PROPERTY1_INDEX],
-                trinketProperty2: state.properties[Constants.TRINKET_PROPERTY2_INDEX],
-                trinketTrait: state.traits[Constants.TRINKET_TRAIT_INDEX], */
                 talent1: state.talents[Constants.TALENT_TIER_1],
                 talent2: state.talents[Constants.TALENT_TIER_2],
                 talent3: state.talents[Constants.TALENT_TIER_3],
@@ -1006,9 +822,9 @@ function EditBuildPage() {
         }
 
         return (
-            <div className="edit-build-page build-page" data-liked={state.isLiked} data-readonly={state.readonly} data-dirty={state.dirty} data-fresh={state.createBuild}>
+            <div className="edit-build-page build-page" data-liked={state.isLiked} data-valid={isBuildReadyForSaving()} data-readonly={state.readonly} data-dirty={state.dirty} data-fresh={state.createBuild}>
                 <span id="buildSaveIndicator" className="border-03 background-18">Build saved...</span>
-                <div className="build-left-container">
+                <div className="build-left-container top-left-shadow">
                     <div className="build-buttons-container">
                         <span id="saveBuildButton" className="button-01 border-04" onClick={saveBuildClick.bind(this)}>Save Build</span>
                     </div>                    
@@ -1018,8 +834,8 @@ function EditBuildPage() {
                     <Tabs>
                         <TabList>
                             <Tab>Summary</Tab>
-                            <Tab>Videos</Tab>
-                            <Tab>Combos</Tab>                        
+{/*                             <Tab>Videos</Tab>
+                            <Tab>Combos</Tab>   */}                      
                         </TabList>
                         <TabPanel className="build-summary-tab">
                             <div className="build-details-container">
@@ -1031,14 +847,14 @@ function EditBuildPage() {
                             </div>
                             <BuildSummary></BuildSummary>
                         </TabPanel>
-                        <TabPanel>
+{/*                         <TabPanel>
                             <div className="build-additional-info">
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className="hero-abilities">
                             </div>                        
-                        </TabPanel>
+                        </TabPanel> */}
                     </Tabs>
                     <div className="build-talents-container">
                         <HeroTalents contextActionType="UPDATE_TALENTS" careerId={state.careerId} talents={state.talents}></HeroTalents>

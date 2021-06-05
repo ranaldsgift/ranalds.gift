@@ -30,6 +30,7 @@ class BuildsList extends Component {
       isLastPage: true,
       userId: 0,
       username: '',
+      careerId: 0,
       careers: [],
       difficulties: [],
       missions: [],
@@ -38,222 +39,90 @@ class BuildsList extends Component {
       isDataLoaded: false,
       isLoadingData: false,
       filters: [],
-      pageItemLimit: 10,
+      pageItemLimit: 8,
       hideFilters: false,
       hidePages: false
     };
   }
 
-  //current page index and total pages from props
-
-  //specify the type of build list... or make specific types of build lists...
-  //filters based on properties: userid, careerid, patch
-
-  //static contextType = AppContext;
-
-
-  //accept props: 
-  //filters
-  //current page number
-  //last build document
-
   render() {
     //get filters from props
-    //alert('rendering builds list');
-    console.log(this.state);
 
     if (!this.state.isDataLoaded) {
-
       this.loadBuildList();
     }
 
-    if (this.state.isLoadingData) {
-      console.log('builds list data is still loading');
+    return (this.renderList());
+  }
 
-      if (this.state.hidePages && this.state.hideFilters) {
-        return (
-              <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-                <span class="build-list-header header-underline">Builds</span>
-                <span class="build-list-label">Loading Builds...</span>
-              </div>
-        );
-      }
-
-      if (this.state.hidePages) {
-        return (
-        <div className="filtered-build-list build-list-container">
-          <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-          {this.renderFilters(this.state.filters)}
-          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-            <span class="build-list-header header-underline">Builds</span>
-                <span class="build-list-label">Loading Builds...</span>
-          </div>
-        </div>
-        );
-      }
-
-      if (this.state.hideFilters) {
-        return (
-          <div className="build-list-container">
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-            </div>
-          </div>
-        );    
-      }
-      
-      return (
-        <div className="filtered-build-list build-list-container">
-          <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-          {this.renderFilters(this.state.filters)}
-          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-            <span class="build-list-header header-underline">Builds</span>
-          </div>
-        </div>
-        );
-    }
-
-    if (this.state.hideFilters && this.state.hidePages) {
-      return (
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-      );
-    }
-
-    if (this.state.hidePages) {
-      return (
-          <div className="filtered-build-list build-list-container">
-          <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-            {this.renderFilters(this.state.filters)}
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-          </div>
-      );   
-    }
-
+  renderHeroSelect() {
     if (this.state.hideFilters) {
-      if (this.state.currentPage === 1 && this.state.isLastPage) { // less items than page size, don't display page controls
-        return (
-            <div className="build-list-container">
-              <div data-page-number={1} data-last-page={this.state.isLastPage} className="build-list border-01 background-13">
-                <span class="build-list-header header-underline">Builds</span>
-                {this.renderBuilds(this.state.builds)}
-              </div>
-            </div>
-        );      
-      }
-  
-      if (this.state.isLastPage) {
-        return (
-            <div className="paged-build-list build-list-container">
-              <div className="page-controls">
-                <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
-                <button className="build-list-page-button tab-button disabled">Next</button>
-              </div>
-              <div data-page-number={1} data-last-page={this.state.isLastPage} className="build-list border-01 background-13">
-                <span class="build-list-header header-underline">Builds</span>
-                {this.renderBuilds(this.state.builds)}
-              </div>
-            </div>
-        );      
-      }
-  
-      if (this.state.currentPage === 1) {
-        return (
-          <div className="paged-build-list build-list-container">
-            <div className="page-controls">
-              <button className="build-list-page-button tab-button disabled">Previous</button>
-              <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
-            </div>
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-          </div>
-        );      
-      } 
-
-      return (
-        <div className="paged-build-list build-list-container">
-          <div className="page-controls">
-            <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
-            <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
-          </div>
-          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-            <span class="build-list-header header-underline">Builds</span>
-            {this.renderBuilds(this.state.builds)}
-          </div>
-        </div>
-      );    
+      return null;
     }
 
+    return (
+      <HeroSelect careerId={this.state.careerId} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
+    );
+  }
 
-    //Show both filters and page controls
-
-    if (this.state.currentPage === 1 && this.state.isLastPage) {
-      return (
-          <div className="filtered-build-list build-list-container">
-          <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-            {this.renderFilters(this.state.filters)}
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-          </div>
-      );      
+  renderPageControls() {
+    if (this.state.hidePages) {
+      return null;
     }
 
-    if (this.state.isLastPage) {
-      return (
-          <div className="paged-build-list filtered-build-list build-list-container">
-          <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-            {this.renderFilters(this.state.filters)}
-            <div className="page-controls">
-              <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
-              <button className="build-list-page-button tab-button disabled">Next</button>
-            </div>
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-          </div>
-      );      
+    if (this.state.currentPage === 1 && this.state.isLastPage) {      
+      return null;
     }
 
     if (this.state.currentPage === 1) {
       return (
-          <div className="paged-build-list filtered-build-list build-list-container">
-            <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-            {this.renderFilters(this.state.filters)}
-            <div className="page-controls">
-              <button className="build-list-page-button tab-button disabled">Previous</button>
-              <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
-            </div>
-            <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-              <span class="build-list-header header-underline">Builds</span>
-              {this.renderBuilds(this.state.builds)}
-            </div>
-          </div>
-      );      
+      <div className="page-controls">
+        <button className="build-list-page-button tab-button disabled">Previous</button>
+        <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
+      </div>
+      );
+    }
+
+    if (this.state.isLastPage) {
+      return (
+      <div className="page-controls">
+        <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
+        <button className="build-list-page-button tab-button disabled">Next</button>
+      </div>
+      );
     }
 
     return (
-        <div className="paged-build-list filtered-build-list build-list-container">
-        <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-          {this.renderFilters(this.state.filters)}
-          <div className="page-controls">
-            <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
-            <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
-          </div>
-          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-13">
-            <span class="build-list-header header-underline">Builds</span>
-            {this.renderBuilds(this.state.builds)}
-          </div>
+    <div className="page-controls">
+      <button className="build-list-page-button tab-button" onClick={this.clickPreviousPage.bind(this)}>Previous</button>
+      <button className="build-list-page-button tab-button" onClick={this.clickNextPage.bind(this)}>Next</button>
+    </div>
+    );
+  }
+
+  renderList() {
+    var buildListClassName = 'build-list-container';
+
+    if (!this.state.hidePages && !this.state.hideFilters) {
+      buildListClassName = 'paged-build-list filtered-build-list build-list-container';
+    }
+    else if (!this.state.hidePages) {
+      buildListClassName = 'filtered-build-list build-list-container';
+    }
+    else if (!this.state.hideFilters) {      
+      buildListClassName = 'paged-build-list build-list-container';
+    }
+
+    return (      
+      <div className={buildListClassName}>
+        {this.renderHeroSelect()}
+        {this.renderFilters(this.state.filters)}
+        {this.renderPageControls()}
+        <div data-page-number={1} data-last-page={false} className="build-list border-01 background-20">
+          <span className="build-list-header header-underline">Builds</span>
+          {this.renderBuilds(this.state.builds)}
         </div>
+      </div>
     );
   }
 
@@ -271,7 +140,7 @@ class BuildsList extends Component {
         isLastPage = true;
       }
       else {        
-        buildList.pop(); // remove 11th item from the list, it's only to check for last page
+        buildList.pop(); // remove extra item from the list, it's only to check for last page
       }
 
       querySnapshot.forEach((build) => {
@@ -369,32 +238,23 @@ class BuildsList extends Component {
 
     let filters = [];
 
-    if (this.state.careers.length > 0) {
-      filters.push({ field: 'careerId', comparison: 'in', value: this.state.careers })
+    if (this.state.careerId > 0) {
+      filters.push({ field: 'careerId', comparison: '==', value: this.state.careerId })
     }
 
     if (this.state.difficulties.length > 0) {
-      let selectedDifficulties = [];
-      this.state.difficulties.forEach((item) => {
-        selectedDifficulties.push(item.id);
-      });
-      filters.push({ field: 'difficulty', comparison: 'in', value: selectedDifficulties })
+      var difficultyId = this.state.difficulties[0].id;
+      filters.push({ field: 'difficulty', comparison: '==', value: difficultyId })
     }
 
     if (this.state.missions.length > 0) {
-      let selectedValues = [];
-      this.state.missions.forEach((item) => {
-        selectedValues.push(item.id);
-      });
-      filters.push({ field: 'mission', comparison: 'in', value: selectedValues })
+      var missionId = this.state.missions[0].id;
+      filters.push({ field: 'mission', comparison: '==', value: missionId })
     }
 
     if (this.state.potions.length > 0) {
-      let selectedValues = [];
-      this.state.potions.forEach((item) => {
-        selectedValues.push(item.id);
-      });
-      filters.push({ field: 'potion', comparison: 'array-contains-any', value: selectedValues })
+      var potionId = this.state.potions[0].id;
+      filters.push({ field: 'potion', comparison: '==', value: potionId })
     }
 
     if (this.state.roles.length > 0) {
@@ -402,11 +262,11 @@ class BuildsList extends Component {
       this.state.roles.forEach((item) => {
         selectedValues.push(item.id);
       });
-      filters.push({ field: 'roles', comparison: 'array-contains-any', value: selectedValues })
+      filters.push({ field: 'roles', comparison: 'in', value: selectedValues })
     }
 
     if (this.props.filters) {
-      filters = this.props.filters;
+      this.props.filters.forEach((filter) => { filters.push({field: filter.field, comparison: filter.comparison, value: filter.value}) });
     }
 
     filters.forEach((filter) => {
@@ -421,37 +281,20 @@ class BuildsList extends Component {
   updateHeroSelect(e) {
     var careerId = parseInt(e.target.dataset.career);
     if (e.target.classList.contains('selected')) {
-      var careers = this.state.careers;
-      const index = careers.indexOf(careerId);
-      if (index > -1) {
-        careers.splice(index, 1);
-      }
-      this.setState({ careers: careers, isDataLoaded: false })
-    } else {
-      var careers = this.state.careers;
-      careers.push(careerId);
-      this.setState({ careers: careers, isDataLoaded: false })
+      this.setState({ careerId: 0, isDataLoaded: false });
+    }
+    else {
+      this.setState({ careerId: careerId, isDataLoaded: false });
     }
   }
 
   renderFilters(filters) {
- /*    let filtersHtml = [];
-
-    //handlers get passed to change the state
-    //state changed refreshes page
-    filtersHtml.push(<div class="filters-container">
-      <HeroSelect selectedValues={this.state.careers} onSelect={this.updateHeroSelect.bind(this)}></HeroSelect>
-      <div className="select-filters-container"></div>
-      <DifficultySelect></DifficultySelect>
-      <MissionSelect></MissionSelect>
-      <PotionSelect></PotionSelect>
-      <RoleSelect></RoleSelect>
-      </div>
-    ); */
-
+    if (this.state.hideFilters) {
+      return null;
+    }
 
     return (
-        <div className="select-filters-container">
+        <div className="select-filters-container border-01 left-shadow">
           <DifficultySelect selectedValues={this.state.difficulties} onSelectHandler={this.handleDifficultySelected.bind(this)} onRemoveHandler={''}></DifficultySelect>
           <MissionSelect></MissionSelect>
           <PotionSelect></PotionSelect>
@@ -465,11 +308,14 @@ class BuildsList extends Component {
   }
 
   renderBuilds(builds) {
-    console.log('list of builds to render');
-    console.log(builds);
-    if (!builds || builds.length === 0) {
-      return <p>No builds in database.</p>;
+    if (this.state.isLoadingData) {
+      return (<span className="build-list-label">Loading Builds...</span>);
     }
+    
+    if (!builds || builds.length === 0) {
+      return (<span class="build-list-label">No builds in database.</span>);
+    }
+
     var buildsHtml = [];
     builds.forEach((build) => {
       buildsHtml.push(<BuildListItem key={build.id} buildId={build.id} buildData={build.data}></BuildListItem>)

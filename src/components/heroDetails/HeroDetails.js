@@ -22,8 +22,7 @@ class HeroDetails extends Component {
     
     if (bonusHealth > 0) {
       healthValue += bonusHealth;
-      console.log('health value --------' + healthValue);
-      healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{hero.health.toString() + ' HP'}<span className="bonus-health">&nbsp;{'+' + bonusHealth.toString() + ' HP'}</span></span></div>
+      healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{healthValue.toString() + ' HP'}</span></div>
     }
 
     return (
@@ -62,9 +61,7 @@ class HeroDetails extends Component {
           </div>
           <div className="hero-perks-container">
             <p className="hero-perks-header">Perks</p>
-            <div className="hero-perk-item-container">
               {this.renderPerks(hero.id)}
-            </div>
           </div>
         </div>
     );
@@ -77,8 +74,10 @@ class HeroDetails extends Component {
     var i = 1;
 
     hero.perks.forEach((perk) => { 
-      perksHtml.push(<p key={`perkHeader${i}`} className="hero-perk-item-header"><span style={{fontSize: '40%', top: '-3px', position: 'relative', left: '-4px'}}>&#9670;</span>{perk.name}</p>);
-      perksHtml.push(<p key={`perkDescription${i}`} className="hero-perk-item-description">{perk.description}</p>);    
+      perksHtml.push(<div className="hero-perk-item-container">
+      <p key={`perkHeader${i}`} className="hero-perk-item-header"><span style={{fontSize: '40%', top: '-3px', position: 'relative', left: '-4px'}}>&#9670;</span>{perk.name}</p>
+      <p key={`perkDescription${i}`} className="hero-perk-item-description">{perk.description}</p>
+      </div>); 
       i++;
     });
 

@@ -1,12 +1,12 @@
 #search_input {
-    position: absolute;
     justify-self: center;
     margin: 0;
     padding: 0;
     cursor: pointer;
+    width: auto;
+    color: #30e158 !important;
 }
 .search-wrapper {
-    display: grid;
     justify-content: center;
     grid-template-rows: 1fr;
     grid-template-columns: min-content;
@@ -14,6 +14,8 @@
     height: 100%;
     grid-auto-rows: 1fr;
     padding: 0 !important;
+    display: flex;
+    flex-direction: column-reverse;
 }
 .search-wrapper > span {
     align-self: center;

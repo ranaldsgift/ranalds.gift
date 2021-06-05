@@ -7,6 +7,7 @@
 }
 .hero-page .inventory-container {
   grid-area: heroInventory;
+  align-self: start;
 }
 .hero-page-url-state {
   left: 0;
@@ -18,10 +19,6 @@
   justify-self: center;
   width: calc(100% - 6px) !important; 
   background: black;
-  border-image: url('../../assets/images/borders/border-01.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
-  border-style: solid;
 }
 .hero-page-url-state::after {
   content: '';
@@ -59,8 +56,9 @@
 .hero-summary-container {
   grid-area: heroSummary;
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-columns: 145px 1fr;
+  grid-row-gap: 10px;
   grid-column-gap: 20px;
   grid-template-areas: "heroPortrait heroName" "heroPortrait heroAttributes";
   align-items: start;
@@ -91,11 +89,11 @@
 }
 .hero-passive-container, .hero-skill-container {
   display: grid;
-  grid-template-rows: 30px auto;  
+  grid-template-rows: auto auto;  
   grid-template-columns: 70px 1fr;  
   grid-template-areas: "abilityHeader abilityHeader" "abilityIcon abilityDescription";  
   grid-row-gap: 5px;
-  grid-column-gap: 5px;
+  align-content: start;
 }
 .hero-perks-container {
   grid-area: heroPerks;
@@ -120,9 +118,6 @@
 .health-container, .cooldown-container {
   width: 100%;
 }
-.hero-summary > p:nth-child(2n+1) {
-  font-size: 150%;
-}
 .hero-summary > p {
   width: 100%;
   text-align: left;
@@ -134,7 +129,8 @@
 .hero-passive-header::after, .hero-skill-header::after {
   position: absolute;
   right: 0;
-  font-size: 75%;
+  top: 0;
+  font-size: 1rem;
   color: #848484;
   margin-top: 5px;
 }
@@ -148,8 +144,11 @@
   grid-area: abilityHeader;
   text-align: left;
   align-self: end;
-  font-size: 140%;
+  font-size: 1.7rem;
   position: relative;
+}
+.hero-passive-header, .hero-skill-header, .hero-perks-header {
+  padding-right: 4rem;
 }
 .hero-passive-header::before, .hero-skill-header::before, .hero-perks-header::before, .hero-name-header::before {
   content: '';
@@ -173,9 +172,10 @@
   text-align: left;
 }
 .hero-perk-item-description {
-
   margin-left: 13px;
-
+}
+.hero-perks-container>* {
+    margin-bottom: 5px;
 }
 .hero-name-container {
   grid-area: heroName;
@@ -220,12 +220,15 @@
   grid-row-gap: 20px;
 }
 .hero-page .hero-overview-container {
-  background: url('../../assets/images/backgrounds/background14.png');
+  background: linear-gradient(to left, #000000d4, #000000c9 20%, #2a2a2a1c), url('../../assets/images/backgrounds/background14.png');
   border-image: url('../../assets/images/borders/border-01.png');
   border-image-slice: 15;
   border-image-width: 15px;
   border-style: solid;
   padding: 20px;
+}
+.hero-details-container {
+  color: #c15b24;
 }
 .hero-page .hero-details-container {  
   display: grid;
@@ -255,4 +258,5 @@
 }
 .hero-name-header {
   color: #c15b24;
+  font-size: 1.5rem;
 }

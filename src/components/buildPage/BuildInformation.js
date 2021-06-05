@@ -1,25 +1,75 @@
-import React, { Component } from "react"
+import React, { Component, useContext } from "react"
 import { Link } from "react-router-dom";
 import { AppContext } from "../../stores/Store";
+import { UserContext } from "../../stores/UserStore";
 import { auth, db } from "../../utils/Firebase";
 
-class BuildInformation extends Component {
-    static contextType = AppContext;
-    
-    constructor(props) {
-      super(props);
-    }
+function BuildInformation() {
 
-    handleLikeBuild() {
-        const [state, updateState] = this.context;
+    const [state, updateState] = useContext(AppContext);
+    const [userState, updateUserState] = useContext(UserContext);
 
+    function handleLikeBuild() {
         if (!auth.currentUser) {
             console.log('Login to like a build.');
             return;
         }
 
 
-        db.collection('builds').doc(state.buildId).get().then((build) => {
+        var userRef = db.collection('users').doc(auth.currentUser.uid);
+        var buildRef = db.collection('builds').doc(state.buildId);
+
+        db.runTransaction(async transaction => {
+
+            var user = await transaction.get(userRef);
+            var build = await transaction.get(buildRef);
+
+            if (!build.exists || !user.exists) {
+                return;
+            }
+
+            var buildData = build.data();
+            var userData = user.data();
+
+            if (userData.likedBuilds && userData.likedBuilds.includes(build.id)) {
+                // User already likes the build
+                return;
+            }
+
+            var likedBuilds = userData.likedBuilds ? userData.likedBuilds : [];
+            likedBuilds.push(build.id);
+            transaction.set(userRef, { likedBuilds: likedBuilds }, {merge: true});
+
+            var newLikeCount = buildData.likeCount + 1;
+            var newLikes = buildData.likes;
+            if (!newLikes) {
+                newLikes = [];
+            }
+            if (!newLikes.includes(user.id)) {
+                newLikes.push(user.id);
+            }
+            transaction.set(buildRef, { likeCount: newLikeCount, likes: newLikes }, {merge: true});
+        }).then(() => {
+
+            console.log('Successfully liked build'); 
+
+            updateUserState({
+                type: "ADD_LIKED_BUILD", 
+                payload: state.buildId
+            });
+
+            updateState({
+                type: "UPDATE_LIKES", 
+                payload: {
+                    likeCount: state.likeCount + 1,
+                    isLikedByUser: true
+                }
+            });
+        }).catch((error) => {
+            console.error("Error updating document: ", error);
+        });
+
+/*         db.collection('builds').doc(state.buildId).get().then((build) => {
             if (!build.exists) {
                 return;
             }
@@ -47,18 +97,70 @@ class BuildInformation extends Component {
                     console.error('Error liking build:', error); 
                 });
             }
-        });
+        }); */
     }
 
-    handleUnlikeBuild() {
-        const [state, updateState] = this.context;
-
+    function handleUnlikeBuild() {
         if (!auth.currentUser) {
             console.log('Login to like a build.');
             return;
         }
+
+
+        var userRef = db.collection('users').doc(auth.currentUser.uid);
+        var buildRef = db.collection('builds').doc(state.buildId);
+
+        db.runTransaction(async transaction => {
+
+            var user = await transaction.get(userRef);
+            var build = await transaction.get(buildRef);
+
+            if (!build.exists || !user.exists) {
+                return;
+            }
+
+            var buildData = build.data();
+            var userData = user.data();
+
+            if (!userData.likedBuilds || !userData.likedBuilds.includes(build.id)) {
+                // User doesn't like the build
+                return;
+            }
+
+            var likedBuilds = userData.likedBuilds;
+            likedBuilds.splice(likedBuilds.indexOf(build.id), 1);
+            transaction.set(userRef, { likedBuilds: likedBuilds }, {merge: true});
+
+            var newLikeCount = buildData.likeCount - 1;
+            var newLikes = buildData.likes;
+            if (!newLikes) {
+                newLikes = [];
+            }
+            if (newLikes.includes(user.id)) {
+                newLikes.splice(newLikes.indexOf(user.id));
+            }
+            transaction.set(buildRef, { likeCount: newLikeCount, likes: newLikes }, {merge: true});
+        }).then(() => {
+
+            console.log('Successfully unliked build'); 
+
+            updateUserState({
+                type: "REMOVE_LIKED_BUILD", 
+                payload: state.buildId
+            });
+
+            updateState({
+                type: "UPDATE_LIKES", 
+                payload: {
+                    likeCount: state.likeCount - 1,
+                    isLikedByUser: false
+                }
+            });
+        }).catch((error) => {
+            console.error("Error updating document: ", error);
+        });
         
-        db.collection('builds').doc(state.buildId).get().then((build) => {
+/*         db.collection('builds').doc(state.buildId).get().then((build) => {
             if (!build.exists) {
                 return;
             }
@@ -77,7 +179,6 @@ class BuildInformation extends Component {
                     updateState({
                         type: "UPDATE_LIKES", 
                         payload: {
-                            likes: likesList,
                             likeCount: newLikeCount,
                             isLikedByUser: false
                         }
@@ -86,17 +187,18 @@ class BuildInformation extends Component {
                     console.error('Error liking build:', error); 
                 });
             }
-        });
+        }); */
     }
 
-    render() {
-        const [state, updateState] = this.context;
+/*     render() {
+        const [state, updateState] = this.context; */
+/*         const userState = useContext(UserContext);
 
         auth.onAuthStateChanged((user) => {
             if (user !== null) {
                 var userLikesBuild = state.likes ? state.likes.includes(user.uid) : false;
   
-                if (state.isLiked !== userLikesBuild) {
+                if (state.isLiked !== this.state.isLikedByUser) {
                     updateState({
                         type: "UPDATE_USER_LIKE",
                         payload: userLikesBuild
@@ -104,18 +206,18 @@ class BuildInformation extends Component {
                 }
             }
   
-        });
+        }); */
 
         return (<div className="build-information-container read-only-container border-02 background-18">
                     <div><span>Created by</span><Link to={'/user/' + state.userId + '/view'}>{state.username}</Link></div>
                     <div><span>Patch</span><span>{state.patch}</span></div>
-                    <div class="build-like-container">
+                    <div className="build-like-container">
                         <span>{state.likeCount}</span>
-                        <i class="material-icons like-icon" onClick={this.handleLikeBuild.bind(this)}>star_border</i>
-                        <i class="material-icons unlike-icon" onClick={this.handleUnlikeBuild.bind(this)}>star</i>
+                        <i className="material-icons like-icon" onClick={handleLikeBuild.bind(this)}>star_border</i>
+                        <i className="material-icons unlike-icon" onClick={handleUnlikeBuild.bind(this)}>star</i>
                     </div>
                 </div>);
     }
-}
+//}
 
 export default BuildInformation;

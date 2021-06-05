@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 import { DataHelper } from '../../utils/DataHelper';
 import WeaponIcon from '../inventory/WeaponIcon';
 import TraitIcon from '../traits/TraitIcon';
+import history from '../../utils/History';
+import BuildRating from '../buildPage/BuildRating';
+import BuildListRating from './BuildListRating';
 
 
 class BuildListItem extends Component {
@@ -38,16 +41,17 @@ class BuildListItem extends Component {
     }
 
     return (
-      <Link to={'/build/' + this.props.buildId + '/view'}>
-        <div className="build-list-item border-31 background-29">
+      //<Link to={'/build/' + this.props.buildId + '/view'}>
+        <div className="build-list-item" data-career={this.props.buildData.careerId} data-hero={this.props.buildData.heroId} data-build={this.props.buildId} onClick={this.handleBuildClick.bind(this)}>
           <div className={`build-hero-icon hero-icon-${this.props.buildData.careerId} border-04`}></div>
           <div className="build-description-container">
             <p className="build-name header-underline">{this.props.buildData.name}</p>
             <p className="build-hero">{careerData.name}</p>
             <div className="build-creation-info">
-              <span className="build-author-by">by</span><span className="build-author">{this.props.buildData.username}</span><span className="date-updated">updated {lastUpdatedText}</span>
+              <span className="build-author-by">by</span><Link as={Link} to={`/user/${this.props.buildData.userId}/view`} className="build-author">{this.props.buildData.username}</Link><span className="date-updated">updated {lastUpdatedText}</span>
             </div> {/* //<Link as={Link} to={`/user/${this.props.buildData.userId}/view`} className="">{this.props.buildData.username}</Link></span> */}
           </div>
+          <BuildListRating likeCount={this.props.buildData.likeCount}></BuildListRating>
           <div className="talents">
             <HeroTalentIcon talentNumber={this.props.buildData.talent1} tier='1' careerId={this.props.buildData.careerId}></HeroTalentIcon>
             <HeroTalentIcon talentNumber={this.props.buildData.talent2} tier='2' careerId={this.props.buildData.careerId}></HeroTalentIcon>
@@ -69,11 +73,19 @@ class BuildListItem extends Component {
           </div>
           <div className="build-footer">
               <p className="roles">{roleList.join(' / ')}</p>
-              <p className="patch-number">Update {patchData.number}</p>
+              <p className="patch-number">{`Update ${patchData.number}`}</p>
           </div>
         </div>
-      </Link>
+      //</Link>
     );
+  }
+
+  handleBuildClick(e) {
+    if (e.target.classList.contains('build-author')) {
+      return;
+    }
+    var buildId = e.currentTarget.dataset.build;
+    history.push(`/build/${buildId}/view`)
   }
 }
 

@@ -13,8 +13,8 @@ class RoleSelect extends Component {
     let onChangeHandler = this.props.onChangeHandler ? this.props.onChangeHandler : this.selectChangeHandler;
 
       return (
-        <Multiselect closeIcon="cancel" closeOnSelect={false} options={DataHelper.getRoleData()} selectedValues={this.props.selectedValues}
-        displayValue="name" placeholder="Roles" hidePlaceholder="true"
+        <Multiselect closeIcon="cancel" options={DataHelper.getRoleData()} selectedValues={this.props.selectedValues}
+        displayValue="name" placeholder="Roles"
         onSelect={onChangeHandler.bind(this)} onRemove={onChangeHandler.bind(this)}></Multiselect>
     );
   }

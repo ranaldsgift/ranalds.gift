@@ -9,6 +9,7 @@
 }
 .build-left-container {
     grid-area: buildLeftContainer;
+    align-self: start;
 }
 .build-main-container {
     grid-area: buildMainContainer;
@@ -19,6 +20,7 @@
 
 .build-right-container {
     grid-area: buildRightContainer;
+    align-self: start;
 }
 .build-group-container .build-list-item .talents, .build-group-container .build-list-item .weapons, .build-group-container .build-list-item .traits {
   display: none;
@@ -67,7 +69,7 @@
   .build-group-container .build-list {
     padding: 20px;
   }
-  .edit-build-page[data-dirty="false"] #saveBuildButton {
+  .edit-build-page[data-dirty="false"] #saveBuildButton, .edit-build-page[data-valid="false"] #saveBuildButton {
     filter: grayscale(1);
     cursor: default;
   }
@@ -136,9 +138,12 @@
     border-image-slice: 15;
     border-image-width: 15px;
     border-style: solid;
-    background: url('../../assets/images/backgrounds/background14.png');
-    padding: 20px;
+    background: linear-gradient(to left, #000000d4, #000000c9 20%, #2a2a2a1c), url('../../assets/images/backgrounds/background14.png');
     grid-row-gap: 20px;
+}
+
+.build-page[data-readonly='false'] .build-summary-tab {
+  padding: 20px;
 }
 .build-details-container .hero-passive-container, .build-details-container .hero-skill-container, .build-details-container .hero-perks-container {
     display: none;
@@ -168,22 +173,27 @@
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
 }
+.react-tabs__tab-list { 
+  border-bottom: none;
+}
 .react-tabs__tab-list li, .container-tabs-list li  {
     border-radius: 0;
     border-image: url('../../assets/images/borders/border-01.png');
     border-image-slice: 15;
     border-image-width: 15px;
     border-style: solid;
+    border-image-repeat: repeat;
     box-shadow: inset 0 0 75px black, inset 0 6px 3px white;
     background: black;
 }
-.container-tabs-list li {
+ul[role='tablist'] li {
   color: #928962;
   padding: 0;
-  margin: -1px 0 0;
   height: 32px;
   display: grid;
   align-content: center;
+  bottom: 0;
+  text-align: center;
 }
 ul[role="tablist"] li[aria-selected="true"] {
   background: #000;
@@ -238,17 +248,18 @@ ul[role="tablist"] li[aria-selected="true"] {
 .build-information-container {
   grid-area: buildInformation;
   display: grid;
-  grid-auto-flow: row;
-  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
   justify-items: center;
   grid-column-gap: 10px;
   background-color: #440c0c3b;
   position: relative;
-  padding: 10px;
-  border-top: 1px solid #f0d9af;
-  border-bottom: 1px solid #f0d9af;
+  padding: 3px 10px;
+  border-top: 1px solid #f0d9af5e;
+  border-bottom: 1px solid #f0d9af5e;
   z-index: 0;
   align-items: center;
+  background: linear-gradient(45deg, #000000, #000000e0), url('../../assets/images/backgrounds/background19.png');
 }
 .build-information-container span:nth-child(2n+2), .build-information-container a {
   justify-self: left;
@@ -261,14 +272,11 @@ ul[role="tablist"] li[aria-selected="true"] {
   grid-auto-flow: column;
   grid-column-gap: 10px;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
   text-align: right;
+  grid-auto-columns: max-content;
 }
 .build-information-container a {
   color: #0096fb;
-}
-.edit-build-page[data-readonly='true'] * {
-  pointer-events: none;
 }
 .edit-build-page[data-readonly='true'] a,
 .build-page[data-readonly='true'] .build-like-container * {
@@ -303,7 +311,7 @@ ul[role="tablist"] li[aria-selected="true"] {
   20% { font-size: 1.2em; }
 }
 
-.build-page[data-dirty="true"] #saveBuildButton {
+.build-page[data-dirty="true"][data-valid="true"] #saveBuildButton {
   animation-name: pulse_animation;
   animation-duration: 3000ms;
   transform-origin:70% 70%;
@@ -312,4 +320,35 @@ ul[role="tablist"] li[aria-selected="true"] {
 }
 .build-page[data-readonly='true'] .build-main-container>.react-tabs>li:nth-child(n+2) {
   display: none;
+}
+
+input#search_input::placeholder {
+  color: #f0d9af !important;
+}
+.multiselect-container .searchBox::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background-image: linear-gradient(90deg,#808080b3 10%, #80808000);
+}
+.edit-build-page .hero-select-container {
+  box-shadow: -1px 0px 0 0 #564640;
+}
+.build-page[data-valid='false'] span#saveBuildButton:hover {
+  box-shadow: inset 0 0 75px black, inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important;
+}
+.build-page[data-dirty='false'] span#saveBuildButton:hover {
+  box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -7px 10px rgb(179 0 0) !important;
+}
+.build-page[data-readonly='true'] .build-main-summary-container>* {
+  margin: 0 20px;
+}
+
+.build-header-details-container {
+  margin: 0 !important;
+}
+.edit-build-page[data-readonly='true'] .build-information-container * {
+  font-size: 1.2rem !important;
 }

@@ -12,3 +12,63 @@
 .build-page[data-readonly='true'] .search-wrapper>span>i {
   display: none;
 }
+.build-header-details-container {
+  grid-area: buildDetails;
+}
+
+.hero-details-container {
+  grid-area: heroDetails;
+}
+.build-page[data-readonly='true'] .build-main-summary-container {
+  display: grid;
+  grid-template-areas:
+      "buildDetails"
+      "heroDetails"
+      "buildSummary"
+      "buildOptions"
+      "buildDescription"
+      "heroTalents";
+  grid-row-gap: 20px;
+}
+.build-page[data-readonly='true'] .hero-details-container>div:nth-child(n+2) {
+  display: none;
+}
+.build-page[data-readonly='true'] .hero-details-container {
+  max-width: 600px;
+}
+.build-header {
+  grid-area: buildHeader;
+  justify-self: left;
+  padding: 5px 10px 0px;
+  align-self: end;
+  text-align: left;
+}
+
+.rating {
+  grid-area: buildRating;
+}
+
+.build-header-details-container {
+  display: grid;
+  grid-template-areas:
+      "buildHeader buildRating"
+      "buildInformation buildInformation";
+  grid-template-columns: 1fr auto;
+}
+
+.heading {
+  color: #c15b24;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.build-header.heading {
+    font-size: 2rem;
+    text-shadow: 1px 1px #000;
+}
+.build-page[data-readonly='true'] input, .build-page[data-readonly='true'] textarea, .build-page[data-readonly='true'] .multiselect-container, .build-page[data-readonly='true'] select {
+  pointer-events: none;
+}
+
+.build-page[data-readonly='true'] .build-summary-tab {
+  grid-row-gap: 0px;
+}

@@ -34,7 +34,7 @@ function UserPageContainer() {
         }
       });
       
-      db.collection('builds').where("userId", "==", userId).orderBy('dateModified').limit(10).get().then((querySnapshot) => {
+      db.collection('builds').where("userId", "==", userId).where('isDeleted', '==', false).orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
         var userBuilds = [];
         querySnapshot.forEach((build) => {
           userBuilds.push({ id: build.id, data: build.data()});
@@ -51,10 +51,11 @@ function UserPageContainer() {
         }); 
       });
 
-      if (auth.currentUser.uid === userId) {
+      if (auth.currentUser && auth.currentUser.uid === userId) {
         console.log('Authed user is user page user');
+        // Load additional build list for liked builds
 
-        db.collection('builds').where("likes", "array-contains", userId).orderBy('dateModified').limit(10).get().then((querySnapshot) => {
+        db.collection('builds').where("likes", "array-contains", userId).where('isDeleted', '==', false).orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
           var likedBuilds = [];
           querySnapshot.forEach((build) => {
             likedBuilds.push({ id: build.id, data: build.data()});

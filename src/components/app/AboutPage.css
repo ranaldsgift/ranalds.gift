@@ -1,0 +1,41 @@
+.about-page {
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(45deg, #000, #0000006e), url('../../assets/images/backgrounds/background41.png') center / cover;
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 20px;
+}
+.about-page a, span.link {
+    color: #0096fb;
+}
+.about-page h2 {
+    color: #c15b24;
+    margin: 0;
+}
+.about-page p {
+    margin: 10px 0;
+}
+.donate-button {
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.planned-features-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.about-page h3 {
+    color: #c15b24;
+    margin: 0;
+}
+.about-page li {
+    color: #30e158;
+    font-size: 1.5rem;
+}
+.supporters-container {
+    margin: 0 auto;
+    width: 100%;
+}

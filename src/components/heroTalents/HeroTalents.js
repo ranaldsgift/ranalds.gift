@@ -60,7 +60,7 @@ class HeroTalents extends Component {
 
     var talentValue = talentNumber % 3 === 0 ? 3 : talentNumber % 3;
     var talent = talents[talentNumber-1];
-    return <div data-talent={talentValue} data-tier={tier} onClick={(e) => updateState({type: "UPDATE_TALENTS", payload: { tier: parseInt(e.currentTarget.dataset.tier), talent: parseInt(e.currentTarget.dataset.talent)}})} key={talentString} className={talentClassName}>
+    return <div data-talent={talentValue} data-tier={tier} onClick={this.props.readonly ? null : this.handleTalentClick.bind(this)} key={talentString} className={talentClassName}>
             <div className="talent-button-wrapper">
               <div className={`talent-icon ${talentString}`} data-talent={talentValue} data-tier={tier} data-career={careerId}></div>
               <p className="talent-name">{talent.name}</p>
@@ -97,7 +97,7 @@ class HeroTalents extends Component {
       <div className={`hero-talents-container${talentsContainerClass}`} data-show-descriptions={this.state.showDescriptions}>
         <div className="hero-talents-grid" data-career={state.careerId}>
           <span className="hero-talents-header">Talents</span>
-          <span class="show-talent-descriptions" onClick={this.clickShowDescriptions.bind(this)}>Show Descriptions</span>
+          <span className="show-talent-descriptions" onClick={this.clickShowDescriptions.bind(this)}>Show Descriptions</span>
           {this.renderTalents()}
           <div className="hero-talents-grid-bg background-26"></div>
           <div className="hero-talents-grid-border"></div>
@@ -116,13 +116,16 @@ class HeroTalents extends Component {
   }
 
   handleTalentClick(e) {
-    var tierTalents = document.querySelectorAll(`button.hero-talent[data-tier="${e.currentTarget.getAttribute('data-tier')}"]`);
+    const [state, updateState] = this.context;
+
+    updateState({type: "UPDATE_TALENTS", payload: { tier: parseInt(e.currentTarget.dataset.tier), talent: parseInt(e.currentTarget.dataset.talent)}});
+/*     var tierTalents = document.querySelectorAll(`button.hero-talent[data-tier="${e.currentTarget.getAttribute('data-tier')}"]`);
 
     tierTalents.forEach(talent => {
       talent.classList.remove('selected');
     });
 
-    e.currentTarget.classList.add('selected');
+    e.currentTarget.classList.add('selected'); */
   }
 }
 

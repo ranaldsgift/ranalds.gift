@@ -63,8 +63,8 @@ class BuildList extends Component {
      } */
 
     return (
-          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-16">
-            <span class="build-list-header header-underline">{this.props.name}</span>
+          <div data-page-number={1} data-last-page={false} className="build-list border-01 background-20">
+            <span className="build-list-header header-underline">{this.props.name}</span>
             {/* <button className="build-list-page-button" onClick={this.props.handleNextPage}>Next Page</button> */}
             {this.renderBuilds(this.props.builds)}
           </div>

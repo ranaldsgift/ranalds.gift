@@ -25,6 +25,16 @@ function reducer(state, action) {
             
             return {...state, likedBuilds: action.payload.builds, likedBuildsLastDoc: action.payload.lastDoc, likedBuildsPageCount: action.payload.totalPages, likedBuildsCurrentPage: action.payload.currentPage};
             //return {...state, likedBuilds: action.payload};
+        case 'UPDATE_USERNAME':
+            return {...state, username: action.payload};
+        case 'UPDATE_STEAM':
+            return {...state, steam: action.payload};
+        case 'UPDATE_TWITCH':
+            return {...state, twitch: action.payload};
+        case 'UPDATE_DISCORD':
+            return {...state, discord: action.payload};
+        case 'UPDATE_YOUTUBE':
+            return {...state, youtube: action.payload};
         default:
             throw new Error('Error updating User Page state.');
     }
@@ -38,6 +48,8 @@ export default function UserViewStore(props) {
         email: '',
         steam: '',
         twitch: '',
+        discord: '',
+        youtube: '',
         dateCreated: '',
         dateModified: '',
         userBuilds: [],

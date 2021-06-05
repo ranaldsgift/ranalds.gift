@@ -1,37 +1,32 @@
 .build-list-item {
-    box-shadow: inset 0px 1000px #0d0202eb;
     display: grid;
-    grid-template-columns: 100px auto auto 1fr;
+    grid-template-columns: 120px auto auto 1fr auto;
     position: relative;
     grid-template-rows: auto 45px 30px;
     grid-row-gap: 5px;
     grid-column-gap: 10px;
-    grid-template-areas: "heroIcon buildDescription buildDescription buildDescription"
-                        "heroIcon buildWeapons buildTraits empty"
-                        "heroIcon buildFooter buildFooter buildFooter";
+    grid-template-areas: "heroIcon buildDescription buildDescription buildDescription buildRating"
+    "heroIcon buildWeapons buildTraits empty2 empty2"
+    "heroIcon buildFooter buildFooter buildFooter buildFooter";
     text-transform: uppercase;
     cursor: pointer;
-}
-.build-list-item::after {
-    background: radial-gradient(ellipse at top, black, white);
-    height: 100%;
-    width: 100%;
-    content: '';
-    position: absolute;
-    z-index: 0;
-    opacity: 0.06;
 }
 .edit-build-page .build-list-item .weapons, .edit-build-page .build-list-item .traits {
     display: none;
 }
-.edit-build-page .build-list-item {
-    grid-template-columns: 100px auto 1fr;
-}
-.build-hero-icon {
+.edit-build-page .build-list-item .build-hero-icon{
     width: 80px;
     height: 94px;
+}
+.edit-build-page .build-list-item {
+    grid-template-columns: 100px auto 1fr;
+    grid-column-gap: 5px;
+}
+.build-hero-icon {
+    width: 100px;
+    height: 120px;
     grid-area: heroIcon;
-    justify-self: center;
+    justify-self: right;
     align-self: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -74,14 +69,15 @@
     background: linear-gradient(to right, #0000,#ffffff14);
     padding-right: 10px;
     justify-self: right;
-    border-radius: 0 0 8px 0;
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 10px;
     align-content: center;
     font-size: 0.8em;
     width: calc(100% - 10px);
-    justify-content: right;
+    justify-content: right; 
+    margin-right: 5px;
+    padding-bottom: 5px;
 }
 .build-hero {
     font-size: 0.8em;
@@ -93,9 +89,8 @@
 }
 .build-footer > p {
     align-content: center;
-    display: grid;
-    height: 100%;
-    padding-top: 2px;
+    display: inline-block;
+    height: 12px;
 
 }
 .weapon-icon:hover::before {
@@ -155,21 +150,8 @@
 .trait-icon {
     background-repeat: no-repeat !important;
     background-position: center !important;
-    position: relative;
     background-size: calc(100% - 12px) !important;
 }
-.trait-icon::after {
-    content: '';
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    display: grid;
-    width: 100%;
-    height: 100%;
-    background-color: black !important;
-    z-index: -1;
-    position: relative;
-}
-
 .trait-heroic-intervention {
     background: url('../../assets/images/traits/heroic-intervention.png') black;
 }
@@ -215,7 +197,7 @@
 .trait-barkskin {
     background: url('../../assets/images/traits/barkskin.png') black;
 }
-.trait-shallyas-boon {
+.trait-boon-of-shallya {
     background: url('../../assets/images/traits/boon-of-shallya.png') black;
 }
 .trait-hand-of-shallya {
@@ -268,6 +250,7 @@
     text-align: left;
     white-space: nowrap;
     color: #c8c8c8;
+    display: inline-block;
 }
 .roles {
     color: #c8c8c8;
@@ -280,12 +263,9 @@
     grid-template-columns: 100px 1fr !important;
     grid-template-rows: 1fr 30px;
     grid-template-areas:
-        "heroIcon buildDescription"
-        "heroIcon buildFooter";
+    "heroIcon buildDescription buildRating"
+    "heroIcon buildFooter buildFooter";
     grid-row-gap: 0px;
-}
-a:hover>.build-list-item {
-    box-shadow: inset 0px 1000px #261010e8;
 }
 .build-author-by, .build-author {
     text-transform: initial;
@@ -308,4 +288,100 @@ a:hover>.build-list-item {
 }
 .date-updated {
     text-transform: lowercase;
+}
+
+/* 
+.build-list-item[data-career='1'] {
+    background-image: linear-gradient(to bottom, #200000d6, #1e0000), url('../../assets/images/backgrounds/background39.png');
+} */
+
+
+.build-list-item[data-career='1']:after {
+    background: rgba(87, 57, 57, 0.23);
+  }
+  .build-list-item[data-career='2']:after {
+    background: rgba(89, 98, 61, 0.25);
+  }
+  .build-list-item[data-career='3']:after {
+    background: rgba(9,20,41,.45);
+  } 
+  .build-list-item[data-career='4']:after {
+    background: rgba(29,37,5,.45);
+  }
+  .build-list-item[data-career='5']:after {
+    background: rgba(10,54,63,.45);
+  }
+  .build-list-item[data-career='6']:after {
+    background: rgba(52,0,0,.45);
+  }
+  .build-list-item[data-career='7']:after {
+    background: rgba(10,23,8,.45);
+  }
+  .build-list-item[data-career='8']:after {
+    background: rgba(13,26,43,.45);
+  }
+  .build-list-item[data-career='9']:after {
+    background: rgba(31,20,40,.45);
+  }
+  .build-list-item[data-career='10']:after {
+    background: rgba(32,38,40,.45);
+  }
+  .build-list-item[data-career='11']:after {
+    background: rgba(40,31,15,.45);
+  }
+  .build-list-item[data-career='12']:after {
+    background: rgba(35,35,30,.45);
+  }
+  .build-list-item[data-career='13']:after {
+    background: rgba(46,16,0,.45);
+  }
+  .build-list-item[data-career='14']:after {
+    background: rgba(36,6,2,.45);
+  }
+  .build-list-item[data-career='15']:after {
+    background: rgba(30,10,20,.45);
+  }
+  .build-list-item[data-career='16']:after {
+    background: rgba(30,10,20,.45);
+  }
+  .build-list-item[data-career='17']:after {
+    background: rgba(30,10,20,.45);
+  }
+  .build-list-item:hover:before {
+    box-shadow: 0 0 10px 2px #ffd700;
+    background: radial-gradient(closest-corner, #00000090, #000000dc), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+}
+.build-list-item:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;    
+    border-image: url('../../assets/images/borders/border-31.png');
+    border-image-slice: 67;
+    border-image-width: 67px;
+    border-style: solid;
+    border-image-repeat: repeat;
+    box-sizing: border-box;
+}
+.build-list-item:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+    filter: saturate(285%) contrast(120%);
+}
+.build-list-item .rating-icon {
+    height: 50px;
+    width: 50px;
+}
+.rating {
+    grid-area: buildRating;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    padding-right: 10px;
+}
+.rating-count {
+    font-size: 2em;
 }

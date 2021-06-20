@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.bcca2241.chunk.css",
-    "main.js": "/static/js/main.10edc676.chunk.js",
-    "main.js.map": "/static/js/main.10edc676.chunk.js.map",
+    "main.css": "/static/css/main.c470e8e7.chunk.css",
+    "main.js": "/static/js/main.a01436ae.chunk.js",
+    "main.js.map": "/static/js/main.a01436ae.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ab15b354.js",
     "runtime-main.js.map": "/static/js/runtime-main.ab15b354.js.map",
     "static/css/2.3ce09dd6.chunk.css": "/static/css/2.3ce09dd6.chunk.css",
-    "static/js/2.58d91505.chunk.js": "/static/js/2.58d91505.chunk.js",
-    "static/js/2.58d91505.chunk.js.map": "/static/js/2.58d91505.chunk.js.map",
+    "static/js/2.ac41a737.chunk.js": "/static/js/2.ac41a737.chunk.js",
+    "static/js/2.ac41a737.chunk.js.map": "/static/js/2.ac41a737.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.3ce09dd6.chunk.css.map": "/static/css/2.3ce09dd6.chunk.css.map",
-    "static/css/main.bcca2241.chunk.css.map": "/static/css/main.bcca2241.chunk.css.map",
-    "static/js/2.58d91505.chunk.js.LICENSE.txt": "/static/js/2.58d91505.chunk.js.LICENSE.txt",
+    "static/css/main.c470e8e7.chunk.css.map": "/static/css/main.c470e8e7.chunk.css.map",
+    "static/js/2.ac41a737.chunk.js.LICENSE.txt": "/static/js/2.ac41a737.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/divider-20.d5348db5.png",
     "static/media/HeroDetails.css": "/static/media/background18.803a2098.png",
-    "static/media/Background.css": "/static/media/label-14.25f89ebe.png",
+    "static/media/Background.css": "/static/media/overlay-4.cd2fd057.png",
     "static/media/EditBuildPage.css": "/static/media/label-06.76cad8eb.png",
     "static/media/TextEditor.css": "/static/media/background22.6c0dbd94.png",
     "static/media/HeroTalents.css": "/static/media/talent-lock-icon.131a304f.png",
     "static/media/TraitIcon.css": "/static/media/background29.db503a3b.png",
     "static/media/AboutPage.css": "/static/media/background41.b94331db.png",
-    "static/media/Borders.css": "/static/media/header-03.93cca1c7.png",
+    "static/media/Borders.css": "/static/media/border-35.6dd56744.png",
     "static/media/HeroTalentSummary.css": "/static/media/border-16.b0023d54.png",
     "static/media/Weapons.css": "/static/media/wh_fencing_sword.cd9e2a0e.png",
     "static/media/HeroSelect.css": "/static/media/portrait.fe149580.png",
@@ -28,7 +28,7 @@
     "static/media/home.b5359ac8.mp4": "/static/media/home.b5359ac8.mp4",
     "static/media/MenuPage.css": "/static/media/menu_active.9f0b9221.png",
     "static/media/Heroes.css": "/static/media/skill.ffceaec2.png",
-    "static/media/Layouts.css": "/static/media/portrait-wide.fbfa4f22.png",
+    "static/media/BuildList.css": "/static/media/portrait-wide.fbfa4f22.png",
     "static/media/Icons.css": "/static/media/stamina.c4efffc1.png",
     "static/media/HeroTalentIcon.css": "/static/media/talent-18.fc13b742.png",
     "static/media/Dividers.css": "/static/media/text-divider-01.4073f286.png"
@@ -36,8 +36,8 @@
   "entrypoints": [
     "static/js/runtime-main.ab15b354.js",
     "static/css/2.3ce09dd6.chunk.css",
-    "static/js/2.58d91505.chunk.js",
-    "static/css/main.bcca2241.chunk.css",
-    "static/js/main.10edc676.chunk.js"
+    "static/js/2.ac41a737.chunk.js",
+    "static/css/main.c470e8e7.chunk.css",
+    "static/js/main.a01436ae.chunk.js"
   ]
 }

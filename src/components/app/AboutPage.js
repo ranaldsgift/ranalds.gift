@@ -22,7 +22,7 @@ class AboutPage extends Component {
           <div className="roadmap-container divider-03 top">
             <h2 className="header-underline">Roadmap</h2>
             <p>Please keep in mind that I develop this project on my own time, and neither myself nor any of the project contributors are being paid for our time. This is a project with hundreds of hours of development work at this point. The ultimate goal is to make this the main resource for Vermintide 2 gameplay and mechanics information, in addition to being a resource for the community to share their character loadouts.</p>
-            <p>Development may be slow at times, and none of the planned features are guaranteed. If you would like to help support further development of the project and help ensure that these features are eventually completed, you can hit the Donate button below. All donations are optional but are <i>greatly</i> appreciated. Because supporters are essential to the growth of this project, I will be listing everyone who donates in the section below this one, unless they wish to remain anonymous.</p>
+            <p>Development may be slow at times, and none of the planned features are guaranteed. If you would like to help support further development of the project and help ensure that these features are eventually completed, you can hit the Donate button below. All donations are optional but are <i>greatly</i> appreciated. Please leave your username in the message if you decide to support so that you can be easily identified if you wish to be. Because supporters are essential to the growth of this project, I will be listing everyone who donates in the section below this one, unless they wish to remain anonymous.</p>
             <button className="button-01 donate-button"><a href="https://www.paypal.com/donate/?hosted_button_id=C4GWNTDGWWC3N" target="_blank" rel="noreferrer">Donate</a></button>
           </div>
           <div className="planned-features-container">
@@ -64,7 +64,7 @@ class AboutPage extends Component {
           </div>
           <div className="supporters-container divider-03 top">
             <h2 className="header-underline">List of Supporters</h2>
-            <p>None yet!</p>
+            <p><a href="https://www.ranalds.gift/user/J5DUTj98hhMy13zmAc0AuPDJgaw2/view">Royale w/ Cheese</a></p>
           </div>
           <div className="privacy-container">
             <h2 className="header-underline">Privacy Policy</h2>

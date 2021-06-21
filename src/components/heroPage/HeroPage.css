@@ -1,7 +1,6 @@
 .hero-page {
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr;
-  grid-template-areas: "heroSelect heroContainer heroInventory";
+  grid-template-areas: "heroLeftContainer heroContainer heroInventory";
   height: 100%;
   grid-column-gap: 20px;
 }
@@ -63,7 +62,7 @@
   grid-template-areas: "heroPortrait heroName" "heroPortrait heroAttributes";
   align-items: start;
 }
-.hero-page .hero-portrait {
+.hero-summary-container .hero-portrait {
   height: 175px;
 }
 
@@ -92,7 +91,7 @@
   grid-template-rows: auto auto;  
   grid-template-columns: 70px 1fr;  
   grid-template-areas: "abilityHeader abilityHeader" "abilityIcon abilityDescription";  
-  grid-row-gap: 5px;
+  grid-gap: 5px;
   align-content: start;
 }
 .hero-perks-container {
@@ -259,4 +258,11 @@
 .hero-name-header {
   color: #c15b24;
   font-size: 1.5rem;
+}
+.hero-left-container.top-left-shadow {
+  grid-area: heroLeftContainer;
+  align-self: start;
+}
+#app[data-auth='false'] .hero-page .build-buttons-container {
+  display: none;
 }

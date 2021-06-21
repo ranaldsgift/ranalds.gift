@@ -1,8 +1,4 @@
-import React, { Component, useContext } from "react"
-import { Link } from "react-router-dom";
-import { AppContext } from "../../stores/Store";
-import { UserContext } from "../../stores/UserStore";
-import { auth, db } from "../../utils/Firebase";
+import React from "react"
 
 function BuildListRating(props) {
     return (

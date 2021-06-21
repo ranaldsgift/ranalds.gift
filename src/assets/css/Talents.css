@@ -22,7 +22,7 @@
 .talent-3::after {
     content: '3';
 }
-.talent-icon:hover::before {
+/* .talent-icon:hover::before {
     content: 'Hitting more than 3 enemies in one swing generates temporary health.';
     height: 40px;
     width: 400px;
@@ -39,7 +39,7 @@
     white-space: unset;
     text-transform: initial;
     align-content: center;
-}
+} */
 
 .talent-left::after {
     content: '1';

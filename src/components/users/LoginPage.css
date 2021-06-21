@@ -1,18 +1,18 @@
 
-#root[data-page-name="loginPage"] .app-container-frame {
+/* .login-page .app-container-frame {
     width: 700px;
     height: 400px;
     left: calc(50% - 350px);
     top: calc(50vh - 200px);
   }
-  #root[data-page-name="loginPage"] .page-title {
+  .login-page .page-title {
     position: absolute;
     top: calc(50vh - 232px);
   }
-  #root[data-page-name="loginPage"] .page-title-label-background {
+  .login-page .page-title-label-background {
     top: calc(50vh - 222px);
-  }
-  #root[data-page-name="loginPage"] input {
+  } */
+  .login-page input {
     display: block;
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -30,7 +30,7 @@
     color: white;
     outline: none;
   }
-  #root[data-page-name="loginPage"] form {
+  .login-page form {
     display: grid;
     justify-content: center;
     position: relative;
@@ -38,7 +38,23 @@
     grid-auto-flow: row;
     justify-items: center;
   }
-  #root[data-page-name="loginPage"] .app-container {
+  .login-page .app-container {
       display: grid;
       align-content: center;
+  }
+  .login-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .login-page form {
+      display: grid;
+  }
+  
+  .login-page-tab, .register-page-tab {
+      border-image: url('../../assets/images/borders/border-01.png');
+      border-image-slice: 15;
+      border-image-width: 15px;
+      border-style: solid;
+      border-image-repeat: repeat;
+      padding: 20px;
   }

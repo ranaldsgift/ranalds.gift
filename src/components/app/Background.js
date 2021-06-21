@@ -10,7 +10,7 @@ function Background() {
             <video autoPlay={true} loop={true} poster={BackgroundVideoPoster} className="fullscreen-background-video">                
                 <source src={BackgroundVideo} type="video/mp4"></source>
             </video>
-            <a href="/about" className="rg-icon main-logo"></a>
+            <a href="/about" className="rg-icon main-logo">&nbsp;</a>
         </div>
     );    
 }

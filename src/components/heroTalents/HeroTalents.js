@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './HeroTalents.css';
 import { AppContext } from '../../stores/Store';
 import {heroesData} from '../../data/Heroes'
+import { DataHelper } from '../../utils/DataHelper';
 
 class HeroTalents extends Component {
   static contextType = AppContext;
@@ -28,9 +29,9 @@ class HeroTalents extends Component {
     let talentList = [];
     var selectedTalents = this.props.talents ? this.props.talents : [0,0,0,0,0,0];
     var careerId = this.props.careerId;
-    debugger;
+
     careerId = careerId > 0 ? careerId : 1;
-    var talents = this.getTalents(careerId);
+    var talents = DataHelper.getCareerTalents(careerId);
 
     for (var i = 1; i < 7; i++) {
       var tier = i;
@@ -97,7 +98,7 @@ class HeroTalents extends Component {
       <div className={`hero-talents-container${talentsContainerClass}`} data-show-descriptions={this.state.showDescriptions}>
         <div className="hero-talents-grid" data-career={state.careerId}>
           <span className="hero-talents-header">Talents</span>
-          <span className="show-talent-descriptions" onClick={this.clickShowDescriptions.bind(this)}>Show Descriptions</span>
+          <span className="show-talent-descriptions" onClick={this.clickShowDescriptions.bind(this)}>{this.state.showDescriptions ? 'Hide Descriptions' : 'Show Descriptions'}</span>
           {this.renderTalents()}
           <div className="hero-talents-grid-bg background-26"></div>
           <div className="hero-talents-grid-border"></div>

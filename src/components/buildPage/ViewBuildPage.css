@@ -7,7 +7,7 @@
   display: none;
 }
 .build-page[data-author='true'] .edit-build-button {
-  display: block;
+  display: grid;
 }
 .build-page[data-readonly='true'] .search-wrapper>span>i {
   display: none;
@@ -20,14 +20,8 @@
   grid-area: heroDetails;
 }
 .build-page[data-readonly='true'] .build-main-summary-container {
-  display: grid;
-  grid-template-areas:
-      "buildDetails"
-      "heroDetails"
-      "buildSummary"
-      "buildOptions"
-      "buildDescription"
-      "heroTalents";
+  display: flex;
+  flex-direction: column;
   grid-row-gap: 20px;
 }
 .build-page[data-readonly='true'] .hero-details-container>div:nth-child(n+2) {
@@ -64,6 +58,7 @@
 .build-header.heading {
     font-size: 2rem;
     text-shadow: 1px 1px #000;
+    display: flex;
 }
 .build-page[data-readonly='true'] input, .build-page[data-readonly='true'] textarea, .build-page[data-readonly='true'] .multiselect-container, .build-page[data-readonly='true'] select {
   pointer-events: none;
@@ -71,4 +66,37 @@
 
 .build-page[data-readonly='true'] .build-summary-tab {
   grid-row-gap: 0px;
+}
+.view-build-page {
+  color: rgb(212, 212, 212);
+  display: grid;
+  grid-template-areas: "buildMainContainer buildLeftContainer";
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+  grid-template-rows: 100%;
+  grid-column-gap: 20px;
+}
+
+.react-tabs__tab-list {
+  margin-bottom: 0;
+}
+span.build-description {
+  padding: 10px;
+  text-align: justify;
+  background-size: cover;
+  font-size: 1.2rem;
+}
+.build-guide-container {
+  grid-area: buildDescription;
+  display: grid;
+  grid-auto-columns: 1fr;
+}
+.build-guide {
+  background: linear-gradient(to bottom, #2b121247 35%, #0000004d);
+  backdrop-filter: blur(10px);
+  padding: 20px 35px;
+  font-size: 1.2rem;
+}
+.build-page[data-readonly='true'] .multiselect-container .icon_cancel {
+  display: none;
 }

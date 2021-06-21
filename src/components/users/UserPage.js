@@ -1,104 +1,82 @@
 import React, { useContext, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import { UserViewContext } from '../../stores/UserViewStore';
-import { db } from '../../utils/Firebase';
-import BuildList from '../buildList/BuildList';
-import BuildListContainer from '../buildList/BuildListContainer';
-import PagedBuildList from '../buildList/PagedBuildList';
+import { UserContext } from '../../stores/UserStore';
+import { auth, db } from '../../utils/Firebase';
 import './UserPage.css';
+import BuildsList from '../buildList/BuildsList';
+import { AppContext } from '../../stores/Store';
 
 function UserPage(props) {
-    const [state, updateState] = useContext(UserViewContext);
+    const [userState, updateUserState] = useContext(UserContext);
+    const [state, updateState] = useContext(AppContext)
 
-    //show user information from database
-    //show list of builds: created by user, liked builds, team builds
-    //show total amount of likes from all builds
-
-    function userBuildsNextPage(e) {
-      alert('next page');
-      alert(`current page ${state.userBuildsCurrentPage} total pages ${state.userBuildsPageCount}`)
-
-      if (state.userBuildsCurrentPage >= state.userBuildsPageCount) {
-        alert('Current page is already last page');
-        return; // Current page is already last page
+    document.title = `${state.username}'s Profile - Vermintide 2 | Ranalds.Gift`;
+    
+    //TODO show total amount of likes from all builds
+    function renderUserDetail(detailName, detailValue, url) {
+      var detailsHtml = [];
+      if (detailValue.length > 0) { 
+        if (url && url.length > 0) {
+          detailsHtml.push(<span key='name' type="text">{detailName}</span>);
+          detailsHtml.push(<span key='value' type="text"><a target="_blank" rel="noreferrer" href={url}>{detailValue}</a></span>);
+          return detailsHtml;
+        }
+        detailsHtml.push(<span key='name' type="text">{detailName}</span>);
+        detailsHtml.push(<span key='value' type="text">{detailValue}</span>);
+        return detailsHtml;
       }
 
-      db.collection('builds').where("userId", "==", state.userId).orderBy('dateModified').startAfter(state.userBuildsLastDoc).limit(10).get().then((querySnapshot) => {
-        var userBuilds = [];
-        querySnapshot.forEach((build) => {
-          userBuilds.push({ id: build.id, data: build.data()});
-        });
-
-        var currentPage = state.userBuildsCurrentPage + 1;
-
-        updateState({
-          type: "UPDATE_USER_BUILDS", 
-          payload: {
-            builds: userBuilds,
-            lastDoc: querySnapshot.docs[querySnapshot.docs.length-1],
-            currentPage: state.userBuildsCurrentPage + 1,
-            totalPages:  state.userBuildsPageCount
-          }
-        }); 
-      });
-    }
-    function userBuildsPreviousPage(e) {
-      alert('previous page');
-    }
-    function likedBuildsNextPage(e) {
-      alert('liked next page');
-    }
-    function likedBuildsPreviousPage(e) {
-      alert('liked previous page');
+      return null;
     }
 
     return (
-      <div className="user-page background-22 border-02">
+      <div className="user-page background-22 border-01 top-left-shadow" data-isauthor={state.userId === userState.userId}>
         <div className="user-info-container background-14 border-08">
-          <span type="text">Username</span>
-          <span type="text">{state.username}</span>
-          <span type="text">Steam ID</span>
-          <span type="text">{state.steam}</span>
-          <span type="text">Twitch</span>
-          <span type="text">{state.twitch}</span>
-          <span type="text">Date Created</span>
-          <span type="text">{new Date(state.dateCreated.seconds * 1000).toString().slice(0,10).replace(/-/g,"")}</span>
+            <span type="text">Username</span>
+            <span type="text">{state.username}</span>
+          {renderUserDetail("Steam Friend Code",state.steam)}
+          {renderUserDetail("Discord",state.discord)}
+          {renderUserDetail("Twitch",state.twitch, `http://twitch.tv/${state.twitch}`)}
+          {renderUserDetail("Youtube",state.youtube, state.youtube)}
+          {/* <span type="text">{new Date(state.dateCreated.seconds * 1000).toString().slice(0,10).replace(/-/g,"")}</span> */}          
         </div>
-{/*               <PagedBuildList></PagedBuildList>
-              <BuildList builds={state.likedBuilds} handleNextPage={likedBuildsNextPage.bind(this)} handlePreviousPage={likedBuildsPreviousPage.bind(this)} handleFilterChange={''} filters={state.userFilters}></BuildList> */}
-{/*               <BuildListContainer filters={state.userFilters}></BuildListContainer>
-              <BuildListContainer filters={state.userFilters}></BuildListContainer> */}
+        <div className="button-container background-34 border-01">
+          <Link to={`/user/${state.userId}/edit`} className="edit-user-button button-02">edit</Link>
+        </div>
         <Tabs className="user-build-lists">
             <TabList className="container-tabs-list">
-              <Tab>My Builds</Tab>
-              <Tab>Liked Builds</Tab>
+              <Tab>Builds Created</Tab>
+              <Tab className="react-tabs__tab builds-liked-tab">Builds Liked</Tab>
             </TabList>
             <TabPanel className="hero-summary-tab">
-              {/* <PagedBuildList></PagedBuildList> */}
-              <BuildList name="My Builds" userId={state.userId} handleNextPage={userBuildsNextPage.bind(this)} handlePreviousPage={userBuildsPreviousPage.bind(this)} builds={state.userBuilds} filters={state.userFilters}></BuildList>
+              <BuildsList name={`${state.username}'s Builds`} user={{id: state.userId, username: state.username}} 
+                      sortBy={state.sortBy} 
+                      careerId={state.careerId}
+                      difficulty={state.difficulty}
+                      mission={state.mission}
+                      potion={state.potion}
+                      book={state.book}
+                      roles={state.roles}
+                      collapseFilters={state.collapseFilters}></BuildsList>
             </TabPanel>
-            <TabPanel>              
-              <BuildList name="Liked Builds" builds={state.likedBuilds} handleNextPage={likedBuildsNextPage.bind(this)} handlePreviousPage={likedBuildsPreviousPage.bind(this)} handleFilterChange={''} filters={state.userFilters}></BuildList>
+            <TabPanel>
+              { auth.currentUser && auth.currentUser.uid === state.userId ?
+              <BuildsList name={`Builds Liked`} likedBy={{id: state.userId, username: state.username}}
+                      sortBy={state.sortBy} 
+                      careerId={state.careerId}
+                      difficulty={state.difficulty}
+                      mission={state.mission}
+                      potion={state.potion}
+                      book={state.book}
+                      roles={state.roles}
+                      collapseFilters={state.collapseFilters}></BuildsList>
+                      : <span className="border-01 left-shadow background-11" style={{ display: 'grid', padding: '10px' }}>Ranald stops smiling and flips you the finger.</span>
+              }
             </TabPanel>
         </Tabs>
       </div>
     );
   }
-
-/*   function useTraceUpdate(props) {
-    const prev = useRef(props);
-    useEffect(() => {
-      const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
-        if (prev.current[k] !== v) {
-          ps[k] = [prev.current[k], v];
-        }
-        return ps;
-      }, {});
-      if (Object.keys(changedProps).length > 0) {
-        console.log('Changed props:', changedProps);
-      }
-      prev.current = props;
-    });
-  } */
 
 export default UserPage;

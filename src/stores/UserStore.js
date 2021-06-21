@@ -22,7 +22,6 @@ function reducer(state, action) {
             }
             return {...state, likedBuilds: likedBuilds};
         case 'UPDATE_USER_INFO':
-            console.log('updating user state user context ' + action.payload.userId);
             return {...state, 
                 userId: action.payload.userId, 
                 username: action.payload.username, 

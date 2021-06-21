@@ -92,7 +92,7 @@
   background: url('../../assets/images/backgrounds/background17.png')
 }
 .background-18 {
-  background: url('../../assets/images/backgrounds/background18.png')
+  background: url('../../assets/images/backgrounds/background18.png') center / cover;
 }
 .background-19 {
   background: url('../../assets/images/backgrounds/background19.png')
@@ -198,7 +198,29 @@
 .hex-frame-01 {
   background: url('../../assets/images/borders/hex-frame-01.png');
 }
+.header-01 {
+  background: url('../../assets/images/labels/header-01.png');
+}
+.header-02 {
+  background: url('../../assets/images/labels/header-02.png');
+}
+.header-03 {
+  background: url('../../assets/images/labels/header-03.png');
+}
 
+
+.overlay-01 {
+  background: url('../../assets/images/backgrounds/overlay-1.png');
+}
+.overlay-02 {
+  background: url('../../assets/images/backgrounds/overlay-2.png');
+}
+.overlay-03 {
+  background: url('../../assets/images/backgrounds/overlay-3.png');
+}
+.overlay-04 {
+  background: url('../../assets/images/backgrounds/overlay-4.png');
+}
 
 
 .fade-in {
@@ -265,4 +287,11 @@
   }
   .background-42 {
     background: url('../../assets/images/backgrounds/background-42.png')
+  }
+
+  .ranalds-finger {
+    background: url('../../assets/images/icons/ranaldsfinger.png');
+    height: 298px;
+    width: 128px;
+    margin: 0 auto;
   }

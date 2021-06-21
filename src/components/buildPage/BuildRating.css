@@ -1,12 +1,18 @@
 .rating-icon, .rated-icon {
     width: 62px;
-    height: 62px;
+    height: 64px;
     cursor: pointer;
 }
 
-.build-page[data-liked='false'] .rated-icon {
+.build-page[data-liked='false'] .build-main-summary-container .rated-icon {
     display: none;
 }
-.build-page[data-liked='true'] .rating-icon {
+.build-page[data-liked='true'] .build-main-summary-container .rating-icon {
     display: none;
+}
+.build-page[data-author='true'] .rating-icon,.build-page[data-author='true']  .rated-icon {
+    cursor: initial;
+}
+.build-page[data-author='false'] .build-main-summary-container .rating-icon:hover {    
+    background: url('../../assets/images/icons/rated-icon.png');
 }

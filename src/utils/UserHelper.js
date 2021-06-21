@@ -4,7 +4,6 @@ import history from './History'
 export class UserHelper {
     static loginUser = (email, password) => {
         auth.signInWithEmailAndPassword(email, password).then(function() {
-            alert('logged in!');
             console.log(auth.currentUser);
             return;
         }).catch(function(error) {

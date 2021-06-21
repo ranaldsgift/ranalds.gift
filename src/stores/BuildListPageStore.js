@@ -1,4 +1,5 @@
 import React from 'react'
+import { DataHelper } from '../utils/DataHelper';
 import { db } from '../utils/Firebase';
 import { AppContext } from './Store';
 
@@ -9,23 +10,27 @@ export {BuildListPageContext}
 function reducer(state, action) {
     switch(action.type) {
         case 'UPDATE_CAREER':
-/*             if (state.careerId !== action.payload) {
-                alert('updating build list based on new career ' + action.payload);
-                let buildsQuery = db.collection('builds').where('careerId', '==', action.payload);
-
-                buildsQuery.orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
-                    var builds = [];
-                    querySnapshot.forEach((build) => {
-                        builds.push({ id: build.id, data: build.data()});
-                    });
-                    alert('updating build list, count ' + builds.length);
-                    return {...state, careerId: action.payload, builds: builds, buildsLastDoc: querySnapshot.docs[querySnapshot.docs.length-1], buildsCurrentPage: 1, pageCount: Math.round(querySnapshot.size / 10) + 1 };
-                });
-            }
-            alert('updating career only'); */
             return {...state, careerId: action.payload, isDataLoaded: false }
         case 'UPDATE_BUILDS_DATA':
             return {...state, builds: action.payload.builds, buildsLastDoc: action.payload.lastDoc, buildsPageCount: action.payload.pageCount, buildsCurrentPage: action.payload.currentPage, isInitialized: true, isDataLoaded: true };
+        case 'UPDATE_DIFFICULTY':
+            return {...state, difficulty: action.payload, dirty: true};
+        case 'UPDATE_TWITCH':
+            return {...state, twitchMode: action.payload, dirty: true};
+        case 'UPDATE_MISSION':
+            return {...state, mission: action.payload, dirty: true};
+        case 'UPDATE_BOOKS':
+            return {...state, book: action.payload, dirty: true};
+        case 'UPDATE_POTION':
+            return {...state, potion: action.payload, dirty: true};
+        case 'UPDATE_ROLES':
+            return {...state, roles: action.payload, dirty: true};
+        case 'UPDATE_USER':
+            return {...state, user: action.payload, dirty: true};
+        case 'UPDATE_SORTBY':
+            return {...state, sortBy: action.payload, dirty: true};
+        case 'UPDATE_FILTER_COLLAPSE_STATE':
+            return {...state, collapseFilters: action.payload};
         default:
             throw new Error('Error updating Build List Page state.');
     }
@@ -63,16 +68,21 @@ export default function BuildListPageStore(props) {
         talent5: 0,
         talent6: 0,
         name: '',
-        description: '',
-        difficulty: '',
-        mission: '',
-        potion: '',
+        description: null,
+        difficulty: null,
+        mission: null,
+        potion: null,
+        user: null,
+        book: null,
+        twitchMode: null,
+        sortBy: DataHelper.getSortByData()[0],
         roles: [],
         patch: '',
         userId: '',
         username: '',
         isInitialized: false,
-        isDataLoaded: false
+        isDataLoaded: false,
+        collapseFilters: true
     });
 
     return (

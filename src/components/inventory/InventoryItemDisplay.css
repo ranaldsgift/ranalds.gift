@@ -111,7 +111,7 @@
 .item-trait-container {
     grid-area: itemTrait;
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 60px 1fr;
     grid-template-rows: 18px 1fr;
     grid-template-areas: "traitIcon traitName" "traitIcon traitDescription";
     text-align: left;
@@ -121,14 +121,15 @@
 .inventory-item-display-container .item-trait-icon {
     grid-area: traitIcon;
     background-repeat: no-repeat !important;
-    background-position: top center !important;
-    height: 48px;
+    background-position: center !important;
+    height: 60px;
     background-size: auto !important;
     border-image: url('../../assets/images/borders/border-04.png');
     border-image-slice: 15;
     border-image-width: 15px;
     border-image-repeat: repeat;
     border-style: solid;
+    box-sizing: border-box;
 }
 .item-trait-icon::after {
     background-color: #0000 !important;
@@ -185,4 +186,7 @@ select>* {
 }
 .inventory-item-container-header {
     text-align: center;
+}
+.inventory-item-display-container[data-id='71'] .item-trait-container select option[value='2'], .inventory-item-display-container[data-id='71'] .item-trait-container select option[value='6'] {
+    display: none;
 }

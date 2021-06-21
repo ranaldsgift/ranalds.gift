@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react"
+import React from "react"
 import { Link } from "react-router-dom";
 import { DataHelper } from "../../utils/DataHelper";
 
@@ -14,7 +14,7 @@ function BuildCreationInfo(props) {
       }
 
     return (<div className="build-creation-info">
-                <span className="build-author-by">by</span><Link as={Link} to={`/user/${props.userId}/view`} className="build-author">{props.username}</Link><span className="date-updated">{`updated ${lastUpdatedText}`}</span>
+                <span className="build-author-by">by</span><Link to={`/user/${props.userId}/view`} className="build-author">{props.username}</Link><span className="date-updated">{`updated ${lastUpdatedText}`}</span>
             </div>);
 }
 

@@ -1,11 +1,15 @@
 import {heroesData} from '../data/Heroes'
+import {heroesDataMap} from '../data/HeroesDataMap'
 import {meleeWeaponsData} from '../data/MeleeWeapons'
 import {rangeWeaponsData} from '../data/RangeWeapons'
 import {weaponsData} from '../data/Weapons'
+import {twitchData} from '../data/Twitch'
+import {weaponsDataMap} from '../data/WeaponsDataMap'
 import {traitsData} from '../data/Traits'
 import {propertiesData} from '../data/Properties'
 import { PatchList } from '../data/PatchList'
 import {missionData} from '../data/Missions'
+import {sortByData} from '../data/BuildSortOptions'
 import {difficultyData} from '../data/Difficulties'
 import {potionData} from '../data/Potions'
 import {roleData} from '../data/Roles'
@@ -13,40 +17,40 @@ import {bookData} from '../data/Books'
 import React from 'react';
 import { db } from './Firebase'
 
+let users = null;
+
 export class DataHelper {
     static getCareers = () => {
       return heroesData;  
     }
     static getCareer = (careerId) => {
-        for (var i = 0; i < heroesData.length; i++) {
-            if (heroesData[i].id === parseInt(careerId)) {
-              return heroesData[i];
-            }
-          }
-        return null;
-    }
-    static getMeleeData = (careerId, id) => {  
-      console.log('getting melee data for id ' + id);
-      return meleeWeaponsData.find((weapon) => { return parseInt(weapon.id) === parseInt(id); });
-    }
-    static getRangeData = (careerId, id) => {
-      if ((parseInt(careerId) !== 6 && parseInt(careerId) !== 16)) {
-        return rangeWeaponsData.find((weapon) => { return parseInt(weapon.id) === parseInt(id); });
+      var careerMap = heroesDataMap.find((career) => {return career.id === parseInt(careerId);});
+      var career = null;
+
+      if (careerMap) {
+        career = heroesData.find((career) => { return career.codeName === careerMap.codeName })
       }
-      return meleeWeaponsData.find((weapon) => { return parseInt(weapon.id) === parseInt(id); });
+
+      career.id = careerId;
+      return career;
+    }
+    
+    static getCareerTalents = (careerId) => {
+      var career = this.getCareer(careerId);
+      return career ? career.talents : null;
     }
     static getTraitData = (id, type) => {
       switch (type) {
         case 'melee':
           return traitsData.melee.find((trait) => { return parseInt(trait.id) === parseInt(id); });
         case 'range':
-          return traitsData.range.find((trait) => { return parseInt(trait.id) === parseInt(id); });;
+          return traitsData.range.find((trait) => { return parseInt(trait.id) === parseInt(id); });
         case 'necklace':
-          return traitsData.necklace.find((trait) => { return parseInt(trait.id) === parseInt(id); });;
+          return traitsData.necklace.find((trait) => { return parseInt(trait.id) === parseInt(id); });
         case 'charm':
-          return traitsData.charm.find((trait) => { return parseInt(trait.id) === parseInt(id); });;
+          return traitsData.charm.find((trait) => { return parseInt(trait.id) === parseInt(id); });
         case 'trinket':
-          return traitsData.trinket.find((trait) => { return parseInt(trait.id) === parseInt(id); });;  
+          return traitsData.trinket.find((trait) => { return parseInt(trait.id) === parseInt(id); });
         default:
           return null;
       }
@@ -115,8 +119,16 @@ export class DataHelper {
       return this.getDataById(bookData, id);
     }
 
+    static getTwitchById = (id) => {
+      return this.getDataById(twitchData, id);
+    }
+
     static getBooksByIds = (ids) => {
       return this.getDataByIds(bookData, ids);
+    }
+
+    static getSortByData = () => {
+      return sortByData;
     }
 
     static getMissionData = () => {
@@ -125,6 +137,10 @@ export class DataHelper {
     
     static getDifficultyData = () => {
       return difficultyData;
+    }
+    
+    static getTwitchData = () => {
+      return twitchData;
     }
     
     static getPotionData = () => {
@@ -137,6 +153,19 @@ export class DataHelper {
 
     static getBookData = () => {
       return bookData;
+    }
+
+    static async getUsers() {
+      if (!users) {
+        return await db.collection('stats').doc('users').get().then((usersDoc) => {
+          if (!usersDoc) {
+            return [];
+          }
+          users = usersDoc.data().usernames; 
+          return usersDoc.data().usernames;
+        });
+      }
+      return users;
     }
 
     static renderListOptions = (data) => {
@@ -159,6 +188,8 @@ export class DataHelper {
           return propertiesData.charm;
         case "trinket":
           return propertiesData.trinket;
+        default:
+          return null;
       }
     }
 
@@ -211,18 +242,53 @@ export class DataHelper {
         case "charm":
           return traitsData.charm;
         case "trinket":
-          return traitsData.trinket;   
+          return traitsData.trinket;
+        default:
+          return null;
       }
     }
 
     static getWeapon = (weaponId) => {
-      //alert(weaponId);
-      return weaponsData.find((weapon) => { return weapon.id === parseInt(weaponId); });
+      var weapon = this.getWeaponByCodename(this.getCodename(weaponId));
+
+      if (weapon) {
+        weapon.id = weaponId;
+      }
+
+      return weapon;
+      //return weaponsData.find((weapon) => { return weapon.id === parseInt(weaponId); });
+    }
+
+    static getCodename = (weaponId) => {
+      var weapon = weaponsDataMap.find((weapon) => { return weapon.id === parseInt(weaponId); });
+      return weapon ? weapon.codeName : null;
     }
 
     static getWeaponByCodename = (weaponCodename) => {
-      //alert(weaponId);
-      return weaponsData.find((weapon) => { return weapon.codeName === weaponCodename; });
+      var weapon  = weaponsData.find((weapon) => { return weapon.codeName === weaponCodename.toString(); });
+
+      if (!weapon) {
+        return null;
+      }
+
+      weapon.id = this.getWeaponId(weaponCodename);
+      return weapon;
+    }
+    
+    static arraysEqual = (a, b) => {
+      if (a === b) return true;
+      if (a == null || b == null) return false;
+      if (a.length !== b.length) return false;
+    
+      // If you don't care about the order of the elements inside
+      // the array, you should sort both arrays here.
+      // Please note that calling sort on an array will modify that array.
+      // you might want to clone your array first.
+    
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i]) return false;
+      }
+      return true;
     }
 
     static getTraitFromWeapon = (weaponId, traitId) => {
@@ -242,11 +308,28 @@ export class DataHelper {
     }
 
     static getPrimaryWeaponsForCareer = (careerId) => {
-      return weaponsData.filter((weapon) => { return weapon.canWieldPrimary.includes(parseInt(careerId)); });
+      var weapons = weaponsData.filter((weapon) => { return weapon.canWieldPrimary.includes(parseInt(careerId)); });
+
+      var mappedWeapons = weapons.map(weapon =>
+        ({...weapon, id: this.getWeaponId(weapon.codeName)})
+      );
+
+      return mappedWeapons;
     }
 
     static getSecondaryWeaponsForCareer = (careerId) => {
-      return weaponsData.filter((weapon) => { return weapon.canWieldSecondary.includes(parseInt(careerId)); });
+      var weapons = weaponsData.filter((weapon) => { return weapon.canWieldSecondary.includes(parseInt(careerId)); });
+
+      var mappedWeapons = weapons.map((weapon) => {
+        return {...weapon, id: this.getWeaponId(weapon.codeName)}
+      });
+
+      return mappedWeapons;
+    }
+
+    static getWeaponId = (codename) => {
+      var mappedWeapon =  weaponsDataMap.find((weapon) => { return weapon.codeName === codename; });
+      return mappedWeapon ? mappedWeapon.id : null;
     }
 
     static getBuildStats = () => {

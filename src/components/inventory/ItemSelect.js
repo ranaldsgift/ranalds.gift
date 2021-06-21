@@ -25,15 +25,6 @@ class ItemSelect extends Component {
     const [state] = this.context;
 
     return this.renderItemContainer(this.props.type, this.props.selectedItemId, this.props.careerId);
-
-/*     if (this.props.type === 'melee') {
-        return this.renderItemContainer(meleeWeaponsData, this.props.type, state.meleeId, 1);
-    } else {
-      if (parseInt(state.careerId) === 6 || parseInt(state.careerId) === 16) {
-        return this.renderItemContainer(meleeWeaponsData, "melee", state.rangeId, 2);
-      }
-        return this.renderItemContainer(rangeWeaponsData, this.props.type, state.rangeId, 2);
-    } */
   }
 
   renderItemContainer(itemType, selectedItemId, careerId) {
@@ -51,20 +42,6 @@ class ItemSelect extends Component {
     else if (itemType === "secondary") {
       weaponsForHero = DataHelper.getSecondaryWeaponsForCareer(careerId);
     }
-
-    var selectedWeapon = weaponsForHero.find((item) => { return parseInt(item.id) === parseInt(selectedItemId); });
-
-/*     if (!selectedWeapon) {
-      selectedWeapon = weaponsForHero[0];
-        
-        updateState({
-          type: "UPDATE_ITEM_SELECT", 
-          payload: { 
-              id: parseInt(selectedWeapon.id),
-              type: itemType
-          }
-      });
-    } */
     
     for (var i = 0; i < weaponsForHero.length; i++) {
       var weapon = weaponsForHero[i];

@@ -1,9 +1,10 @@
 .build-summary-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
     grid-area: buildSummary;
     color: #f0f0f0;
     text-align: left;
+    grid-gap: 15px;
 }
 .build-summary-container li {
     list-style-type: none;
@@ -14,7 +15,7 @@
 .build-melee-summary, .build-range-summary {
     display: grid;
     grid-template-areas: "itemSummaryHeader itemSummaryHeader itemSummaryHeader" "weaponIcon traitIcon empty" "propertyContainer propertyContainer propertyContainer";
-    grid-template-columns: 60px 60px 1fr;
+    grid-template-columns: 60px 60px auto;
     grid-template-rows: 1fr 60px 1fr;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
@@ -22,7 +23,7 @@
 .build-jewelry-summary {
     display: grid;
     grid-template-areas: "itemSummaryHeader itemSummaryHeader itemSummaryHeader" "jewelryIcon traitIcon empty" "propertyContainer propertyContainer propertyContainer";
-    grid-template-columns: 60px 60px 1fr;
+    grid-template-columns: 60px 60px auto;
     grid-template-rows: 1fr 60px 1fr;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
@@ -35,7 +36,7 @@
 }
 .property-container {
     grid-area: propertyContainer;
-    align-content: center;
+    align-content: start;
     display: grid;
 }
 .item-summary-header {
@@ -56,4 +57,47 @@
 }
 .build-summary-container .item-trait-name {
     font-size: 0.8em;
+}
+.build-summary-container>div {
+    background: linear-gradient(315deg, #ffffff1c, transparent);
+    border-image: url('../../assets/images/borders/border-05.png');
+    border-image-slice: 30;
+    border-image-width: 30px;
+    border-style: solid;
+    border-image-repeat: repeat;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-width: 1px;
+    backdrop-filter: blur(5px);
+    color: #c8c8c8;
+}
+
+.build-summary-container>div::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-image: url('../../assets/images/borders/border-12.png');
+    border-image-slice: 30;
+    border-image-width: 30px;
+    border-style: solid;
+    border-image-repeat: repeat;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.view-build-page .build-summary-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important
+}
+.build-summary-container .trait-icon>.tooltip {
+    width: calc(100% + 20px);
+    transform: translateY(calc(-100% - 10px)) translateX(-103px);
+    box-sizing: border-box;
+}
+.build-summary-container .weapon-icon>.tooltip {
+    width: calc(100% + 20px);
+    transform: translateY(calc(-100% - 10px)) translateX(-33px);
+    box-sizing: border-box;
 }

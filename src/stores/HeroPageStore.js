@@ -14,41 +14,44 @@ function heroPageReducer(state, action) {
     var newProperties = {...state.properties};
     var newTraits = {...state.traits};
 
+    var meleeParam = action.payload.primary;
+    var talentsParam = action.payload.talents;
+    var rangeParam = action.payload.secondary;
+    var necklaceParam = action.payload.necklace;
+    var charmParam = action.payload.charm;
+    var trinketParam = action.payload.trinket;
+
+    var careerId = action.payload.careerId ? action.payload.careerId : 1;
+    careerId = parseInt(careerId);
+    var talents = [0,0,0,0,0,0];
+    var meleeId = 1;
+    var rangeId = 1;
+    var meleeProperty1 = 1;
+    var meleeProperty2 = 2;
+    var meleeTrait = 1;
+    var rangeProperty1 = 1;
+    var rangeProperty2 = 2;
+    var rangeTrait = 1;
+    var necklaceProperty1 = 1;
+    var necklaceProperty2 = 2;
+    var necklaceTrait = 1;
+    var charmProperty1 = 1;
+    var charmProperty2 = 2;
+    var charmTrait = 1;
+    var trinketProperty1 = 2;
+    var trinketProperty2 = 3;
+    var trinketTrait = 1;
+    var meleeParams, rangeParams, necklaceParams, charmParams, trinketParams = [];
+    var hero = DataHelper.getCareer(careerId);
+
     switch(action.type) {
         case 'INIT_STATE_FROM_URL':
-            var meleeParam = action.payload.melee;
-            var talentsParam = action.payload.talents;
-            var rangeParam = action.payload.range;
-            var necklaceParam = action.payload.necklace;
-            var charmParam = action.payload.charm;
-            var trinketParam = action.payload.trinket;
-
-            var careerId = action.payload.careerId ? action.payload.careerId : 1;
-            var talents = [0,0,0,0,0,0];
-            var meleeId = 1;
-            var rangeId = 1;
-            var meleeProperty1 = 1;
-            var meleeProperty2 = 2;
-            var meleeTrait = 1;
-            var rangeProperty1 = 1;
-            var rangeProperty2 = 2;
-            var rangeTrait = 1;
-            var necklaceProperty1 = 1;
-            var necklaceProperty2 = 2;
-            var necklaceTrait = 1;
-            var charmProperty1 = 1;
-            var charmProperty2 = 2;
-            var charmTrait = 1;
-            var trinketProperty1 = 1;
-            var trinketProperty2 = 2;
-            var trinketTrait = 1;
-
             if (typeof talentsParam != "undefined") {
                 talents = talentsParam.length > 6 ? talentsParam.subString(0,6).split('').map((x) => { return parseInt(x); }) : talentsParam.split('').map((x) => { return parseInt(x); });
             }
 
             if (typeof meleeParam != "undefined") {
-                var meleeParams = meleeParam.split(',');
+                meleeParams = meleeParam.split('-');
                 meleeId = parseInt(meleeParams[0]);
 
                 if (meleeParams.length > 1) {
@@ -63,7 +66,7 @@ function heroPageReducer(state, action) {
             }
 
             if (typeof rangeParam != "undefined") {
-                var rangeParams = rangeParam.split(',');
+                rangeParams = rangeParam.split('-');
                 rangeId = parseInt(rangeParams[0]);
 
                 if (rangeParams.length > 1) {
@@ -78,7 +81,7 @@ function heroPageReducer(state, action) {
             }
 
             if (typeof necklaceParam != "undefined") {
-                var necklaceParams = necklaceParam.split(',');
+                necklaceParams = necklaceParam.split('-');
                 necklaceProperty1 = parseInt(necklaceParams[0]);
 
                 if (necklaceParams.length > 1) {
@@ -90,7 +93,7 @@ function heroPageReducer(state, action) {
             }
 
             if (typeof charmParam != "undefined") {
-                var charmParams = charmParam.split(',');
+                charmParams = charmParam.split('-');
                 charmProperty1 = parseInt(charmParams[0]);
 
                 if (charmParams.length > 1) {
@@ -102,7 +105,7 @@ function heroPageReducer(state, action) {
             }
 
             if (typeof trinketParam != "undefined") {
-                var trinketParams = trinketParam.split(',');
+                trinketParams = trinketParam.split('-');
                 trinketProperty1 = parseInt(trinketParams[0]);
 
                 if (necklaceParams.length > 1) {
@@ -113,8 +116,102 @@ function heroPageReducer(state, action) {
                 }
             }
 
-            var hero = DataHelper.getCareer(careerId);// heroesData.find((hero) => { return hero.id === parseInt(careerId); });
-            hero = hero ? hero : DataHelper.getCareers()[0];
+            var primary = DataHelper.getWeapon(meleeId);
+            primary = primary ? primary : DataHelper.getPrimaryWeaponsForCareer(careerId)[0];
+
+            var secondary = DataHelper.getWeapon(rangeId);//DataHelper.getWeaponByCodename(range.codeName);
+            secondary = secondary ? secondary : DataHelper.getSecondaryWeaponsForCareer(careerId)[0];
+
+/*             if (secondary.traitCategory === "range") {
+                rangeTrait = rangeTrait > 2 ? rangeTrait === 3 || rangeTrait === 8 ? 1 : rangeTrait - 1 : rangeTrait;
+            }
+            else if (secondary.traitCategory === "magic") {
+                rangeTrait = rangeTrait > 1 ? rangeTrait === 2 || rangeTrait === 7 ? 1 : rangeTrait > 7 ? rangeTrait - 2 : rangeTrait - 1 : rangeTrait;
+            } */
+
+            var properties = [meleeProperty1, meleeProperty2, rangeProperty1, rangeProperty2, necklaceProperty1, necklaceProperty2, charmProperty1, charmProperty2, trinketProperty1, trinketProperty2]
+            var traits = [meleeTrait, rangeTrait, necklaceTrait, charmTrait, trinketTrait];
+            
+            return {...state,
+                        careerId: careerId,
+                        primaryWeaponId: primary.id,
+                        secondaryWeaponId: secondary.id,
+                        talents: talents,
+                        properties: properties,
+                        traits: traits
+                    };
+        case 'INIT_STATE_FROM_OLD_URL':
+
+            if (typeof talentsParam != "undefined") {
+                talents = talentsParam.length > 6 ? talentsParam.subString(0,6).split('').map((x) => { return parseInt(x); }) : talentsParam.split('').map((x) => { return parseInt(x); });
+            }
+
+            if (typeof meleeParam != "undefined") {
+                meleeParams = meleeParam.split(',');
+                meleeId = parseInt(meleeParams[0]);
+
+                if (meleeParams.length > 1) {
+                    meleeProperty1 = parseInt(meleeParams[1]);
+                }
+                if (meleeParams.length > 2) {
+                    meleeProperty2 = parseInt(meleeParams[2]);
+                }
+                if (meleeParams.length > 3) {
+                    meleeTrait = parseInt(meleeParams[3]);
+                }
+            }
+
+            if (typeof rangeParam != "undefined") {
+                rangeParams = rangeParam.split(',');
+                rangeId = parseInt(rangeParams[0]);
+
+                if (rangeParams.length > 1) {
+                    rangeProperty1 = parseInt(rangeParams[1]);
+                }
+                if (rangeParams.length > 2) {
+                    rangeProperty2 = parseInt(rangeParams[2]);
+                }
+                if (rangeParams.length > 3) {
+                    rangeTrait = parseInt(rangeParams[3]);
+                }
+            }
+
+            if (typeof necklaceParam != "undefined") {
+                necklaceParams = necklaceParam.split(',');
+                necklaceProperty1 = parseInt(necklaceParams[0]);
+
+                if (necklaceParams.length > 1) {
+                    necklaceProperty2 = parseInt(necklaceParams[1]);
+                }
+                if (necklaceParams.length > 2) {
+                    necklaceTrait = parseInt(necklaceParams[2]);
+                }
+            }
+
+            if (typeof charmParam != "undefined") {
+                charmParams = charmParam.split(',');
+                charmProperty1 = parseInt(charmParams[0]);
+
+                if (charmParams.length > 1) {
+                    charmProperty2 = parseInt(charmParams[1]);
+                }
+                if (charmParams.length > 2) {
+                    charmTrait = parseInt(charmParams[2]);
+                }
+            }
+
+            if (typeof trinketParam != "undefined") {
+                trinketParams = trinketParam.split(',');
+                trinketProperty1 = parseInt(trinketParams[0]);
+
+                if (necklaceParams.length > 1) {
+                    trinketProperty2 = parseInt(trinketParams[1]);
+                }
+                if (necklaceParams.length > 2) {
+                    trinketTrait = parseInt(trinketParams[2]);
+                }
+            }
+
             var heroWeapons = meleeWeaponsData.filter((weapon) => { return weapon.canWield.indexOf(hero.codeName) >= 0; });
             
             var melee = heroWeapons.find((weapon) => { return parseInt(weapon.id) === parseInt(meleeId); });
@@ -122,7 +219,7 @@ function heroPageReducer(state, action) {
                 melee = heroWeapons[0];
             }
 
-            var primary = DataHelper.getWeaponByCodename(melee.codeName);
+            primary = DataHelper.getWeaponByCodename(melee.codeName);
             primary = primary ? primary : DataHelper.getPrimaryWeaponsForCareer(careerId)[0];
             
             if (parseInt(careerId) !== 6 && parseInt(careerId) !== 16) {
@@ -134,7 +231,7 @@ function heroPageReducer(state, action) {
                 range = heroWeapons[0];
             }
 
-            var secondary = DataHelper.getWeaponByCodename(range.codeName);
+            secondary = DataHelper.getWeaponByCodename(range.codeName);
             secondary = secondary ? secondary : DataHelper.getSecondaryWeaponsForCareer(careerId)[0];
 
             if (secondary.traitCategory === "range") {
@@ -144,11 +241,9 @@ function heroPageReducer(state, action) {
                 rangeTrait = rangeTrait > 1 ? rangeTrait === 2 || rangeTrait === 7 ? 1 : rangeTrait > 7 ? rangeTrait - 2 : rangeTrait - 1 : rangeTrait;
             }
 
-            var properties = [meleeProperty1, meleeProperty2, rangeProperty1, rangeProperty2, necklaceProperty1, necklaceProperty2, charmProperty1, charmProperty2, trinketProperty1, trinketProperty2]
-            var traits = [meleeTrait, rangeTrait, necklaceTrait, charmTrait, trinketTrait];
+            properties = [meleeProperty1, meleeProperty2, rangeProperty1, rangeProperty2, necklaceProperty1, necklaceProperty2, charmProperty1, charmProperty2, trinketProperty1, trinketProperty2]
+            traits = [meleeTrait, rangeTrait, necklaceTrait, charmTrait, trinketTrait];
 
-            //state.history.push('/');
-            
             return {...state,
                         careerId: careerId,
                         primaryWeaponId: primary.id,
@@ -158,7 +253,7 @@ function heroPageReducer(state, action) {
                         traits: traits
                     };
         case 'UPDATE_CAREER':
-            var careerId = parseInt(action.payload);
+            careerId = parseInt(action.payload);
             var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(careerId);
             var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(careerId);
 
@@ -186,7 +281,7 @@ function heroPageReducer(state, action) {
                     properties: newProperties, traits: newTraits, dirty: true};
             /* return {...state, careerId: action.payload}; */
         case 'UPDATE_TALENTS':
-            var newTalents = {...state.talents};
+            var newTalents = state.talents;
             newTalents = newTalents[0] < 0 ? [0,0,0,0,0,0] : newTalents;
             newTalents[action.payload.tier-1] = action.payload.talent;
             return {...state, talents: newTalents};
@@ -214,16 +309,18 @@ function heroPageReducer(state, action) {
                     throw new Error('Error updating Hero Page state.');
             }
         case 'UPDATE_PROPERTY_SELECT':
-            var newProperties = {...state.properties};
-            newProperties[action.payload.index] = action.payload.id;
+            newProperties[action.payload.index] = parseInt(action.payload.id);
             return {...state, properties: newProperties}
         case 'UPDATE_TRAIT_SELECT':
-            var newTraits = {...state.traits};
-            newTraits[action.payload.index] = action.payload.id;
+            newTraits[action.payload.index] = parseInt(action.payload.id);
             return {...state, traits: newTraits}
         default:
             throw new Error('Error updating Hero Page state.');
         }
+}
+
+function initState() {
+
 }
 
 export default withRouter(function HeroPageStore(props) {
@@ -233,8 +330,8 @@ export default withRouter(function HeroPageStore(props) {
         careerId: 1,
         primaryWeaponId: 14,
         secondaryWeaponId: 11,
-        talents: [-1,0,0,0,0,0],
-        properties: [1,2,1,2,1,2,1,2,1,2],
+        talents: [0,0,0,0,0,0],
+        properties: [1,2,1,2,1,2,1,2,2,3],
         propertyValues: [0,0,0,0,0,0,0,0,0,0],
         traits: [1,1,1,1,1],
         melee: {

@@ -5,25 +5,22 @@ import { AppContext } from '../../stores/Store';
 
 class PotionSelect extends Component {
   static contextType = AppContext;
-    constructor(props) {
-        super(props);
-    }
 
   render() {
     let onChangeHandler = this.props.onChangeHandler ? this.props.onChangeHandler : this.selectChangeHandler;
 
       return (
-        <Multiselect closeIcon="cancel" options={DataHelper.getPotionData()} selectedValues={this.props.selectedValues} 
+        <Multiselect showArrow={true} id="potionSelect" closeIcon="cancel" options={DataHelper.getPotionData()} selectedValues={this.props.selectedValues} 
         displayValue="name" placeholder="Potion" 
         onSelect={onChangeHandler.bind(this)} onRemove={onChangeHandler.bind(this)}
-        selectionLimit={1} hidePlaceholder={false}></Multiselect>
+        selectionLimit={2} hidePlaceholder={false}></Multiselect>
     );
   }
 
   selectChangeHandler(selectedList, item)  {
     const [state, updateState] = this.context;
 
-    var selectedValue = selectedList && selectedList.length > 0 ? selectedList[0] : '';
+    var selectedValue = selectedList && selectedList.length > 0 ? selectedList[selectedList.length-1] : '';
 
     updateState({
         type: "UPDATE_POTION", 

@@ -9,13 +9,138 @@ const BuildPageContext = React.createContext();
 export {BuildPageContext}
 
 function buildPageReducer(state, action) {
-    console.log('build page reducer');
-    console.log(action);
-
     var newProperties = {...state.properties};
     var newTraits = {...state.traits};
+    var careerId = action.payload.careerId ? action.payload.careerId : 1;
+    careerId = parseInt(careerId);
 
     switch(action.type) {
+        case 'INIT_STATE_FROM_URL':
+            var meleeParam = action.payload.primary;
+            var talentsParam = action.payload.talents;
+            var rangeParam = action.payload.secondary;
+            var necklaceParam = action.payload.necklace;
+            var charmParam = action.payload.charm;
+            var trinketParam = action.payload.trinket;
+
+            var talents = [0,0,0,0,0,0];
+            var meleeId = 1;
+            var rangeId = 1;
+            var meleeProperty1 = 1;
+            var meleeProperty2 = 2;
+            var meleeTrait = 1;
+            var rangeProperty1 = 1;
+            var rangeProperty2 = 2;
+            var rangeTrait = 1;
+            var necklaceProperty1 = 1;
+            var necklaceProperty2 = 2;
+            var necklaceTrait = 1;
+            var charmProperty1 = 1;
+            var charmProperty2 = 2;
+            var charmTrait = 1;
+            var trinketProperty1 = 2;
+            var trinketProperty2 = 3;
+            var trinketTrait = 1;
+
+            if (typeof talentsParam != "undefined") {
+                talents = talentsParam.length > 6 ? talentsParam.subString(0,6).split('').map((x) => { return parseInt(x); }) : talentsParam.split('').map((x) => { return parseInt(x); });
+            }
+
+            if (typeof meleeParam != "undefined") {
+                var meleeParams = meleeParam.split('-');
+                meleeId = parseInt(meleeParams[0]);
+
+                if (meleeParams.length > 1) {
+                    meleeProperty1 = parseInt(meleeParams[1]);
+                }
+                if (meleeParams.length > 2) {
+                    meleeProperty2 = parseInt(meleeParams[2]);
+                }
+                if (meleeParams.length > 3) {
+                    meleeTrait = parseInt(meleeParams[3]);
+                }
+            }
+
+            if (typeof rangeParam != "undefined") {
+                var rangeParams = rangeParam.split('-');
+                rangeId = parseInt(rangeParams[0]);
+
+                if (rangeParams.length > 1) {
+                    rangeProperty1 = parseInt(rangeParams[1]);
+                }
+                if (rangeParams.length > 2) {
+                    rangeProperty2 = parseInt(rangeParams[2]);
+                }
+                if (rangeParams.length > 3) {
+                    rangeTrait = parseInt(rangeParams[3]);
+                }
+            }
+
+            if (typeof necklaceParam != "undefined") {
+                var necklaceParams = necklaceParam.split('-');
+                necklaceProperty1 = parseInt(necklaceParams[0]);
+
+                if (necklaceParams.length > 1) {
+                    necklaceProperty2 = parseInt(necklaceParams[1]);
+                }
+                if (necklaceParams.length > 2) {
+                    necklaceTrait = parseInt(necklaceParams[2]);
+                }
+            }
+
+            if (typeof charmParam != "undefined") {
+                var charmParams = charmParam.split('-');
+                charmProperty1 = parseInt(charmParams[0]);
+
+                if (charmParams.length > 1) {
+                    charmProperty2 = parseInt(charmParams[1]);
+                }
+                if (charmParams.length > 2) {
+                    charmTrait = parseInt(charmParams[2]);
+                }
+            }
+
+            if (typeof trinketParam != "undefined") {
+                var trinketParams = trinketParam.split('-');
+                trinketProperty1 = parseInt(trinketParams[0]);
+
+                if (necklaceParams.length > 1) {
+                    trinketProperty2 = parseInt(trinketParams[1]);
+                }
+                if (necklaceParams.length > 2) {
+                    trinketTrait = parseInt(trinketParams[2]);
+                }
+            }
+
+            var hero = DataHelper.getCareer(careerId);// heroesData.find((hero) => { return hero.id === parseInt(careerId); });
+            hero = hero ? hero : DataHelper.getCareers()[0];
+
+            var primary = DataHelper.getWeapon(meleeId);
+            primary = primary ? primary : DataHelper.getPrimaryWeaponsForCareer(careerId)[0];
+
+            var secondary = DataHelper.getWeapon(rangeId);//DataHelper.getWeaponByCodename(range.codeName);
+            secondary = secondary ? secondary : DataHelper.getSecondaryWeaponsForCareer(careerId)[0];
+
+/*             alert(rangeTrait);
+            if (secondary.traitCategory === "range") {
+                rangeTrait = rangeTrait > 2 ? rangeTrait === 3 || rangeTrait === 8 ? 1 : rangeTrait - 1 : rangeTrait;
+            }
+            else if (secondary.traitCategory === "magic") {
+                rangeTrait = rangeTrait > 1 ? rangeTrait === 2 || rangeTrait === 7 ? 1 : rangeTrait > 7 ? rangeTrait - 2 : rangeTrait - 1 : rangeTrait;
+            }
+            alert(rangeTrait); */
+
+            var properties = [meleeProperty1, meleeProperty2, rangeProperty1, rangeProperty2, necklaceProperty1, necklaceProperty2, charmProperty1, charmProperty2, trinketProperty1, trinketProperty2]
+            var traits = [meleeTrait, rangeTrait, necklaceTrait, charmTrait, trinketTrait];
+            
+            return {...state,
+                        careerId: careerId,
+                        primaryWeaponId: primary.id,
+                        secondaryWeaponId: secondary.id,
+                        talents: talents,
+                        properties: properties,
+                        traits: traits
+                    };
         case 'INIT_STATE_FROM_DATA':
             var build = action.payload.data();
             var buildId = action.payload.id;
@@ -25,11 +150,7 @@ function buildPageReducer(state, action) {
                 return patch.date < dateModified;
             });
 
-            
-            // TODO - Confirm patch is first patch before date modified
             var patch = filteredPatchList[filteredPatchList.length - 1].number;
-
-            var difficulty = DataHelper.getDifficultyById(build.difficulty);
 
             return {...state,
                 buildId: buildId,
@@ -70,6 +191,7 @@ function buildPageReducer(state, action) {
                 potion: DataHelper.getPotionById(build.potion),
                 roles: DataHelper.getRolesByIds(build.roles),
                 book: DataHelper.getBookById(build.book),
+                twitchMode: DataHelper.getTwitchById(build.twitch),
                 likes: build.likes,
                 likeCount: build.likeCount,
                 favorites: build.favorites,
@@ -82,7 +204,8 @@ function buildPageReducer(state, action) {
                 isFromDb: true,
                 createBuild: false,
                 isLiked: false,
-                dateModified: dateModified
+                dateModified: dateModified,
+                isLoadingData: false
             };
         case 'UPDATE_PROPERTY_SELECT': {
             newProperties[action.payload.index] = parseInt(action.payload.id);
@@ -94,9 +217,9 @@ function buildPageReducer(state, action) {
         }
         case 'UPDATE_CAREER': {
             //update weapon property/trait state based on new career
-            var careerId = parseInt(action.payload);
-            var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(careerId);
-            var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(careerId);
+            var newCareerId = parseInt(action.payload);
+            var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(newCareerId);
+            var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(newCareerId);
 
             var oldPrimaryWeaponId = state.primaryWeaponId;
             var newPrimaryWeaponId = oldPrimaryWeaponId;
@@ -118,7 +241,7 @@ function buildPageReducer(state, action) {
                 newTraits[Constants.SECONDARY_TRAIT_INDEX]  = 1;
             }
 
-            return {...state, careerId: careerId, primaryWeaponId: newPrimaryWeaponId, secondaryWeaponId: newSecondaryWeaponId,
+            return {...state, careerId: newCareerId, primaryWeaponId: newPrimaryWeaponId, secondaryWeaponId: newSecondaryWeaponId,
                     properties: newProperties, traits: newTraits, dirty: true};
         }
         case 'UPDATE_TALENTS':
@@ -175,6 +298,8 @@ function buildPageReducer(state, action) {
         }
         case 'UPDATE_DIFFICULTY':
             return {...state, difficulty: action.payload, dirty: true};
+        case 'UPDATE_TWITCH':
+            return {...state, twitchMode: action.payload, dirty: true};
         case 'UPDATE_MISSION':
             return {...state, mission: action.payload, dirty: true};
         case 'UPDATE_BOOKS':
@@ -207,6 +332,8 @@ function buildPageReducer(state, action) {
             return {...state, isLiked: true};
         case 'REMOVE_USER_LIKE':
             return {...state, isLiked: false};
+        case 'UPDATE_LOADING_STATE':
+            return {...state, isLoadingData: action.payload};
         default:
             throw new Error('Error updating Build Page state.');
     }
@@ -219,16 +346,17 @@ export default function BuildPageStore(props) {
         primaryWeaponId: 14,
         secondaryWeaponId: 55,
         talents: [0,0,0,0,0,0],
-        properties: [1,2,1,2,1,2,1,2,1,2],
+        properties: [1,2,1,2,1,2,1,2,3,2],
         propertyValues: [0,0,0,0,0,0,0,0,0,0],
         traits: [1,1,1,1,1],
         name: '',
         description: '',
-        difficulty: '',
-        mission: '',
-        potion: '',
+        difficulty: null,
+        mission: null,
+        potion: null,
+        twitchMode: null,
         roles: [],
-        book: '',
+        book: null,
         likes: [],
         likeCount: 0,
         patch: '',
@@ -237,6 +365,7 @@ export default function BuildPageStore(props) {
         videos: [],
         dirty: false,
         readonly: true,
+        isLoadingData: false,
         similarBuilds: [],
         similarBuildsLastDocument: {},
         similarBuildsCurrentPage: 0,
@@ -246,7 +375,7 @@ export default function BuildPageStore(props) {
         userBuildsCurrentPage: 0,
         userBuildsCount: 0,
         isFromDb: false,
-        createBuild: false,
+        createBuild: true,
         isLiked: false,
         dateModified: {}
     });

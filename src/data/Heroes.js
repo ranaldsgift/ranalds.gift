@@ -199,7 +199,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Taste of Victory",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Huntsman’s Tally",
@@ -373,7 +373,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Back Off, Ugly!",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Bloody Unstoppable!",
@@ -564,7 +564,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Lady's Generosity ",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Lady's Wrath ",
@@ -743,7 +743,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Roots Running Deep",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Ranger Reaper",
@@ -894,7 +894,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Rock-Breaker",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Grudge-Borne",
@@ -2543,7 +2543,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Confound",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Spark Thief",
@@ -2764,7 +2764,7 @@ export const heroesData = [
         "talents": [
             {                
                 "name": "Soul Quench",
-                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based stagger strength."
+                "description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
             },
             {                
                 "name": "Reckless Rampage",

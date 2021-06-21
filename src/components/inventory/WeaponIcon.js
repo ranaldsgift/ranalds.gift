@@ -5,9 +5,6 @@ import './WeaponIcon.css';
 import WeaponTooltip from './WeaponTooltip';
 
 class WeaponIcon extends Component {
-    constructor(props) {
-        super(props);
-    }
 
   render() {
     var weaponIconClass = this.props.selected ? 'weapon-icon selected' : 'weapon-icon';

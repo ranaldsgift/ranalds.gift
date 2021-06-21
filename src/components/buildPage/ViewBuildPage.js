@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import HeroTalents from '../heroTalents/HeroTalents'
-import BuildList from '../buildList/BuildList'
-import Inventory from '../inventory/Inventory'
+import BuildsList from '../buildList/BuildsList'
 import './ViewBuildPage.css';
 import HeroDetails from '../heroDetails/HeroDetails';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -14,6 +13,7 @@ import { db } from '../../utils/Firebase';
 import { UserContext } from '../../stores/UserStore';
 import BuildHeader from './BuildHeader';
 import BuildGuide from './BuildGuide';
+import { DataHelper } from '../../utils/DataHelper';
 
 function ViewBuildPage() {
 
@@ -29,25 +29,15 @@ function ViewBuildPage() {
 
         let params = useParams();
 
-        console.log(!userState.userId);
-
-/*         if (!userState.userId || userState.userId == '') {
-            console.log('props.userId');
-            return <div className="error-message">Error loading build for edit</div>;
-        }  */
-    
-        console.log('params build id: ' + params.buildId);
-        //console.log(PatchList[0]);
-
-        var root = document.getElementById('root');
-        root.dataset.pageName = 'viewBuildPage';
-
         if (params.buildId && state.buildId !== params.buildId) {
             loadBuild(params.buildId);
         }
 
+        var career = DataHelper.getCareer(state.careerId);
+        document.title = `${state.name} - ${career.name} ${career.heroName} Build - Vermintide 2 | ranalds.gift`;
+
         function loadBuild(buildId) {
-            console.log('loading build id ' + buildId);
+            console.log('Loading build ID ' + buildId);
             if (state.buildId !== buildId) {
                 state.buildId = buildId;
             }
@@ -58,31 +48,10 @@ function ViewBuildPage() {
                     return;
                 }
 
-                console.log('build loaded from db:');
-                console.log(build.data());
-
                 updateState({
                     type: 'INIT_STATE_FROM_DATA', 
                     payload: build
                 });
-
-                // TODO: Get similar builds and builds from the user for side bar display
-                db.collection('builds').where("careerId", "==", build.data().careerId).get().then((querySnapshot) => {
-                    var similarBuilds = [];
-                    querySnapshot.forEach((build) => {
-                        if (build.id === buildId) {
-                            return;
-                        }
-                        similarBuilds.push({ id: build.id, data: build.data()});
-                    });
-
-                    console.log('updating similar builds:');
-                    console.log(similarBuilds);
-                    updateState({
-                      type: "UPDATE_SIMILAR_BUILDS", 
-                      payload: similarBuilds
-                    }); 
-                  });
 
 
             }).catch((error) => {
@@ -105,15 +74,26 @@ function ViewBuildPage() {
                 </div>);
         }
 
-        console.log('build user id: ' + state.userId + ' user context id ' + userState.userId);
         let isAuthor = state.userId === userState.userId;
-        let isLiked = userState.likedBuilds.includes(state.buildId);
+        let isLiked = userState.likedBuilds ? userState.likedBuilds.includes(state.buildId) : false;
 
         return (
-            <div className="edit-build-page build-page" data-author={isAuthor} data-liked={isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
+            <div className="view-build-page build-page" data-author={isAuthor} data-liked={isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
                 <span id="buildSaveIndicator" className="border-03 background-18">Build saved...</span>
-                <div className="build-left-container top-left-shadow">            
-                    <BuildList builds={state.similarBuilds} name="Similar Builds"></BuildList>
+                <div className="build-left-container top-left-shadow">         
+                
+                <BuildsList name={`Similar Builds`}
+                        careerId={state.careerId}
+                        hideFilters={true}
+                        hidePages={true}
+                        pageLimit={2}
+                        exclude={state.buildId}></BuildsList>   
+                <BuildsList name={`${state.username}'s Builds`} 
+                        user={{id: state.userId, username: state.username}}
+                        hideFilters={true}
+                        hidePages={true}
+                        pageLimit={2}
+                        exclude={state.buildId}></BuildsList>
                 </div>
                 <div className="build-main-container">
                     <Tabs>
@@ -124,30 +104,15 @@ function ViewBuildPage() {
                             <div className="build-main-summary-container">
                                 <BuildHeader></BuildHeader>
                                 <HeroDetails careerId={state.careerId}></HeroDetails>
-                                <BuildOptions hideEmpty={true}></BuildOptions>
-                                <BuildGuide></BuildGuide>
                                 <BuildSummary></BuildSummary>
+                                <BuildOptions hideEmpty={true}></BuildOptions>
+                                <BuildGuide description={state.description}></BuildGuide>
                             </div>
-
-
-{/*                             <div className="build-details-container">
-                                <BuildHeaderDetails></BuildHeaderDetails>
-                                <HeroDetails careerId={state.careerId}></HeroDetails>
-                                <input type="text" className="build-name-input border-02 background-18" placeholder="Name your build" value={state.name} readOnly></input>
-                                <Link to={`/build/${state.buildId}/edit`} className="edit-build-button">edit</Link>
-                                <textarea className="input-build-description border-02 background-18" wrap="hard" placeholder="Describe your build" value={state.description} readOnly></textarea>
-                                <BuildInformation></BuildInformation>
-                                <BuildOptions></BuildOptions>
-                            </div>
-                            <BuildSummary></BuildSummary> */}
                         </TabPanel>
                     </Tabs>
                             <div className="build-talents-container">
                                 <HeroTalents contextActionType="UPDATE_TALENTS" readonly={true} careerId={state.careerId} talents={state.talents}></HeroTalents>
                             </div>
-                </div>
-                <div className="build-right-container">
-                    <Inventory></Inventory>
                 </div>
             </div>
         );

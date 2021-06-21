@@ -1,29 +1,35 @@
 import React, {Component} from 'react';
 import './HeroDetails.css';
+import HeroTalentSummary from "../heroTalents/HeroTalentSummary";
 import {heroesData} from '../../data/Heroes'
 import { AppContext } from '../../stores/Store';
+import { DataHelper } from '../../utils/DataHelper';
 
 class HeroDetails extends Component {
   static contextType = AppContext;
   render() {
     const [state] = this.context;
     var careerId = this.props.careerId ? this.props.careerId : 1;
-    var hero = heroesData.find((hero) => { return hero.id === parseInt(careerId)});
+    var hero = DataHelper.getCareer(careerId);
     hero = hero ? hero : heroesData[0];
 
     let healthValue = hero.health;
-    let bonusHealth = 0;
+    let healthGain = 0;
 
     if (state.properties[4] === 3 || state.properties[5] === 3) {
-      bonusHealth = hero.health * 0.2;
+      healthValue = Math.round(hero.health * 1.2);
+      healthGain = Math.round(hero.health * 0.2);
     }
 
-    let healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{hero.health.toString() + ' HP'}</span></div>
-    
-    if (bonusHealth > 0) {
-      healthValue += bonusHealth;
-      healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{healthValue.toString() + ' HP'}</span></div>
+    let cooldownValue = hero.skill.cooldown;
+    let cooldownReduction = 0;
+
+    if (state.properties[8] === 1 || state.properties[9] === 1) {
+      cooldownValue = Math.round(cooldownValue * 0.9);
+      cooldownReduction = Math.round(cooldownValue * 0.1);
     }
+
+    let healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{`${healthValue.toString()} HP`}</span></div>;
 
     return (
       <div className="hero-details-container">
@@ -42,12 +48,13 @@ class HeroDetails extends Component {
               </div>
               <div className="cooldown-container">
                 <p className="skill-cooldown-label">Skill Cooldown</p>
-                <div className="cooldown-bar" data-value={hero.skill.cooldown}>
-                  <div className="stat-container"><span className={`skill-cooldown-value value-${hero.skill.cooldown} skill-cooldown-tier-a`}>{hero.skill.cooldown.toString() + 's'}</span></div>
+                <div className="cooldown-bar" data-value={cooldownValue}>
+                  <div className="stat-container"><span className={`skill-cooldown-value skill-cooldown-tier-a`}>{`${cooldownValue.toString()}s`}</span></div>
                 </div>
               </div>
               
             </div>
+            <HeroTalentSummary careerId={state.careerId} talents={state.talents}></HeroTalentSummary>
           </div>
           <div className="hero-skill-container">
             <p className="hero-skill-header">{hero.skill.name}</p>
@@ -74,7 +81,7 @@ class HeroDetails extends Component {
     var i = 1;
 
     hero.perks.forEach((perk) => { 
-      perksHtml.push(<div className="hero-perk-item-container">
+      perksHtml.push(<div key={`perk${i}`} className="hero-perk-item-container">
       <p key={`perkHeader${i}`} className="hero-perk-item-header"><span style={{fontSize: '40%', top: '-3px', position: 'relative', left: '-4px'}}>&#9670;</span>{perk.name}</p>
       <p key={`perkDescription${i}`} className="hero-perk-item-description">{perk.description}</p>
       </div>); 

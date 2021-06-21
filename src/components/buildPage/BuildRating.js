@@ -1,8 +1,8 @@
-import React, { Component, useContext } from "react";
+import React, { useContext } from "react";
 import './BuildRating.css';
 import { AppContext } from "../../stores/Store";
 import { UserContext } from "../../stores/UserStore";
-import { auth, db } from "../../utils/Firebase";
+import { auth, db, firebase } from "../../utils/Firebase";
 
 function BuildRating(props) {
 
@@ -15,10 +15,18 @@ function BuildRating(props) {
             return;
         }
 
+        var author = e.target.dataset.author;
+
+        if (auth.currentUser.uid === author) {
+            console.log('You cannot rate your own build');
+            return;
+        }
+
         var buildId = e.target.dataset.buildid;
 
         var userRef = db.collection('users').doc(auth.currentUser.uid);
         var buildRef = db.collection('builds').doc(buildId);
+        var buildAuthorRef = db.collection('users').doc(author);
 
         db.runTransaction(async transaction => {
 
@@ -41,7 +49,6 @@ function BuildRating(props) {
             likedBuilds.push(build.id);
             transaction.set(userRef, { likedBuilds: likedBuilds }, {merge: true});
 
-            var newLikeCount = buildData.likeCount + 1;
             var newLikes = buildData.likes;
             if (!newLikes) {
                 newLikes = [];
@@ -49,7 +56,9 @@ function BuildRating(props) {
             if (!newLikes.includes(user.id)) {
                 newLikes.push(user.id);
             }
-            transaction.set(buildRef, { likeCount: newLikeCount, likes: newLikes }, {merge: true});
+            
+            transaction.set(buildRef, { likeCount: firebase.firestore.FieldValue.increment(1), likes: newLikes }, {merge: true});
+            transaction.set(buildAuthorRef, {userRating: firebase.firestore.FieldValue.increment(1)}, {merge: true});
         }).then(() => {
 
             console.log('Successfully liked build'); 
@@ -79,8 +88,9 @@ function BuildRating(props) {
 
         var author = e.target.dataset.author;
 
-        if (auth.currentUser.uid == author) {
+        if (auth.currentUser.uid === author) {
             console.log('You cannot rate your own build');
+            return;
         }
 
         var buildId = e.target.dataset.buildid;
@@ -88,6 +98,7 @@ function BuildRating(props) {
 
         var userRef = db.collection('users').doc(auth.currentUser.uid);
         var buildRef = db.collection('builds').doc(buildId);
+        var buildAuthorRef = db.collection('users').doc(author);
 
         db.runTransaction(async transaction => {
 
@@ -110,7 +121,6 @@ function BuildRating(props) {
             likedBuilds.splice(likedBuilds.indexOf(build.id), 1);
             transaction.set(userRef, { likedBuilds: likedBuilds }, {merge: true});
 
-            var newLikeCount = buildData.likeCount - 1;
             var newLikes = buildData.likes;
             if (!newLikes) {
                 newLikes = [];
@@ -118,7 +128,8 @@ function BuildRating(props) {
             if (newLikes.includes(user.id)) {
                 newLikes.splice(newLikes.indexOf(user.id));
             }
-            transaction.set(buildRef, { likeCount: newLikeCount, likes: newLikes }, {merge: true});
+            transaction.set(buildRef, { likeCount: firebase.firestore.FieldValue.increment(-1), likes: newLikes }, {merge: true});
+            transaction.set(buildAuthorRef, {userRating: firebase.firestore.FieldValue.increment(-1)}, {merge: true});
         }).then(() => {
 
             console.log('Successfully unliked build'); 

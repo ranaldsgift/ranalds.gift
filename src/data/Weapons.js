@@ -1,6 +1,5 @@
 export const weaponsData = [
     {
-        "id": 1,
         "name": "Mace",
         "codeName": "bw_1h_mace",
         "description": "weapon_keyword_high_damage,weapon_keyword_damage_over_time,weapon_keyword_wide_sweeps",
@@ -17,7 +16,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 2,
         "name": "Dagger",
         "codeName": "bw_dagger",
         "description": "weapon_keyword_damage_over_time,weapon_keyword_crowd_control,weapon_keyword_fast_attacks",
@@ -34,7 +32,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 3,
         "name": "Flame Sword",
         "codeName": "bw_flame_sword",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_damage_over_time",
@@ -51,7 +48,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 4,
         "name": "Sword",
         "codeName": "bw_sword",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_versatile",
@@ -68,7 +64,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 5,
         "name": "Axe",
         "codeName": "dr_1h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_shield_breaking",
@@ -85,7 +80,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 6,
         "name": "Hammer",
         "codeName": "dr_1h_hammer",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -102,7 +96,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 7,
         "name": "Great Axe",
         "codeName": "dr_2h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_shield_breaking,weapon_keyword_armour_piercing",
@@ -119,7 +112,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 8,
         "name": "Two-Handed Hammer",
         "codeName": "dr_2h_hammer",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_armour_piercing",
@@ -136,7 +128,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 9,
         "name": "War Pick",
         "codeName": "dr_2h_pick",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_heavy_charge",
@@ -153,7 +144,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 10,
         "name": "Dual Axes",
         "codeName": "dr_dual_wield_axes",
         "description": "weapon_keyword_high_damage,weapon_keyword_fast_attacks,weapon_keyword_armour_piercing",
@@ -170,7 +160,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 11,
         "name": "Axe & Shield",
         "codeName": "dr_shield_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_powerful_blocks",
@@ -187,7 +176,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 12,
         "name": "Hammer & Shield",
         "codeName": "dr_shield_hammer",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_powerful_blocks",
@@ -204,7 +192,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 13,
         "name": "Flail",
         "codeName": "es_1h_flail",
         "description": "weapon_keyword_ignore_shields,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -221,7 +208,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 14,
         "name": "Mace",
         "codeName": "es_1h_mace",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -238,7 +224,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 15,
         "name": "Sword",
         "codeName": "es_1h_sword",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_versatile",
@@ -255,7 +240,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 16,
         "name": "Two-Handed Hammer",
         "codeName": "es_2h_hammer",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_armour_piercing",
@@ -272,7 +256,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 17,
         "name": "Two-Handed Sword",
         "codeName": "es_2h_sword",
         "description": "weapon_keyword_high_damage,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -289,7 +272,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 18,
         "name": "Executioner Sword",
         "codeName": "es_2h_sword_executioner",
         "description": "weapon_keyword_headshotting,weapon_keyword_wide_sweeps,weapon_keyword_high_damage",
@@ -306,7 +288,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 19,
         "name": "Halberd",
         "codeName": "es_halberd",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_armour_piercing,weapon_keyword_versatile",
@@ -323,7 +304,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 20,
         "name": "Mace & Shield",
         "codeName": "es_mace_shield",
         "description": "weapon_keyword_wide_sweeps,weapon_keyword_crowd_control,weapon_keyword_powerful_blocks",
@@ -340,7 +320,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 21,
         "name": "Sword & Shield",
         "codeName": "es_sword_shield",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_powerful_blocks",
@@ -357,7 +336,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 22,
         "name": "Sword",
         "codeName": "we_1h_sword",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_versatile",
@@ -374,7 +352,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 23,
         "name": "Glaive",
         "codeName": "we_2h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_fast_attacks",
@@ -391,7 +368,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 24,
         "name": "Two-Handed Sword",
         "codeName": "we_2h_sword",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_versatile",
@@ -408,7 +384,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 25,
         "name": "Dual Daggers",
         "codeName": "we_dual_wield_daggers",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_headshotting,weapon_keyword_damage_over_time",
@@ -425,7 +400,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 26,
         "name": "Sword & Dagger",
         "codeName": "we_dual_wield_sword_dagger",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_versatile",
@@ -442,7 +416,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 27,
         "name": "Dual Swords",
         "codeName": "we_dual_wield_swords",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -459,7 +432,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 28,
         "name": "Spear",
         "codeName": "we_spear",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_versatile,weapon_keyword_high_agility",
@@ -476,7 +448,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 29,
         "name": "Axe",
         "codeName": "wh_1h_axe",
         "description": "weapon_keyword_high_damage,weapon_keyword_armour_piercing,weapon_keyword_shield_breaking",
@@ -493,7 +464,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 30,
         "name": "Falchion",
         "codeName": "wh_1h_falchion",
         "description": "weapon_keyword_headshotting,weapon_keyword_high_damage,weapon_keyword_versatile",
@@ -510,7 +480,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 31,
         "name": "Two-Handed Sword",
         "codeName": "wh_2h_sword",
         "description": "weapon_keyword_high_damage,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
@@ -527,7 +496,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 32,
         "name": "Rapier",
         "codeName": "wh_fencing_sword",
         "description": "weapon_keyword_fast_attacks,weapon_keyword_headshotting,weapon_keyword_versatile",
@@ -544,7 +512,6 @@ export const weaponsData = [
         "propertyCategory": "melee"
     },
     {
-        "id": 33,
         "name": "Mace and Sword",
         "codeName": "es_mace_and_sword",
         "canWieldPrimary": [1,3,2,16],
@@ -554,7 +521,6 @@ export const weaponsData = [
         "description": "weapon_keyword_high_damage,weapon_keyword_fast_attacks,weapon_keyword_crowd_control"
     },
     {
-        "id": 34,
         "name": "Spear",
         "codeName": "es_spear",
         "canWieldPrimary": [1,2],
@@ -564,16 +530,15 @@ export const weaponsData = [
         "description": "weapon_keyword_fast_attacks,weapon_keyword_versatile,weapon_keyword_high_mobility"
     },
     {
-        "id": 35,
         "name": "Elven Axe",
         "codeName": "we_axe",
         "canWieldPrimary": [9,8,7],
         "canWieldSecondary": [],
         "traitCategory": "melee",
-        "propertyCategory": "melee"
+        "propertyCategory": "melee",
+        "description": "weapon_keyword_high_damage,weapon_keyword_armor_piercing,weapon_keyword_shield_breaking"
     },
     {
-        "id": 36,
         "name": "Spear and Shield",
         "codeName": "we_spear_and_shield",
         "canWieldPrimary": [9,8,7],
@@ -583,7 +548,6 @@ export const weaponsData = [
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_powerful_blocks"
     },
     {
-        "id": 37,
         "name": "Dual Hammers",
         "codeName": "dr_hammers",
         "canWieldPrimary": [5,6,4,17],
@@ -593,43 +557,42 @@ export const weaponsData = [
         "description": "weapon_keyword_crowd_control,weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps"
     },
     {
-        "id": 38,
         "name": "Axe and Falchion",
         "codeName": "wh_axe_and_falchion",
         "canWieldPrimary": [12,11,10],
         "canWieldSecondary": [],
         "traitCategory": "melee",
-        "propertyCategory": "melee"
+        "propertyCategory": "melee",
+        "description": "weapon_keyword_high_damage,weapon_keyword_fast_attacks,weapon_armour_piercing"
     },
     {
-        "id": 39,
         "name": "Billhook",
         "codeName": "wh_billhook",
         "canWieldPrimary": [12,11,10],
         "canWieldSecondary": [],
         "traitCategory": "melee",
-        "propertyCategory": "melee"
+        "propertyCategory": "melee",
+        "description": "weapon_keyword_wide_sweeps,weapon_keyword_armor_piercing,weapon_keyword_versatile"
     },
     {
-        "id": 40,
         "name": "Crowbill",
         "codeName": "bw_crowbill",
         "canWieldPrimary": [13,14,15],
         "canWieldSecondary": [],
         "traitCategory": "melee",
-        "propertyCategory": "melee"
+        "propertyCategory": "melee",
+        "description": "weapon_keyword_high_damage,weapon_keyword_damage_over_time,weapon_keyword_wide_sweeps"
     },
     {
-        "id": 41,
         "name": "Flaming Flail",
         "codeName": "bw_flail",
         "canWieldPrimary": [13,14,15],
         "canWieldSecondary": [],
         "traitCategory": "melee",
-        "propertyCategory": "melee"
+        "propertyCategory": "melee",
+        "description": "weapon_keyword_ignore_shields,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control",
     },
     {
-        "id": 42,
         "name": "Bretonnian Sword and Shield",
         "codeName": "es_1h_sword_shield_breton",
         "canWieldPrimary": [16],
@@ -639,7 +602,6 @@ export const weaponsData = [
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_powerful_blocks"
     },
     {
-        "id": 43,
         "name": "Bretonnian Longsword",
         "codeName": "es_bastard_sword",
         "canWieldPrimary": [16, 1, 2, 3],
@@ -649,7 +611,6 @@ export const weaponsData = [
         "description": "weapon_keyword_high_damage,weapon_keyword_wide_sweeps,weapon_keyword_crowd_control"
     },
     {
-        "id": 44,
         "name": "Cog Hammer",
         "codeName": "dr_2h_cog_hammer",
         "canWieldPrimary": [5,6,4,17],
@@ -659,7 +620,6 @@ export const weaponsData = [
         "description": "weapon_keyword_high_damage,weapon_keyword_shield_breaking,weapon_keyword_armor_piercing"
     },
     {
-        "id": 45,
         "name": "Beam Staff",
         "codeName": "bw_skullstaff_beam",
         "description": "weapon_keyword_sniper,weapon_keyword_crowd_control,weapon_keyword_damage_over_time",
@@ -671,7 +631,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 46,
         "name": "Fireball Staff",
         "codeName": "bw_skullstaff_fireball",
         "description": "weapon_keyword_crowd_control,weapon_keyword_damage_over_time,weapon_keyword_overheat",
@@ -683,7 +642,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 47,
         "name": "Flamestorm Staff",
         "codeName": "bw_skullstaff_flamethrower",
         "description": "weapon_keyword_damage_over_time,weapon_keyword_charged_attack,weapon_keyword_close_range",
@@ -695,7 +653,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 48,
         "name": "Conflagration Staff",
         "codeName": "bw_skullstaff_geiser",
         "description": "weapon_keyword_damage_over_time,weapon_keyword_crowd_control,weapon_keyword_charged_attack",
@@ -707,7 +664,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 49,
         "name": "Bolt Staff",
         "codeName": "bw_skullstaff_spear",
         "description": "weapon_keyword_rapid_fire,weapon_keyword_headshotting,weapon_keyword_sniper",
@@ -719,7 +675,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 50,
         "name": "Crossbow",
         "codeName": "dr_crossbow",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_piercing_bolts",
@@ -733,7 +688,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 51,
         "name": "Drakefire Pistols",
         "codeName": "dr_drake_pistol",
         "description": "weapon_keyword_overheat,weapon_keyword_crowd_control,weapon_keyword_damage_over_time",
@@ -745,7 +699,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 52,
         "name": "Drakegun",
         "codeName": "dr_drakegun",
         "description": "weapon_keyword_crowd_control,weapon_keyword_close_range,weapon_keyword_overheat",
@@ -757,7 +710,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 53,
         "name": "Handgun",
         "codeName": "dr_handgun",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_headshotting",
@@ -771,7 +723,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 54,
         "name": "Grudge-Raker",
         "codeName": "dr_rakegun",
         "description": "weapon_keyword_high_damage,weapon_keyword_crowd_control,weapon_keyword_close_range",
@@ -785,7 +736,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 55,
         "name": "Blunderbuss",
         "codeName": "es_blunderbuss",
         "description": "weapon_keyword_high_damage,weapon_keyword_crowd_control,weapon_keyword_close_range",
@@ -799,7 +749,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 56,
         "name": "Handgun",
         "codeName": "es_handgun",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_headshotting",
@@ -813,7 +762,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 57,
         "name": "Longbow",
         "codeName": "es_longbow",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_armour_piercing",
@@ -827,7 +775,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 58,
         "name": "Repeater Handgun",
         "codeName": "es_repeating_handgun",
         "description": "weapon_keyword_rapid_fire,weapon_keyword_armour_piercing,weapon_keyword_versatile",
@@ -841,7 +788,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 59,
         "name": "Volley Crossbow",
         "codeName": "we_crossbow_repeater",
         "description": "weapon_keyword_high_damage,weapon_keyword_rapid_fire,weapon_keyword_versatile",
@@ -855,7 +801,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 60,
         "name": "Longbow",
         "codeName": "we_longbow",
         "description": "weapon_keyword_armour_piercing,weapon_keyword_sniper,weapon_keyword_versatile",
@@ -869,7 +814,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 61,
         "name": "Swiftbow",
         "codeName": "we_shortbow",
         "description": "weapon_keyword_rapid_fire,weapon_keyword_crowd_control,weapon_keyword_headshotting",
@@ -883,7 +827,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 62,
         "name": "Hagbane Shortbow",
         "codeName": "we_shortbow_hagbane",
         "description": "weapon_keyword_damage_over_time,weapon_keyword_rapid_fire,weapon_keyword_crowd_control",
@@ -897,7 +840,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 63,
         "name": "Brace of Pistols",
         "codeName": "wh_brace_of_pistols",
         "description": "weapon_keyword_high_damage,weapon_keyword_rapid_fire,weapon_keyword_versatile",
@@ -911,7 +853,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 64,
         "name": "Crossbow",
         "codeName": "wh_crossbow",
         "description": "weapon_keyword_high_damage,weapon_keyword_sniper,weapon_keyword_piercing_bolts",
@@ -925,7 +866,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 65,
         "name": "Volley Crossbow",
         "codeName": "wh_crossbow_repeater",
         "description": "weapon_keyword_high_damage,weapon_keyword_piercing_bolts,weapon_keyword_rapid_fire",
@@ -939,7 +879,6 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 66,
         "name": "Repeater Pistol",
         "codeName": "wh_repeating_pistols",
         "description": "weapon_keyword_rapid_fire,weapon_keyword_close_range,weapon_keyword_high_damage",
@@ -953,16 +892,15 @@ export const weaponsData = [
         "propertyCategory": "range"
     },
     {
-        "id": 67,
         "name": "Throwing Axes",
         "codeName": "dr_throwing_axes",
         "canWieldPrimary": [6],
         "canWieldSecondary": [4, 6],
         "traitCategory": "range",
-        "propertyCategory": "range"
+        "propertyCategory": "range",
+        "description": "weapon_keyword_armor_piercing,weapon_keyword_sniper,weapon_keyword_versatile"
     },
     {
-        "id": 68,
         "name": "Masterwork Pistol",
         "codeName": "dr_steam_pistol",
         "canWieldPrimary": [],
@@ -972,7 +910,6 @@ export const weaponsData = [
         "description": "weapon_keyword_high_damage,weapon_keyword_rapid_fire,weapon_keyword_versatile"
     },
     {
-        "id": 69,
         "name": "Spear & Shield",
         "codeName": "es_deus_01",
         "canWieldPrimary": [1, 2, 3],
@@ -982,8 +919,8 @@ export const weaponsData = [
         "description": "weapon_keyword_fast_attacks,weapon_keyword_wide_sweeps,weapon_keyword_powerful_blocks"
     },
     {
-        "id": 70,
         "name": "Trollhammer Torpedo",
+        "codeName": "dr_deus_01",
         "canWieldPrimary": [],
         "canWieldSecondary": [5, 17],
         "traitCategory": "range",
@@ -995,7 +932,6 @@ export const weaponsData = [
         "maxAmmo": 10
     },
     {
-        "id": 71,
         "name": "Moonfire Bow",
         "codeName": "we_deus_01",
         "canWieldPrimary": [],
@@ -1005,7 +941,6 @@ export const weaponsData = [
         "description": "weapon_keyword_armor_piercing,weapon_keyword_sniper,weapon_keyword_versatile"
     },
     {
-        "id": 72,
         "name": "Griffon-foot",
         "codeName": "wh_deus_01",
         "canWieldPrimary": [],
@@ -1015,7 +950,6 @@ export const weaponsData = [
         "description": "weapon_keyword_high_damage,weapon_keyword_rapid_fire,weapon_keyword_versatile"
     },
     {
-        "id": 73,
         "name": "Coruscation Staff",
         "codeName": "bw_deus_01",
         "canWieldPrimary": [],
@@ -1025,7 +959,6 @@ export const weaponsData = [
         "description": "weapon_keyword_damage_over_time,weapon_keyword_crowd_control,weapon_keyword_charged_attack"
     },
     {
-        "id": 74,
         "name": "Deepwood Staff",
         "codeName": "we_life_staff",
         "canWieldPrimary": [],
@@ -1035,7 +968,6 @@ export const weaponsData = [
         "description": "weapon_keyword_damage_over_time,weapon_keyword_crowd_control,weapon_keyword_charged_attack"
     },
     {
-        "id": 75,
         "name": "Briar Javelin",
         "codeName": "we_javelin",
         "canWieldPrimary": [],

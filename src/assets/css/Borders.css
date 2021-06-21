@@ -56,10 +56,11 @@
   }
   .border-09 {
     border-image: url('../../assets/images/borders/border-09.png');
-    border-image-slice: 15;
-    border-image-width: 15px;
+    border-image-slice: 62;
+    border-image-width: 62px;
     border-style: solid;
     border-image-repeat: repeat;
+    min-height: 124px;
   }
   .border-10 {
     border-image: url('../../assets/images/borders/border-10.png');
@@ -84,8 +85,8 @@
   }
   .border-13 {
     border-image: url('../../assets/images/borders/border-13.png');
-    border-image-slice: 25;
-    border-image-width: 25px;
+    border-image-width: auto;
+    border-image-slice: 21;
     border-style: solid;
     border-image-repeat: repeat;
   }

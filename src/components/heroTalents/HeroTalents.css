@@ -167,32 +167,11 @@
 }
 .hero-talent.selected .talent-button-wrapper {
   border-image: url('../../assets/images/borders/border-16.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
+  border-image-slice: 36 157;
+  border-image-width: auto;
   border-style: solid;
   border-image-repeat: repeat;
 }
-/* .hero-talent::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-image: url('../../assets/images/borders/border-01.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
-  border-style: solid;
-  z-index: 1;
-  box-sizing: border-box;
-}
-.hero-talent.selected::after {
-  border-image: url('../../assets/images/borders/border-16.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
-  border-style: solid;
-  border-image-repeat: repeat;
-} */
 .hero-talent:nth-of-type(3n+1) {    
   box-shadow: inset 0px 10px 10px -10px white;
 }
@@ -206,6 +185,7 @@
   color: #c15b24;
   padding-left: 8px;
   padding-right: 10px;
+  z-index: -1;
 }
 .hero-talent.selected .talent-button-wrapper, .hero-talent:hover .talent-button-wrapper {
   border-radius: 3px;
@@ -215,8 +195,8 @@
   position: absolute;
   height: auto;
   left: 0;
-  bottom: calc(100% + 2px);
-  width: calc(100% - 26px);
+  bottom: calc(100% + 6px);
+  width: calc(100% + 20px);
   font-size: 1.5rem;
   background: #0d0d0d;
   border-image: url('../../assets/images/borders/border-02.png');
@@ -231,6 +211,10 @@
   visibility: hidden;
   z-index: -1;
   filter: grayscale(0);
+  box-sizing: border-box;
+}
+.hero-talents-container[data-show-descriptions='false'] .talent-description {
+  transform: translateX(-10px);
 }
 .hero-talents-container.show-descriptions {
   height: auto;
@@ -321,13 +305,13 @@
   background: linear-gradient(-16deg,rgba(89,98,61,.45), rgba(89,98,61,.45)), url('../../assets/images/backgrounds/background26.png') bottom;
 }
 .hero-talents-grid[data-career='16'] .hero-talents-grid-bg {
-  background: linear-gradient(-16deg,rgba(30,10,20,.45), rgba(30,10,20,.45)), url('../../assets/images/backgrounds/background26.png') bottom;
+  background: linear-gradient(-16deg,rgb(88 63 24 / 45%), rgb(88 63 24 / 45%)), url('../../assets/images/backgrounds/background26.png') bottom;
 }
 .hero-talents-grid[data-career='17'] .hero-talents-grid-bg {
-  background: linear-gradient(-16deg,rgba(30,10,20,.45), rgba(30,10,20,.45)), url('../../assets/images/backgrounds/background26.png') bottom;
+  background: linear-gradient(-16deg,rgb(88 63 24 / 45%), rgb(88 63 24 / 45%)), url('../../assets/images/backgrounds/background26.png') bottom;
 }
 .hero-talents-grid[data-career='18'] .hero-talents-grid-bg {
-  background: linear-gradient(-16deg,rgba(30,10,20,.45), rgba(30,10,20,.45)), url('../../assets/images/backgrounds/background26.png') bottom;
+  background: linear-gradient(rgb(98 93 96 / 45%), rgb(49 49 49 / 45%)), url('../../assets/images/backgrounds/background26.png') bottom;
 }
 .hero-talents-grid[data-career='19'] .hero-talents-grid-bg {
   background: linear-gradient(-16deg,rgba(30,10,20,.45), rgba(30,10,20,.45)), url('../../assets/images/backgrounds/background26.png') bottom;
@@ -460,7 +444,7 @@ span.show-talent-descriptions {
 .hero-talents-container[data-show-descriptions='true'] .talent-description {
   grid-area: talentDescription;  
   border: none;
-  width: calc(100% - 20px);
+  width: 100%;
   box-shadow: inset 0px 0px 5px 1px black;
 }
 .hero-talents-container[data-show-descriptions='true'] .talent-lock-icon {

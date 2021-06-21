@@ -1,15 +1,15 @@
 .build-list-item {
     display: grid;
-    grid-template-columns: 120px auto auto 1fr auto;
+    grid-template-columns: auto auto auto 1fr auto;
     position: relative;
-    grid-template-rows: auto 45px 30px;
+    grid-template-rows: auto 45px 40px;
     grid-row-gap: 5px;
-    grid-column-gap: 10px;
     grid-template-areas: "heroIcon buildDescription buildDescription buildDescription buildRating"
     "heroIcon buildWeapons buildTraits empty2 empty2"
     "heroIcon buildFooter buildFooter buildFooter buildFooter";
     text-transform: uppercase;
     cursor: pointer;
+    grid-column-gap: 10px;
 }
 .edit-build-page .build-list-item .weapons, .edit-build-page .build-list-item .traits {
     display: none;
@@ -30,6 +30,7 @@
     align-self: center;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-left: 15px;
 }
 .build-name {
     font-size: 1.2em;
@@ -39,10 +40,10 @@
 }
 .build-description-container {
     grid-area: buildDescription;
-    justify-items: flex-start;
-    grid-template-rows: 30px 20px auto;
+    justify-items: start;
     text-align: left;
     display: grid;
+    margin-top: 10px;
 }
 .build-list-item .talents {
     grid-area: buildTalents;
@@ -56,7 +57,6 @@
     display: grid;
     grid-template-columns: repeat(4, 45px);
     grid-column-gap: 5px;
-    justify-content: center;
 }
 .traits {
     grid-area: buildTraits;
@@ -75,9 +75,9 @@
     align-content: center;
     font-size: 0.8em;
     width: calc(100% - 10px);
-    justify-content: right; 
-    margin-right: 5px;
+    justify-content: right;
     padding-bottom: 5px;
+    margin: 0 4px 2px 0;
 }
 .build-hero {
     font-size: 0.8em;
@@ -194,20 +194,20 @@
 .trait-thermal-equalizer {
     background: url('../../assets/images/traits/thermal-equalizer.png') black;
 }
-.trait-barkskin {
+.trait-barkskin, .trait-icon[data-type='necklace'][data-id='1'] {
     background: url('../../assets/images/traits/barkskin.png') black;
 }
-.trait-boon-of-shallya {
-    background: url('../../assets/images/traits/boon-of-shallya.png') black;
-}
-.trait-hand-of-shallya {
+.trait-hand-of-shallya, .trait-icon[data-type='necklace'][data-id='2'] {
     background: url('../../assets/images/traits/hand-of-shallya.png') black;
 }
-.trait-healers-touch {
+.trait-healers-touch, .trait-icon[data-type='necklace'][data-id='3'] {
     background: url('../../assets/images/traits/healers-touch.png') black;
 }
-.trait-natural-bond {
+.trait-natural-bond, .trait-icon[data-type='necklace'][data-id='4'] {
     background: url('../../assets/images/traits/natural-bond.png') black;
+}
+.trait-boon-of-shallya, .trait-icon[data-type='necklace'][data-id='5'] {
+    background: url('../../assets/images/traits/boon-of-shallya.png') black;
 }
 .trait-concoction {
     background: url('../../assets/images/traits/concoction.png') black;
@@ -237,12 +237,6 @@
     justify-self: left;
     padding-left: 5px;
 }
-.build-page .build-hero-icon {
-    margin: 6px;
-}
-.build-page .build-list-item .talents, .build-page .build-list-item .traits, .build-page .build-list-item .weapons {
-    display: none;
-}
 .build-footer .roles {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -257,15 +251,6 @@
 }
 .build-list-item {
     color: #c8c8c8;
-}
-.build-page .build-list-item {
-    color: #c8c8c8;
-    grid-template-columns: 100px 1fr !important;
-    grid-template-rows: 1fr 30px;
-    grid-template-areas:
-    "heroIcon buildDescription buildRating"
-    "heroIcon buildFooter buildFooter";
-    grid-row-gap: 0px;
 }
 .build-author-by, .build-author {
     text-transform: initial;
@@ -296,60 +281,63 @@
 } */
 
 
-.build-list-item[data-career='1']:after {
-    background: rgba(87, 57, 57, 0.23);
+.build-list-item[data-career='1']:before {
+    background-image: linear-gradient(rgba(87, 57, 57, 0.30),rgba(87, 57, 57, 0.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='2']:after {
-    background: rgba(89, 98, 61, 0.25);
+  .build-list-item[data-career='2']:before {
+    background-image: linear-gradient(rgba(89, 98, 61, 0.30),rgba(89, 98, 61, 0.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='3']:after {
-    background: rgba(9,20,41,.45);
+  .build-list-item[data-career='3']:before {
+    background-image: linear-gradient(rgba(9,20,41,.30),rgba(9,20,41,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   } 
-  .build-list-item[data-career='4']:after {
-    background: rgba(29,37,5,.45);
+  .build-list-item[data-career='4']:before {
+    background-image: linear-gradient(rgba(29,37,5,.30),rgba(29,37,5,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='5']:after {
-    background: rgba(10,54,63,.45);
+  .build-list-item[data-career='5']:before {
+    background-image: linear-gradient(rgba(10,54,63,.30),rgba(10,54,63,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='6']:after {
-    background: rgba(52,0,0,.45);
+  .build-list-item[data-career='6']:before {
+    background-image: linear-gradient(rgba(52,0,0,.30),rgba(52,0,0,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='7']:after {
-    background: rgba(10,23,8,.45);
+  .build-list-item[data-career='7']:before {
+    background-image: linear-gradient(rgba(10,23,8,.30),rgba(10,23,8,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='8']:after {
-    background: rgba(13,26,43,.45);
+  .build-list-item[data-career='8']:before {
+    background-image: linear-gradient(rgba(13,26,43,.30),rgba(13,26,43,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='9']:after {
-    background: rgba(31,20,40,.45);
+  .build-list-item[data-career='9']:before {
+    background-image: linear-gradient(rgba(31,20,40,.30),rgba(31,20,40,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='10']:after {
-    background: rgba(32,38,40,.45);
+  .build-list-item[data-career='10']:before {
+    background-image: linear-gradient(rgba(32,38,40,.30),rgba(32,38,40,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='11']:after {
-    background: rgba(40,31,15,.45);
+  .build-list-item[data-career='11']:before {
+    background-image: linear-gradient(rgba(40,31,15,.30),rgba(40,31,15,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='12']:after {
-    background: rgba(35,35,30,.45);
+  .build-list-item[data-career='12']:before {
+    background-image: linear-gradient(rgba(35,35,30,.30),rgba(35,35,30,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='13']:after {
-    background: rgba(46,16,0,.45);
+  .build-list-item[data-career='13']:before {
+    background-image: linear-gradient(rgba(46,16,0,.30),rgba(46,16,0,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='14']:after {
-    background: rgba(36,6,2,.45);
+  .build-list-item[data-career='14']:before {
+    background-image: linear-gradient(rgba(36,6,2,.30),rgba(36,6,2,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='15']:after {
-    background: rgba(30,10,20,.45);
+  .build-list-item[data-career='15']:before {
+    background-image: linear-gradient(rgba(30,10,20,.30),rgba(30,10,20,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='16']:after {
-    background: rgba(30,10,20,.45);
+  .build-list-item[data-career='16']:before {
+    background-image: linear-gradient(rgb(88,63,24,.30),rgb(88,63,24,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item[data-career='17']:after {
-    background: rgba(30,10,20,.45);
+  .build-list-item[data-career='17']:before {
+    background-image: linear-gradient(rgb(88,63,24,.30),rgb(88,63,24,.30)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+  }
+  .build-list-item[data-career='18']:before {
+    background-image: linear-gradient(rgb(98 93 96 / 30%), rgb(49 49 49 / 30%)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
   .build-list-item:hover:before {
     box-shadow: 0 0 10px 2px #ffd700;
-    background: radial-gradient(closest-corner, #00000090, #000000dc), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+    /* background: radial-gradient(closest-corner, #00000090, #000000dc), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png'); */
 }
 .build-list-item:after {
     content: '';
@@ -362,13 +350,19 @@
     border-style: solid;
     border-image-repeat: repeat;
     box-sizing: border-box;
+    pointer-events: none;
+    box-shadow: inset 0 0 6px 3px #000;
+}
+.build-list-item:hover::after {
+    background: linear-gradient(45deg, #ffffff08, transparent);
+    box-shadow: none;
 }
 .build-list-item:before {
     content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+    /* background-image: radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png'); */
     filter: saturate(285%) contrast(120%);
 }
 .build-list-item .rating-icon {
@@ -379,9 +373,20 @@
     grid-area: buildRating;
     display: grid;
     grid-auto-flow: column;
-    align-items: center;
-    padding-right: 10px;
+    align-content: start;
+}
+.build-list-item .rating {    
+    margin: 10px 10px 0 0;
 }
 .rating-count {
     font-size: 2em;
+    height: 50px;
+    align-self: center;
+    align-content: center;
+    display: grid;
+}
+.build-list-item .weapon-icon, .build-list-item .trait-icon {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
 }

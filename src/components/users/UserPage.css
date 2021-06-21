@@ -7,7 +7,12 @@
     text-align: left;
     grid-column-gap: 15px;
     grid-row-gap: 5px;
-    padding: 10px 20px;
+    padding: 20px;
+    position: relative;
+    grid-row-gap: 10px;
+}
+.user-page[data-isauthor='false'] .button-container {
+    display: none;
 }
 .user-info-container>span:nth-child(2n+1) {
     color:#808080;
@@ -20,10 +25,26 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    grid-template-columns: auto;
-    grid-row-gap: 20px;
+    grid-template-columns: minmax(min-content,800px);
+    grid-row-gap: 10px;
 }
 .user-build-lists {
     position: relative;
     box-shadow: -1px -1px 0 0 #564640;
+}
+.button-container {
+    display: grid;
+    padding: 20px 0 10px 0;
+    max-width: 100%;
+    width: 200px;
+    margin: -20px auto 0 auto;
+}
+.user-page .build-list-container #userSelect {
+    display: none;
+}
+.user-page .user-info-container a {    
+    color: #0096fb;
+}
+.user-page[data-isauthor='false'] .builds-liked-tab {
+    display: none;
 }

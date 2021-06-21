@@ -15,7 +15,7 @@
     grid-auto-rows: 1fr;
     padding: 0 !important;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 .search-wrapper > span {
     align-self: center;
@@ -24,6 +24,7 @@
     margin: 0;
     color: #c15b24;
     z-index: 1;
+    order: 2;
 }
 .build-options-container select {
     height: 50px;
@@ -45,6 +46,7 @@
 .optionListContainer {
   background: #000 !important;
   font-size: 1.3em;
+  top: 100%;
 }
 .optionContainer {
     border-radius: 0 !important;
@@ -55,7 +57,17 @@
 }
 .build-options-container select:hover, .multiselect-container:hover {
     box-shadow: inset 0px 0px 20px -5px #c4531b;
+    cursor: pointer;
 }
 .multiselect-container input {
-    font-size: 1.3em
+    font-size: 1.3em;
+    margin-top: 0;
+    order: 1;
+    color: #30e158 !important;
+}
+.multiselect-container input::placeholder {
+  color: #30e158 !important;
+}
+#sortBySelect .search-wrapper > span > i {
+  display: none;
 }

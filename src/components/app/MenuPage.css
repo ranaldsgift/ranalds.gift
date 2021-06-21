@@ -72,6 +72,7 @@
     display: none;
     top: 50px;
     position: relative;
+    padding-bottom: 20px;
   }
   #root.showNav .navigation-menu-page {
     display: block;
@@ -129,7 +130,8 @@
 .nagivation-menu-button, .nagivation-menu-overlay {
     position: fixed;
     height: 40px;
-    width: 140px;
+    width: 90px;
+    top: 0px;
     left: 20px;
     cursor: pointer;
 }
@@ -158,4 +160,12 @@
   font-size: 2em;
   font-family: monospace;
   cursor: pointer;
+}
+.close-menu-button {
+  background: url('../../assets/images/icons/close-icon.png') center / contain no-repeat;
+  width: 40px;
+  height: 40px;
+}
+.close-menu-button:hover {
+  background: url('../../assets/images/icons/close-icon-selected.png') center / contain no-repeat;
 }

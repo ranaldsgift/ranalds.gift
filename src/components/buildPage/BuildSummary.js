@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { AppContext } from '../../stores/Store';
 import './BuildSummary.css';
 import {heroesData} from '../../data/Heroes'
-import {weaponsData} from '../../data/Weapons'
 import WeaponIcon from '../inventory/WeaponIcon';
 import * as Constants from '../../data/Constants';
 import { DataHelper } from '../../utils/DataHelper';
@@ -12,9 +11,6 @@ class BuildSummary extends Component {
     static contextType = AppContext;
   render() {
     const [state] = this.context;
-
-    var hero = heroesData.find((hero) => { return parseInt(hero.id) === parseInt(state.careerId); });
-    hero = hero ? hero : heroesData[0];
     
     var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(state.careerId);
     var secondaryWeapons = DataHelper.getSecondaryWeaponsForCareer(state.careerId);
@@ -55,11 +51,6 @@ class BuildSummary extends Component {
     var necklaceTrait = DataHelper.getTraitFromCategory("necklace", state.traits[Constants.NECKLACE_TRAIT_INDEX]);
     var charmTrait = DataHelper.getTraitFromCategory("charm", state.traits[Constants.CHARM_TRAIT_INDEX]);
     var trinketTrait = DataHelper.getTraitFromCategory("trinket", state.traits[Constants.TRINKET_TRAIT_INDEX]);
-
-    var rangeType = "range";
-    if (state.careerId === 6 || state.careerId === 16) {
-        rangeType = "melee";
-    }
       
     return (
         <div className="build-summary-container divider-03 top">
@@ -68,7 +59,7 @@ class BuildSummary extends Component {
                     <p className="item-name">{primaryWeapon.name}</p>
                     <p className="item-trait-name">{primaryWeaponTrait.name}</p>
                 </div>
-                <WeaponIcon key={primaryWeapon.id} id={primaryWeapon.id} slot={"primary"}></WeaponIcon>
+                <WeaponIcon id={primaryWeapon.id} slot={"primary"}></WeaponIcon>
                 <TraitIcon id={primaryWeaponTrait.id} type={primaryWeapon.traitCategory}></TraitIcon>
                 <div className="property-container">
                     <li className="item-property-1">{`+ ${parseFloat(primaryWeaponProperty1.max_value).toFixed(1)}${meleeModifier1} ${primaryWeaponProperty1.name}`}</li>

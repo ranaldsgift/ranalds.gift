@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Route, Switch, useParams, useRouteMatch } from 'react-router';
+import { AppContext } from '../../stores/Store';
 import { UserViewContext } from '../../stores/UserViewStore';
 import { auth, db } from '../../utils/Firebase';
 import UserEditPage from './UserEditPage';
@@ -7,20 +8,16 @@ import UserPage from './UserPage';
 import './UserPage.css';
 
 function UserPageContainer() {
-  const [state, updateState] = useContext(UserViewContext);
+  const [state, updateState] = useContext(AppContext);
 
   const { path } = useRouteMatch();
   let params = useParams();
 
-  console.log('rendering user page for uid ' + params.userId);
-
   if (state.userId !== params.userId) {
-
-    console.log('updating user page container state');
+    
     var userId = params.userId;
 
     db.collection('users').doc(userId).get().then((doc) => {
-      //console.log("Document data:", doc.data());
 
       updateState({
         type: "UPDATE_USER_INFO", 
@@ -28,7 +25,9 @@ function UserPageContainer() {
           userId: userId,
           username: doc.data().username,
           steam: doc.data().steam,
+          discord: doc.data().discord,
           twitch: doc.data().twitch,
+          youtube: doc.data().youtube,
           dateCreated: doc.data().dateCreated,
           dateModified: doc.data().dateModified
         }
@@ -95,10 +94,8 @@ function UserPageContainer() {
         }        
       }
     }); */
+    return (<span>Loading content</span>);
   }
-
-    var root = document.getElementById('root');
-    root.dataset.pageName = 'userPage';
 
     //console.log('params uid: ' + state.userId);
 

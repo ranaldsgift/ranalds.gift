@@ -1,14 +1,13 @@
 import React, { useContext } from "react"
+import { Link } from "react-router-dom";
 import { AppContext } from "../../stores/Store";
-import { UserContext } from "../../stores/UserStore";
 import BuildCreationInfo from "./BuildCreationInfo";
 import BuildPatch from "./BuildPatch";
 import BuildRating from "./BuildRating";
 
 function BuildHeader(props) {
 
-    const [state, updateState] = useContext(AppContext);
-    const [userState, updateUserState] = useContext(UserContext);
+    const [state] = useContext(AppContext);
 
     return (<div className="build-header-details-container ">
                 <span className="build-header heading">{state.name}</span>
@@ -16,7 +15,8 @@ function BuildHeader(props) {
                 <div className="build-information-container">
                     <BuildCreationInfo userId={state.userId} username={state.username} dateModified={state.dateModified}></BuildCreationInfo>
                     <span className="text-divider-02"></span>
-                    <BuildPatch patchNumber={state.patch}></BuildPatch>                    
+                    <BuildPatch patchNumber={state.patch}></BuildPatch>    
+                    <Link to={`/build/${state.buildId}/edit`} className="edit-build-button button-02">edit</Link>
                 </div>
             </div>);
 }

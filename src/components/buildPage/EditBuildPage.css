@@ -84,14 +84,17 @@
     border-style: solid;
     box-shadow: -1px -1px 0 0 #564640;
     background: url('../../assets/images/backgrounds/background34.png');
+    grid-gap: 10px
   }
 .edit-build-page .build-details-container {
     display: grid;
-    grid-template-rows: 40px auto auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "heroDetails buildName" "heroDetails buildDescription" "buildInformation  buildInformation" "buildOptions buildOptions";
+    grid-template-rows: 40px auto;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+        "buildName buildName"
+        "heroDetails empty"
+        "buildDescription buildDescription";
     grid-row-gap: 20px;
-    grid-column-gap: 20px;
   }
   .edit-build-page .build-details-container .hero-details-container {
     grid-template-rows: 1fr;
@@ -133,13 +136,14 @@
 .build-summary-tab {
     display: grid;
     grid-template-rows: 1fr auto;
-    grid-template-areas: "buildDetails" "buildSummary";
+    grid-template-areas: "buildDetails" "buildOptions" "buildSummary";
     border-image: url('../../assets/images/borders/border-01.png');
     border-image-slice: 15;
     border-image-width: 15px;
     border-style: solid;
     background: linear-gradient(to left, #000000d4, #000000c9 20%, #2a2a2a1c), url('../../assets/images/backgrounds/background14.png');
     grid-row-gap: 20px;
+    padding-bottom: 20px;
 }
 
 .build-page[data-readonly='false'] .build-summary-tab {
@@ -149,10 +153,9 @@
     display: none;
 }
 .build-options-container {
-    grid-row-gap: 4px;
+    grid-gap: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
     justify-content: center;
     grid-area: buildOptions;
 }
@@ -192,8 +195,8 @@ ul[role='tablist'] li {
   height: 32px;
   display: grid;
   align-content: center;
-  bottom: 0;
   text-align: center;
+  border-width: 1px;
 }
 ul[role="tablist"] li[aria-selected="true"] {
   background: #000;
@@ -247,10 +250,8 @@ ul[role="tablist"] li[aria-selected="true"] {
 }
 .build-information-container {
   grid-area: buildInformation;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min-content;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
   grid-column-gap: 10px;
   background-color: #440c0c3b;
   position: relative;
@@ -340,7 +341,7 @@ input#search_input::placeholder {
   box-shadow: inset 0 0 75px black, inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important;
 }
 .build-page[data-dirty='false'] span#saveBuildButton:hover {
-  box-shadow: inset 0 0 75px black, inset 0 4px 1px white, inset 0 -7px 10px rgb(179 0 0) !important;
+  box-shadow: inset 0 0 75px black, inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important
 }
 .build-page[data-readonly='true'] .build-main-summary-container>* {
   margin: 0 20px;
@@ -351,4 +352,19 @@ input#search_input::placeholder {
 }
 .edit-build-page[data-readonly='true'] .build-information-container * {
   font-size: 1.2rem !important;
+}
+.build-details-container .quill {
+  grid-area: buildDescription;
+}
+.build-page[data-fresh='true'] .view-build-button {
+  display: none;
+}
+input.build-name-input {
+  text-transform: initial !important;
+}
+span.save-info {
+  text-align: center;
+}
+.build-page[data-valid='true'] .save-info {
+  display: none;
 }

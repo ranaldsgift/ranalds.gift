@@ -1,5 +1,3 @@
 import { createBrowserHistory } from 'history'
 
-export default createBrowserHistory({
-   basename: '/ranalds.gift' 
-})
+export default createBrowserHistory()

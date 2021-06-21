@@ -4,8 +4,6 @@ import './RegisterPage.css';
 
 class RegisterPage extends Component {
   render() {
-    var root = document.getElementById('root');
-    root.dataset.pageName = 'registerPage';
 
     return (
         <div className="register-page">

@@ -14,7 +14,7 @@ class Inventory extends Component {
     static contextType = AppContext;
   render() {
     const [state] = this.context;
-    var hero = heroesData.find((hero) => { return hero.id === parseInt(state.careerId); });
+    var hero = DataHelper.getCareer(state.careerId);
     hero = hero ? hero : heroesData[0];
 
     var primaryWeapons = DataHelper.getPrimaryWeaponsForCareer(hero.id);

@@ -51,29 +51,56 @@ p.skill-cooldown-label {
 .health-bar[data-value="180"] .stat-container {
     width: 100%;
 }
+.cooldown-bar[data-value="18"] .stat-container {
+    width: 16%;
+}
 .cooldown-bar[data-value="20"] .stat-container {
     width: 16%;
+}
+.cooldown-bar[data-value="27"] .stat-container {
+    width: 22.5%;
 }
 .cooldown-bar[data-value="30"] .stat-container {
     width: 25%;
 }
+.cooldown-bar[data-value="36"] .stat-container {
+    width: 30%;
+}
 .cooldown-bar[data-value="40"] .stat-container {
     width: 33%;
+}
+.cooldown-bar[data-value="45"] .stat-container {
+    width: 37.2%;
 }
 .cooldown-bar[data-value="50"] .stat-container {
     width: 42%;
 }
+.cooldown-bar[data-value="54"] .stat-container {
+    width: 45%;
+}
 .cooldown-bar[data-value="60"] .stat-container {
     width: 50%;
+}
+.cooldown-bar[data-value="63"] .stat-container {
+    width: 52.5%;
 }
 .cooldown-bar[data-value="70"] .stat-container {
     width: 58%;
 }
+.cooldown-bar[data-value="72"] .stat-container {
+    width: 60%;
+}
 .cooldown-bar[data-value="80"] .stat-container {
     width: 67%;
 }
+.cooldown-bar[data-value="81"] .stat-container {
+    width: 67.5%;
+}
 .cooldown-bar[data-value="90"] .stat-container {
     width: 75%;
+}
+.cooldown-bar[data-value="108"] .stat-container {
+    width: 90%;
 }
 .cooldown-bar[data-value="120"] .stat-container {
     width: 100%;

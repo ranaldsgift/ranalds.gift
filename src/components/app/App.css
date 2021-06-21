@@ -33,11 +33,15 @@ html, body, #root, .App {
     transform: rotate(360deg);
   }
 }
-
-.app-container {
-  filter: brightness(1.2);
+.app-container>* {
+  color: #d4d4d4;
 }
 .app-container-frame {
+    margin: 0 auto;
+    margin: 40px 20px 20px;
+    position: relative;
+}
+/* .app-container-frame {
   position: relative;
   top: 42px;
   width: calc(100% - 40px);
@@ -48,6 +52,11 @@ html, body, #root, .App {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 40px;
+} */
+.app-container {
+  padding: 40px;
+  box-shadow: -1px -1px 1px black;
+  border-radius: 8px;
 }
 .hidden {
     display: none !important;
@@ -75,7 +84,7 @@ p {
   width: 662px;
   height: 64px;
   position: absolute;
-  top: 5px;
+  top: 3px;
   z-index: 2;
   left: calc(50% - 331px);
 }
@@ -120,8 +129,8 @@ select::-ms-expand {
   text-align: center;
   font-family: caslon-antique;
   border-image: url('../../assets/images/borders/border-13.png');
-  border-image-width: 25px;
-  border-image-slice: 25;
+  border-image-width: auto;
+  border-image-slice: 21;
   outline: none;
   color: #30e158 !important;
   border-style: solid;
@@ -129,6 +138,8 @@ select::-ms-expand {
   padding: 5px;
   border-image-repeat: repeat;
   align-self: start;
+  min-height: 50px;
+  display: grid;
 }
 select {
   position: relative;
@@ -207,7 +218,11 @@ select option {
 }
 .divider-03.top {
   background-position: top;
-  padding-top: 40px;
+  padding-top: 48px;
+}
+.divider-03.bottom {
+  background-position: bottom;
+  padding-bottom: 48px;
 }
 .divider-06 {
   background: url('../../assets/images/dividers/divider-06.png') no-repeat center;
@@ -268,7 +283,57 @@ select option {
 }
 
 .button-02 {
-  background: url('../../assets/images/backgrounds/button-02.png') no-repeat center;
+  text-align: center;
+  position: relative;
+  max-width: 300px;
+  justify-self: center;
+  width: auto;
+  padding: 0 20px;
+  color: #928962 !important;
+  background: url('../../assets/images/labels/label-06.png') no-repeat center;
+  background-size: cover;
+  align-content: center;
+  display: grid;
+  text-transform: uppercase;
+  font-size: 120%;
+  box-shadow: inset 0 0 75px black, inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important;
+  text-decoration: none;
+  height: 36px;
+  margin: 5px;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  grid-template-rows: 1fr;
+  align-items: center;
+  border-image: url('../../assets/images/borders/border-04.png');
+  border-image-slice: 15;
+  border-image-width: 15px;
+  border-style: solid;
+  border-image-repeat: repeat;
+}
+
+.button-02::before {
+  background: url('../../assets/images/borders/border-23.png') no-repeat;
+  left: -12px;
+  content: '';
+}
+.button-02:hover {
+  box-shadow: inset 0 0 75px black, inset 0 -17px 30px rgb(179 0 0), inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important;
+  cursor: pointer;
+}
+.button-02::after {
+  background: url('../../assets/images/borders/border-23.png') no-repeat;
+  transform: scaleX(-1);
+  right: -12px;
+  content: '';
+}
+.button-02::before, .button-02::after {
+  position: absolute;
+  content: '';
+  height: calc(100% + 8px);
+  width: 100%;  
+  background-repeat: no-repeat; 
+  top: -4px;
 }
 
 .button-01 a {
@@ -287,6 +352,7 @@ select option {
   width: calc(100% - 50px);
   color: #928962;
   background: url('../../assets/images/labels/label-06.png') no-repeat center;
+  background-color: black;
   background-size: cover;
   align-content: center;
   display: grid;
@@ -294,7 +360,7 @@ select option {
   font-size: 120%;
   box-shadow: inset 0 0 75px black, inset 0 -5px 1px #3b3b3b, inset 0 5px 1px #979797 !important;
   text-decoration: none;
-  height: 53px;
+  height: 58px;
   margin: 5px;
   outline: none;
   cursor: pointer;
@@ -306,6 +372,7 @@ select option {
   border-image-width: 15px;
   border-style: solid;
   border-image-repeat: repeat;
+  box-sizing: border-box;
 }
 
 .button-01::before {
@@ -376,31 +443,15 @@ a {
 .top-shadow {
   box-shadow: 0 -1px 0 0 #564640;
 }
-/* .tab-button {
-  color: #928962;
-  align-content: center;
-  border-radius: 0;
-  border-image: url('../../assets/images/borders/border-01.png');
-  border-image-slice: 15;
-  border-image-width: 15px;
-  border-image-repeat: repeat;
-  border-style: solid;
-  box-shadow: inset 0 0 75px black, inset 0 4px 3px white, inset 0 -2px 3px white;
-  background: black;
-  padding: 10px;
-  height: 40px;
-  text-transform: uppercase;
-  font-family: 'Caslon-Antique';
-} */
 .tab-button:not(.disabled) {
   cursor: pointer;
 }
-.tab-button[data-selected='true']:not(.disabled), .tab-button:not(.disabled):hover {
+/* .tab-button[data-selected='true']:not(.disabled), .tab-button:not(.disabled):hover {
   background: #000;
   box-shadow: inset 0 9px 6px -8px white, inset 0 -9px 9px -12px white, inset 0 -9px 20px -6px #6a371d !important;
   color: #f0f0f0;
   background: black;
-}
+} */
 
 .tab-button.disabled {
   filter: grayscale(1);
@@ -419,6 +470,7 @@ div#root[data-page-name='buildsPage'] .page-title-label::after {
 }
 
 .tab-button {
+    border-width: 1px;
     border-radius: 0;
     border-image: url('../../assets/images/borders/border-01.png');
     border-image-slice: 15;
@@ -428,6 +480,10 @@ div#root[data-page-name='buildsPage'] .page-title-label::after {
     box-shadow: inset 0 9px 6px -6px white, inset 0 -9px 20px -6px #6a371d !important;
     color: #f0f0f0;
     background: black;
+    text-align: center;
+    align-items: center;
+    min-height: 33px;
+    display: grid;
 }
 .text-box {
   background: url('../../assets/images/backgrounds/background18.png');
@@ -457,4 +513,54 @@ div#root[data-page-name='buildsPage'] .page-title-label::after {
 }
 #root.showNav .main-logo {
   display: none;
+}
+
+  
+.container-tabs {
+  box-shadow: -1px -1px 0 0 #564640;
+}
+div:not(.react-tabs__tab-panel--selected)[role='tabpanel'] {
+display: none;
+}
+button {
+font-family: 'caslon-antique-bold';
+}
+.user-icon {
+  background: url('../../assets/images/icons/user-icon.png');
+  position: fixed;
+}
+
+#saveIndicator {
+  position: fixed;
+  top: 70px;
+  left: 50px;
+  opacity: 0;  
+  padding: 5px 10px;
+  color: #f0d9af;
+  z-index:100;
+}
+#saveIndicator.saved {
+  animation: fade 4s linear;
+}
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  7%,60% { opacity: 1 }
+}
+.hero-page, .build-page {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+a {
+  color: #0096fb;
+}
+.discord-button {
+  top: 10px;
+  height: 48px;
+  width: 48px;
+  background: url('../../assets/images/icons/discord.png') center / contain no-repeat;
+  display: grid;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }

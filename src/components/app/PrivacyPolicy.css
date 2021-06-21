@@ -1,0 +1,18 @@
+.privacy-policy-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-width: 5px;
+}
+.privacy-policy-container {
+    display: grid;
+    backdrop-filter: blur(10px);
+    background: #ffffff00;
+    padding: 20px;
+}
+.privacy-policy-page p {
+    font-size: 1.2rem;
+}
+.privacy-policy-page h1, .privacy-policy-page h2 {
+    color: #30e158;
+}

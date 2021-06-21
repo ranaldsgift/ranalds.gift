@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { AppContext } from '../../stores/Store';
-import { Multiselect } from 'multiselect-react-dropdown';
 import './BuildOptions.css';
 import DifficultySelect from '../select/DifficultySelect';
 import MissionSelect from '../select/MissionSelect';
 import PotionSelect from '../select/PotionSelect';
 import RoleSelect from '../select/RoleSelect';
 import BookSelect from '../select/BookSelect';
+import TwitchSelect from '../select/TwitchSelect';
 
 class BuildOptions extends Component {
     static contextType = AppContext;
@@ -21,6 +21,9 @@ class BuildOptions extends Component {
     }
     
   render() {
+    if (this.shouldHideContainer()) {
+      return null;
+    }
     return (
       <div className="build-options-container divider-03 top">
         {this.renderOptions()}
@@ -37,37 +40,61 @@ class BuildOptions extends Component {
         var selectedMissions = state.mission ? [state.mission] : [];
         var selectedPotions = state.potion ? [state.potion] : [];
         var selectedBooks = state.book ? [state.book] : [];
+        var selectedTwitchMode = state.twitchMode ? [state.twitchMode] : [];
         
         if (this.props.hideEmpty) {
           if (selectedDifficulties.length > 0) {
-            optionsHtml.push(<DifficultySelect selectedValues={selectedDifficulties}></DifficultySelect>);
+            optionsHtml.push(<DifficultySelect key='difficulty' selectedValues={selectedDifficulties}></DifficultySelect>);
+          }
+
+          if (selectedTwitchMode.length > 0) {
+            optionsHtml.push(<TwitchSelect key='twitchMode' selectedValues={selectedTwitchMode}></TwitchSelect>);
           }
 
           if (selectedMissions.length > 0) {
-            optionsHtml.push(<MissionSelect selectedValues={selectedMissions}></MissionSelect>);
+            optionsHtml.push(<MissionSelect key='mission' selectedValues={selectedMissions}></MissionSelect>);
           }
 
           if (selectedPotions.length > 0) {
-            optionsHtml.push(<PotionSelect selectedValues={selectedPotions}></PotionSelect>);
+            optionsHtml.push(<PotionSelect key='potion' selectedValues={selectedPotions}></PotionSelect>);
           }
 
           if (selectedBooks.length > 0) {
-            optionsHtml.push(<BookSelect selectedValues={selectedBooks}></BookSelect>);
+            optionsHtml.push(<BookSelect key='books' selectedValues={selectedBooks}></BookSelect>);
           }
 
           if (state.roles.length > 0) {
-            optionsHtml.push(<RoleSelect selectedValues={state.roles}></RoleSelect>);
+            optionsHtml.push(<RoleSelect key='roles' selectedValues={state.roles}></RoleSelect>);
           }
         }
         else {
-          optionsHtml.push(<DifficultySelect selectedValues={selectedDifficulties}></DifficultySelect>);
-          optionsHtml.push(<MissionSelect selectedValues={selectedMissions}></MissionSelect>);
-          optionsHtml.push(<PotionSelect selectedValues={selectedPotions}></PotionSelect>);
-          optionsHtml.push(<BookSelect selectedValues={selectedBooks}></BookSelect>);
-          optionsHtml.push(<RoleSelect selectedValues={state.roles}></RoleSelect>);
+          optionsHtml.push(<DifficultySelect key='difficulty' selectedValues={selectedDifficulties}></DifficultySelect>);
+          optionsHtml.push(<TwitchSelect key='twitchMode' selectedValues={selectedTwitchMode}></TwitchSelect>);
+          optionsHtml.push(<MissionSelect key='mission' selectedValues={selectedMissions}></MissionSelect>);
+          optionsHtml.push(<PotionSelect key='potion' selectedValues={selectedPotions}></PotionSelect>);
+          optionsHtml.push(<BookSelect key='book' selectedValues={selectedBooks}></BookSelect>);
+          optionsHtml.push(<RoleSelect key='roles' selectedValues={state.roles}></RoleSelect>);
         }
 
-        return optionsHtml;
+        return optionsHtml.length > 0 ? optionsHtml : null;
+      }
+
+      shouldHideContainer() {
+        const [state] = this.context;
+
+        var selectedDifficulties = state.difficulty ? [state.difficulty] : [];
+        var selectedMissions = state.mission ? [state.mission] : [];
+        var selectedPotions = state.potion ? [state.potion] : [];
+        var selectedBooks = state.book ? [state.book] : [];
+        var selectedTwitchMode = state.twitchMode ? [state.twitchMode] : [];
+        
+        return this.props.hideEmpty && 
+        selectedDifficulties.length === 0 && 
+        selectedMissions.length === 0 && 
+        selectedPotions.length === 0 && 
+        selectedBooks.length === 0 &&
+        selectedTwitchMode.length === 0 &&
+        state.roles.length === 0;
       }
 
       getDifficultyOptions() {

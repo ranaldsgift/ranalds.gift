@@ -15,7 +15,6 @@ import "react-tabs/style/react-tabs.css";
 import HeroPageStore from '../../stores/HeroPageStore';
 import BuildPageStore from '../../stores/BuildPageStore';
 import LoginPage from '../users/LoginPage';
-import RegisterPage from '../users/RegisterPage';
 import MenuPage from './MenuPage';
 import HomePage from './HomePage';
 import history from '../../utils/History';
@@ -26,9 +25,8 @@ import UserPageContainer from '../users/UserPageContainer';
 import UserViewStore from '../../stores/UserViewStore';
 import ViewBuildPage from '../buildPage/ViewBuildPage';
 import BuildListPageStore from '../../stores/BuildListPageStore';
-import BuildsList from '../buildList/BuildsList';
-import { DataHelper } from '../../utils/DataHelper';
 import '../../assets/css/Layouts.css';
+import PrivacyPolicy from './PrivacyPolicy';
 
 class App extends Component {
   static contextType = UserContext;
@@ -36,21 +34,15 @@ class App extends Component {
   render() {  
     const [state, updateState] = this.context;
 
-    //DataHelper.getBuildStats();
-
     auth.onAuthStateChanged((user) => {
-      console.log('auth state changed');
 
       var root = document.getElementById('root');
       if (user !== null) {
-        console.log('user logged in');
         root.classList.add('loggedIn');
         
         if (state.userId !== user.uid) {
 
           db.collection('users').doc(user.uid).get().then((doc) => {
-
-            console.log('setting state to current user ' + user.uid);
 
              updateState({
               type: "UPDATE_USER_INFO", 
@@ -70,14 +62,10 @@ class App extends Component {
           });
 
         }
-
-        if (root.dataset.pageName === 'loginPage' || root.dataset.pageName === 'registerPage') {
-          setTimeout(() => { history.push('/user/' + user.uid + '/view'); }, 1000)
-        }
       }
       else {
         root.classList.remove('loggedIn');
-        console.log('removing state to current user ');
+        
         if (state.userId !== '') {
           updateState({
             type: "UPDATE_USER_INFO", 
@@ -114,20 +102,21 @@ class App extends Component {
 
     return (
       <Router history={history}>
-      <div className="App" id="app">
+      <div className="App" id="app" data-auth={auth.currentUser ? true : false}>
         <MenuPage userId={state.userId}></MenuPage>
         <Background></Background>
         <div className="page-title page-title-label label-01"></div>
         <div className="page-title page-title-label-background"></div>
-        <div className="app-container-frame border-06 background7">
-          <div className="app-container">
-            <Route path="/home" component={HomePage}></Route>
+        <div className="app-container-frame">
+          <div className="app-container border-06 background7">
+            <Route exact path="/home" component={HomePage}></Route>
             <Route path="/about" component={AboutPage}></Route>
+            <Route path="/privacy" component={PrivacyPolicy}></Route>
             <HeroPageStore>
-              <Route path="/heroes/:careerId?/:talents?/:melee?/:range?/:necklace?/:charm?/:trinket?" component={HeroPage}></Route>
+              <Route path="/heroes/:careerId?/:talents?/:primary?/:secondary?/:necklace?/:charm?/:trinket?" component={HeroPage}></Route>
             </HeroPageStore>
             <BuildListPageStore>
-              <Route path="/builds" component={BuildsList}></Route>
+              <Route path="/builds" component={BuildListPage}></Route>
             </BuildListPageStore>
             <BuildPageStore>
               <Route path="/build/:buildId/edit" component={EditBuildPage}></Route>
@@ -136,14 +125,15 @@ class App extends Component {
               <Route path="/build/:buildId/view" component={ViewBuildPage}></Route>
             </BuildPageStore>
             <BuildPageStore>
-              <Route path="/build/create" component={EditBuildPage}></Route>
+              <Route path="/build/create/:careerId?/:talents?/:primary?/:secondary?/:necklace?/:charm?/:trinket?" component={EditBuildPage}></Route>
             </BuildPageStore>
               <Route path="/login" component={LoginPage}></Route>
-              <Route path="/register" component={RegisterPage}></Route>
+              <Route path="/register" component={LoginPage}></Route>
               <UserViewStore>
                 <Route path="/user/:userId" component={UserPageContainer}></Route>
               </UserViewStore>
             <Route exact path="/" component={HomePage}></Route>
+            <Route exact path="/support" render={() => { window.location.href = 'https://www.paypal.com/donate/?hosted_button_id=C4GWNTDGWWC3N'; }}></Route>
           </div>
         </div>
       </div>

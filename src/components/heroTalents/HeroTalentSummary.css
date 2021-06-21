@@ -1,0 +1,51 @@
+.view-build-page .hero-summary-container {
+    grid-template-areas:
+        "heroPortrait heroName heroTalentsSummary"
+        "heroPortrait heroAttributes heroTalentsSummary";
+    grid-template-columns: 145px 1fr auto;
+}
+.hero-page .hero-talent-summary, .edit-build-page .hero-talent-summary {
+    display: none;    
+}
+.hero-talent-summary {
+    grid-area: heroTalentsSummary;
+    grid-template-columns: repeat(3, 30px);
+    grid-template-rows: repeat(6, 30px);
+    display: grid;
+}
+
+.hero-talent-summary .talent-icon {
+    filter: grayscale(1);
+    border-image: url('../../assets/images/borders/border-04.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    border-image-repeat: repeat;
+    background-size: contain !important
+}
+
+.hero-talent-summary[data-talent1='1'] .talent-icon[data-tier='1'][data-talent='1'],
+.hero-talent-summary[data-talent1='2'] .talent-icon[data-tier='1'][data-talent='2'],
+.hero-talent-summary[data-talent1='3'] .talent-icon[data-tier='1'][data-talent='3'],
+.hero-talent-summary[data-talent2='1'] .talent-icon[data-tier='2'][data-talent='1'],
+.hero-talent-summary[data-talent2='2'] .talent-icon[data-tier='2'][data-talent='2'],
+.hero-talent-summary[data-talent2='3'] .talent-icon[data-tier='2'][data-talent='3'],
+.hero-talent-summary[data-talent3='1'] .talent-icon[data-tier='3'][data-talent='1'],
+.hero-talent-summary[data-talent3='2'] .talent-icon[data-tier='3'][data-talent='2'],
+.hero-talent-summary[data-talent3='3'] .talent-icon[data-tier='3'][data-talent='3'],
+.hero-talent-summary[data-talent4='1'] .talent-icon[data-tier='4'][data-talent='1'],
+.hero-talent-summary[data-talent4='2'] .talent-icon[data-tier='4'][data-talent='2'],
+.hero-talent-summary[data-talent4='3'] .talent-icon[data-tier='4'][data-talent='3'],
+.hero-talent-summary[data-talent5='1'] .talent-icon[data-tier='5'][data-talent='1'],
+.hero-talent-summary[data-talent5='2'] .talent-icon[data-tier='5'][data-talent='2'],
+.hero-talent-summary[data-talent5='3'] .talent-icon[data-tier='5'][data-talent='3'],
+.hero-talent-summary[data-talent6='1'] .talent-icon[data-tier='6'][data-talent='1'],
+.hero-talent-summary[data-talent6='2'] .talent-icon[data-tier='6'][data-talent='2'],
+.hero-talent-summary[data-talent6='3'] .talent-icon[data-tier='6'][data-talent='3'] {
+    filter: grayscale(0);
+    border-image: url('../../assets/images/borders/border-16.png');
+    border-image-slice: 15;
+    border-image-width: 15px;
+    border-style: solid;
+    border-image-repeat: repeat;
+}

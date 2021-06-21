@@ -64,7 +64,7 @@ class InventoryItemDisplay extends Component
       propertyData2.splice(property1Index, 1);
 
       return (
-          <div className="inventory-item-display-container">
+          <div className="inventory-item-display-container" data-id={item.id}>
               <p className="inventory-item-header">{item.name}</p>
               <div className="inventory-item-summary-container">
                   <p className="item-power-level">300</p>

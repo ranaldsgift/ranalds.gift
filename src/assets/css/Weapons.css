@@ -29,6 +29,9 @@
   border-style: solid;
   border-image-repeat: repeat;
 }
+.weapon-icon:hover {
+  cursor: pointer;
+}
 .bw_1h_mace, .weapon-icon[data-id='1'] {
   background: url('../../assets/images/weapons/bw_1h_mace.png' ) center / calc(100% + 8px), url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
 }

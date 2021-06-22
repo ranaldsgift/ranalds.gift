@@ -27,7 +27,7 @@ function EditBuildPage(props) {
         }
         
 
-        if (typeof props.match.params.careerId != "undefined" && parseInt(props.match.params.careerId) !== state.careerId) {
+        if (typeof props.match.params.careerId != "undefined" && !state.isLoadedFromParams) {
             updateState({
                 type: "INIT_STATE_FROM_URL", 
                 payload: { 

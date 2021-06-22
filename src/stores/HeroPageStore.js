@@ -138,7 +138,8 @@ function heroPageReducer(state, action) {
                         secondaryWeaponId: secondary.id,
                         talents: talents,
                         properties: properties,
-                        traits: traits
+                        traits: traits,
+                        isLoadedFromParams: true
                     };
         case 'INIT_STATE_FROM_OLD_URL':
 
@@ -250,7 +251,8 @@ function heroPageReducer(state, action) {
                         secondaryWeaponId: secondary.id,
                         talents: talents,
                         properties: properties,
-                        traits: traits
+                        traits: traits,
+                        isLoadedFromParams: true
                     };
         case 'UPDATE_CAREER':
             careerId = parseInt(action.payload);
@@ -334,6 +336,7 @@ export default withRouter(function HeroPageStore(props) {
         properties: [1,2,1,2,1,2,1,2,2,3],
         propertyValues: [0,0,0,0,0,0,0,0,0,0],
         traits: [1,1,1,1,1],
+        isLoadedFromParams: false,
         melee: {
             id: 1,
             property1Id: 1,

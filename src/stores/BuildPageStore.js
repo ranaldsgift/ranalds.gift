@@ -139,7 +139,8 @@ function buildPageReducer(state, action) {
                         secondaryWeaponId: secondary.id,
                         talents: talents,
                         properties: properties,
-                        traits: traits
+                        traits: traits,
+                        isLoadedFromParams: true
                     };
         case 'INIT_STATE_FROM_DATA':
             var build = action.payload.data();
@@ -366,6 +367,7 @@ export default function BuildPageStore(props) {
         dirty: false,
         readonly: true,
         isLoadingData: false,
+        isLoadedFromParams: false,
         similarBuilds: [],
         similarBuildsLastDocument: {},
         similarBuildsCurrentPage: 0,

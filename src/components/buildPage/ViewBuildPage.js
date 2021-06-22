@@ -74,13 +74,14 @@ function ViewBuildPage() {
 
         let isAuthor = state.userId === userState.userId;
         let isLiked = userState.likedBuilds ? userState.likedBuilds.includes(state.buildId) : false;
+        var career = DataHelper.getCareer(state.careerId);
 
         return (
             <div className="view-build-page build-page" data-author={isAuthor} data-liked={isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
                 <span id="buildSaveIndicator" className="border-03 background-18">Build saved...</span>
                 <div className="build-left-container top-left-shadow">         
                 
-                <BuildsList name={`Similar Builds`}
+                <BuildsList name={`More ${career.name} Builds`}
                         careerId={state.careerId}
                         hideFilters={true}
                         hidePages={true}

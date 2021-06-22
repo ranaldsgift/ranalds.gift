@@ -18,13 +18,6 @@ import { BuildBusiness } from '../../business/BuildBusiness';
 function EditBuildPage(props) {
 
         const [state, updateState] = useContext(AppContext);
-        const userState = useContext(UserContext);
-
-        const { path } = useRouteMatch();
-        var paths = path.split('/');
-
-        var currentPath = paths[paths.length-1];
-        console.log('current path ' + currentPath);
 
         if (state.readonly) {
             updateState({

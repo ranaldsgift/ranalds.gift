@@ -2,6 +2,7 @@ import React, {Component, useContext} from 'react';
 import './HeroSelect.css';
 import { AppContext } from '../../stores/Store';
 import {heroesData} from '../../data/Heroes'
+import { DataHelper } from '../../utils/DataHelper';
 
 class HeroSelect extends Component {
   constructor(props) {
@@ -9,8 +10,10 @@ class HeroSelect extends Component {
     this.renderHeroes = this.renderHeroes.bind(this);
     this.updateHeroSelect = this.updateHeroSelect.bind(this);
 
+    var career = DataHelper.getCareer(props.careerId);
+
     this.state = {
-      heroId: 1,
+      heroId: career ? career.heroId : 1,
       hideHeroSelect: false
     }
   }
@@ -18,17 +21,18 @@ class HeroSelect extends Component {
   static contextType = AppContext;
 
   render() {
+    var heroId = parseInt(this.state.heroId);
     return (
-      <div className="hero-select-container" data-hero={this.state.heroId} data-collapsed={this.state.hideHeroSelect}>
+      <div className="hero-select-container" data-hero={heroId} data-collapsed={this.state.hideHeroSelect}>
         <span className="hero-select-header border-01 tab-button" title="Show/Hide Hero Selection" onClick={this.toggleHeroSelect.bind(this)}>
             Hero Selection
         </span>
         <div className="hero-character-icons border-01 background-34 left-shadow">
-          <div className="kruber-character-icon character-icon" data-hero={1} data-selected={this.state.heroId === 1} onClick={this.updateCharacterSelect.bind(this)}></div>
-          <div className="bardin-character-icon character-icon" data-hero={2} data-selected={this.state.heroId === 2} onClick={this.updateCharacterSelect.bind(this)}></div>
-          <div className="kerillian-character-icon character-icon" data-hero={3} data-selected={this.state.heroId === 3} onClick={this.updateCharacterSelect.bind(this)}></div>
-          <div className="saltzpyre-character-icon character-icon" data-hero={4} data-selected={this.state.heroId === 4} onClick={this.updateCharacterSelect.bind(this)}></div>
-          <div className="sienna-character-icon character-icon" data-hero={5} data-selected={this.state.heroId === 5} onClick={this.updateCharacterSelect.bind(this)}></div>
+          <div className="kruber-character-icon character-icon" data-hero={1} data-selected={heroId === 1} onClick={this.updateCharacterSelect.bind(this)}></div>
+          <div className="bardin-character-icon character-icon" data-hero={2} data-selected={heroId === 2} onClick={this.updateCharacterSelect.bind(this)}></div>
+          <div className="kerillian-character-icon character-icon" data-hero={3} data-selected={heroId === 3} onClick={this.updateCharacterSelect.bind(this)}></div>
+          <div className="saltzpyre-character-icon character-icon" data-hero={4} data-selected={heroId === 4} onClick={this.updateCharacterSelect.bind(this)}></div>
+          <div className="sienna-character-icon character-icon" data-hero={5} data-selected={heroId === 5} onClick={this.updateCharacterSelect.bind(this)}></div>
         </div>
         <div className="hero-icon-wrapper background-12 border-01">
           <div className="hero-icon-container">

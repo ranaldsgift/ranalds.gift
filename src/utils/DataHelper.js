@@ -31,6 +31,11 @@ export class DataHelper {
         career = heroesData.find((career) => { return career.codeName === careerMap.codeName })
       }
 
+      if (!career) {
+        career = heroesData[0];
+        careerId = 1
+      }
+
       career.id = careerId;
       return career;
     }

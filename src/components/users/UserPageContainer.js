@@ -51,7 +51,6 @@ function UserPageContainer() {
       });
 
       if (auth.currentUser && auth.currentUser.uid === userId) {
-        console.log('Authed user is user page user');
         // Load additional build list for liked builds
 
         db.collection('builds').where("likes", "array-contains", userId).where('isDeleted', '==', false).orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
@@ -73,28 +72,7 @@ function UserPageContainer() {
       }
     });
 
-/*     auth.onAuthStateChanged((user) => {
-      if (user !== null) {        
-        console.log('Authed user detected, getting liked builds');
-
-        if (user.uid === state.userId) {
-          console.log('Authed user is user page user');
-
-          db.collection('builds').where("likes", "array-contains", userId).get().then((querySnapshot) => {
-            var likedBuilds = [];
-            querySnapshot.forEach((build) => {
-              likedBuilds.push({ id: build.id, data: build.data()});
-            });
-  
-            updateState({
-              type: "UPDATE_LIKED_BUILDS", 
-              payload: likedBuilds
-            }); 
-          });
-        }        
-      }
-    }); */
-    return (<span>Loading content</span>);
+    return (<span>Loading content...</span>);
   }
 
     //console.log('params uid: ' + state.userId);

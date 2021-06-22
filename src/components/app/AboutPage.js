@@ -68,7 +68,11 @@ class AboutPage extends Component {
           </div>
           <div className="supporters-container divider-03 top">
             <h2 className="header-underline">List of Supporters</h2>
-            <p><a href="https://www.ranalds.gift/user/J5DUTj98hhMy13zmAc0AuPDJgaw2/view">Royale w/ Cheese</a></p>
+            <span><a href="https://www.ranalds.gift/user/J5DUTj98hhMy13zmAc0AuPDJgaw2/view">Royale w/ Cheese</a></span>
+            <span><a href="https://www.ranalds.gift/user/ppXwQUdKLhbLZFzWfTyGdXl4z8f2/view">Esawo</a></span>
+            <span><a href="https://www.ranalds.gift/user/zRPkXwvmgoZk0yWaYq6HAZi5s3L2/view">Exan</a></span>
+            <span><a href="https://www.ranalds.gift/user/vE0SE9erLqYle0upDoVuymIDiIu2/view">ScareCrowClock</a></span>
+            <span><a href="https://www.ranalds.gift/user/78T7T1URr5OzVJrUdSLBt2EWCek1/view">«§ëvënPrøxy»</a></span>
           </div>
           <div className="privacy-container">
             <h2 className="header-underline">Privacy Policy</h2>

@@ -55,7 +55,7 @@ export class UserBusiness {
                     dateModified: dateCreated
                 });
 
-                usernames.push({id: userCredential.user.uid, username: username});
+                usernames.push({id: userCredential.user.uid, username: username, isBuildAuthor: false});
 
                 transaction.update(userStatsRef, {
                     usernames: usernames,
@@ -126,7 +126,7 @@ export class UserBusiness {
                     user.username = username;
                 }
                 else {
-                    usernames.push({id: userId, username: username});
+                    usernames.push({id: userId, username: username, isBuildAuthor: false});
     
                     transaction.update(userStatsRef, {
                         count: firebase.firestore.FieldValue.increment(1)

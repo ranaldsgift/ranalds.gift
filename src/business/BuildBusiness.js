@@ -19,10 +19,13 @@ export class BuildBusiness {
         let buildStatsRef = db.collection('stats').doc('builds');
         let newBuildDoc = db.collection('builds').doc();
         let userDocRef = db.collection('users').doc(auth.currentUser.uid);
+        let userStatsRef = db.collection('stats').doc('users');
     
         db.runTransaction(async (transaction) => {
             var buildStats = await transaction.get(buildStatsRef);
             var userDoc = await transaction.get(userDocRef);
+
+            var userStats = await transaction.get(userStatsRef);
             
                 if (!buildStats) {
                     console.log('No stats document found');
@@ -137,10 +140,26 @@ export class BuildBusiness {
                     isDeleted: false
                 });
 
+                // Flag user as build author for build filters
+                if (userDoc.data().authoredBuildsCount === 0) {        
+                    var usernames = userStats.data().usernames;
+                    var user = usernames.find((user) => { return user.id === auth.currentUser.uid; });
+
+                    if (user) {
+                        user.isBuildAuthor = true;
+                    }
+
+                    transaction.update(userStatsRef, {
+                        usernames: usernames
+                    });
+                }
+
                 transaction.update(userDocRef, {
-                    authoredBuildsCount: firebase.firestore.FieldValue.increment(1),
-                    authoredBuilds: userDoc.authoredBuilds ? userDoc.authoredBuilds.push(newBuildDoc.id) : [newBuildDoc.id]
+                    authoredBuildsCount: firebase.firestore.FieldValue.increment(1)
                 });
+
+
+
         }).then(() => {
             console.log('Successfully created new build and updated stats');
             history.push(`/build/${newBuildDoc.id}/edit`)

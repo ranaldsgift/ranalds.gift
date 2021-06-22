@@ -18,6 +18,7 @@ import React from 'react';
 import { db } from './Firebase'
 
 let users = null;
+let userBuildAuthors = null;
 
 export class DataHelper {
     static getCareers = () => {
@@ -171,6 +172,19 @@ export class DataHelper {
         });
       }
       return users;
+    }
+
+    static async getUserBuildAuthors() {
+      if (!userBuildAuthors) {
+        return await db.collection('stats').doc('users').get().then((usersDoc) => {
+          if (!usersDoc) {
+            return [];
+          }
+          userBuildAuthors = usersDoc.data().usernames.filter((user) => { return user.isBuildAuthor; }); 
+          return userBuildAuthors;
+        });
+      }
+      return userBuildAuthors;
     }
 
     static renderListOptions = (data) => {

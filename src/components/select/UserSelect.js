@@ -15,7 +15,7 @@ class UserSelect extends Component {
 
   async getUsers() {
     if (this.state.users.length === 0) {
-      var users = await DataHelper.getUsers();
+      var users = await DataHelper.getUserBuildAuthors();
       this.setState({users: users});
       return users;
     }

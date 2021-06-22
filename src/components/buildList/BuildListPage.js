@@ -13,7 +13,8 @@ class BuildListPage extends Component {
 
     return (
         <div className="build-list-page top-left-shadow">
-          <BuildsList sortBy={state.sortBy} 
+          <BuildsList name="Latest Builds"
+                      sortBy={state.sortBy} 
                       careerId={state.careerId}
                       user={state.user}
                       difficulty={state.difficulty}

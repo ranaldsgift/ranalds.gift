@@ -61,7 +61,7 @@ class BuildsList extends Component {
     alert(!this.areBuildFiltersChanged(prevProps, this.props)); */
       if (this.arePropsChanged(prevProps, this.props)) {
         this.setState({
-          name: this.props.name ? this.props.name : null,
+          name: this.props.name ? this.props.name : "Latest Builds",
           user: this.props.user ? this.props.user : 0,
           careerId: this.props.careerId ? this.props.careerId : 0,
           difficulty: this.props.difficulty ? this.props.difficulty : null,

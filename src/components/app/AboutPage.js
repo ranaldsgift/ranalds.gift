@@ -56,6 +56,10 @@ class AboutPage extends Component {
               <p>Roles could have custom UI elements for their builds</p>
               <li>Add a global search for the entire website</li>
               <p>Once other features are implemented, allow users to search for careers, enemies, weapons, etc. from a persistent search box in the header</p>
+              <li>Add a page for FightTheTide</li>
+              <p>Show the Vermintide 2 community event schedule</p>
+              <p>Show history of Vermintide community events</p>
+              <p>Show scores from Vermintide community tournaments</p>
               <li>Pipe Dreams</li>
               <p>Create a mod that allows users to load builds from ranalds.gift directly into their Vermintide 2 game</p>
               <li>Dedicated Servers</li>

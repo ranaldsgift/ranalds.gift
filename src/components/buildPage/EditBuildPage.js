@@ -199,7 +199,7 @@ function EditBuildPage(props) {
                             <div className="build-details-container">
                                 <HeroDetails careerId={state.careerId}></HeroDetails>
                                 <input type="text" className="build-name-input border-02 background-18" placeholder="Name your build" value={state.name} onChange={handleNameChange.bind(this)}></input>
-                                <Editor placeholder="Describe or write a guide for your build" html={state.description} handleChange={handleDescriptionChanged.bind(this)}></Editor>
+                                <Editor placeholder="Describe or write a guide for your build (optional)" html={state.description} handleChange={handleDescriptionChanged.bind(this)}></Editor>
                             </div>
                             <BuildOptions></BuildOptions>
                             <BuildSummary></BuildSummary>

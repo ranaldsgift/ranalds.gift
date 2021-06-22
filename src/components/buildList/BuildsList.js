@@ -56,8 +56,9 @@ class BuildsList extends Component {
   }
   
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-
+    //alert('update');
+/*     alert(this.props.careerId);
+    alert(!this.areBuildFiltersChanged(prevProps, this.props)); */
       if (this.arePropsChanged(prevProps, this.props)) {
         this.setState({
           name: this.props.name ? this.props.name : null,
@@ -137,6 +138,10 @@ class BuildsList extends Component {
       return true;
     }
 
+    if (prevProps.exclude !== newProps.exclude) {
+      return true;
+    }
+
     return false;
   }
 
@@ -161,7 +166,7 @@ class BuildsList extends Component {
   }
 
   render() {
-    if (!this.state.isDataLoaded) {
+    if (!this.state.isDataLoaded && !this.state.isLoadingData) {
       this.loadBuildList();
     }
 
@@ -266,6 +271,8 @@ class BuildsList extends Component {
   }
 
   loadBuildList() {
+    this.setState({isLoadingData: true});
+
     let buildsQuery = this.getOrderedBuildsQuery();
 
     buildsQuery = buildsQuery.limit(this.state.pageLimit + 1);
@@ -384,6 +391,7 @@ class BuildsList extends Component {
     let filters = [];
 
     if (this.state.careerId > 0) {
+      //alert('filter ' + this.state.careerId);
       filters.push({ field: 'careerId', comparison: '==', value: this.state.careerId });
     }
 
@@ -445,6 +453,7 @@ class BuildsList extends Component {
   }
 
   updateHeroSelect(e) {
+    alert('test')
     var careerId = parseInt(e.target.dataset.career);
     if (e.target.classList.contains('selected')) {
       this.setState({ careerId: 0, isDataLoaded: false });
@@ -493,9 +502,7 @@ class BuildsList extends Component {
 
     var buildsHtml = [];
     builds.forEach((build) => {
-      if (!this.state.exclude || this.state.exclude !== build.id) {
         buildsHtml.push(<BuildListItem key={build.id} buildId={build.id} buildData={build.data}></BuildListItem>);
-      }
     });
 
     if (buildsHtml.length === 0) {      

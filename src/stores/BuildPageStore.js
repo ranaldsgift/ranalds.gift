@@ -11,11 +11,11 @@ export {BuildPageContext}
 function buildPageReducer(state, action) {
     var newProperties = {...state.properties};
     var newTraits = {...state.traits};
-    var careerId = action.payload.careerId ? action.payload.careerId : 1;
-    careerId = parseInt(careerId);
 
     switch(action.type) {
         case 'INIT_STATE_FROM_URL':
+            var careerId = action.payload ? action.payload.careerId ? action.payload.careerId : 1 : 1;
+            careerId = parseInt(careerId);
             var meleeParam = action.payload.primary;
             var talentsParam = action.payload.talents;
             var rangeParam = action.payload.secondary;

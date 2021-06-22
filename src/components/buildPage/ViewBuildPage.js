@@ -31,6 +31,7 @@ function ViewBuildPage() {
 
         if (params.buildId && state.buildId !== params.buildId) {
             loadBuild(params.buildId);
+            return (<span>Loading build...</span>);
         }
 
         var career = DataHelper.getCareer(state.careerId);
@@ -38,9 +39,6 @@ function ViewBuildPage() {
 
         function loadBuild(buildId) {
             console.log('Loading build ID ' + buildId);
-            if (state.buildId !== buildId) {
-                state.buildId = buildId;
-            }
 
             db.collection('builds').doc(buildId).get().then((build) => {
                 if (!build.data()) {
@@ -86,14 +84,14 @@ function ViewBuildPage() {
                         careerId={state.careerId}
                         hideFilters={true}
                         hidePages={true}
-                        pageLimit={2}
+                        pageLimit={4}
                         exclude={state.buildId}></BuildsList>   
-                <BuildsList name={`${state.username}'s Builds`} 
+{/*                 <BuildsList name={`${state.username}'s Builds`} 
                         user={{id: state.userId, username: state.username}}
                         hideFilters={true}
                         hidePages={true}
                         pageLimit={2}
-                        exclude={state.buildId}></BuildsList>
+                        exclude={state.buildId}></BuildsList> */}
                 </div>
                 <div className="build-main-container">
                     <Tabs>

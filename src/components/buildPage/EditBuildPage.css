@@ -368,3 +368,13 @@ span.save-info {
 .build-page[data-valid='true'] .save-info {
   display: none;
 }
+.build-page[data-readonly='false'] .build-options-container {
+  position: relative;
+  padding-top: 60px !important;
+}
+.build-page[data-readonly='false'] .build-options-container:before {
+  content: 'These tags are all optional.';
+  position: absolute;
+  top: 33px;
+  left: calc(50% - 72px);
+}

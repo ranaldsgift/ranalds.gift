@@ -181,8 +181,8 @@
     }
     .page-title-label {
         background: url('../../assets/images/labels/header-03.png') center / auto no-repeat;
-        width: 100vw !important;
-        left: 0 !important;
+        width: 500px !important;
+        left: calc(50% - 250px) !important;
         top: 10px;
     }
     .page-title-label-background {

@@ -74,7 +74,7 @@
     border-image-slice: 15;
     border-image-width: 15px;
     border-style: solid;
-    border-image-repeat: repeat;
+    border-image-repeat: repeat; 
   }
   .border-12 {
     border-image: url('../../assets/images/borders/border-12.png');

@@ -130,7 +130,7 @@ class HeroPage extends Component {
 
   copyUrlStateToClipboard() {
     const [state] = this.context;
-    var urlState = `${window.location.host}/heroes/${this.getUrlString()}`
+    var urlState = `https://${window.location.host}/heroes/${this.getUrlString()}`
 
     navigator.clipboard.writeText(urlState).then(function() {
       /* clipboard successfully set */

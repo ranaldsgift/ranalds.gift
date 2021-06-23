@@ -48,3 +48,6 @@
 .user-page[data-isauthor='false'] .builds-liked-tab {
     display: none;
 }
+.user-page .build-list-container #roleSelect {
+    display: none;
+}

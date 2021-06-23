@@ -391,7 +391,6 @@ class BuildsList extends Component {
     let filters = [];
 
     if (this.state.careerId > 0) {
-      //alert('filter ' + this.state.careerId);
       filters.push({ field: 'careerId', comparison: '==', value: this.state.careerId });
     }
 
@@ -425,12 +424,12 @@ class BuildsList extends Component {
       filters.push({ field: 'book', comparison: '==', value: bookId });
     }
 
-    if (this.state.likedBy) {
+    if (this.state.likedBy && this.state.roles.length === 0) {
       var likedBy = this.state.likedBy.id;
       filters.push({ field: 'likes', comparison: 'array-contains', value: likedBy });
     }
 
-    if (this.state.roles.length > 0) {
+    if (this.state.roles.length > 0 && !this.state.likedBy) {
       let selectedValues = [];
       this.state.roles.forEach((item) => {
         selectedValues.push(item.id);

@@ -131,13 +131,13 @@ export class BuildBusiness {
             return;
         }
 
-        let buildStatsRef = db.collection('stats').doc('builds');
+        //let buildStatsRef = db.collection('stats').doc('builds');
         let buildRef = db.collection('builds').doc(buildState.buildId);
 
         db.runTransaction(async transaction => {
 
-            let buildStats = await transaction.get(buildStatsRef);
-            let build = await transaction.get(buildRef);
+                //let buildStats = await transaction.get(buildStatsRef);
+                //let build = await transaction.get(buildRef);
 
                 // PREPARE BUILD STATS TODO: use cloud functions to magage stats on a recurring basis
                 //updateStats(buildStats, buildStatsRef, buildState, build, transaction);

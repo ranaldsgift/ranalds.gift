@@ -37,7 +37,7 @@ function UserPage(props) {
             <span type="text">{state.username}</span>
           {renderUserDetail("Steam Friend Code",state.steam)}
           {renderUserDetail("Discord",state.discord)}
-          {renderUserDetail("Twitch",state.twitch, `http://twitch.tv/${state.twitch}`)}
+          {renderUserDetail("Twitch",state.twitch, `https://twitch.tv/${state.twitch}`)}
           {renderUserDetail("Youtube",state.youtube, state.youtube)}
           {/* <span type="text">{new Date(state.dateCreated.seconds * 1000).toString().slice(0,10).replace(/-/g,"")}</span> */}          
         </div>

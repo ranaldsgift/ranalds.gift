@@ -79,6 +79,7 @@ class AboutPage extends Component {
             <h2 className="header-underline">Privacy Policy</h2>
             <p>You can view our Privacy Policy <a href="/privacy">here.</a></p>
           </div>
+          <a href="https://www.etsy.com/ca/shop/Minipott"><img style={{width: '100%', maxWidth: '800px', margin: '0 auto'}} src="https://i.etsystatic.com/isbl/6c93d9/36441098/isbl_3360x840.36441098_dstjxy2g.jpg?version=1"></img></a>
         </div>
     );
   }

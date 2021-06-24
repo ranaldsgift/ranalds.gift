@@ -31,6 +31,14 @@ import PrivacyPolicy from './PrivacyPolicy';
 class App extends Component {
   static contextType = UserContext;
 
+  toggleBackground() {
+    const [state, updateState] = this.context;
+
+    updateState({
+     type: "TOGGLE_BACKGROUND"
+   });    
+  }
+
   render() {  
     const [state, updateState] = this.context;
 
@@ -102,9 +110,9 @@ class App extends Component {
 
     return (
       <Router history={history}>
-      <div className="App" id="app" data-auth={auth.currentUser ? true : false}>
+      <div className="App" id="app" data-auth={auth.currentUser ? true : false} data-showvideo={state.showVideo}>
         <MenuPage userId={state.userId}></MenuPage>
-        <Background></Background>
+        <Background toggleBackground={this.toggleBackground.bind(this)}></Background>
         <div className="page-title page-title-label label-01"></div>
         <div className="page-title page-title-label-background"></div>
         <div className="app-container-frame">

@@ -1,11 +1,13 @@
 .fullscreen-background-image {
   position: fixed;
   width:100%;
-  height:100%;
+  height: 100vh;
+  object-fit: cover;
   top:0;
   left:0;
   background-image: url('../../assets/images/background3.jpg');
   background-size: cover;
+  background-position: center;
 }
 .fullscreen-background-image-2 {
   display: none;
@@ -294,4 +296,19 @@
     height: 298px;
     width: 128px;
     margin: 0 auto;
+  }
+
+  .background-toggle {
+   background: url('../../assets/images/icons/background-toggle.png');
+   position: fixed;
+    right: 70px;
+    top: 0px;
+    width: 45px;
+    height: 45px;
+  }
+  .background-toggle:hover {
+   background: url('../../assets/images/icons/background-toggle-selected.png'); 
+  }
+  #app[data-showvideo='false'] .fullscreen-background-video {
+    display: none;
   }

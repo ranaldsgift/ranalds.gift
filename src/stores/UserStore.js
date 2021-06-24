@@ -31,6 +31,10 @@ function reducer(state, action) {
                 dateCreated: action.payload.dateCreated, 
                 dateModified: action.payload.dateModified 
             };
+        case 'TOGGLE_BACKGROUND':
+            return {...state, 
+                    showVideo: !state.showVideo}
+                ;
         default:
             throw new Error('Error updating User Page state.');
     }
@@ -43,6 +47,7 @@ export default function UserStore(props) {
         username: '',
         steam: '',
         twitch: '',
+        showVideo: true,
         likedBuilds: [],
         dateCreated: {},
         dateModified: {}

@@ -10,7 +10,7 @@ function Background(props) {
             <video muted playsinline autoPlay={true} loop={true} poster={BackgroundVideoPoster} className="fullscreen-background-video">                
                 <source src={BackgroundVideo} type="video/mp4"></source>
             </video>
-            <div className="background-toggle" onClick={props.toggleBackground}></div>
+            <div className="background-toggle" onClick={props.toggleBackground} title="Toggle Background Video"></div>
             <a href="/about" className="rg-icon main-logo">&nbsp;</a>
         </div>
     );    

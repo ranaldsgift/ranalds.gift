@@ -1417,6 +1417,10 @@ export const heroesData = [
             {
                 "name": "Ariel's Benison",
                 "description": "Increase Kerillian's revive speed by 50%. When Kerillian revives allies, she heals them for 20 health."
+            },
+            {
+                "name": "Oak Guard (unlisted)",
+                "description": "Kerillian gains 1 extra stamina (1/2 a shield)"
             }
         ],
         "talents": [

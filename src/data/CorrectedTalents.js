@@ -1,0 +1,134 @@
+export const correctedTalentsData = [
+    {
+        careerId: 2,
+        tier: 2,
+        talent: 2,
+        description: 'Critical hits cause enemies to take 20% increased damage for 15 seconds.'
+    },
+    {
+        careerId: 2,
+        tier: 4,
+        talent: 2,
+        description: 'After scoring a ranged headshot Markus gains 25% increased critical hit chance until his next critical hit.'
+    },
+    {
+        careerId: 16,
+        tier: 4,
+        talent: 3,
+        description: 'The party now has an additional, repeatable task. This task is always "Slay enemies", which only occurs when using this talent. Like the other tasks, the number required changes with difficulty. Upon completion, Markus will get a Strength Potion and the task will reset. If Markus is already carrying a potion or grimoire, the strength potion will be dropped on the ground.'
+    },
+    {
+        careerId: 4,
+        tier: 4,
+        talent: 2,
+        description: `Increases ammunition restored by Survivalist caches to 30%, rounded down.`
+    },
+    {
+        careerId: 5,
+        tier: 2,
+        talent: 3,
+        description: `Blocking an attack grants Bardin and his allies 2% melee power for 6 seconds. Stacks 5 times.`
+    },
+    {
+        careerId: 5,
+        tier: 6,
+        talent: 3,
+        description: `Increases the radius of Impenetrable's taunt by 50%. Increases the duration of Impenetrable to 15 seconds.`
+    },
+    {
+        careerId: 6,
+        tier: 5,
+        talent: 1,
+        description: `Damage taken from Elite enemies or Monsters is reduced to 10 damage or half of its original value whichever is highest. Applied after all other damage modifiers.`
+    },
+    {
+        careerId: 6,
+        tier: 4,
+        talent: 3,
+        description: `Leap recharges 3x as fast while Trophy Hunter is at max stacks.`
+    },
+    {
+        careerId: 8,
+        tier: 2,
+        talent: 3,
+        description: `Blocking an attack or pushing an enemy grants the next two strikes 30% attack speed and 10% power. The buff lasts indefinitely, but does not stack. Missed attacks don't consume the buff. Ranged attacks (which hit an enemy) consume the buff but do not deal extra damage.`
+    },
+    {
+        careerId: 8,
+        tier: 4,
+        talent: 2,
+        description: `Dodging while blocking increases dodge range by 20%. Dodging while not blocking increases the power of Kerillian's next strike Kerillian's power by 10% for 2 seconds.`
+    },
+    {
+        careerId: 9,
+        tier: 4,
+        talent: 3,
+        description: `Backstabs return 1 bolt or arrow. 2 second cooldown.`
+    },
+    {
+        careerId: 18,
+        tier: 4,
+        talent: 3,
+        description: `Consuming Radiance grants Kerillian 20% extra attack speed, move speed, power and crit power for 10 seconds.`
+    },
+    {
+        careerId: 10,
+        tier: 6,
+        talent: 2,
+        description: `Animosity grants Victor guaranteed melee critical strikes for the duration. No longer affects teammates.`
+    },
+    {
+        careerId: 11,
+        tier: 5,
+        talent: 2,
+        description: `Killing an elite while out of ammunition restores 20% of max ammo. Melee kills reload 1 ammo into Victor's ranged weapon.`
+    },
+    {
+        careerId: 11,
+        tier: 6,
+        talent: 2,
+        description: `Modifies Victor's sidearm to fire two powerful bullets in a straight line. Scoring a headshot with this attack reduces the cooldown of Locked and Loaded by 40%. Each bullet can trigger this talent, meaning it can grant 80% reduction if the enemy doesn't die to just one of the bullets.`
+    },
+    {
+        careerId: 11,
+        tier: 6,
+        talent: 3,
+        description: `Modifies Victor's sidearm to fire two blasts of shield-penetrating pellets in a devastating cone. Each kill with the blast increases the amount of pellets in the next blast, to a max of 20. This buff resets every time you use your ult, unless every pellet misses an enemy`
+    },
+    {
+        careerId: 13,
+        tier: 5,
+        talent: 2,
+        description: `Killing a burning enemy reduces the cooldown of Fire Walk by 3%. 0.5 second cooldown.`
+    },
+    {
+        careerId: 14,
+        tier: 4,
+        talent: 2,
+        description: `Increases ranged power by 15% when at or above 75% overcharge.`
+    },
+    {
+        careerId: 14,
+        tier: 5,
+        talent: 1,
+        description: `Reduces damage taken by 30% for 10 seconds after killing a special or elite enemy. Stacks up to 3 times.`
+    },
+    {
+        careerId: 15,
+        tier: 2,
+        talent: 1,
+        description: `Increases attack speed by 15% while at or above 50% Overcharge`
+    },
+    {
+        careerId: 15,
+        tier: 4,
+        talent: 1,
+        description: `Block cost is reduced by 50.0% when Overcharged and blocking attacks vent Overcharge. Applied after other block cost reductions.`
+    },
+    {
+        careerId: 15,
+        tier: 5,
+        talent: 2,
+        description: `When Sienna overcharges she starts, 4 times per second, exchanging 1/15 of her health for 10% ability cooldown.`
+    }
+]

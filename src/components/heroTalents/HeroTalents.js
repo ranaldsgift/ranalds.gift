@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './HeroTalents.css';
 import { AppContext } from '../../stores/Store';
-import {heroesData} from '../../data/Heroes'
+import { heroesData } from '../../data/Heroes'
 import { DataHelper } from '../../utils/DataHelper';
 
 class HeroTalents extends Component {
@@ -61,11 +61,19 @@ class HeroTalents extends Component {
 
     var talentValue = talentNumber % 3 === 0 ? 3 : talentNumber % 3;
     var talent = talents[talentNumber-1];
+
+    var talentDescription = talent.description;
+    var correctedTalent = DataHelper.getCorrectedTalent(careerId, tier, talentValue);
+
+    if (correctedTalent) {
+      talentDescription = correctedTalent.description;
+    }
+
     return <div data-talent={talentValue} data-tier={tier} onClick={this.props.readonly ? null : this.handleTalentClick.bind(this)} key={talentString} className={talentClassName}>
             <div className="talent-button-wrapper">
               <div className={`talent-icon ${talentString}`} data-talent={talentValue} data-tier={tier} data-career={careerId}></div>
               <p className="talent-name">{talent.name}</p>
-              <p className="talent-description">{talent.description}</p>
+              <p className="talent-description">{talentDescription}</p>
             </div>
            </div>;
   }

@@ -31,6 +31,20 @@ class HeroDetails extends Component {
 
     let healthBar = <div className="stat-container"><span className={`health-value value-${hero.health} health-value-tier-c`}>{`${healthValue.toString()} HP`}</span></div>;
 
+    let skillDescription = hero.skill.description;
+
+    var correctedSkill = DataHelper.getCorrectedSkill(careerId);
+    if (correctedSkill) {
+      skillDescription = correctedSkill.description;
+    }
+
+    let passiveDescription = hero.passive.description;
+
+    var correctedPassive = DataHelper.getCorrectedPassive(careerId);
+    if (correctedPassive) {
+      passiveDescription = correctedPassive.description;
+    }
+
     return (
       <div className="hero-details-container">
           <div className="hero-summary-container">
@@ -59,12 +73,12 @@ class HeroDetails extends Component {
           <div className="hero-skill-container">
             <p className="hero-skill-header">{hero.skill.name}</p>
             <div className={`hero-${hero.id}-skill hero-ability-icon border-13`}></div>
-            <p className="hero-skill-description">{hero.skill.description}</p>
+            <p className="hero-skill-description">{skillDescription}</p>
           </div>
           <div className="hero-passive-container">            
             <p className="hero-passive-header">{hero.passive.name}</p>
             <div className={`hero-${hero.id}-passive hero-ability-icon border-13`}></div>
-            <p className="hero-passive-description">{hero.passive.description}</p>
+            <p className="hero-passive-description">{passiveDescription}</p>
           </div>
           <div className="hero-perks-container">
             <p className="hero-perks-header">Perks</p>
@@ -81,9 +95,16 @@ class HeroDetails extends Component {
     var i = 1;
 
     hero.perks.forEach((perk) => { 
+      var perkDescription = perk.description;
+      var correctedPerk = DataHelper.getCorrectedPerk(careerId, perk.name);
+
+      if (correctedPerk) {
+        perkDescription = correctedPerk.description;
+      }
+
       perksHtml.push(<div key={`perk${i}`} className="hero-perk-item-container">
       <p key={`perkHeader${i}`} className="hero-perk-item-header"><span style={{fontSize: '40%', top: '-3px', position: 'relative', left: '-4px'}}>&#9670;</span>{perk.name}</p>
-      <p key={`perkDescription${i}`} className="hero-perk-item-description">{perk.description}</p>
+      <p key={`perkDescription${i}`} className="hero-perk-item-description">{perkDescription}</p>
       </div>); 
       i++;
     });

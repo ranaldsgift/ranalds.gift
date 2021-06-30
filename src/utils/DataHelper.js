@@ -14,6 +14,10 @@ import {difficultyData} from '../data/Difficulties'
 import {potionData} from '../data/Potions'
 import {roleData} from '../data/Roles'
 import {bookData} from '../data/Books'
+import {correctedTalentsData} from '../data/CorrectedTalents'
+import {correctedPerksData} from '../data/CorrectedPerks'
+import {correctedPassivesData} from '../data/CorrectedPassives'
+import {correctedSkillsData} from '../data/CorrectedSkills'
 import React from 'react';
 import { db } from './Firebase'
 
@@ -45,6 +49,23 @@ export class DataHelper {
       var career = this.getCareer(careerId);
       return career ? career.talents : null;
     }
+
+    static getCorrectedTalent = (careerId, tierNumber, talentNumber) => {
+      return correctedTalentsData.find((talent) => {return talent.careerId === parseInt(careerId) && talent.tier === parseInt(tierNumber) && talent.talent === parseInt(talentNumber)});
+    }
+
+    static getCorrectedPerk = (careerId, perkName) => {
+      return correctedPerksData.find((perk) => {return perk.careerId === parseInt(careerId) && perk.name.toLowerCase() === perkName.toLowerCase()});
+    }
+
+    static getCorrectedPassive = (careerId) => {
+      return correctedPassivesData.find((passive) => {return passive.careerId === parseInt(careerId)});
+    }
+
+    static getCorrectedSkill = (careerId) => {
+      return correctedSkillsData.find((skill) => {return skill.careerId === parseInt(careerId)});
+    }
+
     static getTraitData = (id, type) => {
       switch (type) {
         case 'melee':

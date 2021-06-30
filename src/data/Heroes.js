@@ -2156,7 +2156,7 @@ export const heroesData = [
                 }
             },
             {                
-                "name": "Buckshot",
+                "name": "Indiscriminate Blast",
                 "description": "Modifies Victor’s pistol to fire two blasts of shield-penetrating shot in a devestating cone. Each kill with the blast increases the amount of pellets in the next blast."
             }
         ]

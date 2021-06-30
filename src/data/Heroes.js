@@ -1204,8 +1204,8 @@ export const heroesData = [
 				"description": "Ranged Attacks pierce 1 additional enemy."
 			},
 			{
-				"name": "Scavenged Shot",
-				"description": "Melee Power is increased by 10%. Every 5 Melee kill makes Bardin's next Ranged Attack consume no Ammo."
+				"name": "Combined Arms",
+				"description": "Melee Power is increased by 10%. Each 5 Melee kill makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds."
 			},
 			{
 				"name": "Bulwark",

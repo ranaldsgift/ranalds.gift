@@ -111,7 +111,7 @@ export const correctedTalentsData = [
         careerId: 14,
         tier: 5,
         talent: 1,
-        description: `Reduces damage taken by 30% for 10 seconds after killing a special or elite enemy. Stacks up to 3 times.`
+        description: `Reduces damage taken by 10% for 10 seconds after killing a special or elite enemy. Stacks up to 3 times.`
     },
     {
         careerId: 15,

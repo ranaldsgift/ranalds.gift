@@ -1626,11 +1626,11 @@ export const heroesData = [
             },
             {                
                 "name": "Smiter",
-                "description": "Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Headshots and critical hits instead inflict 40% bonus damage, as do strikes against enemies afflicted by more than one stagger effect."
+                "description": "The first enemy hit always counts as staggered.\n\nDeal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
             },
             {                
                 "name": "Assassin",
-                "description": "The first enemy hit always counts as staggered.\n\nDeal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+                "description": "Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Headshots and critical hits instead inflict 40% bonus damage, as do strikes against enemies afflicted by more than one stagger effect."
             },
             {                
                 "name": "Enhanced Power",

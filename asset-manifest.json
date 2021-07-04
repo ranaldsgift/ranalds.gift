@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.0f0fbcd1.chunk.css",
-    "main.js": "/static/js/main.18103be6.chunk.js",
-    "main.js.map": "/static/js/main.18103be6.chunk.js.map",
+    "main.css": "/static/css/main.9d6c686b.chunk.css",
+    "main.js": "/static/js/main.3fac1799.chunk.js",
+    "main.js.map": "/static/js/main.3fac1799.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ab15b354.js",
     "runtime-main.js.map": "/static/js/runtime-main.ab15b354.js.map",
     "static/css/2.a41a6b4c.chunk.css": "/static/css/2.a41a6b4c.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.ad767740.chunk.js.map": "/static/js/2.ad767740.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.a41a6b4c.chunk.css.map": "/static/css/2.a41a6b4c.chunk.css.map",
-    "static/css/main.0f0fbcd1.chunk.css.map": "/static/css/main.0f0fbcd1.chunk.css.map",
+    "static/css/main.9d6c686b.chunk.css.map": "/static/css/main.9d6c686b.chunk.css.map",
     "static/js/2.ad767740.chunk.js.LICENSE.txt": "/static/js/2.ad767740.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/divider-20.d5348db5.png",
     "static/media/HeroDetails.css": "/static/media/background18.803a2098.png",
@@ -24,7 +24,7 @@
     "static/media/HeroTalentSummary.css": "/static/media/border-16.b0023d54.png",
     "static/media/Weapons.css": "/static/media/wh_fencing_sword.cd9e2a0e.png",
     "static/media/HeroSelect.css": "/static/media/portrait.fe149580.png",
-    "static/media/home-frame.829b83f2.png": "/static/media/home-frame.829b83f2.png",
+    "static/media/home-frame.ad430320.jpg": "/static/media/home-frame.ad430320.jpg",
     "static/media/home.b5359ac8.mp4": "/static/media/home.b5359ac8.mp4",
     "static/media/MenuPage.css": "/static/media/menu_active.9f0b9221.png",
     "static/media/Heroes.css": "/static/media/skill.ffceaec2.png",
@@ -37,7 +37,7 @@
     "static/js/runtime-main.ab15b354.js",
     "static/css/2.a41a6b4c.chunk.css",
     "static/js/2.ad767740.chunk.js",
-    "static/css/main.0f0fbcd1.chunk.css",
-    "static/js/main.18103be6.chunk.js"
+    "static/css/main.9d6c686b.chunk.css",
+    "static/js/main.3fac1799.chunk.js"
   ]
 }

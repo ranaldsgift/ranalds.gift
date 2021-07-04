@@ -1,7 +1,7 @@
 import React from 'react';
 import './Background.css';
 import BackgroundVideo from '../../assets/videos/backgrounds/home.mp4';
-import BackgroundVideoPoster from '../../assets/videos/backgrounds/home-frame.png';
+import BackgroundVideoPoster from '../../assets/videos/backgrounds/home-frame.jpg';
 
 function Background(props) {
     return (

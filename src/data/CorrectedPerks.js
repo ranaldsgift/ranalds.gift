@@ -24,4 +24,9 @@ export const correctedPerksData = [
         name: `Heart of Iron`,
         description:'Become invulnerable for 5 seconds on taking lethal damage. 2 minute cooldown.'
     }
+    {
+        careerId: 18,
+        name: 'A Murder of Spites',
+        description: `Kerillian deals up to 50% more damage to wounded targets depending on their remaining health. For example, she does no extra damage against full health enemies, 25% extra against enemies at half health, etc.`
+    },
 ]

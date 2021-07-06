@@ -12,10 +12,6 @@ export const correctedPassivesData = [
         description: `Completely absorbs one hit every 20 seconds. This does not affect damage from venting Overcharge or fall damage.`
     },
     {
-        careerId: 18,
-        description: `Kerillian deals up to 50% more damage to wounded targets depending on their remaining health. For example, she does no extra damage against full health enemies, 25% extra against enemies at half health, etc.`
-    },
-    {
         careerId: 10,
         description: `Tagged enemies take an additional 20% damage. Does not stack with similar effects. The debuff can be applied by any player and affects all damage that enemy receives. Lasts for 15 seconds (the duration of the tag).`
     },

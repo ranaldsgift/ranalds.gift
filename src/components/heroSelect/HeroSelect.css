@@ -21,64 +21,64 @@
   box-shadow: 0px 0px 8px 2px #ffd700;
   outline: 1px solid white;
 }
-.hero-icon-01, .hero-icon-1 {
+.hero-icon[data-career='1'] {
   background-image: url('../../assets/images/heroes/01/portrait.png');
 }
-.hero-icon-02, .hero-icon-2 {
+.hero-icon[data-career='2'] {
   background-image: url('../../assets/images/heroes/02/portrait.png');
 }
-.hero-icon-03, .hero-icon-3 {
+.hero-icon[data-career='3'] {
   background-image: url('../../assets/images/heroes/03/portrait.png');
 }
-.hero-icon-04, .hero-icon-4 {
+.hero-icon[data-career='4'] {
   background-image: url('../../assets/images/heroes/04/portrait.png');
 }
-.hero-icon-05, .hero-icon-5 {
+.hero-icon[data-career='5'] {
   background-image: url('../../assets/images/heroes/05/portrait.png');
 }
-.hero-icon-06, .hero-icon-6 {
+.hero-icon[data-career='6'] {
   background-image: url('../../assets/images/heroes/06/portrait.png');
 }
-.hero-icon-07, .hero-icon-7 {
+.hero-icon[data-career='7'] {
   background-image: url('../../assets/images/heroes/07/portrait.png');
 }
-.hero-icon-08, .hero-icon-8 {
+.hero-icon[data-career='8'] {
   background-image: url('../../assets/images/heroes/08/portrait.png');
 }
-.hero-icon-09, .hero-icon-9 {
+.hero-icon[data-career='9'] {
   background-image: url('../../assets/images/heroes/09/portrait.png');
 }
-.hero-icon-10 {
+.hero-icon[data-career='10'] {
   background-image: url('../../assets/images/heroes/10/portrait.png');
 }
-.hero-icon-11 {
+.hero-icon[data-career='11'] {
   background-image: url('../../assets/images/heroes/11/portrait.png');
 }
-.hero-icon-12 {
+.hero-icon[data-career='12'] {
   background-image: url('../../assets/images/heroes/12/portrait.png');
 }
-.hero-icon-13 {
+.hero-icon[data-career='13'] {
   background-image: url('../../assets/images/heroes/13/portrait.png');
 }
-.hero-icon-14 {
+.hero-icon[data-career='14'] {
   background-image: url('../../assets/images/heroes/14/portrait.png');
 }
-.hero-icon-15 {
+.hero-icon[data-career='15'] {
   background-image: url('../../assets/images/heroes/15/portrait.png');
 }
-.hero-icon-16 {
+.hero-icon[data-career='16'] {
   background-image: url('../../assets/images/heroes/16/portrait.png');
 }
-.hero-icon-17 {
+.hero-icon[data-career='17'] {
   background-image: url('../../assets/images/heroes/17/portrait.png');
 }
-.hero-icon-18 {
+.hero-icon[data-career='18'] {
   background-image: url('../../assets/images/heroes/18/portrait.png');
 }
-.hero-icon-19 {
+.hero-icon[data-career='19'] {
   background-image: url('../../assets/images/heroes/19/portrait.png');
 }
-.hero-icon-20 {
+.hero-icon[data-career='20'] {
   background-image: url('../../assets/images/heroes/20/portrait.png');
 }
 .hero-icon-container {

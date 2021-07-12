@@ -31,8 +31,7 @@ class ItemSelect extends Component {
     const [state, updateState] = this.context;
     var weaponsContainerHtml = [];
 
-    var hero = heroesData.find((hero) => { return parseInt(hero.id) === parseInt(careerId); });
-    hero = hero ? hero : heroesData[0];
+    var hero = DataHelper.getCareer(careerId);
 
     var weaponsForHero = [];
 

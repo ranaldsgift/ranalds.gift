@@ -26,18 +26,31 @@ let userBuildAuthors = null;
 
 export class DataHelper {
     static getCareers = () => {
-      return heroesData;  
+      var values = Object.values(heroesData);
+      var keys = Object.keys(heroesData);
+      var valueMap = values.map((obj, index) => {
+        obj.codeName = keys[index];
+        var careerMap = heroesDataMap.find((career) => { return career.codeName === keys[index] });
+        if (careerMap) {
+          obj.id = careerMap.id;
+          obj.sortOrder = careerMap.sortOrder;
+          obj.heroId = careerMap.heroId;
+        }
+        return obj;
+       });
+       return valueMap.sort((a, b) => { return a.sortOrder > b.sortOrder ? 1 : a.sortOrder < b.sortOrder ? -1 : 0; });
     }
     static getCareer = (careerId) => {
       var careerMap = heroesDataMap.find((career) => {return career.id === parseInt(careerId);});
       var career = null;
 
+      var careers = this.getCareers();
       if (careerMap) {
-        career = heroesData.find((career) => { return career.codeName === careerMap.codeName })
+        career = careers.find((career) => { return career.codeName === careerMap.codeName })
       }
 
       if (!career) {
-        career = heroesData[0];
+        career = careers[0];
         careerId = 1
       }
 

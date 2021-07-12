@@ -103,61 +103,58 @@
     .build-description-container, .build-list-item .rating {
         margin-top: 0px !important;
     }
-    .build-list-item .hero-icon-1 {
+    .build-list-item .hero-icon[data-career='1'] {
         background: url('../images/heroes/01/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-1 {
-        background: url('../images/heroes/01/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
-    }
-    .build-list-item .hero-icon-2 {
+    .build-list-item .hero-icon[data-career='2'] {
         background: url('../images/heroes/02/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-3 {
+    .build-list-item .hero-icon[data-career='3'] {
         background: url('../images/heroes/03/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-4 {
+    .build-list-item .hero-icon[data-career='4'] {
         background: url('../images/heroes/04/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-5 {
+    .build-list-item .hero-icon[data-career='5'] {
         background: url('../images/heroes/05/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-6 {
+    .build-list-item .hero-icon[data-career='6'] {
         background: url('../images/heroes/06/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-7 {
+    .build-list-item .hero-icon[data-career='7'] {
         background: url('../images/heroes/07/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-8 {
+    .build-list-item .hero-icon[data-career='8'] {
         background: url('../images/heroes/08/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-9 {
+    .build-list-item .hero-icon[data-career='9'] {
         background: url('../images/heroes/09/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-10 {
+    .build-list-item .hero-icon[data-career='10'] {
         background: url('../images/heroes/10/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-11 {
+    .build-list-item .hero-icon[data-career='11'] {
         background: url('../images/heroes/11/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-12 {
+    .build-list-item .hero-icon[data-career='12'] {
         background: url('../images/heroes/12/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-13 {
+    .build-list-item .hero-icon[data-career='13'] {
         background: url('../images/heroes/13/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-14 {
+    .build-list-item .hero-icon[data-career='14'] {
         background: url('../images/heroes/14/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-15 {
+    .build-list-item .hero-icon[data-career='15'] {
         background: url('../images/heroes/15/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-16 {
+    .build-list-item .hero-icon[data-career='16'] {
         background: url('../images/heroes/16/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-17 {
+    .build-list-item .hero-icon[data-career='17'] {
         background: url('../images/heroes/17/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
-    .build-list-item .hero-icon-18 {
+    .build-list-item .hero-icon[data-career='18'] {
         background: url('../images/heroes/18/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
     .hero-icon-container {
@@ -498,7 +495,7 @@
     .hero-page .hero-character-icons, .build-page .hero-character-icons {
         display: none;
     }
-    .hero-page .hero-select-icon,  .build-page .hero-select-icon {
+    .hero-page .hero-select-icon, .build-page .hero-select-icon {
         display: block !important;
         width: calc(100% - 10px) !important;
         height: 80px !important;

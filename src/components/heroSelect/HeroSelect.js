@@ -1,7 +1,6 @@
 import React, {Component, useContext} from 'react';
 import './HeroSelect.css';
 import { AppContext } from '../../stores/Store';
-import {heroesData} from '../../data/Heroes'
 import { DataHelper } from '../../utils/DataHelper';
 
 class HeroSelect extends Component {
@@ -57,16 +56,13 @@ class HeroSelect extends Component {
 
     let heroIconList = [];
 
+    var heroesData = DataHelper.getCareers();
+
     for (var i = 0; i < heroesData.length; i++) {
       
       let careerId = heroesData[i].id;
       let heroId = heroesData[i].heroId;
-      let heroClassName = "hero-select-icon border-02 hero-icon-0" + careerId;
-      let keyValue = "hero-icon-0" + careerId;
-      if (careerId>9){
-          heroClassName = "hero-select-icon border-02 hero-icon-" + careerId;
-          keyValue = "hero-icon-" + careerId;
-      }
+      let heroClassName = "hero-select-icon hero-icon border-02";
       
       if (parseInt(selectedCareerId) === parseInt(careerId)) {
           heroClassName += " selected";
@@ -77,7 +73,14 @@ class HeroSelect extends Component {
       }
 
       heroIconList.push(<div data-hero={heroId} data-career={careerId} onClick={this.updateHeroSelect.bind(this)}
-        key={keyValue} className={heroClassName}></div>);
+        key={careerId} className={heroClassName}></div>);
+
+      if (careerId === 12 || careerId === 15) {
+        careerId = careerId === 12 ? 19 : 20;
+        heroClassName = "hero-select-icon hero-icon border-02";
+        heroIconList.push(<div data-hero={heroId} data-career={careerId} onClick={this.updateHeroSelect.bind(this)}
+          key={careerId} className={heroClassName}></div>);
+      }
     }
     return heroIconList;
   }

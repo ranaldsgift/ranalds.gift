@@ -11,7 +11,6 @@ class HeroDetails extends Component {
     const [state] = this.context;
     var careerId = this.props.careerId ? this.props.careerId : 1;
     var hero = DataHelper.getCareer(careerId);
-    hero = hero ? hero : heroesData[0];
 
     let healthValue = hero.health;
     let healthGain = 0;
@@ -89,7 +88,7 @@ class HeroDetails extends Component {
   }
 
   renderPerks(careerId) {
-    var hero = heroesData.find((hero) => { return hero.id === careerId});
+    var hero = DataHelper.getCareer(careerId);
 
     var perksHtml = [];
     var i = 1;

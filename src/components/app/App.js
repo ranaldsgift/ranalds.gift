@@ -10,7 +10,7 @@ import Background from './Background'
 import HeroPage from '../heroPage/HeroPage'
 import EditBuildPage from '../buildPage/EditBuildPage'
 import BuildListPage from '../buildList/BuildListPage'
-import { Route, Router } from 'react-router-dom'
+import { Route, Router, Link } from 'react-router-dom'
 import "react-tabs/style/react-tabs.css";
 import HeroPageStore from '../../stores/HeroPageStore';
 import BuildPageStore from '../../stores/BuildPageStore';
@@ -110,14 +110,18 @@ class App extends Component {
 
     return (
       <Router history={history}>
+      <Route exact path="/" component={MenuPage}></Route>
+      <Route exact path="/menu" component={MenuPage}></Route>
+      <Route exact path="/home" component={MenuPage}></Route> 
       <div className="App" id="app" data-auth={auth.currentUser ? true : false} data-showvideo={state.showVideo}>
-        <MenuPage userId={state.userId}></MenuPage>
+        <div className="navigation-menu-container"> 
+          <Link to="/menu" className="nagivation-menu-button"><div className="nagivation-menu-overlay"></div></Link>
+        </div>
         <Background toggleBackground={this.toggleBackground.bind(this)}></Background>
         <div className="page-title page-title-label label-01"></div>
         <div className="page-title page-title-label-background"></div>
         <div className="app-container-frame">
           <div className="app-container border-06 background7">
-            <Route exact path="/home" component={HomePage}></Route>
             <Route path="/about" component={AboutPage}></Route>
             <Route path="/privacy" component={PrivacyPolicy}></Route>
             <HeroPageStore>
@@ -140,7 +144,6 @@ class App extends Component {
               <UserViewStore>
                 <Route path="/user/:userId" component={UserPageContainer}></Route>
               </UserViewStore>
-            <Route exact path="/" component={HomePage}></Route>
             <Route exact path="/support" render={() => { window.location.href = 'https://www.paypal.com/donate/?hosted_button_id=C4GWNTDGWWC3N'; }}></Route>
           </div>
         </div>

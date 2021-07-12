@@ -99,13 +99,13 @@ export const heroesDataMap = [
         "id": 13,
         "sortOrder": 17,
         "heroId": 5,
-        "codeName": "bw_scholar"
+        "codeName": "bw_adept"
     },
     {
         "id": 14,
         "sortOrder": 18,
         "heroId": 5,
-        "codeName": "bw_adept"
+        "codeName": "bw_scholar"
     },
     {
         "id": 15,

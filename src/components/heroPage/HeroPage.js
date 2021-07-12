@@ -21,7 +21,7 @@ class HeroPage extends Component {
     const [state, updateState] = this.context;
 
     if (typeof this.props.match.params.careerId != "undefined" && !state.isLoadedFromParams) {
-      if (this.props.match.params.primary.indexOf(',') >= 0) {
+      if (typeof this.props.match.params.primary != "undefined" && this.props.match.params.primary.indexOf(',') >= 0) {
         updateState({
           type: "INIT_STATE_FROM_OLD_URL", 
           payload: { 

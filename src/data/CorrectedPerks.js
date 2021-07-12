@@ -2,7 +2,7 @@ export const correctedPerksData = [
     {
         careerId: 1,
         name: 'Hitting the Sweet Spot',
-        description: 'Enemies\' hitmass is reduced by 25% (This can also be read as "cleaves through 33% more enemies, rounded down").'
+        description:`Markus cleaves through 33% more enemies, rounded down.`
     },
     {
         careerId: 16,

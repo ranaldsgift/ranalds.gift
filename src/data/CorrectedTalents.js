@@ -51,7 +51,7 @@ export const correctedTalentsData = [
         careerId: 8,
         tier: 2,
         talent: 3,
-        description: `Blocking an attack or pushing an enemy grants the next two strikes 30% attack speed and 10% power. The buff lasts indefinitely, but does not stack. Missed attacks don't consume the buff. Ranged attacks (which hit an enemy) consume the buff but do not deal extra damage.`
+        description: `Blocking an attack or pushing an enemy grants the next two strikes 30% attack speed and 10% power. The buff lasts indefinitely, but does not stack. The buff is applied to any melee or ranged attack that hits an enemy. However, the buff is only consumed when hitting an enemy with a melee attack, or hitting a Skaven Special with a ranged attack.`
     },
     {
         careerId: 8,

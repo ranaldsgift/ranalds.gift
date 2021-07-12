@@ -23,7 +23,7 @@
   content: '';
   position: absolute;
   top: 6px;
-  margin-left: 38px;
+  left: calc(50% + 2.5rem);
   width: 28px;
   height: 28px;
   background: url('../../assets/images/icons/link.png');

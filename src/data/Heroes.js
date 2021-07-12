@@ -1,7 +1,7 @@
 export const heroesData = {
 	"bw_unchained": { 
 		"name": "Unchained",
-		"heroName": "Unchained",
+		"heroName": "Sienna Fuegonasus",
 		"health": 150,
 		"passive": {
 			"name": "Blood Magic",
@@ -100,7 +100,7 @@ export const heroesData = {
 	"we_shade": { 
 		"name": "Shade",
 		"codeName": "we_shade",
-		"heroName": "Shade",
+		"heroName": "Kerillian",
 		"health": 100,
 		"passive": {
 			"name": "Murderous Prowess",
@@ -195,7 +195,7 @@ export const heroesData = {
 	"bw_adept": { 
 		"name": "Battle Wizard",
 		"codeName": "bw_adept",
-		"heroName": "Battle Wizard",
+		"heroName": "Sienna Fuegonasus",
 		"health": 100,
 		"passive": {
 			"name": "Tranquillity",
@@ -294,7 +294,7 @@ export const heroesData = {
 	"we_maidenguard": { 
 		"name": "Handmaiden",
 		"codeName": "we_maidenguard",
-		"heroName": "Handmaiden",
+		"heroName": "Kerillian",
 		"health": 125,
 		"passive": {
 			"name": "The Dance of Seasons",
@@ -393,7 +393,7 @@ export const heroesData = {
 	"we_waywatcher": { 
 		"name": "Waystalker",
 		"codeName": "we_waywatcher",
-		"heroName": "Waystalker",
+		"heroName": "Kerillian",
 		"health": 100,
 		"passive": {
 			"name": "Amaranthe",
@@ -496,7 +496,7 @@ export const heroesData = {
 	"dr_ranger": { 
 		"name": "Ranger Veteran",
 		"codeName": "dr_ranger",
-		"heroName": "Ranger Veteran",
+		"heroName": "Bardin Goreksson",
 		"health": 100,
 		"passive": {
 			"name": "Survivalist",
@@ -599,7 +599,7 @@ export const heroesData = {
 	"wh_bountyhunter": { 
 		"name": "Bounty Hunter",
 		"codeName": "wh_bountyhunter",
-		"heroName": "Bounty Hunter",
+		"heroName": "Victor Saltzpyre",
 		"health": 100,
 		"passive": {
 			"name": "Blessed Shots",
@@ -698,7 +698,7 @@ export const heroesData = {
 	"es_questingknight": { 
 		"name": "Grail Knight",
 		"codeName": "es_questingknight",
-		"heroName": "Grail Knight",
+		"heroName": "Markus Kruber",
 		"health": 150,
 		"passive": {
 			"name": "The Lady's Duty",
@@ -801,7 +801,7 @@ export const heroesData = {
 	"dr_ironbreaker": { 
 		"name": "Ironbreaker",
 		"codeName": "dr_ironbreaker",
-		"heroName": "Ironbreaker",
+		"heroName": "Bardin Goreksson",
 		"health": 150,
 		"passive": {
 			"name": "Gromril Armour",
@@ -904,7 +904,7 @@ export const heroesData = {
 	"es_knight": { 
 		"name": "Foot Knight",
 		"codeName": "es_knight",
-		"heroName": "Foot Knight",
+		"heroName": "Markus Kruber",
 		"health": 150,
 		"passive": {
 			"name": "Protective Presence",
@@ -1003,7 +1003,7 @@ export const heroesData = {
 	"es_huntsman": { 
 		"name": "Huntsman",
 		"codeName": "es_huntsman",
-		"heroName": "Huntsman",
+		"heroName": "Markus Kruber",
 		"health": 100,
 		"passive": {
 			"name": "Waste Not, Want Not",
@@ -1106,7 +1106,7 @@ export const heroesData = {
 	"we_thornsister": { 
 		"name": "Sister of the Thorn",
 		"codeName": "we_thornsister",
-		"heroName": "Sister of the Thorn",
+		"heroName": "Kerillian",
 		"health": 125,
 		"passive": {
 			"name": "A Cluster of Radiants",
@@ -1209,7 +1209,7 @@ export const heroesData = {
 	"dr_slayer": { 
 		"name": "Slayer",
 		"codeName": "dr_slayer",
-		"heroName": "Slayer",
+		"heroName": "Bardin Goreksson",
 		"health": 125,
 		"passive": {
 			"name": "Trophy Hunter",
@@ -1308,7 +1308,7 @@ export const heroesData = {
 	"es_mercenary": { 
 		"name": "Mercenary",
 		"codeName": "es_mercenary",
-		"heroName": "Mercenary",
+		"heroName": "Markus Kruber",
 		"health": 125,
 		"passive": {
 			"name": "Paced Strikes",
@@ -1407,7 +1407,7 @@ export const heroesData = {
 	"dr_engineer": { 
 		"name": "Outcast Engineer",
 		"codeName": "dr_engineer",
-		"heroName": "Outcast Engineer",
+		"heroName": "Bardin Goreksson",
 		"health": 100,
 		"passive": {
 			"name": "Build Pressure",
@@ -1510,7 +1510,7 @@ export const heroesData = {
 	"bw_scholar": { 
 		"name": "Pyromancer",
 		"codeName": "bw_scholar",
-		"heroName": "Pyromancer",
+		"heroName": "Sienna Fuegonasus",
 		"health": 100,
 		"passive": {
 			"name": "Critical Mass",
@@ -1605,7 +1605,7 @@ export const heroesData = {
 	"wh_captain": { 
 		"name": "Witch Hunter Captain",
 		"codeName": "wh_captain",
-		"heroName": "Witch Hunter Captain",
+		"heroName": "Victor Saltzpyre",
 		"health": 125,
 		"passive": {
 			"name": "Witch-Hunt",
@@ -1704,7 +1704,7 @@ export const heroesData = {
 	"wh_zealot": { 
 		"name": "Zealot",
 		"codeName": "wh_zealot",
-		"heroName": "Zealot",
+		"heroName": "Victor Saltzpyre",
 		"health": 150,
 		"passive": {
 			"name": "Fiery Faith",

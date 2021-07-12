@@ -30,8 +30,6 @@ function reducer(state, action) {
             return {...state, username: action.payload};
         case 'UPDATE_STEAM':
             return {...state, steam: action.payload};
-        case 'UPDATE_TWITCH':
-            return {...state, twitch: action.payload};
         case 'UPDATE_DISCORD':
             return {...state, discord: action.payload};
         case 'UPDATE_YOUTUBE':

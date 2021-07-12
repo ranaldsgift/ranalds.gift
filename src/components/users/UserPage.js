@@ -58,6 +58,7 @@ function UserPage(props) {
                       potion={state.potion}
                       book={state.book}
                       roles={state.roles}
+                      twitchMode={state.twitchMode}
                       collapseFilters={state.collapseFilters}></BuildsList>
             </TabPanel>
             <TabPanel>
@@ -70,6 +71,7 @@ function UserPage(props) {
                       potion={state.potion}
                       book={state.book}
                       roles={state.roles}
+                      twitchMode={state.twitchMode}
                       collapseFilters={state.collapseFilters}></BuildsList>
                       : <span className="border-01 left-shadow background-11" style={{ display: 'grid', padding: '10px' }}>Ranald stops smiling and flips you the finger.</span>
               }

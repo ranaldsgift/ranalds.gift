@@ -127,14 +127,14 @@ class HeroTalents extends Component {
   handleTalentClick(e) {
     const [state, updateState] = this.context;
 
-    updateState({type: "UPDATE_TALENTS", payload: { tier: parseInt(e.currentTarget.dataset.tier), talent: parseInt(e.currentTarget.dataset.talent)}});
-/*     var tierTalents = document.querySelectorAll(`button.hero-talent[data-tier="${e.currentTarget.getAttribute('data-tier')}"]`);
+    var talent = parseInt(e.currentTarget.dataset.talent);
+    var tier = parseInt(e.currentTarget.dataset.tier);
+    var currentTalent = state.talents[tier-1];
+    if (talent === currentTalent) {
+      talent = 0;
+    }
 
-    tierTalents.forEach(talent => {
-      talent.classList.remove('selected');
-    });
-
-    e.currentTarget.classList.add('selected'); */
+    updateState({type: "UPDATE_TALENTS", payload: { tier: tier, talent: talent}});
   }
 }
 

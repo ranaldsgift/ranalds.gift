@@ -10,6 +10,21 @@
     text-transform: uppercase;
     cursor: pointer;
     grid-column-gap: 10px;
+    pointer-events: none;
+}
+.build-list-item .build-author, .build-list-item .traits>*, .build-list-item .weapons>* {
+    pointer-events: all;
+}
+a.link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.build-list-item-container {
+    position: relative;
 }
 .edit-build-page .build-list-item .weapons, .edit-build-page .build-list-item .traits {
     display: none;
@@ -335,7 +350,7 @@
   .build-list-item[data-career='18']:before {
     background-image: linear-gradient(rgb(98 93 96 / 30%), rgb(49 49 49 / 30%)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
-  .build-list-item:hover:before {
+  .build-list-item-container:hover .build-list-item:before {
     box-shadow: 0 0 10px 2px #ffd700;
     /* background: radial-gradient(closest-corner, #00000090, #000000dc), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png'); */
 }
@@ -353,7 +368,7 @@
     pointer-events: none;
     box-shadow: inset 0 0 6px 3px #000;
 }
-.build-list-item:hover::after {
+.build-list-item-container:hover .build-list-item::after {
     background: linear-gradient(45deg, #ffffff08, transparent);
     box-shadow: none;
 }

@@ -9,6 +9,7 @@ import TraitIcon from '../traits/TraitIcon';
 import history from '../../utils/History';
 import BuildListRating from './BuildListRating';
 import BuildCreationInfo from '../buildPage/BuildCreationInfo';
+import { Link } from 'react-router-dom';
 
 
 class BuildListItem extends Component {  
@@ -26,8 +27,10 @@ class BuildListItem extends Component {
 
     return (
       //<Link to={'/build/' + this.props.buildId + '/view'}>
-        <div className="build-list-item" data-career={this.props.buildData.careerId} data-hero={this.props.buildData.heroId} data-build={this.props.buildId} onClick={this.handleBuildClick.bind(this)}>
-          <div className={`build-hero-icon hero-icon-${this.props.buildData.careerId} border-04`}></div>
+      <div className="build-list-item-container">
+        <Link className="link-overlay" to={'/build/' + this.props.buildId + '/view'}></Link>
+        <div className="build-list-item" data-career={this.props.buildData.careerId} data-hero={this.props.buildData.heroId} data-build={this.props.buildId}>
+          <div className={`build-hero-icon hero-icon border-04`} data-career={this.props.buildData.careerId}></div>
           <div className="build-description-container">
             <p className="build-name header-underline">{this.props.buildData.name}</p>
             <p className="build-hero">{careerData.name}</p>
@@ -57,6 +60,7 @@ class BuildListItem extends Component {
               <p className="roles">{roleList.join(' / ')}</p>
               <p className="patch-number">{`Update ${patchData.number}`}</p>
           </div>
+        </div>
         </div>
       //</Link>
     );

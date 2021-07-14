@@ -9,7 +9,7 @@ import BuildOptions from './BuildOptions';
 import BuildSummary from './BuildSummary';
 import { AppContext } from '../../stores/Store';
 import { useParams } from 'react-router';
-import { db } from '../../utils/Firebase';
+import { db, firebase } from '../../utils/Firebase';
 import { UserContext } from '../../stores/UserStore';
 import BuildHeader from './BuildHeader';
 import BuildGuide from './BuildGuide';
@@ -58,13 +58,6 @@ function ViewBuildPage() {
 
         }
 
-        //get build id param
-        //if empty, load nothing from DB
-        //if not empty, load build from DB and updatestate
-
-        //saving builds with /create/ url saves new db item and redirects to /buildId/edit page
-        //saving builds with /edit/ url just updates the record in the db
-
         if (!state.isFromDb) {
             return (
                 <div className="edit-build-page" data-readonly={state.readonly} data-dirty={state.dirty}>
@@ -85,14 +78,31 @@ function ViewBuildPage() {
                         careerId={state.careerId}
                         hideFilters={true}
                         hidePages={true}
-                        pageLimit={4}
-                        exclude={state.buildId}></BuildsList>   
-{/*                 <BuildsList name={`${state.username}'s Builds`} 
+                        pageLimit={3}
+                        filters={[{ field: 'userId', comparison: '!=', value: state.userId }]}
+                        builds={state.similarBuilds}
+                        firstBuildDoc={state.firstBuildDocSimilarBuilds}
+                        lastBuildDoc={state.lastBuildDocSimilarBuilds}
+                        currentPage={state.currentPageSimilarBuilds}
+                        isLastPage={state.isLastPageSimilarBuilds}
+                        isLoadingData={state.isLoadingDataSimilarBuilds}
+                        isDataLoaded={state.isDataLoadedSimilarBuilds}
+                        updateCommand={'UPDATE_SIMILAR_CAREER_BUILDS_DATA'}></BuildsList>   
+                <BuildsList name={`Similar Builds by ${state.username}`} 
+                        careerId={state.careerId}
                         user={{id: state.userId, username: state.username}}
                         hideFilters={true}
                         hidePages={true}
-                        pageLimit={2}
-                        exclude={state.buildId}></BuildsList> */}
+                        pageLimit={3}
+                        filters={[{ field: firebase.firestore.FieldPath.documentId(), comparison: '!=', value: state.buildId }]}
+                        builds={state.userBuilds}
+                        firstBuildDoc={state.firstBuildDocUserBuilds}
+                        lastBuildDoc={state.lastBuildDocUserBuilds}
+                        currentPage={state.currentPageUserBuilds}
+                        isLastPage={state.isLastPageUserBuilds}
+                        isLoadingData={state.isLoadingDataUserBuilds}
+                        isDataLoaded={state.isDataLoadedUserBuilds}
+                        updateCommand={'UPDATE_SIMILAR_USER_BUILDS_DATA'}></BuildsList>
                 </div>
                 <div className="build-main-container">
                     <Tabs>

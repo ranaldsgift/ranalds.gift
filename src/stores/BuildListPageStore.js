@@ -12,23 +12,31 @@ function reducer(state, action) {
         case 'UPDATE_CAREER':
             return {...state, careerId: action.payload, isDataLoaded: false }
         case 'UPDATE_BUILDS_DATA':
-            return {...state, builds: action.payload.builds, buildsLastDoc: action.payload.lastDoc, buildsPageCount: action.payload.pageCount, buildsCurrentPage: action.payload.currentPage, isInitialized: true, isDataLoaded: true };
+            return {...state, 
+                builds: action.payload.builds, 
+                firstBuildDoc: action.payload.firstBuildDoc,
+                lastBuildDoc: action.payload.lastBuildDoc, 
+                currentPage: action.payload.currentPage, 
+                isLastPage: action.payload.isLastPage, 
+                isLoadingData: action.payload.isLoadingData, 
+                isDataLoaded: action.payload.isDataLoaded
+            };
         case 'UPDATE_DIFFICULTY':
-            return {...state, difficulty: action.payload, dirty: true};
+            return {...state, difficulty: action.payload, isDataLoaded: false};
         case 'UPDATE_TWITCH':
-            return {...state, twitchMode: action.payload, dirty: true};
+            return {...state, twitchMode: action.payload, isDataLoaded: false};
         case 'UPDATE_MISSION':
-            return {...state, mission: action.payload, dirty: true};
+            return {...state, mission: action.payload, isDataLoaded: false};
         case 'UPDATE_BOOKS':
-            return {...state, book: action.payload, dirty: true};
+            return {...state, book: action.payload, isDataLoaded: false};
         case 'UPDATE_POTION':
-            return {...state, potion: action.payload, dirty: true};
+            return {...state, potion: action.payload, isDataLoaded: false};
         case 'UPDATE_ROLES':
-            return {...state, roles: action.payload, dirty: true};
+            return {...state, roles: action.payload, isDataLoaded: false};
         case 'UPDATE_USER':
-            return {...state, user: action.payload, dirty: true};
+            return {...state, user: action.payload, isDataLoaded: false};
         case 'UPDATE_SORTBY':
-            return {...state, sortBy: action.payload, dirty: true};
+            return {...state, sortBy: action.payload, isDataLoaded: false};
         case 'UPDATE_FILTER_COLLAPSE_STATE':
             return {...state, collapseFilters: action.payload};
         default:
@@ -40,8 +48,10 @@ export default function BuildListPageStore(props) {
 
     const stateHook = React.useReducer(reducer, {
         builds: [],
-        buildsLastDocument: {},
-        buildsCurrentPage: 0,
+        firstBuildDoc: {},
+        lastBuildDoc: {},
+        currentPage: 1,
+        isLastPage: true,
         buildsCount: 0,
         careerId: 0,
         meleeId: 0,
@@ -82,6 +92,7 @@ export default function BuildListPageStore(props) {
         username: '',
         isInitialized: false,
         isDataLoaded: false,
+        isLoadingData: false,
         collapseFilters: true
     });
 

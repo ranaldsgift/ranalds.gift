@@ -23,7 +23,15 @@ class BuildListPage extends Component {
                       potion={state.potion}
                       book={state.book}
                       roles={state.roles}
-                      collapseFilters={state.collapseFilters}>            
+                      collapseFilters={state.collapseFilters}
+                      builds={state.builds}
+                      firstBuildDoc={state.firstBuildDoc}
+                      lastBuildDoc={state.lastBuildDoc}
+                      currentPage={state.currentPage}
+                      isLastPage={state.isLastPage}
+                      isLoadingData={state.isLoadingData}
+                      isDataLoaded={state.isDataLoaded}
+                      updateCommand={'UPDATE_BUILDS_DATA'}>
           </BuildsList>
         </div>
     );

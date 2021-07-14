@@ -59,7 +59,15 @@ function UserPage(props) {
                       book={state.book}
                       roles={state.roles}
                       twitchMode={state.twitchMode}
-                      collapseFilters={state.collapseFilters}></BuildsList>
+                      collapseFilters={state.collapseFilters}
+                      builds={state.userBuilds}
+                      firstBuildDoc={state.firstBuildDocUserBuilds}
+                      lastBuildDoc={state.lastBuildDocUserBuilds}
+                      currentPage={state.currentPageUserBuilds}
+                      isLastPage={state.isLastPageUserBuilds}
+                      isLoadingData={state.isLoadingDataUserBuilds}
+                      isDataLoaded={state.isDataLoadedUserBuilds}
+                      updateCommand={'UPDATE_USER_BUILDS'}></BuildsList>
             </TabPanel>
             <TabPanel>
               { auth.currentUser && auth.currentUser.uid === state.userId ?
@@ -72,7 +80,15 @@ function UserPage(props) {
                       book={state.book}
                       roles={state.roles}
                       twitchMode={state.twitchMode}
-                      collapseFilters={state.collapseFilters}></BuildsList>
+                      collapseFilters={state.collapseFilters}
+                      builds={state.likedBuilds}
+                      firstBuildDoc={state.firstBuildDocLikedBuilds}
+                      lastBuildDoc={state.lastBuildDocLikedBuilds}
+                      currentPage={state.currentPageLikedBuilds}
+                      isLastPage={state.isLastPageLikedBuilds}
+                      isLoadingData={state.isLoadingDataLikedBuilds}
+                      isDataLoaded={state.isDataLoadedLikedBuilds}
+                      updateCommand={'UPDATE_LIKED_BUILDS'}></BuildsList>
                       : <span className="border-01 left-shadow background-11" style={{ display: 'grid', padding: '10px' }}>Ranald stops smiling and flips you the finger.</span>
               }
             </TabPanel>

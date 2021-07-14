@@ -206,7 +206,35 @@ function buildPageReducer(state, action) {
                 createBuild: false,
                 isLiked: false,
                 dateModified: dateModified,
-                isLoadingData: false
+                isLoadingData: false,
+                similarBuilds: [], 
+                firstBuildDocSimilarBuilds: {},
+                lastBuildDocSimilarBuilds: {}, 
+                currentPageSimilarBuilds: 1, 
+                isLastPageSimilarBuilds: true, 
+                isLoadingDataSimilarBuilds: false, 
+                isDataLoadedSimilarBuilds: false,
+                isDataLoadedUserBuilds: false
+            };
+        case 'UPDATE_SIMILAR_CAREER_BUILDS_DATA':
+            return {...state, 
+                similarBuilds: action.payload.builds, 
+                firstBuildDocSimilarBuilds: action.payload.firstBuildDoc,
+                lastBuildDocSimilarBuilds: action.payload.lastBuildDoc, 
+                currentPageSimilarBuilds: action.payload.currentPage, 
+                isLastPageSimilarBuilds: action.payload.isLastPage, 
+                isLoadingDataSimilarBuilds: action.payload.isLoadingData, 
+                isDataLoadedSimilarBuilds: action.payload.isDataLoaded
+            };
+        case 'UPDATE_SIMILAR_USER_BUILDS_DATA':
+            return {...state, 
+                userBuilds: action.payload.builds, 
+                firstBuildDocUserBuilds: action.payload.firstBuildDoc,
+                lastBuildDocUserBuilds: action.payload.lastBuildDoc, 
+                currentPageUserBuilds: action.payload.currentPage, 
+                isLastPageUserBuilds: action.payload.isLastPage, 
+                isLoadingDataUserBuilds: action.payload.isLoadingData, 
+                isDataLoadedUserBuilds: action.payload.isDataLoaded
             };
         case 'UPDATE_PROPERTY_SELECT': {
             newProperties[action.payload.index] = parseInt(action.payload.id);
@@ -368,18 +396,24 @@ export default function BuildPageStore(props) {
         readonly: true,
         isLoadingData: false,
         isLoadedFromParams: false,
-        similarBuilds: [],
-        similarBuildsLastDocument: {},
-        similarBuildsCurrentPage: 0,
-        similarBuildsCount: 0,
-        userBuilds: [],
-        userBuildsLastDocument: {},
-        userBuildsCurrentPage: 0,
-        userBuildsCount: 0,
         isFromDb: false,
         createBuild: true,
         isLiked: false,
-        dateModified: {}
+        dateModified: {},
+        similarBuilds: [], 
+        firstBuildDocSimilarBuilds: {},
+        lastBuildDocSimilarBuilds: {}, 
+        currentPageSimilarBuilds: 1, 
+        isLastPageSimilarBuilds: true, 
+        isLoadingDataSimilarBuilds: false, 
+        isDataLoadedSimilarBuilds: false,
+        userBuilds: [], 
+        firstBuildDocUserBuilds: {},
+        lastBuildDocUserBuilds: {}, 
+        currentPageUserBuilds: 1, 
+        isLastPageUserBuilds: true, 
+        isLoadingDataUserBuilds: false, 
+        isDataLoadedUserBuilds: false
     });
 
     return (

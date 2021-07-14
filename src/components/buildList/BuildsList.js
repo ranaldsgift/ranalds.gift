@@ -3,7 +3,7 @@ import './BuildList.css';
 import './BuildListItem.css';
 import BuildListItem from './BuildListItem';
 import 'simplebar/dist/simplebar.min.css';
-import { db } from '../../utils/Firebase';
+import { db, firebase } from '../../utils/Firebase';
 import { AppContext } from '../../stores/Store';
 import { DataHelper } from '../../utils/DataHelper';
 import MissionSelect from '../select/MissionSelect';
@@ -23,12 +23,11 @@ class BuildsList extends Component {
 
     this.state = {
       name: props.name ? props.name : 'Latest Builds',
-      builds: [],
-      buildsCount: 0,
-      firstBuildDoc: {},
-      lastBuildDoc: {},
-      currentPage: 1,
-      isLastPage: true,
+      builds: props.builds ? props.builds : [],
+      firstBuildDoc: props.firstBuildDoc ? props.firstBuildDoc : {},
+      lastBuildDoc: props.lastBuildDoc ? props.lastBuildDoc : {},
+      currentPage: props.currentPage ? props.currentPage : 1,
+      isLastPage: typeof props.isLastPage !== 'undefined' ? props.isLastPage : true,
       user: props.user ? props.user : 0,
       careerId: props.careerId ? props.careerId : 0,
       careers: [],
@@ -40,43 +39,65 @@ class BuildsList extends Component {
       roles: props.roles ? props.roles : [],
       sortBy: props.sortBy ? props.sortBy : null,
       likedBy: props.likedBy ? props.likedBy : null,
-      exclude: props.exclude ? props.exclude : null,
       difficulties: [],
       missions: [],
       potions: [],
       books: [],
-      isDataLoaded: false,
-      isLoadingData: false,
-      filters: [],
+      isDataLoaded: props.isDataLoaded,
+      isLoadingData: props.isLoadingData,
+      filters: props.filters ? props.filters : [],
       pageLimit: props.pageLimit ? props.pageLimit : 5,
       hideFilters: props.hideFilters,
       hidePages: props.hidePages,
-      collapseFilters: props.collapseFilters
+      collapseFilters: props.collapseFilters,
+      updateCommand: props.updateCommand
     };
+  }
+
+  componentDidMount() {
+    if (!this.props.isDataLoaded && !this.props.isLoadingData) {
+      this.loadBuildList();
+    }
   }
   
   componentDidUpdate(prevProps) {
-    //alert('update');
-/*     alert(this.props.careerId);
-    alert(!this.areBuildFiltersChanged(prevProps, this.props)); */
-      if (this.arePropsChanged(prevProps, this.props)) {
-        this.setState({
-          name: this.props.name ? this.props.name : "Latest Builds",
-          user: this.props.user ? this.props.user : 0,
-          careerId: this.props.careerId ? this.props.careerId : 0,
-          difficulty: this.props.difficulty ? this.props.difficulty : null,
-          twitchMode: this.props.twitchMode ? this.props.twitchMode : null,
-          mission: this.props.mission ? this.props.mission : null,
-          potion: this.props.potion ? this.props.potion : null,
-          book: this.props.book ? this.props.book : null,
-          roles: this.props.roles ? this.props.roles : [],
-          sortBy: this.props.sortBy ? this.props.sortBy : null,
-          likedBy: this.props.likedBy ? this.props.likedBy : null,
-          exclude: this.props.exclude ? this.props.exclude : null,
-          collapseFilters: this.props.collapseFilters,
-          isDataLoaded: !this.areBuildFiltersChanged(prevProps, this.props)
-        });
-      }
+    if (this.arePropsChanged(prevProps, this.props)) {
+      this.updateStateFromProps(this.props, !this.areBuildFiltersChanged(prevProps, this.props))
+      return;
+    }
+
+    if (!this.props.isDataLoaded) {
+      this.loadBuildList();
+      return;
+    }
+  }
+
+  updateStateFromProps(props, isDataLoaded) {
+    this.setState({
+      name: props.name ? props.name : this.state.name,
+      builds: props.builds ? props.builds : [],
+      firstBuildDoc: props.firstBuildDoc ? props.firstBuildDoc : {},
+      lastBuildDoc: props.lastBuildDoc ? props.lastBuildDoc : {},
+      currentPage: props.currentPage ? props.currentPage : 1,
+      isLastPage: typeof props.isLastPage !== 'undefined' ? props.isLastPage : true,
+      user: props.user ? props.user : '',
+      careerId: props.careerId ? props.careerId : 0,
+      difficulty: props.difficulty ? props.difficulty : null,
+      twitchMode: props.twitchMode ? props.twitchMode : null,
+      mission: props.mission ? props.mission : null,
+      potion: props.potion ? props.potion : null,
+      book: props.book ? props.book : null,
+      roles: props.roles ? props.roles : [],
+      sortBy: props.sortBy ? props.sortBy : null,
+      likedBy: props.likedBy ? props.likedBy : null,
+      isDataLoaded: props.isDataLoaded,
+      isLoadingData: props.isLoadingData,
+      filters: props.filters ? props.filters : [],
+      pageLimit: props.pageLimit ? props.pageLimit : 5,
+      hideFilters: typeof props.hideFilters !== 'undefined' ? props.hideFilters : false,
+      hidePages: typeof props.hidePages !== 'undefined' ? props.hidePages : false,
+      collapseFilters: typeof props.collapseFilters !== 'undefined' ? props.collapseFilters : true
+    });
   }
 
   areBuildFiltersChanged(prevProps, newProps) { 
@@ -138,23 +159,31 @@ class BuildsList extends Component {
       return true;
     }
 
-    if (prevProps.exclude !== newProps.exclude) {
-      return true;
-    }
-
     return false;
   }
 
   arePropsChanged(prevProps, newProps) {
     if (this.areBuildFiltersChanged(prevProps, newProps)) {
       return true;
-    }   
+    }
+
+    if (prevProps.firstBuildDoc && newProps.firstBuildDoc && prevProps.firstBuildDoc.id !== newProps.firstBuildDoc.id) {
+      return true;
+    }
+    
+    if (prevProps.lastBuildDoc && newProps.lastBuildDoc && prevProps.lastBuildDoc.id !== newProps.lastBuildDoc.id) {
+      return true;
+    }
 
     if (prevProps.name !== newProps.name) {
       return true;
     }
 
-    if (prevProps.exclude !== newProps.exclude) {
+    if (prevProps.isLoadingData !== newProps.isLoadingData) {
+      return true;
+    }
+
+    if (prevProps.isDataLoaded !== newProps.isDataLoaded) {
       return true;
     }
 
@@ -166,10 +195,6 @@ class BuildsList extends Component {
   }
 
   render() {
-    if (!this.state.isDataLoaded && !this.state.isLoadingData) {
-      this.loadBuildList();
-    }
-
     return (this.renderList());
   }
 
@@ -271,6 +296,10 @@ class BuildsList extends Component {
   }
 
   loadBuildList() {
+    if (this.state.isLoadingData) {
+      return;
+    }
+
     this.setState({isLoadingData: true});
 
     let buildsQuery = this.getOrderedBuildsQuery();
@@ -282,9 +311,7 @@ class BuildsList extends Component {
       let isLastPage = false;
 
       querySnapshot.forEach((build) => {
-        if (!this.state.exclude || this.state.exclude !== build.id) {
-          buildList.push({ id: build.id, data: build.data()});
-        }        
+        buildList.push({ id: build.id, data: build.data()});
       });
 
       if (buildList.length < (this.state.pageLimit + 1)) {
@@ -292,6 +319,24 @@ class BuildsList extends Component {
       }
       else {        
         buildList.pop(); // remove extra item from the list, it's only to check for last page
+      }
+
+      if (this.state.updateCommand) {
+        const [state, updateState] = this.context;
+        
+        updateState({
+          type: this.state.updateCommand, 
+          payload: {
+            builds: buildList, 
+            firstBuildDoc: querySnapshot.docs[0],
+            lastBuildDoc: isLastPage ? querySnapshot.docs[querySnapshot.docs.length-1] : querySnapshot.docs[querySnapshot.docs.length-2], 
+            currentPage: 1,
+            isLastPage: isLastPage,
+            isDataLoaded: true, 
+            isLoadingData: false
+          }
+        });
+        return;
       }
 
       this.setState({builds: buildList, 
@@ -303,6 +348,13 @@ class BuildsList extends Component {
                     isDataLoaded: true, 
                     isLoadingData: false
                   });
+    }).catch((error) => {
+      console.log('error querying db');
+      //console.log(error);
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.name);
+      console.log(error.stack);      
     });
   }
 
@@ -313,6 +365,10 @@ class BuildsList extends Component {
       orderQuery.sortBy = this.state.sortBy.id;
     }
 
+    if (this.state.filters && this.state.filters.length > 0) {
+      return this.getBuildsQuery();
+    }
+
     return this.getBuildsQuery().orderBy(orderQuery.sortBy, orderQuery.sortOrder);
   }
 
@@ -321,7 +377,7 @@ class BuildsList extends Component {
   }
 
   clickNextPage() {
-    if (this.state.isLastPage) {
+    if (this.state.isLastPage || this.state.isLoadingData) {
       return;
     }
 
@@ -335,8 +391,6 @@ class BuildsList extends Component {
 
       let isLastPage = false;
 
-      console.log(querySnapshot.docs.length < (this.state.pageLimit + 1));
-
       if (querySnapshot.docs.length < (this.state.pageLimit + 1)) {
         isLastPage = true;
       }
@@ -345,6 +399,24 @@ class BuildsList extends Component {
       }
 
       var newPage = this.state.currentPage + 1;
+      
+      if (this.state.updateCommand) {
+        const [state, updateState] = this.context;
+        
+        updateState({
+          type: this.state.updateCommand, 
+          payload: {
+            builds: builds, 
+            firstBuildDoc: querySnapshot.docs[0],
+            lastBuildDoc: isLastPage ? querySnapshot.docs[querySnapshot.docs.length-1] : querySnapshot.docs[querySnapshot.docs.length-2],
+            currentPage: newPage,
+            isLastPage: isLastPage,
+            isDataLoaded: true, 
+            isLoadingData: false
+          }
+        });
+        return;
+      } 
 
       this.setState({builds: builds, 
                     firstBuildDoc: querySnapshot.docs[0],
@@ -359,7 +431,7 @@ class BuildsList extends Component {
   }
 
   clickPreviousPage() {
-    if (this.state.currentPage <= 0) {
+    if (this.state.currentPage <= 0  || this.state.isLoadingData) {
       return;
     }
 
@@ -371,7 +443,25 @@ class BuildsList extends Component {
         builds.push({ id: build.id, data: build.data()});
       });
 
-      var newPage = this.state.currentPage - 1;      
+      var newPage = this.state.currentPage - 1;     
+      
+      if (this.state.updateCommand) {
+        const [state, updateState] = this.context;
+        
+        updateState({
+          type: this.state.updateCommand, 
+          payload: {
+            builds: builds, 
+            firstBuildDoc: querySnapshot.docs[0],
+            lastBuildDoc: querySnapshot.docs[querySnapshot.docs.length-1], 
+            currentPage: newPage,
+            isLastPage: false,
+            isDataLoaded: true, 
+            isLoadingData: false
+          }
+        });
+        return;
+      } 
 
       this.setState({builds: builds, 
         firstBuildDoc: querySnapshot.docs[0],
@@ -424,6 +514,9 @@ class BuildsList extends Component {
       filters.push({ field: 'book', comparison: '==', value: bookId });
     }
 
+    // TODO - Solve problem with using array-contains+array-contains any
+    // Use a map to store the Roles instead of an array
+    // Check for roles with where(roles.solo == true).where(roles.tank == true) etc
     if (this.state.likedBy && this.state.roles.length === 0) {
       var likedBy = this.state.likedBy.id;
       filters.push({ field: 'likes', comparison: 'array-contains', value: likedBy });
@@ -438,8 +531,10 @@ class BuildsList extends Component {
     }
 
     //add additional optional filters from props
-    if (this.props.filters) {
-      this.props.filters.forEach((filter) => { filters.push({field: filter.field, comparison: filter.comparison, value: filter.value}) });
+    if (this.state.filters) {
+      this.state.filters.forEach((filter) => {
+        filters.push({field: filter.field, comparison: filter.comparison, value: filter.value}); 
+      });
     }
 
     filters.forEach((filter) => {
@@ -452,7 +547,6 @@ class BuildsList extends Component {
   }
 
   updateHeroSelect(e) {
-    alert('test')
     var careerId = parseInt(e.target.dataset.career);
     if (e.target.classList.contains('selected')) {
       this.setState({ careerId: 0, isDataLoaded: false });

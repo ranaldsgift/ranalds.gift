@@ -590,7 +590,7 @@ class BuildsList extends Component {
     }
     
     if (!builds || builds.length === 0) {
-      return (<span className="build-list-label">No builds in database.</span>);
+      return (<span className="build-list-label">No builds found</span>);
     }
 
     var buildsHtml = [];

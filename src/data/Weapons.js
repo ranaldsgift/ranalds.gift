@@ -541,7 +541,7 @@ export const weaponsData = [
     {
         "name": "Spear and Shield",
         "codeName": "we_spear_and_shield",
-        "canWieldPrimary": [9,8,7],
+        "canWieldPrimary": [8,7],
         "canWieldSecondary": [],
         "traitCategory": "melee",
         "propertyCategory": "melee",

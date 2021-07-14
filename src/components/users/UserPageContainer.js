@@ -32,50 +32,10 @@ function UserPageContainer() {
           dateModified: doc.data().dateModified
         }
       });
-      
-      db.collection('builds').where("userId", "==", userId).where('isDeleted', '==', false).orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
-        var userBuilds = [];
-        querySnapshot.forEach((build) => {
-          userBuilds.push({ id: build.id, data: build.data()});
-        });
-
-        updateState({
-          type: "UPDATE_USER_BUILDS", 
-          payload: {
-            builds: userBuilds,
-            lastDoc: querySnapshot.docs[querySnapshot.docs.length-1],
-            currentPage: 1,
-            totalPages: Math.round(querySnapshot.size / 10) + 1
-          }
-        }); 
-      });
-
-      if (auth.currentUser && auth.currentUser.uid === userId) {
-        // Load additional build list for liked builds
-
-        db.collection('builds').where("likes", "array-contains", userId).where('isDeleted', '==', false).orderBy('dateModified', 'desc').limit(10).get().then((querySnapshot) => {
-          var likedBuilds = [];
-          querySnapshot.forEach((build) => {
-            likedBuilds.push({ id: build.id, data: build.data()});
-          });
-
-          updateState({
-            type: "UPDATE_LIKED_BUILDS", 
-            payload: {
-              builds: likedBuilds,
-              lastDoc: querySnapshot.docs[querySnapshot.docs.length-1],
-              currentPage: 1,
-              totalPages: Math.round(querySnapshot.size / 10) + 1
-            }
-          }); 
-        });
-      }
     });
 
     return (<span>Loading content...</span>);
   }
-
-    //console.log('params uid: ' + state.userId);
 
     return (
       <Switch>

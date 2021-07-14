@@ -96,6 +96,12 @@ export const correctedTalentsData = [
         description: `Modifies Victor's sidearm to fire two blasts of shield-penetrating pellets in a devastating cone. Each kill with the blast increases the amount of pellets in the next blast, to a max of 20. This buff resets every time you use your ult, unless every pellet misses an enemy`
     },
     {
+        careerId: 10,
+        tier: 2,
+        talent: 1,
+        description: `Blocking just as an enemy attack is about to hit causes your next melee or ranged attack within 2 seconds to be a guaranteed critical hit.`
+    },
+    {
         careerId: 13,
         tier: 5,
         talent: 2,

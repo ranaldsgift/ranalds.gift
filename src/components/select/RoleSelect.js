@@ -11,7 +11,7 @@ class RoleSelect extends Component {
 
       return (
         <Multiselect showArrow={true} closeOnSelect={false} showCheckbox={true} id="roleSelect" closeIcon="cancel" options={DataHelper.getRoleData()} selectedValues={this.props.selectedValues}
-        displayValue="name" placeholder="Roles"
+        displayValue="name" placeholder="Roles" selectionLimit={10}
         onSelect={onChangeHandler.bind(this)} onRemove={onChangeHandler.bind(this)}></Multiselect>
     );
   }

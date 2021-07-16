@@ -72,22 +72,7 @@ function ViewBuildPage() {
         return (
             <div className="view-build-page build-page" data-author={isAuthor} data-liked={isLiked}  data-readonly={state.readonly} data-dirty={state.dirty}>
                 <span id="buildSaveIndicator" className="border-03 background-18">Build saved...</span>
-                <div className="build-left-container top-left-shadow">         
-                
-                <BuildsList name={`More ${career.name} Builds`}
-                        careerId={state.careerId}
-                        hideFilters={true}
-                        hidePages={true}
-                        pageLimit={3}
-                        filters={[{ field: 'userId', comparison: '!=', value: state.userId }]}
-                        builds={state.similarBuilds}
-                        firstBuildDoc={state.firstBuildDocSimilarBuilds}
-                        lastBuildDoc={state.lastBuildDocSimilarBuilds}
-                        currentPage={state.currentPageSimilarBuilds}
-                        isLastPage={state.isLastPageSimilarBuilds}
-                        isLoadingData={state.isLoadingDataSimilarBuilds}
-                        isDataLoaded={state.isDataLoadedSimilarBuilds}
-                        updateCommand={'UPDATE_SIMILAR_CAREER_BUILDS_DATA'}></BuildsList>   
+                <div className="build-left-container top-left-shadow">
                 <BuildsList name={`Similar Builds by ${state.username}`} 
                         careerId={state.careerId}
                         user={{id: state.userId, username: state.username}}
@@ -102,7 +87,22 @@ function ViewBuildPage() {
                         isLastPage={state.isLastPageUserBuilds}
                         isLoadingData={state.isLoadingDataUserBuilds}
                         isDataLoaded={state.isDataLoadedUserBuilds}
-                        updateCommand={'UPDATE_SIMILAR_USER_BUILDS_DATA'}></BuildsList>
+                        updateCommand={'UPDATE_SIMILAR_USER_BUILDS_DATA'}
+                        hideEmpty={true}></BuildsList>                
+                <BuildsList name={`More ${career.name} Builds`}
+                        careerId={state.careerId}
+                        hideFilters={true}
+                        hidePages={true}
+                        pageLimit={3}
+                        filters={[{ field: 'userId', comparison: '!=', value: state.userId }]}
+                        builds={state.similarBuilds}
+                        firstBuildDoc={state.firstBuildDocSimilarBuilds}
+                        lastBuildDoc={state.lastBuildDocSimilarBuilds}
+                        currentPage={state.currentPageSimilarBuilds}
+                        isLastPage={state.isLastPageSimilarBuilds}
+                        isLoadingData={state.isLoadingDataSimilarBuilds}
+                        isDataLoaded={state.isDataLoadedSimilarBuilds}
+                        updateCommand={'UPDATE_SIMILAR_CAREER_BUILDS_DATA'}></BuildsList>   
                 </div>
                 <div className="build-main-container">
                     <Tabs>

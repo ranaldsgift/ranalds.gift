@@ -50,7 +50,8 @@ class BuildsList extends Component {
       hideFilters: props.hideFilters,
       hidePages: props.hidePages,
       collapseFilters: props.collapseFilters,
-      updateCommand: props.updateCommand
+      updateCommand: props.updateCommand,
+      hideEmpty: props.hideEmpty
     };
   }
 
@@ -258,6 +259,10 @@ class BuildsList extends Component {
     }
     else if (!this.state.hideFilters) {      
       buildListClassName = 'paged-build-list build-list-container';
+    }
+
+    if (this.state.hideEmpty && this.state.builds.length === 0) {
+      return null;
     }
 
     return (      

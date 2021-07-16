@@ -48,9 +48,9 @@ class BuildSummary extends Component {
 
     var primaryWeaponTrait = DataHelper.getTraitFromCategory(primaryWeapon.traitCategory, state.traits[Constants.PRIMARY_TRAIT_INDEX]);
     var secondaryWeaponTrait = DataHelper.getTraitFromCategory(secondaryWeapon.traitCategory, state.traits[Constants.SECONDARY_TRAIT_INDEX]);
-    var necklaceTrait = DataHelper.getTraitFromCategory("necklace", state.traits[Constants.NECKLACE_TRAIT_INDEX]);
-    var charmTrait = DataHelper.getTraitFromCategory("charm", state.traits[Constants.CHARM_TRAIT_INDEX]);
-    var trinketTrait = DataHelper.getTraitFromCategory("trinket", state.traits[Constants.TRINKET_TRAIT_INDEX]);
+    var necklaceTrait = DataHelper.getTraitFromCategory("defence_accessory", state.traits[Constants.NECKLACE_TRAIT_INDEX]);
+    var charmTrait = DataHelper.getTraitFromCategory("offence_accessory", state.traits[Constants.CHARM_TRAIT_INDEX]);
+    var trinketTrait = DataHelper.getTraitFromCategory("utility_accessory", state.traits[Constants.TRINKET_TRAIT_INDEX]);
       
     return (
         <div className="build-summary-container divider-03 top">
@@ -84,7 +84,7 @@ class BuildSummary extends Component {
                     <p className="item-trait-name">{necklaceTrait.name}</p>
                 </div>
                 <div className="jewelry-icon necklace-icon border-04"></div>
-                <TraitIcon id={necklaceTrait.id} type="necklace"></TraitIcon>
+                <TraitIcon id={necklaceTrait.id} type="defence_accessory"></TraitIcon>
                 <div className="necklace-property-container property-container">                                    
                     <li className="item-property-1">{`+ ${parseFloat(necklaceProperty1.max_value).toFixed(1)}${necklaceModifier1} ${necklaceProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(necklaceProperty2.max_value).toFixed(1)}${necklaceModifier2} ${necklaceProperty2.name}`}</li>
@@ -96,7 +96,7 @@ class BuildSummary extends Component {
                     <p className="item-trait-name">{charmTrait.name}</p>
                 </div>
                 <div className="jewelry-icon charm-icon border-04"></div>
-                <TraitIcon id={charmTrait.id} type="charm"></TraitIcon>
+                <TraitIcon id={charmTrait.id} type="offence_accessory"></TraitIcon>
                 <div className="charm-property-container property-container">                                    
                     <li className="item-property-1">{`+ ${parseFloat(charmProperty1.max_value).toFixed(1)}% ${charmProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(charmProperty2.max_value).toFixed(1)}% ${charmProperty2.name}`}</li>
@@ -108,7 +108,7 @@ class BuildSummary extends Component {
                     <p className="item-trait-name">{trinketTrait.name}</p>
                 </div>
                 <div className="jewelry-icon trinket-icon border-04"></div>
-                <TraitIcon id={trinketTrait.id} type="trinket"></TraitIcon>
+                <TraitIcon id={trinketTrait.id} type="utility_accessory"></TraitIcon>
                 <div className="trinket-property-container property-container">
                     <li className="item-property-1">{`+ ${parseFloat(trinketProperty1.max_value).toFixed(1)}% ${trinketProperty1.name}`}</li>
                     <li className="item-property-2">{`+ ${parseFloat(trinketProperty2.max_value).toFixed(1)}% ${trinketProperty2.name}`}</li>

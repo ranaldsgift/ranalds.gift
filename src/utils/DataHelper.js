@@ -20,9 +20,12 @@ import {correctedPassivesData} from '../data/CorrectedPassives'
 import {correctedSkillsData} from '../data/CorrectedSkills'
 import React from 'react';
 import { db } from './Firebase'
+import { traitsDataMap } from '../data/TraitsDataMap'
 
 let users = null;
 let userBuildAuthors = null;
+let weapons = null;
+let traits = {};
 
 export class DataHelper {
     static getCareers = () => {
@@ -41,6 +44,8 @@ export class DataHelper {
        return valueMap.sort((a, b) => { return a.sortOrder > b.sortOrder ? 1 : a.sortOrder < b.sortOrder ? -1 : 0; });
     }
     static getCareer = (careerId) => {
+
+      return this.getCareers().find((career) => { return career.id === parseInt(careerId); })
       var careerMap = heroesDataMap.find((career) => {return career.id === parseInt(careerId);});
       var career = null;
 
@@ -250,7 +255,7 @@ export class DataHelper {
       switch (category) {
         case "melee":
           return propertiesData.melee.find((property) => { return parseInt(property.id) === parseInt(propertyId); });
-        case "range":
+        case "ranged":
           return propertiesData.range.find((property) => { return parseInt(property.id) === parseInt(propertyId); });
         case "necklace":
           return propertiesData.necklace.find((property) => { return parseInt(property.id) === parseInt(propertyId); });
@@ -263,23 +268,78 @@ export class DataHelper {
       }
     }
 
+    static getTraitMap = (category, traitId) => {
+      //console.log(traitsDataMap[category]);
+      var categoryTraits = traitsDataMap[category];
+
+      if (!categoryTraits) {
+        return null;
+      }
+      return categoryTraits.find((trait) => { return parseInt(trait.id) === parseInt(traitId); });
+    }
+
+    static getTraitMapByName = (category, name) => {
+      var categoryTraits = traitsDataMap[category];
+      
+      if (!categoryTraits) {
+        return null;
+      }
+      return Object.values(categoryTraits).find((trait) => { return trait.name.toLowerCase() === name.toLowerCase(); });
+    }
+
+    static getMappedTraits = (category) => {
+      if (!traits[category]) {
+        var traitKeys = Object.keys(traitsData[category]);
+        var categoryTraits = Object.values(traitsData[category]).map((trait, index) => {
+          var traitMap = this.getTraitMapByName(category, trait.name);
+  
+          if (traitMap) {
+            trait.id = parseInt(traitMap.id);
+            trait.codeName = traitKeys[index];
+          }
+          return trait;
+        });
+
+        traits[category] = categoryTraits;
+      }
+
+      return traits[category];
+    }
+
     static getTraitFromCategory = (category, traitId) => {
-      switch (category) {
+/*       var traitMap = this.getTraitMap(category, traitId);
+      if (!traitMap) {
+        return null;
+      }
+
+      
+      alert(traitMap.name); */
+/*       alert(category);
+      alert(traitId); */
+      console.log(this.getMappedTraits(category));
+      return this.getMappedTraits(category).find((trait) => { return parseInt(trait.id) === parseInt(traitId); });
+
+/*       switch (category) {
         case "melee":
-          return traitsData.melee.find((property) => { return parseInt(property.id) === parseInt(traitId); });
+          //console.log(Object.values(traitsData.melee));          
+          return Object.values(traitsData.melee).find((trait) => { return trait.name === traitMap.name; });
         case "range":
-          return traitsData.range.find((property) => { return parseInt(property.id) === parseInt(traitId); });
+        case "ranged_ammo":
+          return Object.values(traitsData.ranged_ammo).find((trait) => { return trait.name === traitMap.name; });
         case "magic":
-          return traitsData.magic.find((property) => { return parseInt(property.id) === parseInt(traitId); });
-        case "necklace":
-          return traitsData.necklace.find((property) => { return parseInt(property.id) === parseInt(traitId); });
-        case "charm":
-          return traitsData.charm.find((property) => { return parseInt(property.id) === parseInt(traitId); });
-        case "trinket":
-          return traitsData.trinket.find((property) => { return parseInt(property.id) === parseInt(traitId); });
+        case "ranged_heat":
+          return Object.values(traitsData.ranged_heat).find((trait) => { return trait.name === traitMap.name; });
+        case "ranged_energy":
+          return Object.values(traitsData.ranged_energy).find((trait) => { return trait.name === traitMap.name; });
+        case "defence_accessory":
+          return Object.values(traitsData.defence_accessory).find((trait) => { return trait.name === traitMap.name; });
+        case "offence_accessory":
+          return Object.values(traitsData.offence_accessory).find((trait) => { return trait.name === traitMap.name; });
+        case "utility_accessory":
+          return Object.values(traitsData.utility_accessory).find((trait) => { return trait.name === traitMap.name; });
         default:
           return null;
-      }
+      } */
     }
 
     static getTraitsForCategory = (category) => {
@@ -287,14 +347,18 @@ export class DataHelper {
         case "melee":
           return traitsData.melee;
         case "range":
-          return traitsData.range;
+        case "ranged_ammo":
+          return traitsData.ranged_ammo;
         case "magic":
-          return traitsData.magic;
-        case "necklace":
+        case "ranged_heat":
+          return traitsData.ranged_heat;
+        case "ranged_energy":
+          return traitsData.ranged_energy
+        case "defence_accessory":
           return traitsData.necklace;
-        case "charm":
+        case "offence_accessory":
           return traitsData.charm;
-        case "trinket":
+        case "utility_accessory":
           return traitsData.trinket;
         default:
           return null;
@@ -302,29 +366,45 @@ export class DataHelper {
     }
 
     static getWeapon = (weaponId) => {
-      var weapon = this.getWeaponByCodename(this.getCodename(weaponId));
-
-      if (weapon) {
-        weapon.id = weaponId;
-      }
-
-      return weapon;
-      //return weaponsData.find((weapon) => { return weapon.id === parseInt(weaponId); });
-    }
-
-    static getCodename = (weaponId) => {
-      var weapon = weaponsDataMap.find((weapon) => { return weapon.id === parseInt(weaponId); });
-      return weapon ? weapon.codeName : null;
-    }
-
-    static getWeaponByCodename = (weaponCodename) => {
-      var weapon  = weaponsData.find((weapon) => { return weapon.codeName === weaponCodename.toString(); });
+      var weapon  = this.getWeapons().find((weapon) => { return weapon.id === parseInt(weaponId); });
 
       if (!weapon) {
         return null;
       }
+      
+      return weapon;
+    }
 
-      weapon.id = this.getWeaponId(weaponCodename);
+    static getWeaponCodename = (weaponId) => {
+      var weapon = this.getWeapons().find((weapon) => { return weapon.id === parseInt(weaponId); });
+      return weapon ? weapon.codeName : null;
+    }
+
+    static getWeapons = () => {
+      if (!weapons) {
+        var values = Object.values(weaponsData);
+        var keys = Object.keys(weaponsData);
+        weapons = values.map((obj, index) => {
+          obj.codeName = keys[index];
+          var weaponMap = weaponsDataMap.find((weapon) => { return weapon.codeName === keys[index] });
+          if (weaponMap) {
+            obj.id = parseInt(weaponMap.id);
+          }
+          return obj;
+         });
+
+      }
+
+      return weapons;      
+    }
+
+    static getWeaponByCodename = (weaponCodename) => {
+      var weapon  = this.getWeapons().find((weapon) => { return weapon.codeName === weaponCodename.toString(); });
+
+      if (!weapon) {
+        return null;
+      }
+      
       return weapon;
     }
     
@@ -361,7 +441,9 @@ export class DataHelper {
     }
 
     static getPrimaryWeaponsForCareer = (careerId) => {
-      var weapons = weaponsData.filter((weapon) => { return weapon.canWieldPrimary.includes(parseInt(careerId)); });
+      var career = this.getCareer(parseInt(careerId));
+      var weapons = this.getWeapons().filter((weapon) => { return weapon.canWieldPrimary.includes(career.codeName); });
+      return weapons;
 
       var mappedWeapons = weapons.map(weapon =>
         ({...weapon, id: this.getWeaponId(weapon.codeName)})
@@ -371,7 +453,9 @@ export class DataHelper {
     }
 
     static getSecondaryWeaponsForCareer = (careerId) => {
-      var weapons = weaponsData.filter((weapon) => { return weapon.canWieldSecondary.includes(parseInt(careerId)); });
+      var career = this.getCareer(parseInt(careerId));
+      var weapons = this.getWeapons().filter((weapon) => { return weapon.canWieldSecondary.includes(career.codeName); });
+      return weapons;
 
       var mappedWeapons = weapons.map((weapon) => {
         return {...weapon, id: this.getWeaponId(weapon.codeName)}
@@ -383,91 +467,5 @@ export class DataHelper {
     static getWeaponId = (codename) => {
       var mappedWeapon =  weaponsDataMap.find((weapon) => { return weapon.codeName === codename; });
       return mappedWeapon ? mappedWeapon.id : null;
-    }
-
-    static getBuildStats = () => {
-/*       let careers = [];
-
-      this.getCareers().forEach((career) => {
-        let primaryWeapons = this.getPrimaryWeaponsForCareer(career.id);
-        let secondaryWeapons = this.getSecondaryWeaponsForCareer(career.id);
-
-        let weaponData = [];
-
-        primaryWeapons.forEach((weapon) => {
-          let properties = this.getPropertiesForCategory(weapon.propertyCategory)
-
-          let propertyData = [];
-          properties.forEach((property) => {
-            propertyData.push({
-              id: property.id,
-              count: 0
-            });
-          });
-
-          let traits = this.getTraitsForCategory(weapon.traitCategory);
-
-          let traitData = [];
-          traits.forEach((trait) => {
-            traitData.push({
-              id: trait.id,
-              count: 0
-            });
-          });
-
-          weaponData.push({
-            id: weapon.id,
-            count: 0,
-            properties: propertyData,
-            traits: traitData
-          });
-        });
-
-        secondaryWeapons.forEach((weapon) => {
-          let properties = this.getPropertiesForCategory(weapon.propertyCategory)
-
-          let propertyData = [];
-          properties.forEach((property) => {
-            propertyData.push({
-              id: property.id,
-              count: 0
-            });
-          });
-
-          let traits = this.getTraitsForCategory(weapon.traitCategory);
-
-          let traitData = [];
-          traits.forEach((trait) => {
-            traitData.push({
-              id: trait.id,
-              count: 0
-            });
-          });
-
-          weaponData.push({
-            id: weapon.id,
-            count: 0,
-            properties: propertyData,
-            traits: traitData
-          });
-        });
-
-        let careerData = {
-          id: career.id,
-          count: 0,
-          weapons: weaponData
-        };
-
-        careers.push(careerData);
-      });
-      console.log(careers);
-
-      db.collection('builds').doc('stats').set({
-        careers: careers
-      }); */
-
-/*       db.collection('builds').doc('stats').get().then((document) => {
-        console.log(document.data());
-      }); */
     }
   }

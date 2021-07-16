@@ -15,7 +15,7 @@ class WeaponTooltip extends Component {
     var itemDescription = item.description ? item.description : '';
     
     var itemStaminaHtml = '';
-    if (item.stamina) {
+    if (item.stamina && item.stamina !== 'nil') {
       itemStaminaHtml = <div className="item-stamina">
                           <div className="stamina-angle-background"><div className={`stamina-angle stamina-angle-${item.blockAngle}`}><div className="stamina-icon"></div></div></div>
                           <p className="item-stamina-text">{item.stamina}</p>

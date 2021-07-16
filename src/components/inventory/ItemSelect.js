@@ -41,6 +41,8 @@ class ItemSelect extends Component {
     else if (itemType === "secondary") {
       weaponsForHero = DataHelper.getSecondaryWeaponsForCareer(careerId);
     }
+
+    console.log(weaponsForHero);
     
     for (var i = 0; i < weaponsForHero.length; i++) {
       var weapon = weaponsForHero[i];

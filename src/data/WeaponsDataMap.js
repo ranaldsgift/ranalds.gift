@@ -129,43 +129,43 @@ export const weaponsDataMap = [
     },
     {
         "id": 33,
-        "codeName": "es_mace_and_sword"
+        "codeName": "es_dual_wield_hammer_sword"
     },
     {
         "id": 34,
-        "codeName": "es_spear"
+        "codeName": "es_2h_heavy_spear"
     },
     {
         "id": 35,
-        "codeName": "we_axe"
+        "codeName": "we_1h_axe"
     },
     {
         "id": 36,
-        "codeName": "we_spear_and_shield"
+        "codeName": "we_1h_spears_shield"
     },
     {
         "id": 37,
-        "codeName": "dr_hammers"
+        "codeName": "dr_dual_wield_hammers"
     },
     {
         "id": 38,
-        "codeName": "wh_axe_and_falchion"
+        "codeName": "wh_dual_wield_axe_falchion"
     },
     {
         "id": 39,
-        "codeName": "wh_billhook"
+        "codeName": "wh_2h_billhook"
     },
     {
         "id": 40,
-        "codeName": "bw_crowbill"
+        "codeName": "bw_1h_crowbill"
     },
     {
         "id": 41,
-        "codeName": "bw_flail"
+        "codeName": "bw_1h_flail_flaming"
     },
     {
         "id": 42,
-        "codeName": "es_1h_sword_shield_breton"
+        "codeName": "es_sword_shield_breton"
     },
     {
         "id": 43,
@@ -265,7 +265,7 @@ export const weaponsDataMap = [
     },
     {
         "id": 67,
-        "codeName": "dr_throwing_axes"
+        "codeName": "dr_1h_throwing_axes"
     },
     {
         "id": 68,

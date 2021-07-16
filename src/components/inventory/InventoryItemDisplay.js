@@ -5,6 +5,7 @@ import {propertiesData} from '../../data/Properties'
 import {traitsData} from '../../data/Traits'
 import {AppContext} from '../../stores/Store'
 import TraitsSelect from '../traits/TraitsSelect';
+import { DataHelper } from '../../utils/DataHelper';
 
 class InventoryItemDisplay extends Component 
 {
@@ -19,20 +20,24 @@ class InventoryItemDisplay extends Component
           property1Index = this.props.slot === "primary" ? 0 : 2;
           property2Index = this.props.slot === "primary" ? 1 : 3;
           traitIndex = this.props.slot === "primary" ? 0 : 1;
-          return this.renderItemDisplay(this.props.item, propertiesData.melee, traitsData.melee, property1Index, property2Index, traitIndex);
+          return this.renderItemDisplay(this.props.item, propertiesData.melee, DataHelper.getMappedTraits('melee'), property1Index, property2Index, traitIndex);
         case 'range':
+        case 'ranged_ammo':
           property1Index = this.props.slot === "primary" ? 0 : 2;
           property2Index = this.props.slot === "primary" ? 1 : 3;
           traitIndex = this.props.slot === "primary" ? 0 : 1;
-          return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.range, property1Index, property2Index, traitIndex);
+          return this.renderItemDisplay(this.props.item, propertiesData.range, DataHelper.getMappedTraits('ranged_ammo'), property1Index, property2Index, traitIndex);
         case 'magic':
-          return this.renderItemDisplay(this.props.item, propertiesData.range, traitsData.magic, 2, 3, 1);
+        case 'ranged_heat':
+          return this.renderItemDisplay(this.props.item, propertiesData.range, DataHelper.getMappedTraits('ranged_heat'), 2, 3, 1);
+        case 'ranged_energy':
+          return this.renderItemDisplay(this.props.item, propertiesData.range, DataHelper.getMappedTraits('ranged_energy'), 2, 3, 1);
         case 'necklace':
-          return this.renderItemDisplay(this.props.item, propertiesData.necklace, traitsData.necklace, 4, 5, 2);
+          return this.renderItemDisplay(this.props.item, propertiesData.necklace, DataHelper.getMappedTraits('defence_accessory'), 4, 5, 2);
         case 'charm':
-          return this.renderItemDisplay(this.props.item, propertiesData.charm, traitsData.charm, 6, 7, 3);
+          return this.renderItemDisplay(this.props.item, propertiesData.charm, DataHelper.getMappedTraits('offence_accessory'), 6, 7, 3);
         case 'trinket':
-          return this.renderItemDisplay(this.props.item, propertiesData.trinket, traitsData.trinket, 8, 9, 4);    
+          return this.renderItemDisplay(this.props.item, propertiesData.trinket, DataHelper.getMappedTraits('utility_accessory'), 8, 9, 4);    
         default:
           throw new Error("Can't render inventory item display");
       }
@@ -41,7 +46,7 @@ class InventoryItemDisplay extends Component
       var itemDescription = item.description ? item.description : '';
       
       var itemStaminaHtml = '';
-      if (item.stamina) {
+      if (item.stamina && item.stamina !== 'nil') {
         itemStaminaHtml = <div className="item-stamina">
                             <div className="stamina-angle-background"><div className={`stamina-angle stamina-angle-${item.blockAngle}`}><div className="stamina-icon"></div></div></div>
                             <p className="item-stamina-text">{item.stamina}</p>

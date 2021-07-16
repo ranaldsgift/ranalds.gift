@@ -10,6 +10,10 @@ class TraitIcon extends Component {
     
       if (traitData) {
           traitName = traitData.name.toLowerCase().replace(' ', '-');
+      } else {
+        console.log('no trait found');
+        console.log(this.props.type);
+        console.log(this.props.id);
       }
 
       return (

@@ -41,7 +41,7 @@ class RegisterPage extends Component {
 			let user = auth.currentUser;
 			
 			if (!user) {
-				alert("could not update user information");
+				alert("Unable to update user information");
 				return;
 			}
 

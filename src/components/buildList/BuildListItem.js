@@ -52,9 +52,9 @@ class BuildListItem extends Component {
             <TraitIcon id={this.props.buildData.secondaryWeapon.traitId} type={secondaryWeapon.traitCategory}></TraitIcon>
           </div>
           <div className="traits">
-            <TraitIcon id={this.props.buildData.necklace.traitId} type="necklace"></TraitIcon>
-            <TraitIcon id={this.props.buildData.charm.traitId} type="charm"></TraitIcon>
-            <TraitIcon id={this.props.buildData.trinket.traitId} type="trinket"></TraitIcon>
+            <TraitIcon id={this.props.buildData.necklace.traitId} type="defence_accessory"></TraitIcon>
+            <TraitIcon id={this.props.buildData.charm.traitId} type="offence_accessory"></TraitIcon>
+            <TraitIcon id={this.props.buildData.trinket.traitId} type="utility_accessory"></TraitIcon>
           </div>
           <div className="build-footer">
               <p className="roles">{roleList.join(' / ')}</p>

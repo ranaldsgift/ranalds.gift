@@ -81,6 +81,7 @@ class AboutPage extends Component {
             <h2 className="header-underline">Privacy Policy</h2>
             <p>You can view our Privacy Policy <a href="/privacy">here.</a></p>
           </div>
+          <p className="divider-03 top">This <a href="https://www.etsy.com/ca/shop/Minipott">etsy shop</a> is owned and operated by my girlfriend and fellow rat slayer, Minipott. She creates handmade pottery and has a lovely shop filled with beautiful items. Check it out!</p>
           <a style={{textAlign: 'center'}} href="https://www.etsy.com/ca/shop/Minipott"><img style={{width: '100%', maxWidth: '800px', margin: '0 auto'}} alt="Minipott's Etsy Store" src="https://i.etsystatic.com/isbl/6c93d9/36441098/isbl_3360x840.36441098_dstjxy2g.jpg?version=1"></img></a>
         </div>
     );

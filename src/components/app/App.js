@@ -34,9 +34,14 @@ class App extends Component {
   toggleBackground() {
     const [state, updateState] = this.context;
 
-    updateState({
-     type: "TOGGLE_BACKGROUND"
-   });    
+    
+    db.collection('users').doc(state.userId).update({ showVideo: !state.showVideo }).then((doc) => {
+
+      updateState({
+        type: "TOGGLE_BACKGROUND"
+      });    
+
+    });
   }
 
   render() {  
@@ -62,7 +67,8 @@ class App extends Component {
                 twitch: doc.data().twitch,                
                 likedBuilds: doc.data().likedBuilds,
                 dateCreated: doc.data().dateCreated,
-                dateModified: doc.data().dateModified
+                dateModified: doc.data().dateModified,
+                showVideo: doc.data().showVideo
               }
             });
           }).catch((error) => {
@@ -106,8 +112,6 @@ class App extends Component {
     //about page with credits, source link and contribution page
     //full build summary with all stats after all calculated buffs from talents/properties/traits/etc
     //integrate with a mod that exports data to display current build, or import data from RG to change existing build in game
-
-
     return (
       <Router history={history}>
       <Route exact path="/" component={MenuPage}></Route>

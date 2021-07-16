@@ -29,7 +29,8 @@ function reducer(state, action) {
                 twitch: action.payload.twitch, 
                 likedBuilds: action.payload.likedBuilds,
                 dateCreated: action.payload.dateCreated, 
-                dateModified: action.payload.dateModified 
+                dateModified: action.payload.dateModified,
+                showVideo: action.payload.showVideo ?? false
             };
         case 'TOGGLE_BACKGROUND':
             return {...state, 
@@ -47,7 +48,7 @@ export default function UserStore(props) {
         username: '',
         steam: '',
         twitch: '',
-        showVideo: true,
+        showVideo: false,
         likedBuilds: [],
         dateCreated: {},
         dateModified: {}

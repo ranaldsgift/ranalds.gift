@@ -15,17 +15,17 @@
     justify-self: right;
 }
 .necklace-icon {
-    background: url('../images/icons/necklace-icon.png') #564640;
+    background: url('../images/icons/necklace-icon.png') #000;
     background-position: center;
     background-repeat: no-repeat;
 }
 .charm-icon {
-    background: url('../images/icons/charm-icon.png') #440c0c;
+    background: url('../images/icons/charm-icon.png') #000;
     background-position: center;
     background-repeat: no-repeat;
 }
 .trinket-icon {
-    background: url('../images/icons/trinket-icon.png') #2b1212;
+    background: url('../images/icons/trinket-icon.png') #000;
     background-position: calc(50% + 1px) center;
     background-repeat: no-repeat;
 }

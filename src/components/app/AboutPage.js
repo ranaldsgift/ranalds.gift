@@ -76,6 +76,7 @@ class AboutPage extends Component {
             <p>MannyBlanc</p>
             <p><a href="https://www.ranalds.gift/user/flVp52HdEUXfrPrNfqzbjk8AQN93/view">Wildfire</a></p>
             <p>Craacked</p>
+            <p>Saryk</p>
           </div>
           <div className="privacy-container">
             <h2 className="header-underline">Privacy Policy</h2>

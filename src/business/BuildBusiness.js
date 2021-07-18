@@ -3,9 +3,19 @@ import { auth, db, firebase } from "../utils/Firebase";
 import history from '../utils/History';
 import * as Constants from '../data/Constants';
 
+let isSavingBuild = false;
+let isUpdatingBuild = false;
 
 export class BuildBusiness {
+
     static createBuild = (buildState) => {
+        if (isSavingBuild) {
+            // ignore button spam
+            return;
+        }
+
+        isSavingBuild = true;
+
         if (!auth.currentUser) {
             alert(`You must be logged in to create a build.`);
             return;
@@ -116,11 +126,18 @@ export class BuildBusiness {
         }).then(() => {
             console.log('Successfully created new build and updated stats');
             history.push(`/build/${newBuildDoc.id}/edit`)
-    
+            isSavingBuild = false;
         });
 
     }
     static updateBuild = (buildState, callback) => {
+        if (isUpdatingBuild) {
+            // ignore button spam
+            return;
+        }
+
+        isUpdatingBuild = true;
+
         if (buildState.userId !== auth.currentUser.uid) {
             alert('You can\'t edit a build you didn\'t create.');
             return;
@@ -195,6 +212,7 @@ export class BuildBusiness {
         }).then(() => {
             console.log('Successfully updated stats for modified build');
             console.log("Document updated with ID: ", buildState.buildId);
+            isUpdatingBuild = false;
 
             var buildSaveIndicator = document.getElementById('buildSaveIndicator');
             buildSaveIndicator.classList.add('saved');

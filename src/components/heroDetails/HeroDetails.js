@@ -93,7 +93,17 @@ class HeroDetails extends Component {
     var perksHtml = [];
     var i = 1;
 
-    hero.perks.forEach((perk) => { 
+    var perks = hero.perks;
+
+    var unlistedPerks = DataHelper.getUnlistedPerks(careerId);
+
+    if (unlistedPerks && unlistedPerks.length > 0) {
+      unlistedPerks.forEach((perk) => {
+        perks.push(perk);
+      });
+    }
+
+    perks.forEach((perk) => { 
       var perkDescription = perk.description;
       var correctedPerk = DataHelper.getCorrectedPerk(careerId, perk.name);
 

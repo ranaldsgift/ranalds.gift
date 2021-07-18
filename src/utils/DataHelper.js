@@ -18,6 +18,7 @@ import {correctedTalentsData} from '../data/CorrectedTalents'
 import {correctedPerksData} from '../data/CorrectedPerks'
 import {correctedPassivesData} from '../data/CorrectedPassives'
 import {correctedSkillsData} from '../data/CorrectedSkills'
+import {unlistedPerksData} from '../data/UnlistedPerks'
 import React from 'react';
 import { db } from './Firebase'
 import { traitsDataMap } from '../data/TraitsDataMap'
@@ -82,6 +83,10 @@ export class DataHelper {
 
     static getCorrectedSkill = (careerId) => {
       return correctedSkillsData.find((skill) => {return skill.careerId === parseInt(careerId)});
+    }
+
+    static getUnlistedPerks = (careerId) => {
+      return unlistedPerksData.filter((perk) => { return perk.careerId === parseInt(careerId); });
     }
 
     static getTraitData = (id, type) => {

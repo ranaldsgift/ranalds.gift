@@ -6,3 +6,4 @@ https://www.ranalds.gift/?p=/register
 https://www.ranalds.gift/?p=/login
 https://www.ranalds.gift/?p=/support
 https://www.ranalds.gift/?p=/menu
+https://www.ranalds.gift/?p=/heroes

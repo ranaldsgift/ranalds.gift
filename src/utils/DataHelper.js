@@ -274,7 +274,6 @@ export class DataHelper {
     }
 
     static getTraitMap = (category, traitId) => {
-      //console.log(traitsDataMap[category]);
       var categoryTraits = traitsDataMap[category];
 
       if (!categoryTraits) {
@@ -305,6 +304,8 @@ export class DataHelper {
           return trait;
         });
 
+        categoryTraits = categoryTraits.sort((a, b) => { return a.id > b.id ? 1 : a.id < b.id ? -1 : 0; });
+
         traits[category] = categoryTraits;
       }
 
@@ -312,39 +313,7 @@ export class DataHelper {
     }
 
     static getTraitFromCategory = (category, traitId) => {
-/*       var traitMap = this.getTraitMap(category, traitId);
-      if (!traitMap) {
-        return null;
-      }
-
-      
-      alert(traitMap.name); */
-/*       alert(category);
-      alert(traitId); */
-      console.log(this.getMappedTraits(category));
       return this.getMappedTraits(category).find((trait) => { return parseInt(trait.id) === parseInt(traitId); });
-
-/*       switch (category) {
-        case "melee":
-          //console.log(Object.values(traitsData.melee));          
-          return Object.values(traitsData.melee).find((trait) => { return trait.name === traitMap.name; });
-        case "range":
-        case "ranged_ammo":
-          return Object.values(traitsData.ranged_ammo).find((trait) => { return trait.name === traitMap.name; });
-        case "magic":
-        case "ranged_heat":
-          return Object.values(traitsData.ranged_heat).find((trait) => { return trait.name === traitMap.name; });
-        case "ranged_energy":
-          return Object.values(traitsData.ranged_energy).find((trait) => { return trait.name === traitMap.name; });
-        case "defence_accessory":
-          return Object.values(traitsData.defence_accessory).find((trait) => { return trait.name === traitMap.name; });
-        case "offence_accessory":
-          return Object.values(traitsData.offence_accessory).find((trait) => { return trait.name === traitMap.name; });
-        case "utility_accessory":
-          return Object.values(traitsData.utility_accessory).find((trait) => { return trait.name === traitMap.name; });
-        default:
-          return null;
-      } */
     }
 
     static getTraitsForCategory = (category) => {

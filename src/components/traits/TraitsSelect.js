@@ -13,7 +13,7 @@ class TraitsSelect extends Component {
         });
 
       return (
-          <select data-trait={this.props.index} onChange={this.handleTraitSelectChange.bind(this)} defaultValue={this.props.selected-1}>
+          <select data-trait={this.props.index} onChange={this.handleTraitSelectChange.bind(this)} defaultValue={this.props.selected}>
               {traitOptions}
           </select>
       );

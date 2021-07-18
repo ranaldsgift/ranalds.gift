@@ -450,61 +450,61 @@ export const meleeWeaponsData = [
     {
         "id": 33,
         "name": "Mace and Sword",
-        "codeName": "es_mace_and_sword",
+        "codeName": "es_dual_wield_hammer_sword",
         "canWield": "es_mercenary,es_knight,es_huntsman,es_questingknight"
     },
     {
         "id": 34,
         "name": "Spear",
-        "codeName": "es_spear",
+        "codeName": "es_2h_heavy_spear",
         "canWield": "es_mercenary,es_huntsman"
     },
     {
         "id": 35,
         "name": "Elven Axe",
-        "codeName": "we_axe",
+        "codeName": "we_1h_axe",
         "canWield": "we_shade,we_maidenguard,we_waywatcher"
     },
     {
         "id": 36,
         "name": "Spear and Shield",
-        "codeName": "we_spear_and_shield",
+        "codeName": "we_1h_spears_shield",
         "canWield": "we_shade,we_maidenguard,we_waywatcher"
     },
     {
         "id": 37,
         "name": "Dual Hammers",
-        "codeName": "dr_hammers",
+        "codeName": "dr_dual_wield_hammers",
         "canWield": "dr_ironbreaker,dr_slayer,dr_ranger,dr_engineer"
     },
     {
         "id": 38,
         "name": "Throwing Axes",
-        "codeName": "dr_throwing_axes",
+        "codeName": "dr_1h_throwing_axes",
         "canWield": "dr_slayer"
     },
     {
         "id": 39,
         "name": "Axe and Falchion",
-        "codeName": "wh_axe_and_falchion",
+        "codeName": "wh_dual_wield_axe_falchion",
         "canWield": "wh_zealot,wh_bountyhunter,wh_captain"
     },
     {
         "id": 40,
         "name": "Billhook",
-        "codeName": "wh_billhook",
+        "codeName": "wh_2h_billhook",
         "canWield": "wh_zealot,wh_bountyhunter,wh_captain"
     },
     {
         "id": 41,
         "name": "Crowbill",
-        "codeName": "bw_crowbill",
+        "codeName": "bw_1h_crowbill",
         "canWield": "bw_scholar,bw_adept,bw_unchained"
     },
     {
         "id": 42,
         "name": "Flaming Flail",
-        "codeName": "bw_flail",
+        "codeName": "bw_1h_flail_flaming",
         "canWield": "bw_scholar,bw_adept,bw_unchained"
     },
     {

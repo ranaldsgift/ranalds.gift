@@ -119,15 +119,8 @@ function heroPageReducer(state, action) {
             var primary = DataHelper.getWeapon(meleeId);
             primary = primary ? primary : DataHelper.getPrimaryWeaponsForCareer(careerId)[0];
 
-            var secondary = DataHelper.getWeapon(rangeId);//DataHelper.getWeaponByCodename(range.codeName);
+            var secondary = DataHelper.getWeapon(rangeId);
             secondary = secondary ? secondary : DataHelper.getSecondaryWeaponsForCareer(careerId)[0];
-
-/*             if (secondary.traitCategory === "range") {
-                rangeTrait = rangeTrait > 2 ? rangeTrait === 3 || rangeTrait === 8 ? 1 : rangeTrait - 1 : rangeTrait;
-            }
-            else if (secondary.traitCategory === "magic") {
-                rangeTrait = rangeTrait > 1 ? rangeTrait === 2 || rangeTrait === 7 ? 1 : rangeTrait > 7 ? rangeTrait - 2 : rangeTrait - 1 : rangeTrait;
-            } */
 
             var properties = [meleeProperty1, meleeProperty2, rangeProperty1, rangeProperty2, necklaceProperty1, necklaceProperty2, charmProperty1, charmProperty2, trinketProperty1, trinketProperty2]
             var traits = [meleeTrait, rangeTrait, necklaceTrait, charmTrait, trinketTrait];
@@ -235,10 +228,10 @@ function heroPageReducer(state, action) {
             secondary = DataHelper.getWeaponByCodename(range.codeName);
             secondary = secondary ? secondary : DataHelper.getSecondaryWeaponsForCareer(careerId)[0];
 
-            if (secondary.traitCategory === "range") {
+            if (secondary.traitCategory === "ranged_ammo") {
                 rangeTrait = rangeTrait > 2 ? rangeTrait === 3 || rangeTrait === 8 ? 1 : rangeTrait - 1 : rangeTrait;
             }
-            else if (secondary.traitCategory === "magic") {
+            else if (secondary.traitCategory === "ranged_heat") {
                 rangeTrait = rangeTrait > 1 ? rangeTrait === 2 || rangeTrait === 7 ? 1 : rangeTrait > 7 ? rangeTrait - 2 : rangeTrait - 1 : rangeTrait;
             }
 

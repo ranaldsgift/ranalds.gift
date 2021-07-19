@@ -34,14 +34,15 @@ class App extends Component {
   toggleBackground() {
     const [state, updateState] = this.context;
 
-    
-    db.collection('users').doc(state.userId).update({ showVideo: !state.showVideo }).then((doc) => {
-
-      updateState({
-        type: "TOGGLE_BACKGROUND"
-      });    
-
+    if (auth.currentUser) {    
+      db.collection('users').doc(auth.currentUser.uid).update({ showVideo: !state.showVideo }).then((doc) => {
+        console.log('Saved user setting for background video.');
+      });
+    }
+    updateState({
+      type: "TOGGLE_BACKGROUND"
     });
+
   }
 
   render() {  

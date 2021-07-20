@@ -87,6 +87,11 @@ p {
   top: 3px;
   z-index: 2;
   left: calc(50% - 331px);
+  font-size: 1.4rem;
+  color: #c15b24;
+  line-height: 66px;
+  text-transform: uppercase;
+  font-family: 'caslon-antique-bold';
 }
 
 .page-title-label-background {
@@ -98,14 +103,6 @@ p {
   left: calc(50% - 208px);
   background: -webkit-linear-gradient(to bottom, #2b1212 35%, #000);
   background: linear-gradient(to bottom, #2b1212 35%, #000);
-}
-.page-title-label::after {
-  content: "Ranald's Gift";
-  text-transform: uppercase;
-  position: relative;
-  top: 20px;
-  color: #c15b24;
-  font-size: 125%;
 }
 
 /* Reset Select */

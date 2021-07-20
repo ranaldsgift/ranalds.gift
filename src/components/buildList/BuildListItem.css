@@ -209,19 +209,19 @@ a.link-overlay {
 .trait-thermal-equalizer {
     background: url('../../assets/images/traits/thermal-equalizer.png') black;
 }
-.trait-barkskin, .trait-icon[data-type='necklace'][data-id='1'] {
+.trait-barkskin, .trait-icon[data-type='defence_accessory'][data-id='1'] {
     background: url('../../assets/images/traits/barkskin.png') black;
 }
-.trait-hand-of-shallya, .trait-icon[data-type='necklace'][data-id='2'] {
+.trait-hand-of-shallya, .trait-icon[data-type='defence_accessory'][data-id='2'] {
     background: url('../../assets/images/traits/hand-of-shallya.png') black;
 }
-.trait-healers-touch, .trait-icon[data-type='necklace'][data-id='3'] {
+.trait-healers-touch, .trait-icon[data-type='defence_accessory'][data-id='3'] {
     background: url('../../assets/images/traits/healers-touch.png') black;
 }
-.trait-natural-bond, .trait-icon[data-type='necklace'][data-id='4'] {
+.trait-natural-bond, .trait-icon[data-type='defence_accessory'][data-id='4'] {
     background: url('../../assets/images/traits/natural-bond.png') black;
 }
-.trait-boon-of-shallya, .trait-icon[data-type='necklace'][data-id='5'] {
+.trait-boon-of-shallya, .trait-icon[data-type='defence_accessory'][data-id='5'] {
     background: url('../../assets/images/traits/boon-of-shallya.png') black;
 }
 .trait-concoction {

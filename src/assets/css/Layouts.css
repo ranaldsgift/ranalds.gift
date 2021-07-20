@@ -43,7 +43,7 @@
     }
     .app-container-frame {
         padding: 0;
-        margin: 40px 0 0;
+        margin: 19px 0 0;
     }
     .app-container {
         width: auto;
@@ -184,10 +184,6 @@
     }
     .page-title-label-background {
         display: none !important;
-    }
-    .page-title-label::after {
-        color: #f0d9af;
-        font-family: 'caslon-antique-bold';
     }
     .hero-page {
         width: auto !important;

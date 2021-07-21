@@ -93,7 +93,7 @@ class HeroDetails extends Component {
     var perksHtml = [];
     var i = 1;
 
-    var perks = hero.perks;
+    var perks = hero.perks.slice();
 
     var unlistedPerks = DataHelper.getUnlistedPerks(careerId);
 

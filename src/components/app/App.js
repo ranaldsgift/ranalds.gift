@@ -123,7 +123,7 @@ class App extends Component {
           <Link to="/menu" className="nagivation-menu-button"><div className="nagivation-menu-overlay"></div></Link>
         </div>
         <Background hideVideo={!state.showVideo} toggleBackground={this.toggleBackground.bind(this)}></Background>
-        <span className="page-title page-title-label label-01">Ranald's Gift</span>
+        <Link to="/" className="page-title page-title-label label-01">Ranald's Gift</Link>
         <div className="page-title page-title-label-background"></div>
         <div className="app-container-frame">
           <div className="app-container border-06 background7">

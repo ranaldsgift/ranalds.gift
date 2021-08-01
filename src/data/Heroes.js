@@ -156,7 +156,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Ereth Khial's Herald",
-				"description": "Assassinâ€™s Blade is increased to 75% additional damage when attacking enemies from behind."
+				"description": "Assassin's Blade is increased to 75% additional damage when attacking enemies from behind."
 			},
 			{
 				"name": "Vanish",

@@ -19,9 +19,21 @@ export const correctedTalentsData = [
     },
     {
         careerId: 4,
+        tier: 6,
+        talent: 3,
+        description: `Activating Disengage causes the next bomb Bardin throws to not be consumed. Does not stack.`
+    },
+    {
+        careerId: 4,
         tier: 4,
         talent: 2,
         description: `Increases ammunition restored by Survivalist caches to 30%, rounded down.`
+    },
+    {
+        careerId: 5,
+        tier: 4,
+        talent: 1,
+        description: `Periodically generate stacks (up to 5 max) of Rising Anger every 7 seconds while Gromril is active. When Gromril is lost, gain 8.0% attack speed per stack of Rising Anger for 10 seconds.`
     },
     {
         careerId: 5,
@@ -57,7 +69,7 @@ export const correctedTalentsData = [
         careerId: 8,
         tier: 4,
         talent: 2,
-        description: `Dodging while blocking increases dodge range by 20%. Dodging while not blocking increases the power of Kerillian's next strike Kerillian's power by 10% for 2 seconds.`
+        description: `Dodging while blocking increases dodge range by 20%. Dodging while not blocking increases Kerillian's power by 10% for 2 seconds.`
     },
     {
         careerId: 9,
@@ -76,6 +88,12 @@ export const correctedTalentsData = [
         tier: 6,
         talent: 2,
         description: `Animosity grants Victor guaranteed melee critical strikes for the duration. No longer affects teammates.`
+    },
+    {
+        careerId: 11,
+        tier: 2,
+        talent: 1,
+        description: `Critical hits cause enemies to take 20.0% increased damage for 15 seconds. Does not stack with similar effects."`
     },
     {
         careerId: 11,

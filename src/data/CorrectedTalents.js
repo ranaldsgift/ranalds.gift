@@ -154,5 +154,113 @@ export const correctedTalentsData = [
         tier: 5,
         talent: 2,
         description: `When Sienna overcharges she starts, 4 times per second, exchanging 1/15 of her health for 10% ability cooldown.`
+    },
+    {
+        careerId: 1,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 2,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 3,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 4,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 5,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 6,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 7,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 8,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 9,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 10,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 11,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 12,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 13,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 14,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 15,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 16,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 17,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 18,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
     }
 ]

@@ -865,7 +865,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Vengeance",
-				"description": "Periodically generate stacks of Rising Anger every 7 seconds while Gromril is active. When Gromril is lost, gain 8.0% attack speed per stack of Rising Anger."
+				"description": "Periodically generate stacks of Rising Anger every 7 seconds while Gromril is active, up to 5 max. When Gromril is lost, gain 8.0% attack speed per stack of Rising Anger for 10 seconds."
 			},
 			{
 				"name": "Gromril Curse",

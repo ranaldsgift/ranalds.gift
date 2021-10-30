@@ -3,7 +3,7 @@ export const correctedTalentsData = [
         careerId: 2,
         tier: 2,
         talent: 2,
-        description: 'Critical hits cause enemies to take 20% increased damage for 15 seconds.'
+        description: 'Critical hits cause enemies to take 20% increased damage for 15 seconds. Does not stack with similar effects.'
     },
     {
         careerId: 2,
@@ -93,7 +93,7 @@ export const correctedTalentsData = [
         careerId: 11,
         tier: 2,
         talent: 1,
-        description: `Critical hits cause enemies to take 20.0% increased damage for 15 seconds. Does not stack with similar effects."`
+        description: `Critical hits cause enemies to take 20% increased damage for 15 seconds. Does not stack with similar effects.`
     },
     {
         careerId: 11,

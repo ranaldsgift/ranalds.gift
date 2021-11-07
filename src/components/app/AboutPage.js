@@ -39,6 +39,7 @@ class AboutPage extends Component {
               <p>Display detailed weapon damage tables for each weapon similar to <a href="https://docs.google.com/spreadsheets/d/1jESmZ3kHLDWyma-iksiKLrWI5l-2Php5BvAysgxc_zI/edit#gid=62597031">OrangeChris' Damage &amp; Breakpoint Calculator</a></p>
               <p>Create a custom combo database for users to save custom combos for each weapon</p>
               <p>Display a high priority breakpoint summary in an overview section on each weapon page</p>
+              <p>List a breakpoint summary on each build page based on the weapons selected. Show the enemy icon along with a green checkmark to show the breakpoint is hit, orange circle to indicate a breakpoint is available, and red circle or nothing to indicate there are no breakpoints achievable.</p>
               <p>Support for different difficulties as well as custom Hero Power</p>
               <li>Add a "Team" page</li>
               <p>Display multiple builds with a brief summary overview, similar to <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1455893647">Player List Plus</a></p>
@@ -47,6 +48,7 @@ class AboutPage extends Component {
               <p>Implement functionality to support the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1504702573">Info Dump For Streaming</a> mod</p>
               <li>Add additional database functionality</li>
               <p>Let users delete their builds, or delete their user accounts</p>
+              <p>Allow users to reset their passwords</p>
               <li>Add a complete enemy Beastiary</li>
               <p>Show detailed enemy data similar to <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1431393962">Vermitannica (Beastiary)</a> mod</p>
               <li>Add support for other languages</li>

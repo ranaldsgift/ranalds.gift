@@ -15,5 +15,6 @@ export const PatchList =
         { type: 'Hotfix', number: '4.4.0.2', date: new Date('June 10, 2021')},
         { type: 'Hotfix', number: '4.4.0.3', date: new Date('June 11, 2021')},
         { type: 'Hotfix', number: '4.4.1', date: new Date('June 29, 2021')},
-        { type: 'Hotfix', number: '4.4.2', date: new Date('October 28, 2021')}
+        { type: 'Hotfix', number: '4.4.2', date: new Date('October 28, 2021')},
+        { type: 'Hotfix', number: '4.4.2.1', date: new Date('November 7, 2021')}
     ]

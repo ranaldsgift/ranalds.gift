@@ -21,6 +21,8 @@ class BuildsList extends Component {
   constructor(props) {
     super(props);
 
+    var sortByParam = props.match ? props.match.params.sortBy ? props.match.params.sortBy : null : null;
+    
     this.state = {
       name: props.name ? props.name : 'Latest Builds',
       builds: props.builds ? props.builds : [],
@@ -37,7 +39,7 @@ class BuildsList extends Component {
       potion: props.potion ? props.potion : null,
       book: props.book ? props.book : null,
       roles: props.roles ? props.roles : [],
-      sortBy: props.sortBy ? props.sortBy : null,
+      sortBy: sortByParam ? DataHelper.getSortOrderById(sortByParam) : props.sortBy ? props.sortBy : null,
       likedBy: props.likedBy ? props.likedBy : null,
       difficulties: [],
       missions: [],

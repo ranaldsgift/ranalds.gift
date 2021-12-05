@@ -2,6 +2,7 @@ import React from 'react'
 import { DataHelper } from '../utils/DataHelper';
 import { db } from '../utils/Firebase';
 import { AppContext } from './Store';
+import history from '../utils/History';
 
 const BuildListPageContext = React.createContext();
 
@@ -36,6 +37,10 @@ function reducer(state, action) {
         case 'UPDATE_USER':
             return {...state, user: action.payload, isDataLoaded: false};
         case 'UPDATE_SORTBY':
+            if (history.location.pathname.startsWith('/builds')) {
+                history.push(`/builds/${action.payload.id}`); // Ensure URL is updated to match SortBy parameter.
+                // TODO - Handle this more smoothly in the future
+            }
             return {...state, sortBy: action.payload, isDataLoaded: false};
         case 'UPDATE_FILTER_COLLAPSE_STATE':
             return {...state, collapseFilters: action.payload};

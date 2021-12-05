@@ -181,6 +181,10 @@ export class DataHelper {
       return sortByData;
     }
 
+    static getSortOrderById = (id) => {
+      return sortByData.find((sortOrder) => { return sortOrder.id === id; });
+    }
+
     static getMissionData = () => {
       return missionData;
     }

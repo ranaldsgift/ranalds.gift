@@ -133,7 +133,7 @@ class App extends Component {
               <Route path="/heroes/:careerId?/:talents?/:primary?/:secondary?/:necklace?/:charm?/:trinket?" component={HeroPage}></Route>
             </HeroPageStore>
             <BuildListPageStore>
-              <Route path="/builds" component={BuildListPage}></Route>
+              <Route path="/builds/:sortBy?" component={BuildListPage}></Route>
             </BuildListPageStore>
             <BuildPageStore>
               <Route path="/build/:buildId/edit" component={EditBuildPage}></Route>

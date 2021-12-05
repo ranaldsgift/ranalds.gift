@@ -2,18 +2,20 @@ import React, {Component} from 'react';
 import './BuildListPage.css';
 import { AppContext } from '../../stores/Store';
 import BuildsList from './BuildsList';
+import { DataHelper } from '../../utils/DataHelper';
 
 class BuildListPage extends Component {
     static contextType = AppContext;
 
   render() {
+    // TODO - Get params from URL to initiatilze the list. Update the URL params when selecting filters.
     const [state] = this.context;
 
     document.title = "Latest Builds - Vermintide 2 Builds - Vermintide 2 | ranalds.gift";
 
     return (
         <div className="build-list-page top-left-shadow">
-          <BuildsList name="Latest Builds"
+          <BuildsList match={this.props.match} name="Latest Builds"
                       sortBy={state.sortBy} 
                       careerId={state.careerId}
                       user={state.user}

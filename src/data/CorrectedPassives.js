@@ -21,7 +21,7 @@ export const correctedPassivesData = [
     },
     {
         careerId: 14,
-        description: `+5% crit chance per 6 overcharge. Stacks up to 5 times.`
+        description: `+6% crit chance per 6 overcharge. Stacks up to 5 times to 30% max.`
     },
     {
         careerId: 15,

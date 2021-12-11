@@ -1799,5 +1799,211 @@ export const heroesData = {
 				"description": "Each hit during Holy Fervour grants a stack up to 10. Each stack reduces the cooldown of Holy Fervour by 5.0% when the buff fades."
 			}
 		]
-	}, 
+	},
+	"wh_priest": { 
+		"name": "Warrior Priest of Sigmar",
+		"codeName": "wh_priest",
+		"heroName": "Victor Saltzpyre",
+		"health": 150,
+		"passive": {
+			"name": "Righteous Fury",
+			"description": "Saltzpyre gains Fury when enemies die nearby. At 100% Fury, he briefly enters Righteous Fury and his attacks Smite the enemy for 20% of weapon damage. Saltzpyre loses Fury while out of combat."
+		},
+		"skill": {
+			"name": "Shield of Faith",
+			"description": "Saltzpyre imbues himself or an ally with a shield, rendering them immune to damage for 5 seconds. Upon expiring, the shield explodes, inflicting damage on nearby enemies.",
+			"cooldown": "70"
+		},
+		"perks": [
+			{
+				"name": "Enemy of Chaos",
+				"description": "30% bonus to Power vs Chaos Warriors and Beastman Standard Bearers."
+			},
+			{
+				"name": "Incorruptiple",
+				"description": "100% Curse Resistance."
+			},
+			{
+				"name": "Implacable",
+				"description": "Damage dealt to Saltzpyre is reduced by 20%. A further 20% of incoming damage is dealt to Saltzpyre over 3 seconds. Saltzpyre cannot be killed by damage dealt by Implacable."
+			}
+		],
+		"talents": [
+			{
+				"name": "Enternal Vigilance",
+				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+			},
+			{
+				"name": "Slayer of the Wicked",
+				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+			},
+			{
+				"name": "Blessed Hands",
+				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+			},
+			{
+				"name": "Unstoppable Force",
+				"description": "Striking 3 enemies in a single attack halves the cost of pushing for 4 seconds"
+			},
+			{
+				"name": "Rising Judgement",
+				"description": "Hits increase the power of the next charged attack by 8%. Max stacks 5."
+			},
+			{
+				"name": "Sigmar's Executioner",
+				"description": "Killing an elite enemy grants 5% critical strike chance for 12 seconds. Max stacks 3."
+			},
+			{
+				"name": "Smiter",
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Mainstay",
+				"description": "Deal 40% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Enhanced Power",
+				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
+			},
+			{
+				"name": "Divine Excoriation",
+				"description": "During Righteous Fury pushing sends out a holy shockwave around Victor staggering nearby enemy."
+			},
+			{
+				"name": "Empowered Smite",
+				"description": "Smite now triggers after 1 second, gains increased stagger strength and deals 40% of the attacks damage."
+			},
+			{
+				"name": "From Fury, Fortitude",
+				"description": "During Righteous Fury kills restore health to the party based on the health of the slain enemy."
+			},
+			{
+				"name": "Prayer of Vengence",
+				"description": "Bless the party with 35% increased Critical Strike Damage."
+			},
+			{
+				"name": "Prayer of Might",
+				"description": "Bless the party with 25% increased Stagger Power."
+			},
+			{
+				"name": "Prayer of Hardiness",
+				"description": "Bless the party with 15% increased Max Health."
+			},
+			{
+				"name": "Unyielding Blessing",
+				"description": "Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect."
+			},
+			{
+				"name": "United in Prayer",
+				"description": "Shield of Faith always affects Victor as well."
+			},
+			{
+				"name": "The Comet's Gift",
+				"description": "Shield of Faith revives and heals an amount equal to all Damage suffered last 3 seconds."
+			}
+		]
+	},
+	"none": { 
+		"name": "Warrior Priest of Sigmar",
+		"codeName": "none",
+		"heroName": "Victor Saltzpyre",
+		"health": 150,
+		"passive": {
+			"name": "Righteous Fury",
+			"description": "Saltzpyre gains Fury when enemies die nearby. At 100% Fury, he briefly enters Righteous Fury and his attacks Smite the enemy for 20% of weapon damage. Saltzpyre loses Fury while out of combat."
+		},
+		"skill": {
+			"name": "Shield of Faith",
+			"description": "Saltzpyre imbues himself or an ally with a shield, rendering them immune to damage for 5 seconds. Upon expiring, the shield explodes, inflicting damage on nearby enemies.",
+			"cooldown": "70"
+		},
+		"perks": [
+			{
+				"name": "Enemy of Chaos",
+				"description": "30% bonus to Power vs Chaos Warriors and Beastman Standard Bearers."
+			},
+			{
+				"name": "Incorruptiple",
+				"description": "100% Curse Resistance."
+			},
+			{
+				"name": "Implacable",
+				"description": "Damage dealt to Saltzpyre is reduced by 20%. A further 20% of incoming damage is dealt to Saltzpyre over 3 seconds. Saltzpyre cannot be killed by damage dealt by Implacable."
+			}
+		],
+		"talents": [
+			{
+				"name": "Enternal Vigilance",
+				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+			},
+			{
+				"name": "Slayer of the Wicked",
+				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+			},
+			{
+				"name": "Blessed Hands",
+				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+			},
+			{
+				"name": "Unstoppable Force",
+				"description": "Striking 3 enemies in a single attack halves the cost of pushing for 4 seconds"
+			},
+			{
+				"name": "Rising Judgement",
+				"description": "Hits increase the power of the next charged attack by 8%. Max stacks 5."
+			},
+			{
+				"name": "Sigmar's Executioner",
+				"description": "Killing an elite enemy grants 5% critical strike chance for 12 seconds. Max stacks 3."
+			},
+			{
+				"name": "Smiter",
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Mainstay",
+				"description": "Deal 40% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
+			},
+			{
+				"name": "Enhanced Power",
+				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
+			},
+			{
+				"name": "Divine Excoriation",
+				"description": "During Righteous Fury pushing sends out a holy shockwave around Victor staggering nearby enemy."
+			},
+			{
+				"name": "Empowered Smite",
+				"description": "Smite now triggers after 1 second, gains increased stagger strength and deals 40% of the attacks damage."
+			},
+			{
+				"name": "From Fury, Fortitude",
+				"description": "During Righteous Fury kills restore health to the party based on the health of the slain enemy."
+			},
+			{
+				"name": "Prayer of Vengence",
+				"description": "Bless the party with 35% increased Critical Strike Damage."
+			},
+			{
+				"name": "Prayer of Might",
+				"description": "Bless the party with 25% increased Stagger Power."
+			},
+			{
+				"name": "Prayer of Hardiness",
+				"description": "Bless the party with 15% increased Max Health."
+			},
+			{
+				"name": "Unyielding Blessing",
+				"description": "Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect."
+			},
+			{
+				"name": "United in Prayer",
+				"description": "Shield of Faith always affects Victor as well."
+			},
+			{
+				"name": "The Comet's Gift",
+				"description": "Shield of Faith revives and heals an amount equal to all Damage suffered last 3 seconds."
+			}
+		]
+	}
 }

@@ -75,12 +75,12 @@ class HeroSelect extends Component {
       heroIconList.push(<div data-hero={heroId} data-career={careerId} onClick={this.updateHeroSelect.bind(this)}
         key={careerId} className={heroClassName}></div>);
 
-      if (careerId === 12 || careerId === 15) {
+/*       if (careerId === 12 || careerId === 15) {
         careerId = careerId === 12 ? 19 : 20;
         heroClassName = "hero-select-icon hero-icon border-02";
         heroIconList.push(<div data-hero={heroId} data-career={careerId} onClick={this.updateHeroSelect.bind(this)}
           key={careerId} className={heroClassName}></div>);
-      }
+      } */
     }
     return heroIconList;
   }

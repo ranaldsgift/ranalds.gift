@@ -261,6 +261,24 @@
 .weapon-icon[data-id='75'] {
   background: url('../../assets/images/weapons/we_javelin.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
 }
+.weapon-icon[data-id='76'] {
+  background: url('../../assets/images/weapons/wh_1h_hammer.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+.weapon-icon[data-id='77'] {
+  background: url('../../assets/images/weapons/wh_2h_hammer.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+.weapon-icon[data-id='78'] {
+  background: url('../../assets/images/weapons/wh_hammer_shield.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+.weapon-icon[data-id='79'] {
+  background: url('../../assets/images/weapons/wh_dual_hammer.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+.weapon-icon[data-id='80'] {
+  background: url('../../assets/images/weapons/wh_hammer_book.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+.weapon-icon[data-id='81'] {
+  background: url('../../assets/images/weapons/wh_flail_shield.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
 .weapon-border {
   border-image: url('../images/borders/border-04.png' ) center / calc(100% + 8px), url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
   border-image-slice: 15;

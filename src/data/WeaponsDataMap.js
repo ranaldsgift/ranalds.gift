@@ -298,5 +298,29 @@ export const weaponsDataMap = [
     {
         "id": 75,
         "codeName": "we_javelin"
+    },
+    {
+        "id": 76,
+        "codeName": "wh_1h_hammer"
+    },
+    {
+        "id": 77,
+        "codeName": "wh_2h_hammer"
+    },
+    {
+        "id": 78,
+        "codeName": "wh_hammer_shield"
+    },
+    {
+        "id": 79,
+        "codeName": "wh_dual_hammer"
+    },
+    {
+        "id": 80,
+        "codeName": "wh_hammer_book"
+    },
+    {
+        "id": 81,
+        "codeName": "wh_flail_shield"
     }
 ]

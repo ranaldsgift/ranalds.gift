@@ -1933,7 +1933,7 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Enternal Vigilance",
+				"name": "Eternal Vigilance",
 				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
 			},
 			{

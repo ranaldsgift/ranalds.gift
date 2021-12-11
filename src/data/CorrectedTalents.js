@@ -262,5 +262,17 @@ export const correctedTalentsData = [
         tier: 3,
         talent: 3,
         description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 19,
+        tier: 5,
+        talent: 1,
+        description: 'Bless the party with 35% increased Critical Power.'
+    },
+    {
+        careerId: 19,
+        tier: 6,
+        talent: 1,
+        description: 'Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect. Also grants the targewt immunity to ranged knockback (warpfires, ratling gunners, etc).'
     }
 ]

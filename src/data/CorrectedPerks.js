@@ -28,5 +28,10 @@ export const correctedPerksData = [
         careerId: 18,
         name: 'A Murder of Spites',
         description: `Kerillian deals up to 50% more damage to wounded targets depending on their remaining health. For example, she does no extra damage against full health enemies, 25% extra against enemies at half health, etc.`
+    },
+    {
+        careerId: 19,
+        name: 'Enemy of Chaos',
+        description: `30% bonus to Power vs Super Armor.`
     }
 ]

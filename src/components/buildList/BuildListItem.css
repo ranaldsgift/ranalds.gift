@@ -350,6 +350,9 @@ a.link-overlay {
   .build-list-item[data-career='18']:before {
     background-image: linear-gradient(rgb(98 93 96 / 30%), rgb(49 49 49 / 30%)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
   }
+  .build-list-item[data-career='19']:before {
+    background-image: linear-gradient(rgb(98 93 96 / 30%), rgb(49 49 49 / 30%)), radial-gradient(closest-corner, #0000007a, #000000ba), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png');
+  }
   .build-list-item-container:hover .build-list-item:before {
     box-shadow: 0 0 10px 2px #ffd700;
     /* background: radial-gradient(closest-corner, #00000090, #000000dc), linear-gradient(to bottom, #1d1d1d78, #00000017), url('../../assets/images/backgrounds/background39.png'); */

@@ -472,7 +472,10 @@
     .hero-icon-container .hero-select-icon[data-career='18'] {
         background: url('../images/heroes/18/portrait-wide.png') right / contain, url('../images/backgrounds/background29.png');
     }
-    .hero-select-icon[data-career='19'], .hero-select-icon[data-career='20'] {
+    .hero-icon-container .hero-select-icon[data-career='19'] {
+        background: url('../images/heroes/19/portrait-wide.png') right / contain, url('../images/backgrounds/background29.png');
+    }
+    .hero-select-icon[data-career='20'] {
         display: none;
     }
     .hero-container {

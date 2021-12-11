@@ -157,6 +157,9 @@
     .build-list-item .hero-icon[data-career='18'] {
         background: url('../images/heroes/18/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
     }
+    .build-list-item .hero-icon[data-career='19'] {
+        background: url('../images/heroes/19/portrait-wide.png') no-repeat right / contain, url('../images/backgrounds/background29.png');
+    }
     .hero-icon-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
     }

@@ -153,7 +153,7 @@ export const correctedTalentsData = [
         careerId: 15,
         tier: 5,
         talent: 2,
-        description: `When Sienna overcharges she starts, 4 times per second, exchanging 1/15 of her health for 10% ability cooldown.`
+        description: `When Sienna overcharges she starts, 4 times per second, exchanging 1/20 of her health for 10% ability cooldown.`
     },
     {
         careerId: 1,

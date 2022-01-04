@@ -1363,7 +1363,7 @@ export const weaponsData = {
 			"blockOuterCost": "2", 
 			"blockAngle": "90", 
 			"rightClickMovementModifier": "0.75",
-			"canWieldPrimary": ["wh_priest"], 
+			"canWieldPrimary": ["wh_zealot", "wh_priest"], 
 			"canWieldSecondary": ["wh_priest"], 
 			"traitCategory": "melee", 
 			"propertyCategory": "melee"
@@ -1381,7 +1381,7 @@ export const weaponsData = {
 			"blockOuterCost": "2", 
 			"blockAngle": "90", 
 			"rightClickMovementModifier": "0.75", 
-			"canWieldPrimary": ["wh_priest"], 
+			"canWieldPrimary": ["wh_zealot", "wh_priest"], 
 			"canWieldSecondary": ["wh_priest"], 
 			"traitCategory": "melee", 
 			"propertyCategory": "melee"
@@ -1417,7 +1417,7 @@ export const weaponsData = {
 			"blockOuterCost": "2", 
 			"blockAngle": "90", 
 			"rightClickMovementModifier": "0.75", 
-			"canWieldPrimary": ["wh_priest"], 
+			"canWieldPrimary": ["wh_zealot", "wh_priest"], 
 			"canWieldSecondary": ["wh_priest"], 
 			"traitCategory": "melee", 
 			"propertyCategory": "melee"

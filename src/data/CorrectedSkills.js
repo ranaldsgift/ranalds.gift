@@ -9,7 +9,7 @@ export const correctedSkillsData = [
     },
     {
         careerId: 9,
-        description: `Kerillian becomes undetectable, can pass through enemies, and deals greatly increased melee damage. Lasts for 10 seconds or until she deals damage.`
+        description: `Kerillian becomes undetectable, can pass through enemies, and deals greatly increased melee damage. Lasts for 5 seconds or until she deals damage.`
     },
     {
         careerId: 11,

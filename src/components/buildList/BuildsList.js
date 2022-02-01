@@ -357,7 +357,6 @@ class BuildsList extends Component {
                   });
     }).catch((error) => {
       console.log('error querying db');
-      //console.log(error);
       console.log(error.code);
       console.log(error.message);
       console.log(error.name);

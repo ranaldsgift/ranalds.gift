@@ -103,18 +103,26 @@ export const heroesData = {
 		"heroName": "Kerillian",
 		"health": 100,
 		"passive": {
-			"name": "Murderous Prowess",
-			"description": "Critical hit backstabs instantly slay man-sized enemies."
+			"name": "Assassin's Blade",
+			"description": "Double damage when attacking enemies from behind with melee attacks."
 		},
 		"skill": {
 			"name": "Infiltrate",
-			"description": "Kerillian becomes undetectable and can pass through enemies. Lasts for 5 seconds, or until she attacks.",
-			"cooldown": "60"
+			"description": "Kerillian becomes undetectable, gain bonus damage and can pass through enemies. Lasts for 5 seconds, or until she attacks.",
+			"cooldown": "70"
 		},
 		"perks": [
 			{
-				"name": "Assassin's Blade",
-				"description": "50% additional damage when attacking enemies with melee attacks from behind."
+				"name": "Dagger in the Dark",
+				"description": "Melee Attacks from stealth are always critical."
+			},
+			{
+				"name": "Blur",
+				"description": "Parrying an Attack and quickly Dodging grants Kerillian Stealth for a short period."
+			},
+			{
+				"name": "Muderous Prowess",
+				"description": "Charged Critical Backstabs instantly slay man-sized enemies."
 			}
 		],
 		"talents": [
@@ -140,11 +148,11 @@ export const heroesData = {
 			},
 			{
 				"name": "Exquisite Huntress",
-				"description": "Headshots increases headshot damage bonus by 10.0% for 5 seconds. Stacks up to 10 times."
+				"description": "Headshots increases headshot damage bonus by 10.0% for 10 seconds. Stacks up to 10 times."
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Assassin",
@@ -155,12 +163,12 @@ export const heroesData = {
 				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
 			},
 			{
-				"name": "Ereth Khial's Herald",
-				"description": "Assassin's Blade is increased to 75% additional damage when attacking enemies from behind."
+				"name": "Chain Killer",
+				"description": "Successive Charged Backstabs increase Backstab Damage by 25% for 5 seconds. This effect can stack up to 2 times."
 			},
 			{
-				"name": "Vanish",
-				"description": "Killing an enemy with a backstab grants stealth for 3 seconds."
+				"name": "Focused Slaying",
+				"description": "Killing an enemy with a Backstab grants Cooldown reduction for 3 seconds."
 			},
 			{
 				"name": "Bloodfletcher",
@@ -179,16 +187,16 @@ export const heroesData = {
 				"description": "Increases movement speed by 10.0%."
 			},
 			{
-				"name": "Cloak of Mist",
-				"description": "Infiltrate cooldown is reduced by 45.0%. After leaving stealth, Kerillian gains 100% melee critical strike chance for 4 seconds, but no longer gains a damage bonus on attacking."
+				"name": "Shimmer Strike",
+				"description": "Leaving Infiltrate grants Kerillian Stealth for 3 seconds. Killing an elite or a special enemy extends this effect by 1 second."
 			},
 			{
-				"name": "Shadowstep",
-				"description": "Infiltrate causes Kerillian to blink forward, passing through enemies."
+				"name": "Hungry Wind",
+				"description": "Leaving Infiltrate grants Kerillian 10% movement speed and 15% Power with the ability to pass through enemies for 10 seconds. Infiltrate no longer grants bonus damage."
 			},
 			{
 				"name": "Cloak of Pain",
-				"description": "Hitting an enemy while under the effect of Infiltrate does not break stealth. Second attack does not grant damage bonus. Can only trigger once."
+				"description": "When the initial Infiltrate ends, a second (and final) Infiltrate is triggered."
 			}
 		]
 	}, 
@@ -247,7 +255,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Enhanced Power",
@@ -342,7 +350,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Mainstay",
@@ -647,7 +655,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Assassin",
@@ -754,7 +762,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Enhanced Power",
@@ -857,7 +865,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Enhanced Power",
@@ -1059,7 +1067,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Enhanced Power",
@@ -1119,8 +1127,8 @@ export const heroesData = {
 		},
 		"perks": [
 			{
-				"name": "A Murder of Spites",
-				"description": "Kerillian deals up to 50% more damage to wounded targets depending on their remaining health."
+				"name": "Blackvenom Blades",
+				"description": "Melee attacks apply a Poison that deals damage and increasing damage suffered by 12% for 10 seconds."
 			},
 			{
 				"name": "A Sustenance of Leechlings",
@@ -1150,15 +1158,15 @@ export const heroesData = {
 			},
 			{
 				"name": "Atharti's Delight",
-				"description": "Critical Strikes make the target Bleed."
+				"description": "Melee strikes against Poisoned targets make them bleed."
 			},
 			{
-				"name": "Isha's Bounty",
-				"description": "Gaining health grants 5% Power for 8 seconds. Stacks up to 3 times."
+				"name": "Briar's Malice",
+				"description": "Casting Thornwake grants Kerillian 2 critical strikes."
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Mainstay",
@@ -1173,36 +1181,36 @@ export const heroesData = {
 				"description": "Radiance can stack 2 times."
 			},
 			{
-				"name": "Hekarti's Cruel Bargain",
-				"description": "For each Elite enemy slain near Kerillian, the cooldown of Radiance decreases by 1 seconds."
+				"name": "Bonded Spirit",
+				"description": "Reduce the cooldown of Radiance by 50%, taking damage sets the cooldown back 2 seconds."
 			},
 			{
 				"name": "Radiant Inheritance",
-				"description": "Consuming Radiance grants Kerillian vastly increased combat potency for 10 seconds."
+				"description": "Consuming Radiance grants Kerillian and nearby allies 15% power and 5% critical strike chance for 10 seconds."
 			},
 			{
-				"name": "The Pale Queen's Choosing",
-				"description": "Every 8 seconds, Kerillian's next Ranged Attack consumes no resource and restores 3 permanent health."
+				"name": "Recursive Toxin",
+				"description": "Blackvenom can now stack 2 times."
 			},
 			{
-				"name": "Morai-Heg's Doomsight",
-				"description": "Gain 3 guaranteed Critical Strikes each time a career skill is used."
+				"name": "Lingering Blackvenom",
+				"description": "Critical Strikes apply Blackvenom to enemies near the target."
 			},
 			{
 				"name": "Repel",
-				"description": "Pushing at full Stamina increases the strength and range of the push by 100%."
+				"description": "Pushing at full stamina increases the strength and range of the push by 100%."
 			},
 			{
 				"name": "Ironbark Thicket",
-				"description": "Increases the Duration of the Thorn Wall to 10 seconds."
+				"description": "Increase the width of the Thorn Wall and its duration to 10 seconds."
 			},
 			{
-				"name": "Bloodrazor Thicket",
-				"description": "Increases the Thorn Wall's eruption damage and makes it apply Bleed, but lower both size and duration."
+				"name": "Tanglegrasp Thicket",
+				"description": "Thorny vines now erupt from Kerillian and travel towards the targeted area. Enemies hit are dragged towards the target area."
 			},
 			{
 				"name": "Blackvenom Thicket",
-				"description": "When the Thorn Wall expires, poisonous thorns explode outward, causing nearby enemies to take 20% increased damage for 10 seconds."
+				"description": "Thornwake instead causes roots to burst from the ground, staggering enemies and applying Blackvenom to them."
 			}
 		]
 	}, 
@@ -1257,7 +1265,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Mainstay",
@@ -1360,7 +1368,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Enhanced Power",
@@ -1554,7 +1562,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Mainstay",
@@ -1752,7 +1760,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered.Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
 			},
 			{
 				"name": "Mainstay",

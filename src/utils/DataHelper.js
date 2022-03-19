@@ -1,7 +1,5 @@
 import {heroesData} from '../data/Heroes'
 import {heroesDataMap} from '../data/HeroesDataMap'
-import {meleeWeaponsData} from '../data/MeleeWeapons'
-import {rangeWeaponsData} from '../data/RangeWeapons'
 import {weaponsData} from '../data/Weapons'
 import {twitchData} from '../data/Twitch'
 import {weaponsDataMap} from '../data/WeaponsDataMap'
@@ -65,8 +63,8 @@ export class DataHelper {
     }
     
     static getCareerTalents = (careerId) => {
-      var career = this.getCareer(careerId);
-      return career ? career.talents : null;
+        var career = this.getCareer(careerId);
+        return career ? career.talents : null;
     }
 
     static getCorrectedTalent = (careerId, tierNumber, talentNumber) => {

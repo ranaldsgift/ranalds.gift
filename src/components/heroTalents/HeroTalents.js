@@ -53,9 +53,9 @@ class HeroTalents extends Component {
     var talentString = `talent-${careerId.toString().padStart(2, "0")}${talentNumber.toString().padStart(2, "0")}`;
     var talentClassName = `hero-talent tier-${tier}`;
 
-    var selectedTierTalent = selectedTalents[tier-1] + ((tier-1)*3);
+    var selectedTalentNumber = selectedTalents[tier-1] + ((tier-1)*3);
 
-    if (selectedTierTalent === talentNumber) {
+    if (selectedTalentNumber === talentNumber) {
       talentClassName += " selected";
     }
 

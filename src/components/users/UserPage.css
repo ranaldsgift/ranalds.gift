@@ -51,3 +51,23 @@
 .user-page .build-list-container #roleSelect {
     display: none;
 }
+.builds-button-container {
+    display: grid;
+    padding: 20px;
+    max-width: 100%;
+    width: auto;
+    margin: 0px auto -20px auto;
+}
+.user-builds-bulk-updater .link-overlay {
+    pointer-events: none;
+}
+.build-list-item-container.selected .build-list-item:before {
+    box-shadow: 0 0 10px 2px #ffd700;
+}
+
+.user-builds-bulk-updater .build-list-item-container * {
+    pointer-events: none;
+}
+.update-builds-button {
+    max-width: none;
+}

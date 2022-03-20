@@ -3,6 +3,7 @@ import { Route, Switch, useParams, useRouteMatch } from 'react-router';
 import { AppContext } from '../../stores/Store';
 import { UserViewContext } from '../../stores/UserViewStore';
 import { auth, db } from '../../utils/Firebase';
+import UserBuildManagerPage from './UserBuildManagerPage';
 import UserEditPage from './UserEditPage';
 import UserPage from './UserPage';
 import './UserPage.css';
@@ -44,6 +45,9 @@ function UserPageContainer() {
         </Route>
         <Route path={`${path}/edit`}>
           <UserEditPage></UserEditPage>
+        </Route>
+        <Route path={`${path}/builds/manage`}>
+          <UserBuildManagerPage></UserBuildManagerPage>
         </Route>
       </Switch>
     );

@@ -44,6 +44,12 @@ function UserPage(props) {
         <div className="button-container background-34 border-01">
           <Link to={`/user/${state.userId}/edit`} className="edit-user-button button-02">edit</Link>
         </div>
+        
+        { auth.currentUser && auth.currentUser.uid === state.userId ?
+        
+        <div className="builds-button-container background-34 border-01">
+          <Link to={`/user/${state.userId}/builds/manage`} className="update-builds-user-button button-02">Manage Builds</Link>
+        </div> : '' }
         <Tabs className="user-build-lists">
             <TabList className="container-tabs-list">
               <Tab>Builds Created</Tab>

@@ -14,6 +14,7 @@ import { auth, db, firebase } from '../../utils/Firebase';
 import { UserContext } from '../../stores/UserStore';
 import Editor from '../../utils/TextEditor';
 import { BuildBusiness } from '../../business/BuildBusiness';
+import history from '../../utils/History';
 
 function EditBuildPage(props) {
 
@@ -55,7 +56,7 @@ function EditBuildPage(props) {
                 type: 'UPDATE_LOADING_STATE', 
                 payload: true
             });
-            console.log('Loading build ID ' + buildId);
+            
             if (state.buildId !== buildId) {
                 state.buildId = buildId;
             }
@@ -65,9 +66,6 @@ function EditBuildPage(props) {
                     console.log('No build found with ID ' + buildId);
                     return;
                 }
-
-                console.log('build loaded from db:');
-                console.log(build.data());
 
                 updateState({
                     type: 'INIT_STATE_FROM_DATA', 
@@ -112,8 +110,6 @@ function EditBuildPage(props) {
                 return;
             }
 
-            console.log('saving build to database build id ' + state.buildId + ' for user id ' + auth.currentUser.uid);
-
             if (state.buildId === 0) {
                 BuildBusiness.createBuild(state);
                 return;
@@ -122,6 +118,23 @@ function EditBuildPage(props) {
                 BuildBusiness.updateBuild(state, saveBuildCallback);
                 return;
             }
+        }
+
+        function deleteBuildClick() {
+            
+            if (!auth.currentUser) {
+                alert('Can\'t save or create builds when not authenticated.');
+                return;
+            }
+
+            if (window.confirm('Are you sure you want to delete this build? This cannot be reversed.')) {
+                BuildBusiness.deleteBuild(state.buildId, deleteBuildCallback);
+            }
+        }
+
+        function deleteBuildCallback() {
+            history.push(`/user/${state.userId}/view`);
+            history.go(0);
         }
 
         function isBuildReadyForSaving() {
@@ -180,6 +193,7 @@ function EditBuildPage(props) {
                         <span id="saveBuildButton" className="button-01 border-04" onClick={saveBuildClick.bind(this)}>Save Build</span>
                         <span className="save-info">Name your build and select all 6 talents to save it</span>
                         <span className="view-build-button button-01"><a href={`/build/${state.buildId}/view`}>View Build</a></span>
+                        <span className="view-build-button button-01" onClick={deleteBuildClick.bind(this)}>Delete Build</span>
                     </div>                    
                     <HeroSelect careerId={state.careerId}></HeroSelect>
                 </div>

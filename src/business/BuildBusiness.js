@@ -224,6 +224,105 @@ export class BuildBusiness {
             console.error("Error updating document: ", error);
         });
     }
+    static updateAllBuildsForUser = (userId, callback) => {
+        
+        if (userId !== auth.currentUser.uid) {
+            alert('You cannot update builds that you did not create.');
+            return;
+        }
+
+        let buildsQuery = db.collection("builds");
+        buildsQuery = buildsQuery.where('userId', '==', auth.currentUser.uid);
+        buildsQuery = buildsQuery.where('isDeleted', '==', false);
+        var currentDate = new Date();
+
+        buildsQuery.get().then((querySnapshot) => {
+          querySnapshot.forEach((build) => {
+            build.ref.update({
+                dateModified: currentDate
+            });
+          });
+          if (callback) {
+              callback();
+          }
+        });
+    }
+    static updateBuildDateModified = (buildId, callback) => {
+        if (isUpdatingBuild) {
+            // ignore button spam
+            return;
+        }
+
+        isUpdatingBuild = true;
+
+        let buildRef = db.collection('builds').doc(buildId);
+
+        db.runTransaction(async transaction => {
+            let build = await transaction.get(buildRef);
+
+            if (!build) {
+                console.log(`Unable to update Build ID ${buildId}`)
+                return;
+            }
+
+            if (build.data().userId !== auth.currentUser.uid) {
+                alert('You can\'t update a build you didn\'t create.');
+                return;
+            }
+
+            transaction.update(buildRef, {
+                dateModified: new Date()
+            });
+
+        }).then(() => {
+            console.log('Successfully updated build ' + buildId);
+            isUpdatingBuild = false;
+
+            if (callback) {
+                callback();
+            }
+        }).catch((error) => {
+            console.error("Error updating document: ", error);
+        });
+    }
+    static deleteBuild = (buildId, callback) => {
+        if (isUpdatingBuild) {
+            // ignore button spam
+            return;
+        }
+
+        isUpdatingBuild = true;
+
+        let buildRef = db.collection('builds').doc(buildId);
+
+        db.runTransaction(async transaction => {
+            let build = await transaction.get(buildRef);
+
+            if (!build) {
+                console.log(`Unable to delete Build ID ${buildId}`)
+                return;
+            }
+
+            if (build.data().userId !== auth.currentUser.uid) {
+                alert('You can\'t delete a build you didn\'t create.');
+                return;
+            }
+
+            transaction.update(buildRef, {
+                isDeleted: true
+            });
+
+        }).then(() => {
+            console.log('Successfully deleted build ' + buildId);
+            isUpdatingBuild = false;
+
+            if (callback) {
+                callback();
+            }
+        }).catch((error) => {
+            console.error("Error deleting document: ", error);
+        });
+    }
 }
 
 function addNewStats(buildStats, buildStatsRef, buildState, transaction) {    

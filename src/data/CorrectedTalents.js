@@ -273,6 +273,6 @@ export const correctedTalentsData = [
         careerId: 19,
         tier: 6,
         talent: 1,
-        description: 'Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect. Also grants the targewt immunity to ranged knockback (warpfires, ratling gunners, etc).'
+        description: 'Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect. Also grants the target immunity to ranged knockback (warpfires, ratling gunners, etc).'
     }
 ]

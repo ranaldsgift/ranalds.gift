@@ -78,12 +78,6 @@ export const correctedTalentsData = [
         description: `Backstabs return 1 bolt or arrow. 2 second cooldown.`
     },
     {
-        careerId: 18,
-        tier: 4,
-        talent: 3,
-        description: `Consuming Radiance grants Kerillian 20% extra attack speed, move speed, power and crit power for 10 seconds.`
-    },
-    {
         careerId: 10,
         tier: 6,
         talent: 2,

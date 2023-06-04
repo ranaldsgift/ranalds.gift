@@ -1,1 +1,2 @@
-Sitemap: https://www.ranalds.gift/sitemap.txt
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *

@@ -79,6 +79,7 @@ class AboutPage extends Component {
             <p><a href="https://www.ranalds.gift/user/flVp52HdEUXfrPrNfqzbjk8AQN93/view">Wildfire</a></p>
             <p>Craacked</p>
             <p>Saryk</p>
+            <p><a href="https://www.ranalds.gift/user/umXKLPQT0PR74zYMcIr484Z6oOo2/view">Aether_Blackbolt</a></p>
           </div>
           <div className="privacy-container">
             <h2 className="header-underline">Privacy Policy</h2>

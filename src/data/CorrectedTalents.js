@@ -105,7 +105,7 @@ export const correctedTalentsData = [
         careerId: 11,
         tier: 6,
         talent: 3,
-        description: `Modifies Victor's sidearm to fire two blasts of shield-penetrating pellets in a devastating cone. Each kill with the blast increases the amount of pellets in the next blast, to a max of 20. This buff resets every time you use your ult, unless every pellet misses an enemy`
+        description: `Modifies Victor's sidearm to fire two blasts of shield-penetrating pellets in a devastating cone. Each kill with the blast increases the amount of pellets in the next blast, to a max of 20. This buff resets every time you use your ult, unless every pellet misses an enemy. Victor also gains 25% cooldown reduction.`
     },
     {
         careerId: 10,

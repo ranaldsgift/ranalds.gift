@@ -279,6 +279,15 @@
 .weapon-icon[data-id='81'] {
   background: url('../../assets/images/weapons/wh_flail_shield.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
 }
+
+.weapon-icon[data-id='82'] {
+  background: url('../../assets/images/weapons/bw_reaper.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+
+.weapon-icon[data-id='83'] {
+  background: url('../../assets/images/weapons/bw_soulsteal.png') center / contain, url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
+}
+
 .weapon-border {
   border-image: url('../images/borders/border-04.png' ) center / calc(100% + 8px), url('../../assets/images/backgrounds/icon-background-2.png') center / contain;
   border-image-slice: 15;

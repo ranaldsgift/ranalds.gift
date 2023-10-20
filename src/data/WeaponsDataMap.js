@@ -322,5 +322,13 @@ export const weaponsDataMap = [
     {
         "id": 81,
         "codeName": "wh_flail_shield"
+    },
+    {
+        "id": 82,
+        "codeName": "bw_reaper"
+    },
+    {
+        "id": 83,
+        "codeName": "bw_soulsteal"
     }
 ]

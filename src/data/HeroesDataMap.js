@@ -117,6 +117,6 @@ export const heroesDataMap = [
         "id": 20,
         "sortOrder": 20,
         "heroId": 5,
-        "codeName": "none"
+        "codeName": "bw_necro"
     }
 ]

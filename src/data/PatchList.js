@@ -23,5 +23,6 @@ export const PatchList =
         { type: 'Hotfix', number: '4.6.1', date: new Date('March 16, 2022') },
         { type: 'Hotfix', number: '4.6.2', date: new Date('March 17, 2022') },
         { type: 'Hotfix', number: '4.6.3', date: new Date('March 18, 2022') },
-        { type: 'Hotfix', number: '4.6.4', date: new Date('March 24, 2022') }
+        { type: 'Hotfix', number: '4.6.4', date: new Date('March 24, 2022') },
+        { type: 'Update', number: '5.1.0', date: new Date('October 19, 2023') }
     ]

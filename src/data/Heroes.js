@@ -1911,106 +1911,122 @@ export const heroesData = {
 			}
 		]
 	},
-	"none": { 
-		"name": "Warrior Priest of Sigmar",
-		"codeName": "none",
-		"heroName": "Victor Saltzpyre",
-		"health": 150,
+	"bw_necro": { 
+		"name": "Necromancer",
+		"codeName": "bw_necro",
+		"heroName": "Sienna Fuegonasus",
+		"health": 100,
 		"passive": {
-			"name": "Righteous Fury",
-			"description": "Saltzpyre gains Fury when enemies die nearby. At 100% Fury, he briefly enters Righteous Fury and his attacks Smite the enemy for 20% of weapon damage. Saltzpyre loses Fury while out of combat."
+			"name": "Malediction of Nagash",
+			"description": "Sienna's flames now burn with a cold, unearthly light that saps enemy vigour, causing them to suffer 20% additional damage from Sienna and her Servants."
 		},
 		"skill": {
-			"name": "Shield of Faith",
-			"description": "Saltzpyre imbues himself or an ally with a shield, rendering them immune to damage for 5 seconds. Upon expiring, the shield explodes, inflicting damage on nearby enemies.",
-			"cooldown": "70"
+			"name": "Raise Dead",
+			"description": "Sienna raises a company of Skeleton Warriors to ravage the enemy ranks.",
+			"cooldown": "110"
 		},
 		"perks": [
 			{
-				"name": "Enemy of Chaos",
-				"description": "30% bonus to Power vs Chaos Warriors and Beastman Standard Bearers."
+				"name": "Mistress of Death",
+				"description": "Sienna can command her servants to Attack or Defend. She can also Release them to ventilate Overcharge."
 			},
 			{
-				"name": "Incorruptiple",
-				"description": "100% Curse Resistance."
+				"name": "Lifetaker",
+				"description": "Killing an enemy grants 2% crit for 4 second. Max stacks 5."
 			},
 			{
-				"name": "Implacable",
-				"description": "Damage dealt to Saltzpyre is reduced by 20%. A further 20% of incoming damage is dealt to Saltzpyre over 3 seconds. Saltzpyre cannot be killed by damage dealt by Implacable."
-			}
+				"name": "Cold Flames",
+				"description": "Sienna's damage over time effects last 100% longer."
+			},
+/* 			{
+				"name": "Icon of Death",
+				"description": "Sienna uses the Icon of Death to command her Skeletons. Pressing the Potion keybind once will select the Icon of Death. Pressing it twice selects her carried Potion (if any)."
+			},
+			{
+				"name": "Attack Command",
+				"description": "Orders your skeletons to attack target enemy and increases their damage by 60% for 8 seconds."
+			},
+			{
+				"name": "Defend Command",
+				"description": "Orders your skeletons to defend target area reducing the damage they take by 80%."
+			},
+			{
+				"name": "Death's Release",
+				"description": "Release a skeleton from its servitude, instantly ventilating 70% overcharge."
+			} */
 		],
 		"talents": [
 			{
-				"name": "Eternal Vigilance",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
-			},
-			{
-				"name": "Slayer of the Wicked",
+				"name": "Corpsemaker",
 				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
 			},
 			{
-				"name": "Blessed Hands",
+				"name": "Deathdealer",
+				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+			},
+			{
+				"name": "Life Leeching",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
-				"name": "Unstoppable Force",
-				"description": "Striking 3 enemies in a single attack halves the cost of pushing for 4 seconds"
+				"name": "Vanhel's Danse Macabre",
+				"description": "12% attack speed when 4 skeletons are alive."
 			},
 			{
-				"name": "Rising Judgement",
-				"description": "Hits increase the power of the next charged attack by 8%. Max stacks 5."
+				"name": "Death Ascendent",
+				"description": "Casting spells grants 5% ranged power for 6 seconds. Max stacks 5."
 			},
 			{
-				"name": "Sigmar's Executioner",
-				"description": "Killing an elite enemy grants 5% critical strike chance for 12 seconds. Max stacks 3."
-			},
-			{
-				"name": "Smiter",
-				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+				"name": "Reaping",
+				"description": "Critical attacks have 25% power and unlimited cleave."
 			},
 			{
 				"name": "Mainstay",
 				"description": "Deal 40% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 60% against enemies afflicted by more than one stagger effect."
 			},
 			{
+				"name": "Smiter",
+				"description": "The first enemy hit always counts as staggered. Deal 20% more damage to staggered enemies. Each hit against a staggered enemy adds another count of stagger. Bonus damage is increased to 40% against enemies afflicted by more than one stagger effect."
+			},
+			{
 				"name": "Enhanced Power",
 				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
 			},
 			{
-				"name": "Divine Excoriation",
-				"description": "During Righteous Fury pushing sends out a holy shockwave around Victor staggering nearby enemy."
+				"name": "Cursed Blood",
+				"description": "Critical attacks against enemies afflicted by the Malediction of Nagash cause them to burst, damaging nearby enemies based on the damage of the attack."
 			},
 			{
-				"name": "Empowered Smite",
-				"description": "Smite now triggers after 1 second, gains increased stagger strength and deals 40% of the attacks damage."
+				"name": "Soul Harvest",
+				"description": "The Malediction of Nagash rips the soul from targets that die. Harvesting 8 souls causes the next attack to be a guaranteed Critical Hit."
 			},
 			{
-				"name": "From Fury, Fortitude",
-				"description": "During Righteous Fury kills restore health to the party based on the health of the slain enemy."
+				"name": "Withering Touch",
+				"description": "On releasing a Skeleton, all Sienna's attacks for the next 15 seconds ignite enemies, causing damage over time."
 			},
 			{
-				"name": "Prayer of Vengence",
-				"description": "Bless the party with 35% increased Critical Strike Damage."
+				"name": "Spirit Leech",
+				"description": "Killing an elite enemy restore 15% cooldown."
 			},
 			{
-				"name": "Prayer of Might",
-				"description": "Bless the party with 25% increased Stagger Power."
+				"name": "Curse of the Undeath",
+				"description": "Casting Raise Dead reduces damage inflicted on Sienna by 80% for the next 3 hits."
 			},
 			{
-				"name": "Prayer of Hardiness",
-				"description": "Bless the party with 15% increased Max Health."
+				"name": "Lost Souls",
+				"description": "Venting 20% overcharge unleashes a soul that steals health from a nearby enemy restoring 2 temporary health."
 			},
 			{
-				"name": "Unyielding Blessing",
-				"description": "Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect."
+				"name": "Army of the Dead",
+				"description": "Raise Dead now causes Skeletons to remain for 20 seconds before decaying."
 			},
 			{
-				"name": "United in Prayer",
-				"description": "Shield of Faith always affects Victor as well."
+				"name": "Barrow Blades",
+				"description": "Skeletons now carry two cursed blades. When raised, and when attacking, they ignite enemies, causing damage over time."
 			},
 			{
-				"name": "The Comet's Gift",
-				"description": "Shield of Faith revives and heals an amount equal to all Damage suffered last 3 seconds."
+				"name": "Dread Seneschal",
+				"description": "Increase Skeleton health and damage by 50%. Command Attack now orders a charge. Command Defend can be issued simultaneously."
 			}
 		]
 	}

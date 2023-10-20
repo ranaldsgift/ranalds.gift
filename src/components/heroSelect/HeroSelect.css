@@ -223,6 +223,3 @@
 .hero-page .hero-select-container {
   box-shadow: -1px -1px 0 0 #564640;
 }
-.hero-select-icon[data-hero='5'][data-career='20'] {
-  pointer-events: none;
-}

@@ -99,6 +99,9 @@ p.skill-cooldown-label {
 .cooldown-bar[data-value="90"] .stat-container {
     width: 75%;
 }
+.cooldown-bar[data-value="99"] .stat-container {
+    width: 82%;
+}
 .cooldown-bar[data-value="108"] .stat-container {
     width: 90%;
 }

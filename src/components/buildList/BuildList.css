@@ -119,7 +119,7 @@
     background: url('../../assets/images/heroes/19/portrait-wide.png') right / contain, url('../../assets/images/backgrounds/background29.png');
 }
 .build-list-container .hero-select-icon[data-career='20'] {
-    display: none;
+    background: url('../../assets/images/heroes/20/portrait-wide.png') right / contain, url('../../assets/images/backgrounds/background29.png');
 }
 .build-list-container .hero-icon-container .hero-select-icon {
     width: 100%;

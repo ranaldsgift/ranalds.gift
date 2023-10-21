@@ -114,10 +114,6 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-
-.hero-select-container .hero-icon-19, .hero-select-container .hero-icon-20 {
-  pointer-events: none;
-}
 .kruber-character-icon:before {
   background: url('../../assets/images/heroes/hero-class-01.png');
 }

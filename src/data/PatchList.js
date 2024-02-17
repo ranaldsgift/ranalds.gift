@@ -24,5 +24,14 @@ export const PatchList =
         { type: 'Hotfix', number: '4.6.2', date: new Date('March 17, 2022') },
         { type: 'Hotfix', number: '4.6.3', date: new Date('March 18, 2022') },
         { type: 'Hotfix', number: '4.6.4', date: new Date('March 24, 2022') },
-        { type: 'Update', number: '5.1.0', date: new Date('October 19, 2023') }
+        { type: 'Update', number: '5.1.0', date: new Date('October 19, 2023') },
+        { type: 'Update', number: '5.1.1', date: new Date('October 20, 2023') },
+        { type: 'Update', number: '5.1.2', date: new Date('October 24, 2023') },
+        { type: 'Update', number: '5.1.3', date: new Date('October 26, 2023') },
+        { type: 'Update', number: '5.1.4', date: new Date('November 1, 2023') },
+        { type: 'Update', number: '5.1.5', date: new Date('November 3, 2023') },
+        { type: 'Update', number: '5.2.0', date: new Date('December 13, 2023') },
+        { type: 'Update', number: '5.2.1', date: new Date('December 19, 2023') },
+        { type: 'Update', number: '5.2.2', date: new Date('December 20, 2023') },
+        { type: 'Update', number: '5.2.3', date: new Date('February 6, 2024') }
     ]

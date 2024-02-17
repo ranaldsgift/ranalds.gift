@@ -22,5 +22,10 @@ export const missionData = [
     { id: 21, name: 'Dark Omens' },
     { id: 22, name: 'Old Haunts' },
     { id: 23, name: 'Blood in the Darkness' },
-    { id: 24, name: 'The Enchanter\'s Lair' }
+    { id: 24, name: 'The Enchanter\'s Lair' },
+    { id: 25, name: 'Trail of Treachery' },
+    { id: 26, name: 'Tower of Treachery' },
+    { id: 27, name: 'Mission of Mercy' },
+    { id: 28, name: 'A Grudge Served Cold' },
+    { id: 29, name: 'Khazukan Kazakit-ha!' }
 ];

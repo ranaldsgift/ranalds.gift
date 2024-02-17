@@ -212,7 +212,7 @@ export const heroesData = {
 		"skill": {
 			"name": "Fire Walk",
 			"description": "Sienna teleports forward, leaving a blanket of fire in her wake that lingers for 6 seconds.",
-			"cooldown": "40"
+			"cooldown": "50"
 		},
 		"perks": [
 			{
@@ -243,7 +243,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Famished Flames",
-				"description": "Burning damage over time is increased by 150.0%. All non-burn damage is reduced by 30.0%."
+				"description": "Burning damage over time is increased by 100.0%. All non-burn damage is reduced by 15.0%."
 			},
 			{
 				"name": "Lingering Flames",
@@ -275,7 +275,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Soot Shield",
-				"description": "Igniting an enemy reduces damage taken by 10.0% for 5 seconds. Stacks up to 3 times."
+				"description": "Igniting an enemy reduces damage taken by 80.0% for 5 seconds. Stacks up to 3 times."
 			},
 			{
 				"name": "Fires from Ash",
@@ -287,7 +287,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Volans' Quickening",
-				"description": "Reduces the cooldown of Fire Walk by 30.0%."
+				"description": "Reduces the cooldown of Fire Walk by 40.0%."
 			},
 			{
 				"name": "Kaboom!",
@@ -695,7 +695,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Double-shotted",
-				"description": "Modifies Victor's sidearm to fire two powerful bullets in a straight line. Scoring a headshot with this attack reduces the cooldown of Locked and Loaded by 40%."
+				"description": "Modifies Victor's sidearm to fire two powerful bullets in a straight line. Scoring a headshot with this attack reduces the cooldown of Locked and Loaded by 60%."
 			},
 			{
 				"name": "Indiscriminate Blast",
@@ -715,7 +715,7 @@ export const heroesData = {
 		"skill": {
 			"name": "Blessed Blade",
 			"description": "Markus equips a blessed blade and slashes down with great force, smiting any evil creature caught in its wake and dealing heavy damage.",
-			"cooldown": "40"
+			"cooldown": "60"
 		},
 		"perks": [
 			{
@@ -746,7 +746,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Virtue of the Ideal",
-				"description": "Killing enemies increases power level by 10% for 10 seconds. Stacks up to 3 times."
+				"description": "Killing enemies increases power level by 8% for 10 seconds. Stacks up to 3 times."
 			},
 			{
 				"name": "Virtue of Knightly Temper",
@@ -754,7 +754,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Virtue of Heroism",
-				"description": "Power Level of heavy attacks increased by 25%."
+				"description": "Power Level of heavy attacks increased by 30%."
 			},
 			{
 				"name": "Bulwark",
@@ -905,7 +905,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Booming Taunt",
-				"description": "Increases the radius of Impenetrable's taunt by 15.0%. Increases the duration of Impenetrable to 15 seconds."
+				"description": "Increases the radius of Impenetrable's taunt by 50.0%. Increases the duration of Impenetrable to 15 seconds."
 			}
 		]
 	}, 
@@ -1128,7 +1128,7 @@ export const heroesData = {
 		"perks": [
 			{
 				"name": "Blackvenom Blades",
-				"description": "Melee attacks apply a Poison that deals damage and increasing damage suffered by 12% for 10 seconds."
+				"description": "Melee attacks apply a Poison that deals damage and increases damage suffered by 12% for 10 seconds."
 			},
 			{
 				"name": "A Sustenance of Leechlings",
@@ -1182,7 +1182,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Bonded Spirit",
-				"description": "Reduce the cooldown of Radiance by 50%, taking damage sets the cooldown back 2 seconds."
+				"description": "Reduce the cooldown of Radiance by 50%. Taking damage increases the cooldown by 2 seconds."
 			},
 			{
 				"name": "Radiant Inheritance",
@@ -1190,7 +1190,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Recursive Toxin",
-				"description": "Blackvenom can now stack 2 times."
+				"description": "Blackvenom effects can now stack 2 times."
 			},
 			{
 				"name": "Lingering Blackvenom",
@@ -1261,7 +1261,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Hack and Slash",
-				"description": "Increases critical hit chance by 5%."
+				"description": "Increases critical hit chance by 10%."
 			},
 			{
 				"name": "Smiter",
@@ -1416,14 +1416,14 @@ export const heroesData = {
 		"name": "Outcast Engineer",
 		"codeName": "dr_engineer",
 		"heroName": "Bardin Goreksson",
-		"health": 100,
+		"health": 125,
 		"passive": {
 			"name": "Build Pressure",
 			"description": "Holding reload with the Steam-Assisted Crank Gun (Mk II) equipped builds Pressure. Each stack of Pressure lasts for 12 seconds and gradually restores the Ability Bar. Stacks up to 5 times."
 		},
 		"skill": {
 			"name": "Steam-Assisted Crank Gun (Mk II)",
-			"description": "Unleash the fearsome firepower of Bardin's custom creation. Shots reduce the Ability Bar. Any accumulated Pressure is lost upon firing.",
+			"description": "Unleash the fearsome firepower of Bardin's custom creation. Shots reduce the Ability Bar.",
 			"cooldown": "60"
 		},
 		"perks": [
@@ -1454,8 +1454,8 @@ export const heroesData = {
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
-				"name": "Leading Shots",
-				"description": "Every 4 Ranged Attack is a guaranteed Critical Hit."
+				"name": "Ingenious Ordnance",
+				"description": "Every 120 seconds Bardin crafts a bomb. Bardin's explosives no longer cause friendly fire damage."
 			},
 			{
 				"name": "Armour Piercing Slugs",
@@ -1479,15 +1479,15 @@ export const heroesData = {
 			},
 			{
 				"name": "Full Head of Steam",
-				"description": "Upon reaching 5 stacks of Pressure, Bardin gains 15.0% Power for 10 seconds."
+				"description": "While at 5 stacks of Pressure, Bardin gains 15% Attack Speed."
 			},
 			{
-				"name": "Experimental Steam Capacitors",
-				"description": "Pressure stacks are no longer removed upon reaching full charge or firing the Steam-Assisted Crank Gun (Mk II)."
+				"name": "Perilous Overclock",
+				"description": "Building Pressure at Max stacks restores 25% charge and grants 8% Critical Hit chance but damages Bardin. Each Overclock increases damage suffered."
 			},
 			{
 				"name": "Superior Gaskets",
-				"description": "Pressure is not lost over time. Each stack of Pressure grants 2.5% Attack Speed. Max stacks reduced by 1."
+				"description": "Pressure is now lost when firing instead of over time. Each stack of Pressure grants 4% power."
 			},
 			{
 				"name": "Ablative Armour",
@@ -1495,11 +1495,11 @@ export const heroesData = {
 			},
 			{
 				"name": "Bombardier",
-				"description": "Bardin's Bombs gain the effect of both regular Bombs and Incendiary Bombs."
+				"description": "Bardin's Bombs gain the effect of both regular Bombs and Incendiary Bombs. Bardin now begins a mission with 3 Bombs."
 			},
 			{
 				"name": "Piston Power",
-				"description": "Every 15 seconds Bardin gains a buff that grants immense Stagger to his next charged attack."
+				"description": "Every 15 seconds Bardin's next Charged Attack gains massive stagger and restores all stamina."
 			},
 			{
 				"name": "Gromril-Plated Shot",
@@ -1527,12 +1527,20 @@ export const heroesData = {
 		"skill": {
 			"name": "The Burning Head",
 			"description": "Sienna unleashes a fiery projectile that seeks out foes.",
-			"cooldown": "60"
+			"cooldown": "50"
 		},
 		"perks": [
 			{
 				"name": "Searing Focus",
 				"description": "Increased ranged damage by 10%."
+			},
+			{
+				"name": "The Volans Doctrine",
+				"description": "No longer slowed from being overcharged."
+			},
+			{
+				"name": "One with Aqshy",
+				"description": "50% increased max Overcharge."
 			}
 		],
 		"talents": [
@@ -1550,7 +1558,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Ride the Fire Wind",
-				"description": "Increases ranged power level by 1.0% every 1 seconds up to a maximum of 20 stacks. Upon reaching maximum stacks effect diminishes then starts over."
+				"description": "Increases ranged power level by 1.0% every 1 seconds up to a maximum of 25 stacks. Upon reaching maximum stacks effect diminishes then starts over."
 			},
 			{
 				"name": "Martial Study",
@@ -1574,31 +1582,31 @@ export const heroesData = {
 			},
 			{
 				"name": "Deathly Dissipation",
-				"description": "Killing a special stops your spells from generating overcharge for 10 seconds."
+				"description": "Killing a special stops your spells from generating overcharge for 12 seconds."
 			},
 			{
 				"name": "On the Precipice",
-				"description": "Increases ranged power by 15% when at or above critical overcharge."
+				"description": "Increases ranged power by 20% when at or above critical overcharge."
 			},
 			{
 				"name": "One with the Flame",
-				"description": "Critical Mass also increases attack speed by 2.0% per 6 overcharge and stacks up to 5 times."
+				"description": "Critical Mass also increases attack speed by 2.0% per 9 overcharge and stacks up to 5 times."
 			},
 			{
 				"name": "Soul Siphon",
 				"description": "Reduces damage taken by 10.0% for 10 seconds after killing a special or elite enemy."
 			},
 			{
-				"name": "The Volans Doctrine",
-				"description": "No longer slowed from being overcharged."
+				"name": "Flamestrike's Tutelage",
+				"description": "Sienna gains 80% reduction on Venting damage. Each nearby enemy decreases the damage reduction by 20%."
 			},
 			{
 				"name": "Fleetflame",
 				"description": "Critical hits increases movement speed by 5.0% for 10 seconds. Stacks up to 3 times."
 			},
 			{
-				"name": "Exhaust",
-				"description": "The Burning Head also removes all overcharge."
+				"name": "Dissipating Rictus",
+				"description": "The Burning Head grants 50% charge speed and Overcharge explosion immunity for 12 seconds."
 			},
 			{
 				"name": "Bonded Flame",
@@ -1716,7 +1724,7 @@ export const heroesData = {
 		"health": 150,
 		"passive": {
 			"name": "Fiery Faith",
-			"description": "Power increases by 5% for every 25 health missing."
+			"description": "Power increases by 5% for every 25 health missing. Max Stacks 6."
 		},
 		"skill": {
 			"name": "Holy Fervour",
@@ -1874,16 +1882,16 @@ export const heroesData = {
 				"description": "Increases total Power Level by 7%. This is calculated before other buffs are applied."
 			},
 			{
-				"name": "Divine Excoriation",
-				"description": "During Righteous Fury pushing sends out a holy shockwave around Victor staggering nearby enemy."
+				"name": "Blazing Bright",
+				"description": "Taking damage grants Victor Fury. Entering Righteous Fury grants Victor Shield of Faith."
 			},
 			{
-				"name": "Empowered Smite",
-				"description": "Smite now triggers after 1 second, gains increased stagger strength and deals 40% of the attacks damage."
+				"name": "See my Wrath",
+				"description": "Shield of Faith grants Victor 60% Fury. Smite now deals 40% of the attack's damage."
 			},
 			{
 				"name": "From Fury, Fortitude",
-				"description": "During Righteous Fury kills restore health to the party based on the health of the slain enemy."
+				"description": "Each kill now grants 2% Fury and during Righteous Fury restores Health to the party."
 			},
 			{
 				"name": "Prayer of Vengence",
@@ -1891,7 +1899,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Prayer of Might",
-				"description": "Bless the party with 25% increased Stagger Power."
+				"description": "Bless the party with 25% power versus Monsters."
 			},
 			{
 				"name": "Prayer of Hardiness",
@@ -1899,7 +1907,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Unyielding Blessing",
-				"description": "Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect."
+				"description": "Shield of Faith now lasts 10 seconds. The shielded hero's attacks cause the shield to pulse, staggering nearby enemies."
 			},
 			{
 				"name": "United in Prayer",
@@ -1970,7 +1978,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Vanhel's Danse Macabre",
-				"description": "12% attack speed when 4 skeletons are alive."
+				"description": "12% attack speed when 4 or more skeletons are raised."
 			},
 			{
 				"name": "Death Ascendent",
@@ -2014,11 +2022,11 @@ export const heroesData = {
 			},
 			{
 				"name": "Lost Souls",
-				"description": "Venting 20% overcharge unleashes a soul that steals health from a nearby enemy restoring 2 temporary health."
+				"description": "Venting 12% overcharge unleashes a soul that steals health from a nearby enemy restoring 2 temporary health."
 			},
 			{
 				"name": "Army of the Dead",
-				"description": "Raise Dead now causes Skeletons to remain for 20 seconds before decaying."
+				"description": "Raise Dead reanimates 6 additional skeletons that decay after 20 seconds."
 			},
 			{
 				"name": "Barrow Blades",

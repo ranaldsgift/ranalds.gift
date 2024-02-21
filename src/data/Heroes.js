@@ -275,7 +275,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Soot Shield",
-				"description": "Igniting an enemy reduces damage taken by 80.0% for 5 seconds. Stacks up to 3 times."
+				"description": "Igniting an enemy reduces damage taken by 8.0% for 5 seconds. Stacks up to 3 times."
 			},
 			{
 				"name": "Fires from Ash",

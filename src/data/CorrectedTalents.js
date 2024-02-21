@@ -256,5 +256,17 @@ export const correctedTalentsData = [
         tier: 3,
         talent: 3,
         description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 19,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 20,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
     }
 ]

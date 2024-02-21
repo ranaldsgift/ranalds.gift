@@ -1895,11 +1895,11 @@ export const heroesData = {
 			},
 			{
 				"name": "Prayer of Vengence",
-				"description": "Bless the party with 35% increased Critical Strike Damage."
+				"description": "Bless the party with 25% power versus Monsters."
 			},
 			{
 				"name": "Prayer of Might",
-				"description": "Bless the party with 25% power versus Monsters."
+				"description": "Bless the party with 25% increased Stagger Power."
 			},
 			{
 				"name": "Prayer of Hardiness",

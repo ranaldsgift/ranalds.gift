@@ -99,7 +99,7 @@ export const correctedTalentsData = [
         careerId: 11,
         tier: 6,
         talent: 2,
-        description: `Modifies Victor's sidearm to fire two powerful bullets in a straight line. Scoring a headshot with this attack reduces the cooldown of Locked and Loaded by 40%. Each bullet can trigger this talent, meaning it can grant 80% reduction if the enemy doesn't die to just one of the bullets.`
+        description: `Modifies Victor's sidearm to fire two powerful bullets in a straight line. Scoring a headshot with this attack reduces the cooldown of Locked and Loaded by 60%. Even though two bullets are shot, this cooldown reduction can only apply once.`
     },
     {
         careerId: 11,
@@ -123,7 +123,7 @@ export const correctedTalentsData = [
         careerId: 14,
         tier: 4,
         talent: 2,
-        description: `Increases ranged power by 15% when at or above 75% overcharge.`
+        description: `Increases ranged power by 20% when at or above 75% overcharge.`
     },
     {
         careerId: 14,
@@ -261,12 +261,6 @@ export const correctedTalentsData = [
         careerId: 19,
         tier: 5,
         talent: 1,
-        description: 'Bless the party with 35% increased Critical Power.'
-    },
-    {
-        careerId: 19,
-        tier: 6,
-        talent: 1,
-        description: 'Shield of Faith now lasts 8 seconds and allows the target to trample through lesser enemies and effect. Also grants the target immunity to ranged knockback (warpfires, ratling gunners, etc).'
+        description: 'Blesses the party with 25% increased power versus Monsters.'
     }
 ]

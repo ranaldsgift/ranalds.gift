@@ -63,7 +63,7 @@ export const correctedTalentsData = [
         careerId: 17,
         tier: 4,
         talent: 2,
-        description: `Building Pressure at Max stacks restores 25% charge and grants 8% Critical Hit chance but damages Bardin. Max 3 stacks of Overclock for 25%/50%/75% charge, 8%/16%/24% Critical Hit chance and 4/8/10 self-damage respectively.`
+        description: `Building Pressure at Max stacks grants up to 3 stacks of Overclock. Each stack of Overclock restores 25% charge, grants 8% Critical Hit chance and damages Bardin for 4/8/10 respectively.`
     },
     {
         careerId: 17,

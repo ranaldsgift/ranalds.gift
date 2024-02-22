@@ -259,8 +259,14 @@ export const correctedTalentsData = [
     },
     {
         careerId: 19,
-        tier: 5,
-        talent: 1,
-        description: 'Blesses the party with 25% increased power versus Monsters.'
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
+    },
+    {
+        careerId: 20,
+        tier: 3,
+        talent: 3,
+        description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
     }
 ]

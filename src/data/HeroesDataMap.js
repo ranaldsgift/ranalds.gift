@@ -44,9 +44,9 @@ export const heroesDataMap = [
     {
         "heroId": 2,
         "sortOrder": 8,
-		"id": 17,
-		"codeName": "dr_engineer"
-	},
+	"id": 17,
+	"codeName": "dr_engineer"
+    },
     {
         "id": 7,
         "sortOrder": 9,

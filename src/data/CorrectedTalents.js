@@ -42,12 +42,6 @@ export const correctedTalentsData = [
         description: `Blocking an attack grants Bardin and his allies 2% melee power for 6 seconds. Stacks 5 times.`
     },
     {
-        careerId: 5,
-        tier: 6,
-        talent: 3,
-        description: `Increases the radius of Impenetrable's taunt by 50%. Increases the duration of Impenetrable to 15 seconds.`
-    },
-    {
         careerId: 6,
         tier: 5,
         talent: 1,
@@ -58,6 +52,24 @@ export const correctedTalentsData = [
         tier: 4,
         talent: 3,
         description: `Leap recharges 3x as fast while Trophy Hunter is at max stacks.`
+    },
+    {
+        careerId: 17,
+        tier: 2,
+        talent: 3,
+        description: `Melee Power is increased by 10%. Each 5 Melee hit makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds.`
+    },
+    {
+        careerId: 17,
+        tier: 4,
+        talent: 2,
+        description: `Building Pressure at Max stacks grants up to 3 stacks of Overclock. Each stack of Overclock restores 25% charge, grants 8% Critical Hit chance and damages Bardin for 4/8/10 respectively.`
+    },
+    {
+        careerId: 17,
+        tier: 6,
+        talent: 2,
+        description: `The Steam-Assisted Crank Gun (Mk II) starts firing at full speed, rather than taking time to ramp up. Also grants +30% firing speed (unlisted).`
     },
     {
         careerId: 8,

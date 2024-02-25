@@ -42,11 +42,11 @@ export const heroesDataMap = [
         "codeName": "dr_slayer"
     },
     {
-        "heroId": 2,
+	"id": 17,
         "sortOrder": 8,
-		"id": 17,
-		"codeName": "dr_engineer"
-	},
+	"heroId": 2,
+	"codeName": "dr_engineer"
+    },
     {
         "id": 7,
         "sortOrder": 9,
@@ -69,7 +69,7 @@ export const heroesDataMap = [
         "id": 18,
         "sortOrder": 12,
         "heroId": 3,
-		"codeName": "we_thornsister"
+	"codeName": "we_thornsister"
     },
     {
         "id": 10,

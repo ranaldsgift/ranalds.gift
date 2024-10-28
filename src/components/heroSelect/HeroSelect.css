@@ -5,6 +5,7 @@
   grid-area: heroSelect;
   grid-template-rows: 33px auto 1fr;
   align-self: start;
+  width: 100%;
 }
 .hero-icon-container>* {
   background-repeat: no-repeat;

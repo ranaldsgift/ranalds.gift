@@ -1895,7 +1895,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Prayer of Vengence",
-				"description": "Bless the party with 25% power versus Monsters."
+				"description": "Bless the party with 15% power versus Monsters."
 			},
 			{
 				"name": "Prayer of Might",

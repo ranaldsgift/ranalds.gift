@@ -26,7 +26,25 @@ class InventoryItemDisplay extends Component
           property1Index = this.props.slot === "primary" ? 0 : 2;
           property2Index = this.props.slot === "primary" ? 1 : 3;
           traitIndex = this.props.slot === "primary" ? 0 : 1;
-          return this.renderItemDisplay(this.props.item, propertiesData.range, DataHelper.getMappedTraits('ranged_ammo'), property1Index, property2Index, traitIndex);
+          var traitData = DataHelper.getMappedTraits('ranged_ammo');
+
+          if (this.props.item.name === 'Trollhammer Torpedo') {
+            var trait = traitData.find((trait) => { return trait.name === 'Conservative Shooter'; })
+
+            if (trait) {
+              trait.name = "Parry";
+              trait.description = "Timed blocks reduces stamina cost by 100.0%.";            
+            }
+
+            trait = traitData.find((trait) => { return trait.name === 'Scrounger'; })
+
+            if (trait) {
+              trait.name = "Off-balance";
+              trait.description = "Blocking an attack increases the damage the attacker takes by 20.0% for 5.0 seconds.";            
+            }
+          }
+
+          return this.renderItemDisplay(this.props.item, propertiesData.range, traitData, property1Index, property2Index, traitIndex);
         case 'magic':
         case 'ranged_heat':
           return this.renderItemDisplay(this.props.item, propertiesData.range, DataHelper.getMappedTraits('ranged_heat'), 2, 3, 1);

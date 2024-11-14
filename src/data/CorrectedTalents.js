@@ -103,6 +103,12 @@ export const correctedTalentsData = [
     },
     {
         careerId: 11,
+        tier: 2,
+        talent: 2,
+        description: `When his ranged weapon is empty, Victor gains 15% Melee Power and 15% Attack Speed for 10 seconds.`
+    },
+    {
+        careerId: 11,
         tier: 5,
         talent: 2,
         description: `Killing an elite while out of ammunition restores 20% of max ammo. Melee kills reload 1 ammo into Victor's ranged weapon.`

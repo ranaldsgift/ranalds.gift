@@ -128,7 +128,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Bleak Vigour",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
 			},
 			{
 				"name": "Khaine's Thirst",
@@ -429,7 +429,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Weavebond",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
 			},
 			{
 				"name": "Dryad's Thirst",
@@ -631,11 +631,11 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Blood for Money",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
 			},
 			{
 				"name": "Tithetaker",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
 			},
 			{
 				"name": "Paymaster",
@@ -647,7 +647,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Steel Crescendo",
-				"description": "Upon firing his last shot, Victor gains 15.0% attack speed and 15.0% power for 15 seconds."
+				"description": "When his ranged weapon is empty, Victor gains 15% Power and 15% Attack Speed for 10 seconds."
 			},
 			{
 				"name": "Weight of Fire",
@@ -1142,7 +1142,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Weavebond",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
 			},
 			{
 				"name": "Martial Blessing",
@@ -1455,15 +1455,15 @@ export const heroesData = {
 			},
 			{
 				"name": "Ingenious Ordnance",
-				"description": "Every 120 seconds Bardin crafts a bomb. Bardin's explosives no longer cause friendly fire damage."
+				"description": "Bardin crafts a Bomb every 80 seconds. Crafted Bombs are less effective than normal bombs. In addition, Bardin's explosives no longer damage his allies."
 			},
 			{
 				"name": "Armour Piercing Slugs",
 				"description": "Non-Explosive Ranged Attacks pierce 1 additional enemies."
 			},
 			{
-				"name": "Combined Arms",
-				"description": "Melee Power is increased by 10%. Each 5 Melee kill makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds."
+				"name": "Bombardier",
+				"description": "Bardin's Bombs gain the effect of both regular Bombs and Incendiary Bombs. Bardin now begins a mission with 3 Bombs."
 			},
 			{
 				"name": "Bulwark",
@@ -1494,8 +1494,8 @@ export const heroesData = {
 				"description": "Every 5 seconds Bardin gains a stack of Damage Reduction. Stacks up to 5 times. Each stack reduces damage taken by 5%. Taking damage removes a stack."
 			},
 			{
-				"name": "Bombardier",
-				"description": "Bardin's Bombs gain the effect of both regular Bombs and Incendiary Bombs. Bardin now begins a mission with 3 Bombs."
+				"name": "Combined Arms",
+				"description": "Melee Power is increased by 10%. Each 5 Melee kill makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds."
 			},
 			{
 				"name": "Piston Power",
@@ -1645,7 +1645,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Hunter's Ardour",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much."
+				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
 			},
 			{
 				"name": "Walking Judgement",

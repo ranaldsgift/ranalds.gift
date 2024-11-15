@@ -55,8 +55,8 @@ export const correctedTalentsData = [
     },
     {
         careerId: 17,
-        tier: 2,
-        talent: 3,
+        tier: 5,
+        talent: 2,
         description: `Melee Power is increased by 10%. Each 5 Melee hit makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds.`
     },
     {

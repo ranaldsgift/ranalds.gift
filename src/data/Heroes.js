@@ -128,7 +128,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Bleak Vigour",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
+				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Khaine's Thirst",
@@ -429,7 +429,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Weavebond",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
+				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Dryad's Thirst",
@@ -631,7 +631,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Blood for Money",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
+				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Tithetaker",
@@ -1142,7 +1142,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Weavebond",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
+				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Martial Blessing",
@@ -1645,7 +1645,7 @@ export const heroesData = {
 		"talents": [
 			{
 				"name": "Hunter's Ardour",
-				"description": "Melee critical strikes and headshots restore 2 temporary health. Critical headshots restores twice as much. Regular hits grant 0.5 temporary health."
+				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Walking Judgement",

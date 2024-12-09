@@ -57,4 +57,9 @@ export const PatchList =
         { type: "Hotfix", number: "6.0.1", date: new Date("November 13, 2024") },
         { type: "Hotfix", number: "6.0.2", date: new Date("November 14, 2024") },
         { type: "Hotfix", number: "6.0.3", date: new Date("November 15, 2024") },
+        { type: "Hotfix", number: "6.0.4", date: new Date("November 20, 2024") },
+        { type: "Hotfix", number: "6.0.5", date: new Date("November 22, 2024") },
+        { type: "Hotfix", number: "6.0.6", date: new Date("November 26, 2024") },
+        { type: "Hotfix", number: "6.0.7", date: new Date("November 28, 2024") },
+        { type: "Update", number: "6.1.0", date: new Date("December 9, 2024") },
     ]

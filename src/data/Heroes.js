@@ -334,7 +334,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Second Wind",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
 				"name": "Focused Spirit",
@@ -1249,7 +1249,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Sting",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "A Thousand Cuts",
@@ -1348,7 +1348,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Second Wind",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
 				"name": "The More the Merrier!",
@@ -1554,7 +1554,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Sting",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Ride the Fire Wind",
@@ -1752,7 +1752,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Second Wind",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
 				"name": "Castigate",
@@ -1974,7 +1974,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Sting",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
 				"name": "Vanhel's Danse Macabre",

@@ -24,16 +24,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Soul Quench",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Reckless Rampage",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Burn-Bloom",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Frenzied Flame",
@@ -127,16 +127,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Bleak Vigour",
-				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
+				"name": "Sting",
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
-				"name": "Khaine's Thirst",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Blood Kin",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Cruelty",
@@ -226,16 +226,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Confound",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Spark Thief",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Flame-Fettled",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Volcanic Force",
@@ -325,15 +325,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Spirit Echo",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Martial Blessing",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Eternal Blossom",
+				"name": "Second Wind",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
@@ -428,16 +428,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Weavebond",
-				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
+				"name": "Sting",
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
-				"name": "Dryad's Thirst",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Ariel's Boon",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Blood Shot",
@@ -531,16 +531,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Roots Running Deep",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Ranger Reaper",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Hardy Heart",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Last Resort",
@@ -630,16 +630,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Blood for Money",
-				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
+				"name": "Sting",
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
-				"name": "Tithetaker",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Paymaster",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Open Wounds",
@@ -733,16 +733,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Lady's Generosity",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Lady's Wrath",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Gift of the Grail",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Virtue of the Ideal",
@@ -836,16 +836,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Rock-Breaker",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Grudge-Borne",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Hearthguard",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Under Pressure",
@@ -935,16 +935,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Back Off, Ugly!",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Bloody Unstoppable!",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Templar's Rally",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Staggering Force",
@@ -1038,16 +1038,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Taste of Victory",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Huntsman's Tally",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Taal's Bounty",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Keep it Coming",
@@ -1141,16 +1141,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Weavebond",
-				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
+				"name": "Sting",
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
-				"name": "Martial Blessing",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Eternal Blossom",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Surge of Malice",
@@ -1240,15 +1240,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Doomseeker",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Slayer's Fury",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Infectious Fortitude",
+				"name": "Sting",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
@@ -1339,15 +1339,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Drillmaster",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Mercenary's Pride",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Captain's Command",
+				"name": "Second Wind",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
@@ -1442,16 +1442,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Engineer's Resolve",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Morgrim's Enthusiasm",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Pouch of the Good Stuff",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Ingenious Ordnance",
@@ -1545,15 +1545,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Spark Smith",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Spirit-Binding",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Fiery Fortitude",
+				"name": "Sting",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
@@ -1644,16 +1644,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Hunter's Ardour",
-				"description": "Melee Strikes restore 0.5 temporary health. Melee Critical Strikes and Headshots restore 2. Critical Headshots instead restore 4."
+				"name": "Sting",
+				"description": "Melee Strikes restore 0.5 Temporary Health. Melee Critical Strikes and Headshots instead restore 2. Critical Headshots instead restore 4."
 			},
 			{
-				"name": "Walking Judgement",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Disciplinarian",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Riposte",
@@ -1743,15 +1743,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Sigmar's Herald",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Repent! Repent!",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Font of Zeal",
+				"name": "Second Wind",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{
@@ -1846,16 +1846,16 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Enternal Vigilance",
-				"description": "Staggering enemies with a melee attack grants temporary health. Health gained based on stagger strength."
+				"name": "Second Wind",
+				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Slayer of the Wicked",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Blessed Hands",
-				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
 				"name": "Unstoppable Force",
@@ -1965,15 +1965,15 @@ export const heroesData = {
 		],
 		"talents": [
 			{
-				"name": "Corpsemaker",
-				"description": "Damaging multiple enemies in one swing with a melee weapon grants temporary health. Max 5 enemies."
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
-				"name": "Deathdealer",
-				"description": "Melee killing blows restore temporary health based on the health of the slain enemy."
+				"name": "Execute",
+				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
 			},
 			{
-				"name": "Life Leeching",
+				"name": "Sting",
 				"description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
 			},
 			{

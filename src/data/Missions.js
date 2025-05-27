@@ -29,4 +29,6 @@ export const missionData = [
     { id: 28, name: 'A Grudge Served Cold' },
     { id: 29, name: 'Khazukan Kazakit-ha!' },
     { id: 30, name: 'The Forsaken Temple' },
+    { id: 31, name: 'Devious Delvings' },
+    { id: 32, name: 'The Well of Dreams' },
 ];

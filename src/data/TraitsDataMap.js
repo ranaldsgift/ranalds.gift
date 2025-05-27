@@ -126,7 +126,7 @@ export const traitsDataMap = {
             {
                 "id": "2",
                 "name":"Hand of Shallya",
-                "description":"Healing an ally with medical supplies also heals you for 50% of your missing health."
+                "description":"Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds."
             },
             {
                 "id": "3",

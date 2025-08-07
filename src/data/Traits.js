@@ -126,7 +126,7 @@ export const traitsData = {
         },
         "necklace_heal_self_on_heal_other": {
             "name": "Hand of Shallya", 
-            "description": "Healing an ally with medical supplies also heals you for 50.0% of your missing health.", 
+            "description": "Healing yourself with a First Aid Kit or a Healing Draught also heals your nearby allies for 20.0% of their maximum health. Clears any wounds.", 
         },
         "necklace_increased_healing_received": {
             "name": "Boon of Shallya", 

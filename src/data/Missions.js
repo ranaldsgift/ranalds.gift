@@ -27,5 +27,8 @@ export const missionData = [
     { id: 26, name: 'Tower of Treachery' },
     { id: 27, name: 'Mission of Mercy' },
     { id: 28, name: 'A Grudge Served Cold' },
-    { id: 29, name: 'Khazukan Kazakit-ha!' }
+    { id: 29, name: 'Khazukan Kazakit-ha!' },
+    { id: 30, name: 'The Forsaken Temple' },
+    { id: 31, name: 'Devious Delvings' },
+    { id: 32, name: 'The Well of Dreams' },
 ];

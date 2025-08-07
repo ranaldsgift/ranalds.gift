@@ -80,6 +80,7 @@ class AboutPage extends Component {
             <p>Craacked</p>
             <p>Saryk</p>
             <p><a href="https://www.ranalds.gift/user/umXKLPQT0PR74zYMcIr484Z6oOo2/view">Aether_Blackbolt</a></p>
+            <p><a href="https://www.ranalds.gift/user/DUOj8XsNiNhNzUiF6c4O6RyPefH3/view">drowC</a></p>
           </div>
           <div className="privacy-container">
             <h2 className="header-underline">Privacy Policy</h2>

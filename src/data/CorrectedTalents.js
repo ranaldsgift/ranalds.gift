@@ -55,8 +55,8 @@ export const correctedTalentsData = [
     },
     {
         careerId: 17,
-        tier: 2,
-        talent: 3,
+        tier: 5,
+        talent: 2,
         description: `Melee Power is increased by 10%. Each 5 Melee hit makes Bardin's next Ranged Attack grant 15% Ranged Power for 10 seconds.`
     },
     {
@@ -100,6 +100,12 @@ export const correctedTalentsData = [
         tier: 2,
         talent: 1,
         description: `Critical hits cause enemies to take 20% increased damage for 15 seconds. Does not stack with similar effects.`
+    },
+    {
+        careerId: 11,
+        tier: 2,
+        talent: 2,
+        description: `When his ranged weapon is empty, Victor gains 15% Melee Power and 15% Attack Speed for 10 seconds.`
     },
     {
         careerId: 11,
@@ -280,5 +286,11 @@ export const correctedTalentsData = [
         tier: 3,
         talent: 3,
         description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
-    }
+    },
+    {
+        careerId: 16,
+        tier: 2,
+        talent: 3,
+        description: 'Damage of heavy attacks and Blessed Blade increased by 30%.'
+    },
 ]

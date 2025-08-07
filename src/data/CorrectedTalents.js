@@ -286,5 +286,11 @@ export const correctedTalentsData = [
         tier: 3,
         talent: 3,
         description: 'Increases total Power Level by 7.5%. This is calculated before other buffs are applied.'
-    }
+    },
+    {
+        careerId: 16,
+        tier: 2,
+        talent: 3,
+        description: 'Damage of heavy attacks and Blessed Blade increased by 30%.'
+    },
 ]

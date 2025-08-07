@@ -737,12 +737,12 @@ export const heroesData = {
 				"description": "Staggering enemies with a Melee Attack grants up to 2 Temporary Health determined by the Stagger Strength. Killing blows instead restore 0.25."
 			},
 			{
-				"name": "Carve",
-				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
-			},
-			{
 				"name": "Execute",
 				"description": "Killing an enemy with a Melee Attack restores Temporary Health. Killing more dangerous enemies grants more Temporary Health."
+			},
+			{
+				"name": "Carve",
+				"description": "Damaging multiple enemies in one Melee Attack grants Temporary Health."
 			},
 			{
 				"name": "Virtue of the Ideal",
@@ -754,7 +754,7 @@ export const heroesData = {
 			},
 			{
 				"name": "Virtue of Heroism",
-				"description": "Power Level of heavy attacks increased by 30%."
+				"description": "Damage of heavy attacks increased by 30%."
 			},
 			{
 				"name": "Bulwark",
